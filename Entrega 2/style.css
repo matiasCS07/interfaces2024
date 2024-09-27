@@ -14,31 +14,36 @@
     margin: 0;
 }
 
-body{
+html{
     background-color: #C1C3F1;
+}
+
+body{
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    max-height: fit-content;
 }
 
 h1{
     font-family: Roboto-Thin;
-    font-size:larger
+    font-size:large;
 }
 
 h2{
-    font-size: medium;
+    font-size: larger;
 }
 
 .header{
     background-color: #1E1F38;
     border-bottom: 1px solid #C1C3F1;
-    height: 4vh;
+    width: 100vw;
+    height: 5vh;
     display: flex;
-    justify-items: center;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
     position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .header h1{
@@ -62,14 +67,20 @@ h2{
 
 .container{
     display: flex;
+    height: 103vh;
 }
 
 nav{
+    display: flex;
+    flex-direction: column;
     width: 10vw;
+    height: 65vh;
     background-color: #0A0B20;
     color: #EAD7D3;
     text-indent: -99999px;
-    position: sticky;
+    position: fixed;
+    left: 0;
+    z-index: 9;
 }
 
 nav:hover{
@@ -84,7 +95,7 @@ nav ul{
 
 nav li{
     display: flex;
-    margin-bottom: 5vw;
+    margin-bottom: 3vh;
 }
 
 nav:hover li img{
@@ -92,6 +103,9 @@ nav:hover li img{
 }
 
 .carrusel-container{
+    overflow-x: hidden;
+    width: 90vw;
+    height: 100vh;
     position: absolute;
     margin: 10px;
     margin-right: 0px;
@@ -115,21 +129,22 @@ nav:hover li img{
 
 .carrusel img{
     width: 25vw;
-    height: 7vh;
+    object-fit: cover;
+    height: 8vh;
     border-radius: 10px;
     margin-right: 5px;
+
 }
 
 .carrusel.destacado img{
-    width: 20vw;
+    min-height: fit-content;
+    width: 25vw;
     height: 15vh;
 }
 
 footer{
     background-color: #1E1F38;
-    height: 50vh;
+    height: 75vh;
     width: 100vw;
     color: #F9DAD3;
-    position: fixed;
-    bottom: 0;
 }
