@@ -10,7 +10,7 @@
 
 *{
     font-family: Roboto;
-    font-size: small;
+    font-size: 1vw;
     margin: 0;
 }
 
@@ -27,11 +27,15 @@ body{
 
 h1{
     font-family: Roboto-Thin;
-    font-size:large;
+    font-size: 5vw;
 }
 
 h2{
-    font-size: larger;
+    font-size: 3.5vw;
+}
+
+h3{
+    font-size: 3vw;
 }
 
 .header{
@@ -57,7 +61,6 @@ h2{
 
 .header div{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -68,6 +71,39 @@ h2{
 .container{
     display: flex;
     height: 175vh;
+}
+
+.header .menu-hamburguesa{
+    flex-direction: column;
+    width: 10vw;
+    margin-top: 1vw;
+}
+
+.header .menu-desplegado {
+    background-color: #E7E8FC;
+    display: none;
+    width: 30vw;
+    flex-direction: column;
+    margin-left: 20vw;
+}
+
+.menu-desplegado h3{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.menu-desplegado h2{
+    margin-top: 1vh;
+}
+
+.header .menu-hamburguesa input#menu{
+    opacity: 0.1;
+    cursor: pointer;
+    display: none;
+}
+
+.header .menu-hamburguesa input#menu:checked~.menu-desplegado{
+    display: flex;
 }
 
 nav{
