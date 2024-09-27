@@ -41,7 +41,7 @@ h2{
     height: 5vh;
     display: flex;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10;
 }
@@ -67,14 +67,15 @@ h2{
 
 .container{
     display: flex;
-    height: 103vh;
+    height: 175vh;
 }
 
 nav{
     display: flex;
     flex-direction: column;
     width: 10vw;
-    height: 65vh;
+    height: 100vh;
+    margin-top: 5vh;
     background-color: #0A0B20;
     color: #EAD7D3;
     text-indent: -99999px;
@@ -105,9 +106,10 @@ nav:hover li img{
 .carrusel-container{
     overflow-x: hidden;
     width: 90vw;
-    height: 100vh;
+    height: fit-content;
     position: absolute;
     margin: 10px;
+    margin-top: 6vh;
     margin-right: 0px;
     margin-left: 11vw;
     z-index: -1;
