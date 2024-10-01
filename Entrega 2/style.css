@@ -65,7 +65,7 @@ h3{
 }
 
 .header img{
-    padding: 2vw;
+    padding: 0.5vh;
 }
 
 .container{
@@ -107,8 +107,6 @@ h3{
 }
 
 nav{
-    display: flex;
-    flex-direction: column;
     width: 10vw;
     height: 100vh;
     margin-top: 5vh;
@@ -224,4 +222,103 @@ footer ul li:hover h3{
 
 footer li h3{
     display: none;
+}
+
+@media (min-width: 1500px) {
+
+    h1{
+        font-size: 2vw;
+    }
+
+    h2{
+        font-size: 1.5vw;
+    }
+
+    h3{
+        font-size: 1.3vw;
+    }
+
+    .header{
+        height: 7vh;
+    }
+
+    .header .menu-desplegado{
+        width: 15vw;
+        padding: 1vw;
+        margin-left: 10vw;
+        margin-top: 0.5vh;
+    }
+
+    .carrito{
+        padding-right: 4vw;
+    }
+
+    .header img{
+        width: 2vw;
+    }
+
+    .header .menu-hamburguesa{
+        width: 4.4vw;
+    }
+
+    nav{
+        width: 4vw;
+    }
+
+    nav img{
+        height: 3vh;
+    }
+
+    nav ul{
+        padding-left: 1.3vw;
+    }
+
+    nav li{
+        margin-bottom: 4vh;
+    }
+
+    nav:hover li img{
+        padding-right: 7vw;
+    }
+
+    .container{
+        height: 280vh;
+    }
+
+    .carrusel-container{
+        margin-top: 9vh;
+        margin-left: 5vw;
+    }
+
+    .carrusel img{
+        height: 15vh;
+        width: 13vw;
+        margin-right: 0.5vw;
+    }
+    .carrusel.destacado img{
+        height: 25vh;
+        width: 10vw;
+    }
+
+    footer{
+        width: 94vw;
+    }
+
+    footer ul{
+        flex-direction: row;
+    }
+
+    footer li{
+        padding: 1vw;
+        padding-right: 2vw;
+    }
+
+    footer ul h2{
+        letter-spacing: 0.2vw;
+    }
+
+    footer ul li h3{
+        display: flex;
+        padding-top: 1vh;
+    }
 }
