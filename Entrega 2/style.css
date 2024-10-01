@@ -395,6 +395,19 @@ footer li h3{
         font-size: 1.3vw;
     }
 
+    p{
+        font-size: 1vw;
+    }
+
+    .login-frame span{
+        font-size: 1vw;
+        padding-left: 0.15vw;
+    }
+
+    button{
+        font-size: 1.5vw;
+    }
+
     .header{
         height: 7vh;
         width: 100vw;
@@ -479,5 +492,48 @@ footer li h3{
     footer ul li h3{
         display: flex;
         padding-top: 1vh;
+    }
+
+    .container.login{
+        height: 90vh;
+    }
+
+    .login-frame{
+        margin: 5vw;
+        margin-left: 39vw;
+        height: 44vh;
+        width: 17vw;
+    }
+
+    .login-frame label{
+        font-size: 1.5vw;
+    }
+
+    .login-frame input{
+        height: 3vh;
+        padding: 0vw;
+    }
+
+    .login-frame button{
+        margin-top: 3vh;
+    }
+
+    .login-frame .container-btn-externos{
+        width: 13vw;
+        justify-content: space-between;
+    }
+
+    .container-btn-externos button{
+        width: 6vw;
+        margin: 0;
+        height: 4vh;
+        text-align: center;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-evenly;
+    }
+
+    .google-sign-in-button{
+        background-position: 12px 13px;
     }
 }
