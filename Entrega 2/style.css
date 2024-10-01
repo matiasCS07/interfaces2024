@@ -14,6 +14,11 @@
     margin: 0;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 html{
     background-color: #C1C3F1;
 }
@@ -224,7 +229,7 @@ footer li h3{
     display: none;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1000px) {
 
     h1{
         font-size: 2vw;
@@ -240,6 +245,7 @@ footer li h3{
 
     .header{
         height: 7vh;
+        width: 100vw;
     }
 
     .header .menu-desplegado{
@@ -250,7 +256,7 @@ footer li h3{
     }
 
     .carrito{
-        padding-right: 4vw;
+        padding-right: 1.5vw;
     }
 
     .header img{
@@ -286,6 +292,7 @@ footer li h3{
     }
 
     .carrusel-container{
+        width: 95vw;
         margin-top: 9vh;
         margin-left: 5vw;
     }
@@ -301,7 +308,7 @@ footer li h3{
     }
 
     footer{
-        width: 94vw;
+        width: 100vw;
     }
 
     footer ul{
