@@ -24,7 +24,7 @@
         </div>
         
         <div>
-            <img src="" alt="logo del sitio">
+            <img src="assets/img/logo.png" alt="logo del sitio">
             <a href="index.html">
                 <h1>PixelPlay</h1>
             </a>
@@ -40,40 +40,90 @@
         </div>
 
         <section class="login-frame">
-            <h1>Log In</h1>
-
-            <form action="">
+            <div id="login-form">
+                <h1>Log In</h1>
+    
+                <form action="">
+                    <div>
+                        <label for="email-user">Email o usuario</label>
+                        <input type="text" name="email-user">
+                    </div>
+    
+                    <div>
+                        <label for="pass">Contraseña</label>
+                        <input type="password" name="pass">
+                    </div>
+    
+                    <div>
+                        <button type="button" id="btn-ingresar">Ingresar</button>
+                    </div>
+    
+                </form>
+                
                 <div>
-                    <label for="email-user">Email o usuario</label>
-                    <input type="text" name="email-user">
+                    <p>O ingresá utilizando</p>
+    
+                    <div class="container-btn-externos">
+                        <button type="button" class="google-sign-in-button" >
+                            Google
+                        </button>
+                        
+                        <button type="button" class="fb connect">
+                            Facebook
+                        </button>
+                    </div>
                 </div>
-
-                <div>
-                    <label for="pass">Contraseña</label>
-                    <input type="password" name="pass">
-                </div>
-
-                <div>
-                    <button type="submit">Ingresar</button>
-                </div>
-
-            </form>
-            
-            <div>
-                <p>O ingresá utilizando</p>
-
-                <div class="container-btn-externos">
-                    <button type="button" class="google-sign-in-button" >
-                        Google
-                    </button>
-                    
-                    <button type="button" class="fb connect">
-                        Facebook
-                    </button>
-                </div>
+    
+                <p>¿Eres nuevo en la página? <span id="txt-registrate">Registrate</span></p>
             </div>
 
-            <p>¿Eres nuevo en la página? <span>Registrate</span></p>
+            <div id="signin-form">
+                <h1>Sign In</h1>
+    
+                <form action="">
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre">
+                    </div>
+
+                    <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido">
+                    </div>
+    
+                    <div>
+                        <label for="nacimiento">Fecha de nacimiento</label>
+                        <input type="date" name="nacimiento" placeholder="">
+                    </div>
+
+                    <div>
+                        <label for="usuario">Usuario</label>
+                        <input type="text" name="usuario">
+                    </div>
+
+                    <div>
+                        <label for="mail">Email</label>
+                        <input type="email" name="mail">
+                    </div>
+
+                    <div>
+                        <label for="pass">Contraseña</label>
+                        <input type="password" name="pass">
+                    </div>
+
+                    <div>
+                        <label for="rep-pass">Repite la contraseña</label>
+                        <input type="password" name="rep-pass">
+                    </div>
+    
+                    <div>
+                        <button type="submit">Registrarse</button>
+                    </div>
+    
+                </form>
+    
+                <p>¿Tienes una cuenta? <span id="txt-ingresa">Ingresá</span></p>
+            </div>
         </section>
     </section>
 
@@ -115,6 +165,11 @@
                 <h3>Historial</h3>
             </li>
         </ul>
+        <div class="fondo-footer">
+            <p>Copyright © 2024 TUDAI - Todos los derechos reservados</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
