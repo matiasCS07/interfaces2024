@@ -57,6 +57,10 @@ button{
     font-family: Roboto-Bold;
 }
 
+div img.logo{
+    width: auto;
+}
+
 .login-frame .container-btn-externos{
     display: flex;
     flex-direction: row;
@@ -141,7 +145,7 @@ button.fb {
     z-index: 10;
 }
 
-.header h1{
+a.titulo{
     color: #E8F2BE;
 }
 
@@ -354,6 +358,10 @@ nav:hover li img{
 
 }
 
+.carrusel.destacado+h2{
+    font-weight: bold;
+}
+
 .carrusel.destacado img{
     min-height: fit-content;
     width: 25vw;
@@ -373,11 +381,26 @@ footer{
 }
 
 footer .descripcion{
-    width: 75%;
+    display: flex;
+    align-items: center;
+    width: 80%;
     padding: 2vw;
     padding-top: 10vh;
     line-height: 2.3vh;
     padding-bottom: 0vh;
+    line-height: 4vh;
+}
+
+footer .descripcion div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2vw;
+}
+
+.descripcion div img{
+    padding-bottom: 1vh;
+    width: 8vw;
 }
 
 footer ul{
