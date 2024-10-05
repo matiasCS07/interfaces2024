@@ -105,7 +105,7 @@ div img.logo{
 /*
     boton importado de "https://jsfiddle.net/deniz/Q495Y/"
 */
-button.fb {
+.container-btn-externos button.fb {
     font-family: Lucida Grande, Helvetica Neue, Helvetica, Arial, sans-serif;
     display: inline-block;
     font-size: 14px;
@@ -114,7 +114,7 @@ button.fb {
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,20,.4);
     text-decoration: none;
-    line-height: 1;
+    line-height: 0.5;
     position: relative;
     width: 25vw;
     height: 3vh;
@@ -137,12 +137,13 @@ button.fb {
     background-color: #1E1F38;
     border-bottom: 1px solid #C1C3F1;
     width: 100vw;
-    height: 5vh;
+    height: 6vh;
     display: flex;
-    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 10;
+    align-items: center;
+    justify-content: space-between;
 }
 
 a.titulo{
@@ -254,7 +255,7 @@ a.titulo{
 .header .menu-hamburguesa{
     flex-direction: column;
     width: 10vw;
-    margin-top: 1vw;
+    height: 4vh;
 }
 
 .header .menu-desplegado {
@@ -328,7 +329,6 @@ nav:hover li img{
     margin-top: 6vh;
     margin-right: 0px;
     margin-left: 11vw;
-    z-index: -1;
 }
 
 .carrusel-container h2{
@@ -346,22 +346,152 @@ nav:hover li img{
 
 
 .carrusel img{
+    display: block;
     width: 25vw;
     object-fit: cover;
     height: 8vh;
     border-radius: 10px;
     margin-right: 5px;
-
+    object-position: center;
 }
 
 .carrusel.destacado+h2{
     font-weight: bold;
 }
 
-.carrusel.destacado img{
-    min-height: fit-content;
+
+.carrusel-container .card{
+    position: relative;
     width: 25vw;
+    height: 8vh;
+    border-radius: 10px;
+    margin-right: 5px;
+    margin-bottom: 0vh;
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+.card>img{
+    display: block;
+    width: inherit;
+    object-fit: cover;
+    height: inherit;
+}
+
+.card>.card-info{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(360deg, black, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.card:hover>.card-info{
+    opacity: 1;
+}
+
+.card-info p{
+    padding: 1vw;
+}
+
+.card-info button p{
+    padding: 0.25vw;
+    margin-top: 0.3vh;
+    font-size: 1.75vw;
+    line-height: 1vh;
+}
+
+.carrusel.destacado>.card{
+    width: 22vw;
     height: 15vh;
+}
+
+.card>img, .card>.card-info{
+    transition: 300ms ease-in-out;
+}
+
+
+.card-info .label{
+    display: flex;
+    margin-left: 8vw;
+    border-radius: 5px;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 1px solid rgba(0, 0, 0, .75);
+    height: 2vh;
+    width: 16vw;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.carrusel.carrusel.destacado .detalles{
+    flex-direction: column;
+    
+}
+
+.carrusel.destacado .card-info .label{
+    margin-left: 8vw;
+}
+
+.card-info .label.premium{
+    background-color: #F4C542;
+}
+
+.card-info .label.free{
+    background-color: #C1C3F1;
+}
+
+.add-cart, .play{
+    width: 10vw;
+    height: 2vh;
+}
+
+.add-cart{
+    background-color: #E8F2BE;
+}
+
+.play{
+    background-color: #C1C3F1;
+}
+
+.carrusel.destacado .play, .carrusel.destacado .add-cart{
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.play img, .add-cart img{
+    width: 3vw;
+    height: 1.5vh;
+    border-radius: 0px;
+    padding-top: 0.2vh;
+    padding-left: 1.75vw;
+}
+
+.destacado .play img, .destacado .add-cart img{
+    width: 4vw;
+    height: 1.5vh;
+    padding-left: 0vw;
+}
+
+.carrusel.destacado .play img{
+    padding-left: 0vw;
+}
+
+.card .detalles {
+    display: flex;
+    width: inherit;
+    margin-bottom: 0vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vh 2vw 0.5vh 1.2vw;
+    color: white;
 }
 
 footer{
@@ -488,6 +618,7 @@ footer li h3{
 
     .header .menu-hamburguesa{
         width: 4.4vw;
+        height: inherit;
     }
 
     nav{
@@ -520,14 +651,78 @@ footer li h3{
         margin-left: 5vw;
     }
 
-    .carrusel img{
+    .carrusel .card{
         height: 15vh;
         width: 13vw;
         margin-right: 0.5vw;
     }
-    .carrusel.destacado img{
+
+    .card .detalles{
+        padding: 0vw;
+        padding-bottom: 1vh;
+    }
+
+    .carrusel.destacado .card{
         height: 25vh;
+        width: 12vw;
+    }
+
+    .carrusel.destacado .card-info .label {
+        margin-left: 4vw;
+    }
+
+    .card-info .label{
+        width: 8vw;
+        height: 3vh;
+        margin-left: 5vw;
+        filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.5));
+        justify-content: space-evenly;
+    }
+
+    .card-info button p{
+        padding-left: 0vw;
+        padding-right: 0vw;
+        line-height: 1.2vh;
+        font-size: 1vw;
+    }
+
+    .add-cart, .play{
+        width: 5vw;
+        height: 3vh;
+        margin-right: 0.2vw;
+    }
+
+    .carrusel .add-cart img{
+        width: 30px;
+        height: 30px;
+        padding-left: 1.45vw;
+        padding-right: 1.45vw;
+    }
+
+    .play img{
+        padding-left: 1.19vw;
+        padding-right: 1.19vw;
+        width: 2vw;
+        height: 2.5vh;
+    }
+
+    .carrusel.destacado .play, .carrusel.destacado .add-cart {
         width: 10vw;
+        justify-content: space-between;
+    }
+
+    .carrusel.destacado .play p{
+        padding-right: 2vw;
+    }
+
+    .carrusel.destacado .play img{
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;
+    }
+
+    .carrusel.destacado .add-cart img{
+        padding-left: 0.25vw;
+        padding-right: 0.25vw;
     }
 
     footer{
@@ -604,6 +799,12 @@ footer li h3{
         align-items: center;
         justify-content: space-evenly;
         font-size: 1vw;
+    }
+
+    .container-btn-externos button.fb {
+        height: 4vh;
+        font-size: 1vw;
+        padding: 11px 15px 7px 38px;
     }
 
     .google-sign-in-button{
