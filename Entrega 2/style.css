@@ -322,9 +322,7 @@ nav:hover li img{
 
 .carrusel-container{
     overflow-x: hidden;
-    width: 90vw;
     height: fit-content;
-    position: absolute;
     margin: 10px;
     margin-top: 6vh;
     margin-right: 0px;
@@ -342,17 +340,15 @@ nav:hover li img{
 
 .carrusel{
     display: flex;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: calc(25vw*11);
 }
 
-
-.carrusel img{
-    display: block;
-    width: 25vw;
-    object-fit: cover;
-    height: 8vh;
-    border-radius: 10px;
-    margin-right: 5px;
-    object-position: center;
+.carrusel.destacado{
+    width: calc(22vw*17);
+    animation: destacado-scroll 40s linear infinite;
+    -webkit-animation: destacado-scroll 40s linear infinite;
 }
 
 .carrusel.destacado+h2{
@@ -368,6 +364,36 @@ nav:hover li img{
     margin-right: 5px;
     margin-bottom: 0vh;
     filter: drop-shadow(0px 0px 2px black);
+}
+
+@keyframes destacado-scroll {
+    0%{
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+    90%{
+        transform: translateX(calc(-22vw*14));
+        -webkit-transform: translateX(calc(-22vw*14));
+    }
+    100%{
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+    90%{
+        transform: translateX(calc(-25vw*8));
+        -webkit-transform: translateX(calc(-25vw*8));
+    }
+    100%{
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
 }
 
 .card>img{
@@ -435,7 +461,7 @@ nav:hover li img{
 }
 
 .carrusel.destacado .card-info .label{
-    margin-left: 8vw;
+    margin-left: 6vw;
 }
 
 .card-info .label.premium{
@@ -649,6 +675,44 @@ footer li h3{
         width: 95vw;
         margin-top: 9vh;
         margin-left: 5vw;
+    }
+
+    .carrusel{
+        width: calc(13vw*11);
+    }
+
+    .carrusel.destacado{
+        width: calc(12vw*17);
+    }
+
+    @keyframes destacado-scroll {
+        0%{
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
+        90%{
+            transform: translateX(calc(-12vw*10));
+            -webkit-transform: translateX(calc(-12vw*10));
+        }
+        100%{
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
+    }
+    
+    @keyframes scroll {
+        0%{
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
+        90%{
+            transform: translateX(calc(-13vw*4));
+            -webkit-transform: translateX(calc(-13vw*4));
+        }
+        100%{
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
     }
 
     .carrusel .card{
