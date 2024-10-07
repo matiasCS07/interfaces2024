@@ -117,7 +117,6 @@ div img.logo{
     line-height: 0.5;
     position: relative;
     width: 25vw;
-    height: 3vh;
 }
 .connect:before {
     display: flex;
@@ -334,21 +333,18 @@ nav:hover li img{
     padding-left: 0.5vh;
 }
 
-.carrusel-container div{
+.carrusel-container .carrusel{
     margin-bottom: 2vh;
 }
 
 .carrusel{
     display: flex;
-    animation: scroll 40s linear infinite;
-    -webkit-animation: scroll 40s linear infinite;
+    transition: transform 400ms;
     width: calc(25vw*11);
 }
 
 .carrusel.destacado{
     width: calc(22vw*17);
-    animation: destacado-scroll 40s linear infinite;
-    -webkit-animation: destacado-scroll 40s linear infinite;
 }
 
 .carrusel.destacado+h2{
@@ -366,34 +362,45 @@ nav:hover li img{
     filter: drop-shadow(0px 0px 2px black);
 }
 
-@keyframes destacado-scroll {
+.deform{
+    animation: deform 500ms linear;
+}
+
+@keyframes deform {
     0%{
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
+        transform: scaleX(1);
     }
-    90%{
-        transform: translateX(calc(-22vw*14));
-        -webkit-transform: translateX(calc(-22vw*14));
+    50%{
+        transform: scaleX(1.1)
     }
     100%{
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
+        transform: scaleX(1)
     }
 }
 
-@keyframes scroll {
-    0%{
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
-    }
-    90%{
-        transform: translateX(calc(-25vw*8));
-        -webkit-transform: translateX(calc(-25vw*8));
-    }
-    100%{
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
-    }
+.carrusel~.btns-desplazamiento{
+    position: absolute;
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: space-between;
+    margin: -19vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.carrusel.destacado~.btns-desplazamiento{
+    margin: -25vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.btns-desplazamiento button {
+    background-color: #E3C7C7;
+    opacity: 0.5;
+    border-radius: 100%;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    margin: 0.5vw;
 }
 
 .card>img{
@@ -685,34 +692,20 @@ footer li h3{
         width: calc(12vw*17);
     }
 
-    @keyframes destacado-scroll {
-        0%{
-            transform: translateX(0);
-            -webkit-transform: translateX(0);
-        }
-        90%{
-            transform: translateX(calc(-12vw*10));
-            -webkit-transform: translateX(calc(-12vw*10));
-        }
-        100%{
-            transform: translateX(0);
-            -webkit-transform: translateX(0);
-        }
+    .carrusel~.btns-desplazamiento{
+        margin: -7.5vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
     }
-    
-    @keyframes scroll {
-        0%{
-            transform: translateX(0);
-            -webkit-transform: translateX(0);
-        }
-        90%{
-            transform: translateX(calc(-13vw*4));
-            -webkit-transform: translateX(calc(-13vw*4));
-        }
-        100%{
-            transform: translateX(0);
-            -webkit-transform: translateX(0);
-        }
+
+    .carrusel.destacado~.btns-desplazamiento{
+        margin: -10vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    .btns-desplazamiento button{
+        padding: 0.75vw;
     }
 
     .carrusel .card{
@@ -866,7 +859,6 @@ footer li h3{
     }
 
     .container-btn-externos button.fb {
-        height: 4vh;
         font-size: 1vw;
         padding: 11px 15px 7px 38px;
     }
