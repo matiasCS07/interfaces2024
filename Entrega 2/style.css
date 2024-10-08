@@ -59,6 +59,11 @@ button{
 
 div img.logo{
     width: 12vw;
+    transition: transform 400ms;
+}
+
+div img.logo:hover{
+    transform: scale(1.5);
 }
 
 .login-frame .container-btn-externos{
@@ -169,7 +174,7 @@ a.titulo{
 }
 
 .container.login{
-    height: 120vh;
+    height: 125vh;
 }
 
 #login-form{
@@ -208,7 +213,8 @@ a.titulo{
 .login-frame input{
     padding: 2vw;
     border-radius: 7px;
-    font-size: 2.5vw;
+    font-size: 3.5vw;
+    margin-top: 0.75vh;
 }
 
 .login-frame h1{
@@ -219,6 +225,7 @@ a.titulo{
 
 .login-frame label{
     font-size: 3.5vw;
+    margin-top: 1vh;
 }
 
 .login-frame p{
@@ -245,6 +252,28 @@ a.titulo{
     height: 4vh;
     font-size: 4vw;
     margin-top: 1vh;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: relative;
+}
+
+.login-frame form button::before{
+    content: '';
+    position:absolute;
+    border: 5px groove rgb(10, 11, 32, 0.01);
+    border-radius: 0px 0px 10px 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.25vh;
+    background-color: #D9676B;
+    transition: transform 400ms ease-in-out;
+    transform: scaleX(0);
+}
+
+.login-frame form button:hover::before{
+    transform: scaleX(1);
 }
 
 #signin-form{
@@ -255,6 +284,9 @@ a.titulo{
     flex-direction: column;
     width: 10vw;
     height: 4vh;
+}
+
+.header .menu-hamburguesa img{
     cursor: pointer;
 }
 
@@ -276,8 +308,7 @@ a.titulo{
 }
 
 .header .menu-hamburguesa input#menu{
-    opacity: 0.1;
-    cursor: pointer;
+    opacity: 0.01;
     display: none;
 }
 
@@ -295,7 +326,7 @@ nav{
     margin-top: 5vh;
     background-color: #0A0B20;
     color: #EAD7D3;
-    text-indent: -99999px;
+    text-indent: -250%;
     position: fixed;
     left: 0;
     z-index: 9;
@@ -364,22 +395,6 @@ nav:hover li img{
     filter: drop-shadow(0px 0px 2px black);
 }
 
-.deform{
-    animation: deform 500ms linear;
-}
-
-@keyframes deform {
-    0%{
-        transform: scaleX(1);
-    }
-    50%{
-        transform: scaleX(1.1)
-    }
-    100%{
-        transform: scaleX(1)
-    }
-}
-
 .carrusel~.btns-desplazamiento{
     position: absolute;
     width: -webkit-fill-available;
@@ -388,13 +403,13 @@ nav:hover li img{
     margin: -19vw;
     margin-left: 1vw;
     margin-right: 1vw;
+    pointer-events: none;
 }
 
 .carrusel.destacado~.btns-desplazamiento{
     margin: -25vw;
     margin-left: 1vw;
     margin-right: 1vw;
-    pointer-events: none;
 }
 
 .btns-desplazamiento button {
@@ -487,6 +502,7 @@ nav:hover li img{
 .add-cart, .play{
     width: 10vw;
     height: 2vh;
+    cursor: pointer;
 }
 
 .add-cart{
@@ -509,7 +525,6 @@ nav:hover li img{
     height: 1.5vh;
     border-radius: 0px;
     padding-top: 0.2vh;
-    padding-left: 1.75vw;
 }
 
 .destacado .play img, .destacado .add-cart img{
@@ -644,7 +659,6 @@ footer li h3{
         width: 15vw;
         padding: 1vw;
         margin-left: 10vw;
-        margin-top: 0.5vh;
     }
 
     .carrito{
@@ -658,6 +672,7 @@ footer li h3{
     .header .menu-hamburguesa{
         width: 4.4vw;
         height: inherit;
+        margin-top: 3.5vh;
     }
 
     nav{
@@ -682,6 +697,10 @@ footer li h3{
 
     .container{
         height: 280vh;
+    }
+
+    .container.login{
+        height: 135vh;
     }
 
     .carrusel-container{
@@ -750,7 +769,7 @@ footer li h3{
     }
 
     .add-cart, .play{
-        width: 5vw;
+        width: 4vw;
         height: 3vh;
         margin-right: 0.2vw;
     }
@@ -758,12 +777,12 @@ footer li h3{
     .carrusel .add-cart img{
         width: 30px;
         height: 30px;
-        padding-left: 1.45vw;
+        padding-left: 0.95vw;
         padding-right: 1.45vw;
     }
 
     .play img{
-        padding-left: 1.19vw;
+        padding-left: 0.7vw;
         padding-right: 1.19vw;
         width: 2vw;
         height: 2.5vh;
@@ -781,6 +800,7 @@ footer li h3{
     .carrusel.destacado .play img{
         padding-left: 1.5vw;
         padding-right: 1.5vw;
+        height: 30px;
     }
 
     .carrusel.destacado .add-cart img{
@@ -830,7 +850,7 @@ footer li h3{
         height: 3vh;
         padding: 0vw;
         padding-left: 0.5vw;
-        font-size: 1vw;
+        font-size: 1.5vw;
     }
 
     .login-frame button{
