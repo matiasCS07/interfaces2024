@@ -255,6 +255,7 @@ a.titulo{
     flex-direction: column;
     width: 10vw;
     height: 4vh;
+    cursor: pointer;
 }
 
 .header .menu-desplegado {
@@ -313,6 +314,7 @@ nav ul{
 nav li{
     display: flex;
     margin-bottom: 3vh;
+    cursor: pointer;
 }
 
 nav:hover li img{
@@ -392,6 +394,7 @@ nav:hover li img{
     margin: -25vw;
     margin-left: 1vw;
     margin-right: 1vw;
+    pointer-events: none;
 }
 
 .btns-desplazamiento button {
@@ -401,6 +404,8 @@ nav:hover li img{
     padding-left: 2vw;
     padding-right: 1vw;
     margin: 0.5vw;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .card>img{
@@ -576,6 +581,7 @@ footer ul li{
 footer ul h2{
     text-decoration: underline;
     letter-spacing: 0.39vw;
+    cursor: pointer;
 }
 
 footer ul li:hover h3{
