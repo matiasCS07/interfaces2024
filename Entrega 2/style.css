@@ -116,11 +116,30 @@ a.titulo{
 }
 
 .header .menu-desplegado {
-    background-color: #E7E8FC;
+    background-color: #E0E1FF;
     display: none;
     width: 30vw;
     flex-direction: column;
     margin-left: 20vw;
+}
+
+.menu-desplegado div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-desplegado div img{
+    padding-left: 2vw;
+}
+
+.menu-desplegado div h3{
+    padding-right: 3vw;
+}
+
+.menu-desplegado h2{
+    padding: 1vw 0 1vw 0;
 }
 
 .menu-desplegado h3{
@@ -240,10 +259,6 @@ input{
     height: 100%;
     content: '';
     position:absolute;
-    /*border: 5px groove rgb(10, 11, 32, 0.01);
-    border-radius: 0px 0px 10px 10px;
-    height: 0.25vh;
-    */
     top: 0;
     left: 0;
     right: 0;
@@ -257,6 +272,7 @@ input{
 
 .login-frame form button:hover::before{
     transform: scale(0);
+    color: white;
 }
 
 #signin-form{
@@ -842,25 +858,29 @@ footer li h3{
     }
 
     .login-frame div{
-        padding-left: 0.5vh;
+        padding-left: 0vw;
+        padding-right: 0vw;
         padding-bottom: 1vw;
         padding-top: 0.5vh;
     }
 
 
     input{
-        height: 3vh;
+        width: 250px;
+        height: 37px;
         padding: 0vw;
         padding-left: 0.5vw;
     }
 
     .login-frame button{
+        width: 200px;
         margin-top: 3vh;
         font-size: 1vw;
     }
 
     .login-frame form{
-        padding-left: 0.5vw;
+        padding-left: 0vw;
+        align-items: center;
     }
 
     .login-frame .container-btn-externos{
