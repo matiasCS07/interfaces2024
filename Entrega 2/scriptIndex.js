@@ -14,13 +14,13 @@ document.querySelectorAll('.btns-desplazamiento button').forEach(button => {
 
 function desplazarCarrusel(carrusel, direccion, destacado) {
     let limiteIzq=0;
-    let limiteDer=0;
+    let limiteDer;
     let tamanioCard;
 
 
     if(destacado=="carrusel destacado"){
         if(screen.width>1000){
-            limiteDer=5
+            limiteDer=4;
         }else{
             limiteDer=7;
         }

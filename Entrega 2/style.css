@@ -50,10 +50,9 @@ h3{
 }
 
 button{
-    background-color: #C1C3F1;
-    border-radius: 10px;
+    background-color: #FFBAAA;
+    border-radius: 20px;
     border:rgb(0,0,0,.25);
-    font-size: 3.5vw;
     font-family: Roboto-Bold;
 }
 
@@ -64,6 +63,204 @@ div img.logo{
 
 div img.logo:hover{
     transform: scale(1.5);
+}
+
+.header{
+    background-color: #1E1F38;
+    border-bottom: 1px solid #C1C3F1;
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a.titulo{
+    color: #E8F2BE;
+}
+
+.header svg{
+    color: #E7E8FC;
+    background-color: #1E1F38;
+}
+
+.header div{
+    display: flex;
+    align-items: center;
+}
+
+.header img{
+    padding: 0.5vh;
+}
+
+.container{
+    display: flex;
+    height: 175vh;
+}
+
+.container.login{
+    height: 125vh;
+}
+
+.header .menu-hamburguesa{
+    flex-direction: column;
+    width: 10vw;
+    height: 4vh;
+}
+
+.header .menu-hamburguesa img{
+    cursor: pointer;
+}
+
+.header .menu-desplegado {
+    background-color: #E7E8FC;
+    display: none;
+    width: 30vw;
+    flex-direction: column;
+    margin-left: 20vw;
+}
+
+.menu-desplegado h3{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.menu-desplegado h2{
+    margin-top: 1vh;
+}
+
+.header .menu-hamburguesa input#menu{
+    opacity: 0.01;
+    display: none;
+}
+
+.header .menu-hamburguesa input#menu:checked~.menu-desplegado{
+    display: flex;
+}
+
+#login-form{
+    width: 100%;
+    height: 100%;
+}
+
+.login-frame{
+    width: 60vw;
+    height: fit-content;
+    padding: 5vw;
+    padding-bottom: 5vh;
+    background-color: #0A0B20;
+    position: absolute;
+    margin: 20vw;
+    margin-left: 16vw;
+    color: white;
+}
+
+.login-frame form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 50%;
+    justify-content: space-evenly;
+}
+
+.login-frame div{
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    padding-bottom: 0vh;
+    padding-top: 2vh;
+}
+
+input{
+    padding: 2vw;
+    border-radius: 15px;
+    margin-top: 0.75vh;
+}
+
+.login-frame h1{
+    padding: 1vw;
+    padding-top: 4vh;
+    padding-bottom: 2vw;
+}
+
+.login-frame label{
+    font-weight: bold;
+    margin-top: 1vh;
+}
+
+.login-frame p{
+    color:#C1C3F1;
+    display: flex;
+    justify-content: center;
+    padding: 1vh;
+    padding-top: 0.5vh;
+    font-size: 3.5vw;
+}
+
+.login-frame #signin-form p{
+    padding-top: 5vh;
+    padding-left: 0.3vw;
+}
+
+.login-frame span{
+    color: white;
+    padding-left: 0.5vw;
+    font-size: 3.5vw;
+}
+
+.login-frame button{
+    height: 4vh;
+    font-size: 4vw;
+    margin-top: 1vh;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: relative;
+}
+
+.login-frame button{
+    transition: transform 400ms;
+}
+
+.login-frame button:hover{
+    transform: scale(1.05);
+}
+
+.login-frame form button{
+    z-index: 1;
+    overflow: hidden;
+    background-color: #F4C542;
+}
+
+.login-frame form button::before{
+    width: 100%;
+    height: 100%;
+    content: '';
+    position:absolute;
+    /*border: 5px groove rgb(10, 11, 32, 0.01);
+    border-radius: 0px 0px 10px 10px;
+    height: 0.25vh;
+    */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFBAAA;
+    border-radius: 100%;
+    z-index: -1;
+    transition: transform 400ms ease-in-out;
+    transform: scale(1.5);
+}
+
+.login-frame form button:hover::before{
+    transform: scale(0);
+}
+
+#signin-form{
+    display: none;
 }
 
 .login-frame .container-btn-externos{
@@ -135,185 +332,6 @@ div img.logo:hover{
     line-height: 23px;
     margin: -8px 5px -15px -31px;
     content: "f";
-}
-
-.header{
-    background-color: #1E1F38;
-    border-bottom: 1px solid #C1C3F1;
-    width: 100vw;
-    height: 6vh;
-    display: flex;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    align-items: center;
-    justify-content: space-between;
-}
-
-a.titulo{
-    color: #E8F2BE;
-}
-
-.header svg{
-    color: #E7E8FC;
-    background-color: #1E1F38;
-}
-
-.header div{
-    display: flex;
-    align-items: center;
-}
-
-.header img{
-    padding: 0.5vh;
-}
-
-.container{
-    display: flex;
-    height: 175vh;
-}
-
-.container.login{
-    height: 125vh;
-}
-
-#login-form{
-    width: 100%;
-    height: 100%;
-}
-
-.login-frame{
-    width: 60vw;
-    height: fit-content;
-    padding: 5vw;
-    padding-bottom: 5vh;
-    background-color: #0A0B20;
-    position: absolute;
-    margin: 20vw;
-    margin-left: 16vw;
-    color: white;
-}
-
-.login-frame form{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 50%;
-    justify-content: space-evenly;
-}
-
-.login-frame div{
-    display: flex;
-    flex-direction: column;
-    padding: 1vw;
-    padding-bottom: 0vh;
-    padding-top: 2vh;
-}
-
-.login-frame input{
-    padding: 2vw;
-    border-radius: 7px;
-    font-size: 3.5vw;
-    margin-top: 0.75vh;
-}
-
-.login-frame h1{
-    padding: 1vw;
-    padding-top: 4vh;
-    padding-bottom: 2vw;
-}
-
-.login-frame label{
-    font-size: 3.5vw;
-    margin-top: 1vh;
-}
-
-.login-frame p{
-    color:#C1C3F1;
-    display: flex;
-    justify-content: center;
-    padding: 1vh;
-    padding-top: 0.5vh;
-    font-size: 3.5vw;
-}
-
-.login-frame #signin-form p{
-    padding-top: 5vh;
-    padding-left: 0.3vw;
-}
-
-.login-frame span{
-    color: white;
-    padding-left: 0.5vw;
-    font-size: 3.5vw;
-}
-
-.login-frame button{
-    height: 4vh;
-    font-size: 4vw;
-    margin-top: 1vh;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    position: relative;
-}
-
-.login-frame form button::before{
-    content: '';
-    position:absolute;
-    border: 5px groove rgb(10, 11, 32, 0.01);
-    border-radius: 0px 0px 10px 10px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.25vh;
-    background-color: #D9676B;
-    transition: transform 400ms ease-in-out;
-    transform: scaleX(0);
-}
-
-.login-frame form button:hover::before{
-    transform: scaleX(1);
-}
-
-#signin-form{
-    display: none;
-}
-
-.header .menu-hamburguesa{
-    flex-direction: column;
-    width: 10vw;
-    height: 4vh;
-}
-
-.header .menu-hamburguesa img{
-    cursor: pointer;
-}
-
-.header .menu-desplegado {
-    background-color: #E7E8FC;
-    display: none;
-    width: 30vw;
-    flex-direction: column;
-    margin-left: 20vw;
-}
-
-.menu-desplegado h3{
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
-}
-
-.menu-desplegado h2{
-    margin-top: 1vh;
-}
-
-.header .menu-hamburguesa input#menu{
-    opacity: 0.01;
-    display: none;
-}
-
-.header .menu-hamburguesa input#menu:checked~.menu-desplegado{
-    display: flex;
 }
 
 .fondo{
@@ -400,7 +418,7 @@ nav:hover li img{
     width: -webkit-fill-available;
     display: flex;
     justify-content: space-between;
-    margin: -19vw;
+    margin: -17vw;
     margin-left: 1vw;
     margin-right: 1vw;
     pointer-events: none;
@@ -416,11 +434,14 @@ nav:hover li img{
     background-color: #E3C7C7;
     opacity: 0.5;
     border-radius: 100%;
-    padding-left: 2vw;
-    padding-right: 1vw;
-    margin: 0.5vw;
     cursor: pointer;
     pointer-events: all;
+}
+
+.btns-desplazamiento img{
+    margin: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .card>img{
@@ -620,21 +641,21 @@ footer li h3{
 
 @media (min-width: 1000px) {
 
+    *{
+        font-size: 20px;
+    }
+
     h1{
-        font-size: 2vw;
+        font-size: 40px;
     }
 
     h2{
-        font-size: 1.5vw;
+        font-size: 24px;
     }
 
     h3{
-        font-size: 1.3vw;
-    }
-
-    p{
-        font-size: 1vw;
-    }
+        font-size: 22px;
+    }   
 
     div img.logo{
         width: auto;
@@ -647,7 +668,9 @@ footer li h3{
     }
 
     button{
-        font-size: 1.5vw;
+        width: 140px;
+        height: 42px;
+        font-size: 1vw;
     }
 
     .header{
@@ -659,6 +682,10 @@ footer li h3{
         width: 15vw;
         padding: 1vw;
         margin-left: 10vw;
+    }
+
+    .container{
+        height: 250vh;
     }
 
     .carrito{
@@ -695,10 +722,6 @@ footer li h3{
         padding-right: 7vw;
     }
 
-    .container{
-        height: 280vh;
-    }
-
     .container.login{
         height: 135vh;
     }
@@ -718,9 +741,14 @@ footer li h3{
     }
 
     .carrusel~.btns-desplazamiento{
-        margin: -7.5vw;
+        margin: -6vw;
         margin-left: 1vw;
         margin-right: 1vw;
+    }
+
+    .carrusel~.btns-desplazamiento button{
+        width: 64px;
+        height: 64px;
     }
 
     .carrusel.destacado~.btns-desplazamiento{
@@ -729,13 +757,9 @@ footer li h3{
         margin-right: 1vw;
     }
 
-    .btns-desplazamiento button{
-        padding: 0.75vw;
-    }
-
     .carrusel .card{
-        height: 15vh;
-        width: 13vw;
+        height: 130px;
+        width: 230px;
         margin-right: 0.5vw;
     }
 
@@ -745,21 +769,22 @@ footer li h3{
     }
 
     .carrusel.destacado .card{
-        height: 25vh;
-        width: 12vw;
-    }
-
-    .carrusel.destacado .card-info .label {
-        margin-left: 4vw;
+        height: 264px;
+        width: 175px;
     }
 
     .card-info .label{
-        width: 8vw;
-        height: 3vh;
-        margin-left: 5vw;
+        width: 120px;
+        height: 30px;
+        margin-left: 5.5vw;
         filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.5));
         justify-content: space-evenly;
     }
+
+    .carrusel.destacado .card-info .label {
+        margin-left: 3vw;
+    }
+
 
     .card-info button p{
         padding-left: 0vw;
@@ -769,8 +794,8 @@ footer li h3{
     }
 
     .add-cart, .play{
-        width: 4vw;
-        height: 3vh;
+        width: 70px;
+        height: 30px;
         margin-right: 0.2vw;
     }
 
@@ -789,7 +814,8 @@ footer li h3{
     }
 
     .carrusel.destacado .play, .carrusel.destacado .add-cart {
-        width: 10vw;
+        width: 165px;
+        height: 40px;
         justify-content: space-between;
     }
 
@@ -808,32 +834,11 @@ footer li h3{
         padding-right: 0.25vw;
     }
 
-    footer{
-        width: 100vw;
-    }
-
-    footer ul{
-        flex-direction: row;
-    }
-
-    footer li{
-        padding: 1vw;
-        padding-right: 2vw;
-    }
-
-    footer ul h2{
-        letter-spacing: 0.2vw;
-    }
-
-    footer ul li h3{
-        display: flex;
-        padding-top: 1vh;
-    }
-
     .login-frame{
         margin: 5vw;
         margin-left: 39vw;
-        width: 17vw;
+        width: 15.45vw;
+        padding: 4vw;
     }
 
     .login-frame div{
@@ -842,20 +847,16 @@ footer li h3{
         padding-top: 0.5vh;
     }
 
-    .login-frame label{
-        font-size: 1.5vw;
-    }
 
-    .login-frame input{
+    input{
         height: 3vh;
         padding: 0vw;
         padding-left: 0.5vw;
-        font-size: 1.5vw;
     }
 
     .login-frame button{
         margin-top: 3vh;
-        font-size: 1.5vw;
+        font-size: 1vw;
     }
 
     .login-frame form{
@@ -864,7 +865,6 @@ footer li h3{
 
     .login-frame .container-btn-externos{
         width: 13vw;
-        padding-left: 1vw;
     }
 
     .login-frame p{
@@ -899,10 +899,33 @@ footer li h3{
         justify-content: space-between;
     }
 
+    footer{
+        width: 100vw;
+    }
+
+    footer ul{
+        flex-direction: row;
+    }
+
+    footer li{
+        padding: 1vw;
+        padding-right: 4.5vw;
+    }
+
+    footer ul h2{
+        letter-spacing: 0.2vw;
+    }
+
+    footer ul li h3{
+        display: flex;
+        padding-top: 1vh;
+    }
+
     footer .descripcion{
+        width: 90%;
         line-height: 4vh;
-        padding-top: 10vh;
-        padding-bottom: 0vh;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
     }
 
     footer .fondo-footer{
