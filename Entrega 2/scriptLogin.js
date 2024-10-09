@@ -21,5 +21,5 @@ function showLogin() {
 }
 
 function redirect(){
-    window.location.href="index.html";
+    window.location.href="home.html";
 }

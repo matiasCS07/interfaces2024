@@ -54,9 +54,19 @@ button{
     border-radius: 20px;
     border:rgb(0,0,0,.25);
     font-family: Roboto-Bold;
+    width: 18vw;
+    height: 6vw;
 }
 
-div img.logo{
+button.largo{
+    width: 30vw;
+}
+
+button.chico{
+
+}
+
+img.logo{
     width: 12vw;
     transition: transform 400ms;
 }
@@ -73,7 +83,7 @@ div img.logo:hover{
     display: flex;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 3;
     align-items: center;
     justify-content: space-between;
 }
@@ -99,6 +109,103 @@ a.titulo{
 .container{
     display: flex;
     height: 175vh;
+    z-index: 0;
+}
+
+.pantalla-carga{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: #C0CE86;
+    animation: caja-carga 5s cubic-bezier(0.32, 0, 0.67, 0);
+    transform: scale(0);
+    pointer-events: none;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1;
+    color: #030411;
+}
+
+@keyframes caja-carga {
+    0%{
+        transform: scale(1);
+        display: flex;
+        opacity: 1;
+    }
+    98%{
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+.logo-animado{
+    animation: loading-anim 600ms linear alternate infinite;
+    transform-origin: center center;
+}
+
+.logo-animado img{
+    width: 100px;
+    margin-bottom: 50px;
+}
+
+@keyframes loading-anim {
+    0%{
+        transform: translateX(3px);
+    }
+    25%{
+        transform: translateX(-3px);
+    }
+    50%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(-75px);
+    }       
+}
+
+.barra-carga{
+    background-color: grey;
+    border: 5px solid black;
+    border-radius: 20px;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+    width: 60vw;
+    height: 5vh;
+    z-index: 4;
+}
+
+.progreso{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #F76D5A ;
+    animation: carga 4s ease-in-out;
+}
+
+@keyframes carga {
+    0%{
+        width: 0%;
+        background-color: #FBAE3C;
+    }
+    50%{
+        width: 50%;
+        background-color: #4C9F9A;
+    }
+    100%{
+        width: 100%;
+        background-color: #F76D5A;
+    }
 }
 
 .container.login{
@@ -180,7 +287,7 @@ a.titulo{
 .login-frame form{
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     height: 50%;
     justify-content: space-evenly;
 }
@@ -188,6 +295,7 @@ a.titulo{
 .login-frame div{
     display: flex;
     flex-direction: column;
+    width: 45vw;
     padding: 1vw;
     padding-bottom: 0vh;
     padding-top: 2vh;
@@ -231,9 +339,7 @@ input{
 }
 
 .login-frame button{
-    height: 4vh;
-    font-size: 4vw;
-    margin-top: 1vh;
+    margin-top: 4vh;
     cursor: pointer;
     outline: none;
     border: none;
@@ -251,7 +357,7 @@ input{
 .login-frame form button{
     z-index: 1;
     overflow: hidden;
-    background-color: #F4C542;
+    background-color: #E8F2BE;
 }
 
 .login-frame form button::before{
@@ -291,14 +397,13 @@ input{
 
 .container-btn-externos button{
     margin: 2vw;
+    margin-left: 0.5vw;
+    margin-right: 0vw;
 }
 
-/*
-    boton importado de "https://stackoverflow.com/questions/46654248/how-to-display-google-sign-in-button-using-html"
-*/
+/*boton importado de "https://stackoverflow.com/questions/46654248/how-to-display-google-sign-in-button-using-html"*/
 .google-sign-in-button {
-    width: 25vw;
-    height: 3vh;
+    width: auto;
     cursor: pointer;
     transition: background-color .3s, box-shadow .3s;
         
@@ -320,10 +425,9 @@ input{
     align-items: center;
 }
 
-/*
-    boton importado de "https://jsfiddle.net/deniz/Q495Y/"
-*/
+/*boton importado de "https://jsfiddle.net/deniz/Q495Y/"*/
 .container-btn-externos button.fb {
+    width: auto;
     font-family: Lucida Grande, Helvetica Neue, Helvetica, Arial, sans-serif;
     display: inline-block;
     font-size: 14px;
@@ -334,7 +438,6 @@ input{
     text-decoration: none;
     line-height: 0.5;
     position: relative;
-    width: 25vw;
 }
 .connect:before {
     display: flex;
@@ -363,7 +466,7 @@ nav{
     text-indent: -250%;
     position: fixed;
     left: 0;
-    z-index: 9;
+    z-index: 2;
 }
 
 nav:hover{
@@ -593,6 +696,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -2;
 }
 
 footer .descripcion{
@@ -645,8 +749,27 @@ footer li h3{
     display: none;
 }
 
+footer .iconos-footer{
+    width: -webkit-fill-available;
+    padding: 1vw 9vw 0.5vw 9vw;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+footer .iconos-footer .suscribe-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .grupo-iconos img{
+    width: 10vw;
+}
+
 .fondo-footer{
-    width: 113vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     height: 5vh;
@@ -655,7 +778,7 @@ footer li h3{
     margin-top: 1vh;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1500px) {
 
     *{
         font-size: 20px;
@@ -673,10 +796,6 @@ footer li h3{
         font-size: 22px;
     }   
 
-    div img.logo{
-        width: auto;
-    }
-
     .login-frame span{
         font-size: 1vw;
         padding-left: 0.15vw;
@@ -687,6 +806,15 @@ footer li h3{
         width: 140px;
         height: 42px;
         font-size: 1vw;
+    }
+
+    button.largo{
+        width: 200px;
+    }
+
+    button.chico{
+        width: 70px;
+        height: 30px;
     }
 
     .header{
@@ -712,10 +840,19 @@ footer li h3{
         width: 2vw;
     }
 
+    .header .logo{
+        width: 80px;
+        height: auto;
+    }
+
     .header .menu-hamburguesa{
         width: 4.4vw;
         height: inherit;
         margin-top: 3.5vh;
+    }
+
+    .logo-animado img{
+        width: 180px;
     }
 
     nav{
@@ -809,39 +946,31 @@ footer li h3{
         font-size: 1vw;
     }
 
-    .add-cart, .play{
-        width: 70px;
-        height: 30px;
-        margin-right: 0.2vw;
-    }
-
     .carrusel .add-cart img{
         width: 30px;
         height: 30px;
-        padding-left: 0.95vw;
-        padding-right: 1.45vw;
     }
 
     .play img{
-        padding-left: 0.7vw;
-        padding-right: 1.19vw;
         width: 2vw;
         height: 2.5vh;
     }
 
-    .carrusel.destacado .play, .carrusel.destacado .add-cart {
-        width: 165px;
-        height: 40px;
+    .chico.add-cart, .chico.play{
+        margin-right: 10px;
+    }
+
+    .carrusel.destacado .largo.play, .carrusel.destacado .largo.add-cart {
+        width: 140px;
+        height: 42px;
         justify-content: space-between;
     }
 
     .carrusel.destacado .play p{
-        padding-right: 2vw;
+        padding-right: 20px;
     }
 
     .carrusel.destacado .play img{
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
         height: 30px;
     }
 
@@ -858,6 +987,7 @@ footer li h3{
     }
 
     .login-frame div{
+        width: auto;
         padding-left: 0vw;
         padding-right: 0vw;
         padding-bottom: 1vw;
@@ -873,7 +1003,6 @@ footer li h3{
     }
 
     .login-frame button{
-        width: 200px;
         margin-top: 3vh;
         font-size: 1vw;
     }
@@ -914,13 +1043,9 @@ footer li h3{
     }
 
     footer{
-        width: 100vw;
+        width: -webkit-fill-available;
         display: flex;
         justify-content: space-between;
-    }
-
-    footer{
-        width: 100vw;
     }
 
     footer ul{
@@ -950,8 +1075,25 @@ footer li h3{
 
     footer .fondo-footer{
         height: 8vh;
-        width: 106%;
         margin-top: 0vh;
+    }
+
+    footer .iconos-footer .suscribe-input{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    footer .iconos-footer .suscribe-input button{
+        margin-left: 5px;
+    }
+    footer .iconos-footer .suscribe-input input{
+        margin-bottom: 5px;
+    }
+
+    footer .grupo-iconos img{
+        width: 60px;
+        height: 60px;
+        margin-right: 38px;
     }
 
     footer .descripcion div{
