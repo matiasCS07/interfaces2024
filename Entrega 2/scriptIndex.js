@@ -25,7 +25,7 @@
 
 /* animaciones del desplazamiento del carrusel home */
     document.querySelectorAll('.btns-desplazamiento button').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function() {
             let carruselId = this.getAttribute('data-carrusel');
             let carrusel = document.getElementById(`${carruselId}`);
             let isDestacado=carrusel.className;
@@ -111,5 +111,15 @@
             setTimeout(() => {
                 carrusel.style.transform=`skewX(0deg) scaleX(1) scaleY(1) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
             }, 400);
+        //*/
+    }
     //*/
-}
+
+    /** redireccionamiento de botones */
+
+        let button=document.getElementById("4-en-raya");
+        button.addEventListener("click", function () {
+            window.location.href="juego.html";
+        });
+
+    //*/
