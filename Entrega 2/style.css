@@ -121,8 +121,8 @@ a.titulo{
     display: flex;
     height: 175vh;
     z-index: 0;
-    margin-top: 7vh;
-    margin-left: 5vw;
+    margin-top: 5vh;
+    margin-left: 8vw;
 }
 
 .pantalla-carga{
@@ -310,13 +310,14 @@ a.titulo{
 .login-frame div{
     display: flex;
     flex-direction: column;
-    width: 45vw;
+    width: inherit;
     padding: 1vw;
     padding-bottom: 0vh;
     padding-top: 2vh;
 }
 
 input{
+    width: inherit;
     padding: 2vw;
     border-radius: 15px;
     margin-top: 0.75vh;
@@ -566,6 +567,8 @@ nav:hover li img{
     border-radius: 100%;
     cursor: pointer;
     pointer-events: all;
+    width: 5vh;
+    height: 5vh;
 }
 
 .btns-desplazamiento img{
@@ -1006,6 +1009,8 @@ footer .descripcion{
     padding-top: 1vh;
     line-height: 2.3vh;
     padding-bottom: 2vh;
+    padding-left: 3vw;
+    text-align: center;
 }
 
 footer .descripcion div{
@@ -1129,6 +1134,8 @@ footer .grupo-iconos img{
 
     .container{
         height: 250vh;
+        margin-left: 4vw;
+        margin-top: 4vw;
     }
 
     .carrito{
@@ -1368,6 +1375,7 @@ footer .grupo-iconos img{
         line-height: 4vh;
         padding-top: 5vh;
         padding-bottom: 5vh;
+        padding-left: 2vw;
     }
 
     footer .fondo-footer{
