@@ -186,6 +186,29 @@ a.titulo{
         transform: translateY(-75px);
     }       
 }
+@keyframes like-spin{
+    0% {
+        transform: rotate(0deg);
+    
+      }
+      50% {
+        transform: rotate(180deg);
+ 
+      }
+      100% {
+        transform: rotate(360deg);
+        background-color: rgb(108, 14, 176);
+      }
+}
+.spinLike {
+   
+    color: rgb(108, 14, 176);
+  }
+.spinLike img{
+  animation:like-spin 0.3s;
+  color: rgb(108, 14, 176);
+}
+
 
 .barra-carga{
     background-color: grey;

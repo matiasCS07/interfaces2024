@@ -35,3 +35,14 @@ function desplazarCarrusel(carrusel, direccion) {
     carrusel.setAttribute('data-posicion',`${carruselPos}`);
     carrusel.style.transform=`translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
 }
+
+let like= document.getElementById("like");
+
+ like.addEventListener("click", function() {
+    if(like.classList.contains('spinLike')){
+        like.classList.remove('spinLike');
+    } else {
+        like.classList.add('spinLike');
+    }
+    
+})
