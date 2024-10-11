@@ -1,1 +1,1 @@
-Para esta segunda entrega, las páginas "login" y "home" fueron implementadas en mobile first. Mientras que, la página del juego sólo se ha implementado en desktop (resolución 1920x1080 pixeles).
+Para esta segunda entrega, las páginas "login" y "home" fueron implementadas en mobile first (probado con resoluciones menores de 412x915px, sin resoluciones de tablet) . Mientras que, la página del juego sólo se ha implementado en desktop (resolución 1920x1080 pixeles).
