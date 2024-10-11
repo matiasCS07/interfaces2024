@@ -166,14 +166,24 @@ Elige entre Spiderman o el Duende Verde y planifica cada movimiento con precisiÃ
 
                 <div class="capturas-juego">
                     <h3>Capturas del juego</h3>
-                    <div class="carrusel-capturas">
-                        <img src="assets/img/captura 1.png">
-                        <img src="assets/img/captura 2.png">
-                        <img src="assets/img/captura 3.png">
-                        <img src="assets/img/duendeVsSpider.jpg">
-                        <img src="assets/img/duendeVsSpider2.jpg">
-                        <img src="assets/img/duendeVsSpider3.jpg">
-                        <img src="assets/img/duendeVsSpider4.jpg">
+                    <div style="overflow-x: hidden;;">
+                        <div class="carrusel-capturas" data-posicion="0">
+                            <img src="assets/img/captura 1.png">
+                            <img src="assets/img/captura 2.png">
+                            <img src="assets/img/captura 3.png">
+                            <img src="assets/img/duendeVsSpider.jpg">
+                            <img src="assets/img/duendeVsSpider2.jpg">
+                            <img src="assets/img/duendeVsSpider3.jpg">
+                            <img src="assets/img/duendeVsSpider4.jpg">
+                        </div>
+                        <div class="btns-desplazamiento">
+                            <button class="prev">
+                                <img src="assets/svg/flecha-izq.svg">
+                            </button>
+                            <button class="next">
+                                <img src="assets/svg/flecha-der.svg">
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -429,3 +439,7 @@ Elige entre Spiderman o el Duende Verde y planifica cada movimiento con precisiÃ
             <p>Copyright Â© 2024 TUDAI - Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <script src="scriptJuego.js"></script>
+</body>
+</html>
