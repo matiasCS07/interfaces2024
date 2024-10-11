@@ -49,10 +49,15 @@ h3{
     font-size: 3vw;
 }
 
+p.body2{
+    font-size: 16px;
+    font-family: Roboto-Bold;
+}
+
 button{
     background-color: #F9E5E1;
     border-radius: 20px;
-    border:rgb(0,0,0,.25);
+    border: 1px solid rgb(0,0,0,.25);
     font-family: Roboto-Bold;
     width: 18vw;
     height: 6vw;
@@ -691,12 +696,27 @@ nav:hover li img{
 .container.juego{
     display: flex;
     flex-direction: column;
+    height: 3350px;
     margin-left: 236px;
-    margin-right: 236px;
+    margin-right: 252px;
+}
+
+.container.juego h3{
+    font-family: Roboto-Bold;
+}
+
+.juego-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .juego-container h1{
     margin-bottom: 22px;
+}
+
+.juego-container section{
+    margin-bottom: 20px;
 }
 
 .pantalla{
@@ -708,6 +728,7 @@ nav:hover li img{
     border-radius: 15px;
     width: 1362px;
     height: 1000px;
+    margin-bottom: 40px;
 }
 
 .tablero{
@@ -787,12 +808,108 @@ nav:hover li img{
 }
 
 .breadcrumbs{
+    display: flex;
     margin-top: 36px;
     margin-bottom: 30px;
+    margin-left: 35px;
 }
 
 .breadcrumbs h3{
-    font-weight: bold;
+    margin-right: 10px;
+}
+
+.descripcion-juego{
+    width: 1375px;
+    height: 700px;
+    padding: 28px 40px 19px 40px;
+    background-color: rgb(231, 232, 252, .25);
+}
+
+.descripcion-juego div{
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px ridge rgba(0, 0, 0, 0.25);
+}
+
+.descripcion-juego h3{
+    margin-bottom: 15px;
+}
+
+.carrusel-capturas{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+div.carrusel-capturas{
+    border: none;
+}
+
+div.controles-juego{
+    margin-bottom: 15px;
+    border: none;
+}
+
+.carrusel-capturas img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 1px solid rgb(10, 11, 32, .5);
+    border-radius: 15px;
+}
+
+.comentarios-container{
+    width: 1070px;
+    height: 1432px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comentario{
+    width: 970px;
+    height: 120px;
+    background-color: #E0E1FF;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.comentario-user{
+    width: 187px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.comentario-user img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.comentario-contenido{
+    width: 945px;
+    height: 75px;
+    border-top: 1px solid rgb(0, 0, 0, .5);
+}
+
+.fecha-comentario{
+    width: 232px;
+    height: 30px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.comentario.nuevo{
+    height: 150px;
 }
 
 footer{

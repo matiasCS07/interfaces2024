@@ -19,7 +19,7 @@
                     elemento.innerText=''+0+'%';
                 }, 1000);
             }
-        }, 1000);
+        }, 750);
     }
 //*/
 
@@ -117,7 +117,7 @@
 
     /** redireccionamiento de botones */
 
-        let button=document.getElementById("4-en-raya");
+        let button=document.getElementById("cuatro-en-raya");
         button.addEventListener("click", function () {
             window.location.href="juego.html";
         });
