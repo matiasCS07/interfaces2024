@@ -186,29 +186,36 @@ a.titulo{
         transform: translateY(-75px);
     }       
 }
-@keyframes like-spin{
-    0% {
-        transform: rotate(0deg);
+
+@keyframes like-button{
+    from{
+        background-color: #F9E5E1;
     
-      }
-      50% {
-        transform: rotate(180deg);
- 
-      }
-      100% {
-        transform: rotate(360deg);
-        background-color: rgb(108, 14, 176);
-      }
-}
-.spinLike {
-   
-    color: rgb(108, 14, 176);
-  }
-.spinLike img{
-  animation:like-spin 0.3s;
-  color: rgb(108, 14, 176);
+    }
+    to{
+        background-color: #E0E1FF;
+        
+    }
 }
 
+
+.liked{
+    animation: like-button 600ms ease-out;
+    background-color: #E0E1FF;
+}
+
+button#like:active img{
+    animation: likeIcon-move 400ms ease-in;
+}
+
+@keyframes likeIcon-move {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.75)
+    }
+}
 
 .barra-carga{
     background-color: grey;
@@ -676,35 +683,84 @@ nav:hover li img{
     background-color: #C1C3F1;
 }
 
-.add-cart, .play{
+.cart, .play{
     width: 10vw;
     height: 2vh;
     cursor: pointer;
 }
 
-.add-cart{
+.cart{
+    background-color: #FFBAAA;
+    position: relative;
+    overflow: hidden;
+    transition: all 400ms;
+}
+
+button.cart::before{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    content: '';
+    position:absolute;
+    top: 0;
+    left: -20%;
     background-color: #E8F2BE;
+    z-index: 1;
+    transform: scaleX(1.5);
+    transform-origin: left;
+}
+
+button.cart.added::before{
+    animation: add-carro 600ms forwards;
+}
+
+@keyframes add-carro {
+    from{
+        transform: scaleX(1.5);
+    }
+    to{
+        transform: scaleX(0);
+    }
+}
+
+button.cart.removed::before{
+    animation: remove-carro 600ms forwards;
+}
+
+@keyframes remove-carro {
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1.5);
+    }
 }
 
 .play{
     background-color: #C1C3F1;
 }
 
-.carrusel.destacado .play, .carrusel.destacado .add-cart{
+.carrusel.destacado .play, .carrusel.destacado .cart{
     width: 18vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.play img, .add-cart img{
+.play img, .cart img{
+    position: relative;
     width: 3vw;
     height: 1.5vh;
     border-radius: 0px;
     padding-top: 0.2vh;
+    z-index: 2;
 }
 
-.destacado .play img, .destacado .add-cart img{
+.play img, .cart p{
+    z-index: 2;
+}
+
+.destacado .play img, .destacado .cart img{
     width: 4vw;
     height: 1.5vh;
     padding-left: 0vw;
@@ -1273,7 +1329,7 @@ footer .grupo-iconos img{
         font-size: 1vw;
     }
 
-    .carrusel .add-cart img{
+    .carrusel .cart img{
         width: 30px;
         height: 30px;
     }
@@ -1283,11 +1339,11 @@ footer .grupo-iconos img{
         height: 2.5vh;
     }
 
-    .chico.add-cart, .chico.play{
+    .chico.cart, .chico.play{
         margin-right: 10px;
     }
 
-    .carrusel.destacado .largo.play, .carrusel.destacado .largo.add-cart {
+    .carrusel.destacado .largo.play, .carrusel.destacado .largo.cart {
         width: 140px;
         height: 42px;
         justify-content: space-between;
@@ -1301,7 +1357,7 @@ footer .grupo-iconos img{
         height: 30px;
     }
 
-    .carrusel.destacado .add-cart img{
+    .carrusel.destacado .cart img{
         padding-left: 0.25vw;
         padding-right: 0.25vw;
     }

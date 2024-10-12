@@ -75,51 +75,76 @@
             }
         }
     
-        carrusel.setAttribute('data-posicion',`${carruselPos}`);
-    
-        /* animacion con deformacion de rombo skew
-            carrusel.style.transform=`skewX(25deg) scaleY(1.15) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
-            setTimeout(() => {
-                carrusel.style.transform=`skewX(15deg) scaleY(1.075) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
-            }, 10);
-            setTimeout(() => {
-                carrusel.style.transform=`skewX(10deg) scaleY(1.05) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
-            }, 200);
-            setTimeout(() => {
-                carrusel.style.transform=`skewX(5deg) scaleY(1.005) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
-            }, 300);
-            setTimeout(() => {
-                carrusel.style.transform=`skewX(0deg) scaleY(1) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
-            }, 400);
-        */
+        carrusel.setAttribute('data-posicion',`${carruselPos}`);   
        
        /* animacion de scale */
-            carrusel.style.transform=`skewX(10deg) scaleX(1.15) scaleY(1.075) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
+            carrusel.style.transform=`scaleX(1.15) scaleY(1.05) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
 
             setTimeout(() => {
-            carrusel.style.transform=`skewX(5deg) scaleX(1.10) scaleY(1.05) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
+            carrusel.style.transform=`scaleX(1.10) scaleY(1.025) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
             }, 10);
 
             setTimeout(() => {
-                carrusel.style.transform=`skewX(2.5deg) scaleX(1.05) scaleY(1.025) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
+                carrusel.style.transform=`scaleX(1.05) scaleY(1.01) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
             }, 200);
 
             setTimeout(() => {
-                carrusel.style.transform=`skewX(1deg) scaleX(1.02) scaleY(1.01) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
+                carrusel.style.transform=`scaleX(1.02) scaleY(1.005) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
             }, 300);
             
             setTimeout(() => {
-                carrusel.style.transform=`skewX(0deg) scaleX(1) scaleY(1) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
+                carrusel.style.transform=`scaleX(1) scaleY(1) translate(${(carruselPos*desplazamiento)*-1}px, 0px)`;
             }, 400);
         //*/
     }
-    //*/
+//*/
 
-    /** redireccionamiento de botones */
+/* redireccionamiento de botones */
 
-        let button=document.getElementById("cuatro-en-raya");
-        button.addEventListener("click", function () {
-            window.location.href="juego.html";
+    let button=document.getElementById("cuatro-en-raya");
+    button.addEventListener("click", function () {
+        window.location.href="juego.html";
+    });
+
+//*/
+
+/*  animacion boton de carrito */
+
+    document.querySelectorAll('button.cart').forEach(button => {
+        button.addEventListener('click', function() {
+            let buttonImg=this.querySelector("img");
+            let buttonText=this.querySelector("p.cart-text");
+            let hasText=buttonText!=null;
+
+            if(button.getAttribute("data-estado")=="add"){
+                button.setAttribute("data-estado","remove");
+
+                if(button.classList.contains("removed")){
+                    button.classList.remove("removed");
+                }
+                setTimeout(() => {
+                    button.classList.add("added");
+                }, 10);
+
+                buttonImg.src="assets/svg/remove_shopping_cart.svg";
+                if(hasText){
+                    buttonText.innerText="Sacar del carro";
+                }
+
+            }else if(button.getAttribute("data-estado")=="remove"){
+                button.setAttribute("data-estado","add");
+
+                button.classList.remove("added");
+                setTimeout(() => {
+                    button.classList.add("removed");
+                }, 10);
+
+                buttonImg.src="assets/svg/carrito.svg";
+                if(hasText){
+                    buttonText.innerText="Añadir al carro";
+                }
+            }
         });
+    });
 
-    //*/
+//*/
