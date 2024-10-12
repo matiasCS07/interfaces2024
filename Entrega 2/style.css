@@ -204,8 +204,12 @@ a.titulo{
     background-color: #E0E1FF;
 }
 
+button#like{
+    transition: all 1000ms;
+}
+
 button#like:active img{
-    animation: likeIcon-move 400ms ease-in;
+    animation: likeIcon-move 400ms ease-out;
 }
 
 @keyframes likeIcon-move {
@@ -213,7 +217,7 @@ button#like:active img{
         transform: scale(1);
     }
     to{
-        transform: scale(1.75)
+        transform: scale(1.5)
     }
 }
 
