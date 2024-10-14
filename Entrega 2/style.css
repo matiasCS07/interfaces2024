@@ -188,7 +188,7 @@ a.titulo{
 }
 
 .liked{
-    animation: like-button 600ms ease-out;
+    animation: like-button-anim 600ms ease-out;
     background-color: #E0E1FF;
 }
 
@@ -196,7 +196,7 @@ button#like{
     transition: all 1000ms;
 }
 
-@keyframes like-button {
+@keyframes like-button-anim {
     0%{
         transform: translateX(5px);
         background-color: #F9E5E1;
