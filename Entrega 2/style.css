@@ -73,9 +73,6 @@ button.largo{
     width: 30vw;
 }
 
-button.chico{
-
-}
 
 img.logo{
     width: 12vw;
@@ -848,33 +845,33 @@ button.cart.removed::before{
     margin-bottom: 40px;
 }
 
-.tablero{
+#canvas{
     display: flex;
     margin: 30px 22px 0 22px;
-    width: 1300px;
-    height: 800px;
+    /* width: 1300px;
+    height: 800px; */
     background-color: #5271FF;
-}
+} 
 
-.casilleros{
+/* .casilleros{
     width: 754px;
     height: 717px;
     border-radius: 15px;
     margin-top: 37px;
     margin-left: 56px;
     margin-bottom: 47px;
-}
+} */
 
-.datos-juegos{
+/* .datos-juegos{
     width: 490px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
-.jugador{
+/* .jugador{
     width: 339px;
     height: 234px;
     margin-top: 39px;
@@ -883,9 +880,9 @@ button.cart.removed::before{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.jugador div{
+/* .jugador div{
     width: 304px;
     height: 205px;
     border-radius: 15px;
@@ -896,13 +893,13 @@ button.cart.removed::before{
     align-items: center;
     color: white;
     font-weight: 900;
-}
+} */
 
-.jugador div img{
+/* .jugador div img{
     width: 100px;
     height: 100px;
     border-radius: 100%;
-}
+} */
 
 .botones-juegos{
     height: 105px;
