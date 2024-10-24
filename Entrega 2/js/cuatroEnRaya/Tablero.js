@@ -15,7 +15,7 @@ let shapes = [];
 
 // Defino objeto círculo
 let circulo = {
-    x: 200, // Coordenada x del centro del círculo
+    x: 500, // Coordenada x del centro del círculo
     y: 200, // Coordenada y del centro del círculo
     r: 50,  // Radio del círculo
     s: 0,   // Ángulo de inicio en radianes
@@ -52,9 +52,8 @@ let offsetX, offsetY;
 // Función para manejar el evento de mouse down
 let mouse_down = function(event) {
     event.preventDefault();
-    selectedShape = findClickedFigure(event.layerX, event.layerY);
+    selectedShape = findClickedFigure(event.offsetX, event.offsetY);
     if (selectedShape != null) {
-        console.log('entra');
         // Calcula la diferencia entre la posición del mouse y el centro del círculo
         offsetX = event.layerX - selectedShape.x;
         offsetY = event.layerY - selectedShape.y;
