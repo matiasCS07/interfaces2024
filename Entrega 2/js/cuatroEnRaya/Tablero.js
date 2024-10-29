@@ -1,52 +1,73 @@
 class Tablero {
   constructor() {
-    this.canvas = document.getElementById('canvasMain');
-    this.ctx = canvas.getContext('2d');
-    this.tablero = [[],[],[],[],[],[],[],[]];
-    // for (var i = 0; i < 32; i++) {
-    //   new Ficha('j1',i).dibujar(ctx,100,100);
-    // }
+    this.canvas = document.getElementById('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.tablero = [[], [], [], [], [], [], [], []];
     this.startGame();
   }
 
-  startGame(){
-    for (var i = 0; i < this.tablero.length; i++) {
-      for (var j = 0; j < 8; j++) {
-        this.tablero[i][j] = new Ficha('base',i);
+  startGame() {
+    for (let i = 0; i < this.tablero.length; i++) {
+      for (let j = 0; j < 8; j++) {
+        this.tablero[i][j] = new Ficha('base', i);
       }
     }
     this.dibujar();
   }
 
-  dibujar(){
-    ctx.fillStyle = "rgb(54, 54, 54)";
-    ctx.fillRect(220,30,560,560);
+  dibujar() {
+    const canvasWidth = this.canvas.width;
+    const canvasHeight = this.canvas.height;
 
-    for (var i = 0; i < this.tablero.length; i++) {
-      for (var j = 0; j < 8; j++) {
+    // Ajustamos el ancho y alto del rectángulo al 50% y 80% del tamaño del canvas, respectivamente
+    const rectWidth = 0.5 * canvasWidth;
+    const rectHeight = 0.8 * canvasHeight;
 
-        this.tablero[i][j].dibujar(ctx,(255)+(70*i),(590-35)-(70*j));
+    // Calculamos el padding para centrar el rectángulo
+    const paddingX = (canvasWidth - rectWidth) / 2;
+    const paddingY = (canvasHeight - rectHeight) / 2;
+
+    this.ctx.fillStyle = "rgb(54, 54, 54)";
+    this.ctx.fillRect(paddingX, paddingY, rectWidth, rectHeight);
+
+    const numColumns = this.tablero.length;
+    const numRows = 8;
+
+    // Calculamos el ancho y alto de cada celda
+    const cellWidth = rectWidth / numColumns;
+    const cellHeight = rectHeight / numRows;
+
+    for (let i = 0; i < numColumns; i++) {
+      for (let j = 0; j < numRows; j++) {
+        // Calculamos la posición de cada celda, centrando cada ficha dentro de su celda
+        const x = paddingX + (cellWidth * i) + (cellWidth / 2);
+        const y = paddingY + rectHeight - (cellHeight * j) - (cellHeight / 2);
+        
+        this.tablero[i][j].dibujar(this.ctx, x, y, cellWidth, cellHeight);
       }
     }
   }
-
   add(x,ficha){
+
+    // const rectWidth = 0.5 * canvasWidth;
+    // const rectHeight = 0.8 * canvasHeight;
+
     var columna;
-    if (x>220 && x<=290) { // seguro hay alguna manera mejor, pero
+    if (x>640 && x<=690) { // seguro hay alguna manera mejor, pero
       columna = 0;
-    }else if(x>290 && x<=360){
+    }else if(x>690 && x<=740){
       columna = 1;
-    }else if(x>360 && x<=430){
+    }else if(x>740 && x<=790){
       columna = 2;
-    }else if(x>430 && x<=500){
+    }else if(x>790 && x<=840){
       columna = 3;
-    }else if(x>500 && x<=570){
+    }else if(x>840 && x<=890){
       columna = 4;
-    }else if(x>570 && x<=640){
+    }else if(x>890 && x<=940){
       columna = 5;
-    }else if(x>640 && x<=710){
+    }else if(x>940 && x<=990){
       columna = 6;
-    }else if(x>710&& x<=780){
+    }else if(x>990 && x<=1040){
       columna = 7;
     }else{
       return false;
@@ -60,7 +81,6 @@ class Tablero {
     }
     return false;
   }
-
   gane(ultimo){
     var fichasGanadoras = [];
     var actual;

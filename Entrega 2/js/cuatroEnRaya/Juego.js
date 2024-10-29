@@ -1,11 +1,10 @@
-var canvas = document.getElementById('canvasMain');
+var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var clicked = false;
 var tablero = new Tablero();
 var j1 = new Jugador('j1');
 var j2 = new Jugador('j2');
 var jugadorActual = j1;
-document.getElementById('J1').style.color = "#1a943f";
 var fichaActual;
 
 setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 2000);// cargarn la primera ficha, por un bug del onload
@@ -26,6 +25,7 @@ canvas.onmousemove = function (e){
   }
 }
 canvas.onmousedown = function(e){
+  console.log(e.clientX);
   if (canGetFicha(jugadorActual.getNombre(),(e.clientX-canvas.getBoundingClientRect().left),(e.clientY - canvas.getBoundingClientRect().top))) {
     // console.log(jugadorActual.getCantFichas());
     clicked = true;

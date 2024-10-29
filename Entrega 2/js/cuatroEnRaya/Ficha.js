@@ -1,15 +1,15 @@
 class Ficha {
   constructor(jugador,id) {
-    this.canvas = document.getElementById('canvasMain');
+    this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio = 30;
     this.id = id;
     this.ruta="";
     if (jugador == 'j1') {
-      this.ruta = "./img/imagen_jugador1.png";
+      this.ruta = "././assets/img/ficha-spider.png";
     }else if (jugador == 'j2') {
-      this.ruta = "./img/imagen_jugador2.png";
+      this.ruta = "././assets/img/ficha-duende.png";
     }
     this.color = "rgb(29, 29, 29)";
     // this.pintar(document.getElementById('canvasMain').getContext('2d'),50,50

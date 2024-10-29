@@ -1,6 +1,6 @@
 class Jugador {
   constructor(jugador) {
-    this.canvas = document.getElementById('canvasMain');
+    this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.fichas = [];
