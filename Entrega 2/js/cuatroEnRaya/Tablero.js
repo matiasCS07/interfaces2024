@@ -1,95 +1,149 @@
-// Defino el canvas y el context
-let canvas = document.getElementById("canvas");
-let context = canvas.getContext("2d");
+class Tablero {
+  constructor() {
+    this.canvas = document.getElementById('canvasMain');
+    this.ctx = canvas.getContext('2d');
+    this.tablero = [[],[],[],[],[],[],[],[]];
+    // for (var i = 0; i < 32; i++) {
+    //   new Ficha('j1',i).dibujar(ctx,100,100);
+    // }
+    this.startGame();
+  }
 
-// Defino alto y ancho del canvas
-canvas.width = 1300;
-canvas.height = 800;
-
-
-
-let canvas_width = canvas.width;
-let canvas_height = canvas.height;
-
-let shapes = [];
-
-// Defino objeto círculo
-let circulo = {
-    x: 500, // Coordenada x del centro del círculo
-    y: 200, // Coordenada y del centro del círculo
-    r: 50,  // Radio del círculo
-    s: 0,   // Ángulo de inicio en radianes
-    e: 2 * Math.PI, // Ángulo final en radianes
-    color: 'blue',
-    isPointInside: function(x, y) {
-        let _x = this.x - x;
-        let _y = this.y - y;
-        return Math.sqrt(_x * _x + _y * _y) < this.r;
+  startGame(){
+    for (var i = 0; i < this.tablero.length; i++) {
+      for (var j = 0; j < 8; j++) {
+        this.tablero[i][j] = new Ficha('base',i);
+      }
     }
-}
+    this.dibujar();
+  }
 
-shapes.push(circulo);
+  dibujar(){
+    ctx.fillStyle = "rgb(54, 54, 54)";
+    ctx.fillRect(220,30,560,560);
 
-// Función que dibuja
-let draw = function() {
-    // Limpia la pantalla
-    context.clearRect(0, 0, canvas_width, canvas_height);
-    for (let shape of shapes) {
-        context.beginPath();
-        context.arc(shape.x, shape.y, shape.r, shape.s, shape.e);
-        context.fillStyle = shape.color;
-        context.fill();
-        context.closePath();
+    for (var i = 0; i < this.tablero.length; i++) {
+      for (var j = 0; j < 8; j++) {
+
+        this.tablero[i][j].dibujar(ctx,(255)+(70*i),(590-35)-(70*j));
+      }
     }
-}
-draw();
+  }
 
-// Variables para arrastrar
-let isDragging = false;
-let selectedShape = null;
-let offsetX, offsetY;
-
-// Función para manejar el evento de mouse down
-let mouse_down = function(event) {
-    event.preventDefault();
-    selectedShape = findClickedFigure(event.offsetX, event.offsetY);
-    if (selectedShape != null) {
-        // Calcula la diferencia entre la posición del mouse y el centro del círculo
-        offsetX = event.layerX - selectedShape.x;
-        offsetY = event.layerY - selectedShape.y;
-        isDragging = true;
-        canvas.onmousemove = mouse_move; // Activa el arrastre
+  add(x,ficha){
+    var columna;
+    if (x>220 && x<=290) { // seguro hay alguna manera mejor, pero
+      columna = 0;
+    }else if(x>290 && x<=360){
+      columna = 1;
+    }else if(x>360 && x<=430){
+      columna = 2;
+    }else if(x>430 && x<=500){
+      columna = 3;
+    }else if(x>500 && x<=570){
+      columna = 4;
+    }else if(x>570 && x<=640){
+      columna = 5;
+    }else if(x>640 && x<=710){
+      columna = 6;
+    }else if(x>710&& x<=780){
+      columna = 7;
+    }else{
+      return false;
     }
-}
 
-// Función para manejar el arrastre
-let mouse_move = function(event) {
-    if (isDragging && selectedShape != null) {
-        // Actualiza la posición del círculo mientras arrastras
-        selectedShape.x = event.layerX - offsetX;
-        selectedShape.y = event.layerY - offsetY;
-        draw(); // Vuelve a dibujar el canvas con el círculo en la nueva posición
+    for (var i = 0; i < this.tablero.length; i++) {
+      if (this.tablero[columna][i].getNombre() == 'base') {
+        this.tablero[columna][i] = ficha;
+        return true;
+      }
     }
-}
+    return false;
+  }
 
-// Función para manejar el evento de mouse up (soltar)
-let mouse_up = function(event) {
-    isDragging = false;
-    selectedShape = null;
-    canvas.onmousemove = null; // Desactiva el arrastre
-}
+  gane(ultimo){
+    var fichasGanadoras = [];
+    var actual;
+    var verticalActual;
+    var horizontalActual;
 
-// Asigna los eventos al canvas
-canvas.onmousedown = mouse_down;
-canvas.onmouseup = mouse_up;
+    for (var i = 0; i < this.tablero.length; i++) {
+      for (var j = 0; j < 8; j++) {
+        if (ultimo.getNombre() == this.tablero[i][j].getNombre()) { // si estoy parado en una ficha del tipo q quiero buscar
+          //--Validacion vertical --//
+          actual = this.tablero[i][j];
+          fichasGanadoras.push(actual);
+          verticalActual = j;
 
-// Función que verifica si el punto está dentro del círculo
-function findClickedFigure(x, y) {
-    for (let index = 0; index < shapes.length; index++) {
-        let elem = shapes[index];
-        if (elem.isPointInside(x, y)) {
-            return elem;
+          if ((verticalActual+1) < 7) {
+            while(actual.getNombre()==this.tablero[i][verticalActual+1].getNombre()){
+              verticalActual++;
+              fichasGanadoras.push(this.tablero[i][verticalActual]);
+              if (fichasGanadoras.length == 4) {
+                return fichasGanadoras;
+              }
+              actual = this.tablero[i][verticalActual];
+            }
+          }
+          fichasGanadoras = [];
+          //no encontro nada verticalmente
+
+          //--Validacion Horizontal --//
+          actual = this.tablero[i][j];
+          fichasGanadoras.push(actual);
+          horizontalActual = i;
+
+          while(((horizontalActual+1) < 8) && actual.getNombre()==this.tablero[horizontalActual+1][j].getNombre()){
+            horizontalActual++;
+            fichasGanadoras.push(this.tablero[horizontalActual][j]);
+            if (fichasGanadoras.length == 4) {
+              return fichasGanadoras;
+            }
+            actual = this.tablero[horizontalActual][j];
+          }
+          fichasGanadoras = [];
+          //no encontro nada horizontalmente
+
+
+          //--Validacion diagonal arriba --//
+          actual = this.tablero[i][j];
+          fichasGanadoras.push(actual);
+          horizontalActual = i;
+          verticalActual = j;
+
+          while((((horizontalActual+1) < 8) && ((verticalActual+1) < 8))&&actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].getNombre()){
+            horizontalActual++;
+            verticalActual++;
+            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual]);
+            if (fichasGanadoras.length == 4) {
+              return fichasGanadoras;
+            }
+            actual = this.tablero[horizontalActual][verticalActual];
+          }
+          fichasGanadoras = [];
+          //no encontro nada en diagonal arriba
+
+          //--Validacion diagonal abajo --//
+          actual = this.tablero[i][j];
+          fichasGanadoras.push(actual);
+          horizontalActual = i;
+          verticalActual = j;
+
+          while((((horizontalActual+1) < 8) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].getNombre()){
+            horizontalActual++;
+            verticalActual--;
+            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual]);
+            if (fichasGanadoras.length == 4) {
+              return fichasGanadoras;
+            }
+            actual = this.tablero[horizontalActual][verticalActual];
+          }
+          fichasGanadoras = [];
+          //no encontro nada en diagonal arriba
+
         }
+      }
     }
-    return null;
+    return fichasGanadoras;
+  }
 }
