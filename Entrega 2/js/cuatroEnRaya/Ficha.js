@@ -39,11 +39,11 @@ class Ficha {
     this.color = "rgb(204, 215, 4)";
   }
 
-  start(ctx,posX,posY){
-    var img = new Image();
-    img.src = this.ruta;
-    img.onload = function() {
-      ctx.drawImage(img,posX-this.radio,posY-this.radio,60,60);
-    }
-  }
+  // start(ctx,posX,posY){
+  //   var img = new Image();
+  //   img.src = this.ruta;
+  //   img.onload = function() {
+  //     ctx.drawImage(img,posX-this.radio,posY-this.radio,60,60);
+  //   }
+  // }
 }
