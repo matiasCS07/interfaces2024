@@ -22,17 +22,7 @@ class Tablero {
     this.tablero =  this.crearMatriz(filas, columnas);;
     this.filas=filas;
     this.columnas=columnas;
-    this.altoTablero=altoTablero;
-    this.anchoTablero=anchoTablero;
-    this.anchoCelda=this.anchoTablero/this.filas;
-    //console.log(this.anchoCelda);
-    this.altoCelda=this.altoTablero/this.columnas;
-    //console.log(this.altoCelda);
-    this.areaFicha=this.anchoCelda*this.altoCelda;
-    this.margen= margen;
-    // Centrar el tablero
-    this.xOffset = this.anchoTablero-this.anchoCelda*this.columnas;
-    this.yOffset = this.altoTablero-this.altoCelda*this.filas;
+   
     //console.log(this.xOffset);
     //console.log(this.yOffset);
     console.log(this.tablero);
@@ -80,6 +70,10 @@ class Tablero {
       }
     }
   }
+  getRectWidth(){
+    return rectWidth;
+  }
+  getRectHei
   add(x,ficha){
 
     const canvasWidth = this.canvas.width;
@@ -95,31 +89,11 @@ class Tablero {
     let columna=0;
     let j=0;
     while(columna<this.columnas-1 && !(x>paddingX+j*cellWidth && x<=paddingX+(j+1)*cellWidth)){
-      //console.log("aca");
       columna++;
       j++;
     }
     
-    // if (x>paddingX && x<=paddingX+cellWidth) { // seguro hay alguna manera mejor, pero
-    //   columna = 0;
-    // }else if(x>paddingX+cellWidth && x<=paddingX+2*cellWidth){
-    //   columna = 1;
-    // }else if(x>paddingX+2*cellWidth && x<=paddingX+3*cellWidth){
-    //   columna = 2;
-    // }else if(x>paddingX+3*cellWidth && x<=paddingX+4*cellWidth){
-    //   columna = 3;
-    // }else if(x>paddingX+4*cellWidth && x<=paddingX+5*cellWidth){
-    //   columna = 4;
-    // }else if(x>paddingX+5*cellWidth && x<=paddingX+6*cellWidth){
-    //   columna = 5;
-    // }else if(x>paddingX+6*cellWidth && x<=paddingX+7*cellWidth){
-    //   columna = 6;
-    // }else if(x>paddingX+8*cellWidth && x<=paddingX+9*cellWidth){
-    //   columna = 7;
-    // }else{
-    //   return false;
-    // }
-
+    
     for (let i = 0; i < this.tablero.length; i++) {
       if (this.tablero[columna][i].ficha.getNombre() == 'base') {
         this.tablero[columna][i].ficha = ficha;
@@ -206,7 +180,7 @@ class Tablero {
   }
   validacionHorizontal(horizontalActual, actual, j, fichasGanadoras){
     
-  
+    console.log(j);
     while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
@@ -230,5 +204,16 @@ class Tablero {
     }
     return fichasGanadoras;
   }
+//   caidaDeFicha(ficha, x){
+  
+//     let y=0;
+//     let dy=2;
+     
+//      while(y <= this.canvas.height){
+//        y += dy;
+//        ficha.dibujar(ctx, x, y);
+//      }
+ 
+//  }
 
 }

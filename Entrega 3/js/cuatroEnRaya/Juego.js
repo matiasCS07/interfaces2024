@@ -6,7 +6,7 @@ const columnas = 7;
 const anchoTablero=747;
 const altoTablero=714;
 const margen=0;
-const cantFichasGan=2;
+const cantFichasGan=4;
 tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
 var j1 = new Jugador('j1');
 var j2 = new Jugador('j2');
@@ -21,8 +21,6 @@ canvas.onmousemove = function (e){
   if (clicked) {
     var x = e.clientX - canvas.getBoundingClientRect().left;
     var y = e.clientY - canvas.getBoundingClientRect().top;
-
-
     ctx.clearRect(0,0,canvas.width,canvas.height);
     tablero.dibujar();
     fichaActual.dibujar(ctx,x,y);
@@ -37,15 +35,47 @@ canvas.onmousedown = function(e){
     clicked = true;
     fichaActual = jugadorActual.getFicha();
   }
+  
+}
+function caidaDeFicha(ficha, x) {
+  let y = 0;
+  let dy = 2;
+  function animar() {
+      let rectHeight= 0.8 * this.canvas.height;
+      //borro todo para que no se vea la ficha anterior
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+       // dibujo el tablero nuevamente
+      tablero.dibujar();
+      // Dibujar la ficha en la nueva posición
+      ficha.dibujar(ctx, x, y);
+      //vuelvo a dibujar las fichas de los jugadores
+      j1.pintar(jugadorActual.getNombre());
+      j2.pintar(jugadorActual.getNombre());
+      // Actualizar la posición
+      y += dy;
+      // Si la ficha no ha llegado al suelo, solicitar el siguiente frame
+      if (y < rectHeight+40) {
+          requestAnimationFrame(animar);
+      } else {
+        // si la ficha ya llego al final, borro el tablero y lo dibujo nuevamente
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // dibujo el tablero nuevamente
+        tablero.dibujar();
+        //vuelvo a dibujar las fichas de los jugadores
+        j1.pintar(jugadorActual.getNombre());
+        j2.pintar(jugadorActual.getNombre());
+      } 
+  }
+  animar();
 }
 canvas.onmouseup = function(e){
   if(clicked){
-    if (tablero.add((e.clientX - canvas.getBoundingClientRect().left),fichaActual)) {
+    if (tablero.add((e.clientX - canvas.getBoundingClientRect().left),fichaActual)) {   
       ctx.clearRect(0,0,canvas.width,canvas.height);
       j1.pintar(jugadorActual.getNombre());
       j2.pintar(jugadorActual.getNombre());
       clicked = false;
-      var ganador = tablero.gane(fichaActual);
+      var ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
       if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
         for (var i = 0; i < ganador.length; i++) {
           ganador[i].ganadora();
@@ -80,4 +110,5 @@ function canGetFicha(jugador,x,y){
   }else{
     return false;
   }
+  
 }

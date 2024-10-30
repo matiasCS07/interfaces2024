@@ -57,4 +57,6 @@ class Jugador {
       document.getElementById('J1').style.color = 'white';
     }
   }
+
+  
 }
