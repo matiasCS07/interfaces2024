@@ -13,8 +13,8 @@ var j2 = new Jugador('j2');
 var jugadorActual = j1;
 var fichaActual;
 
-setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 2000);// cargarn la primera ficha, por un bug del onload
-setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 2000);// cargarn la primera ficha, por un bug del onload
+setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
+setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 
 canvas.onmousemove = function (e){
   // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));

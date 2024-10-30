@@ -161,7 +161,7 @@ class Tablero {
           horizontalActual = i;
           verticalActual = j;
 
-          while((((horizontalActual+1) < this.columnas) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].ficha.getNombre()){
+          while((((horizontalActual+1) < this.columnas-1) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].ficha.getNombre()){
             horizontalActual++;
             verticalActual--;
             fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
@@ -181,7 +181,7 @@ class Tablero {
   validacionHorizontal(horizontalActual, actual, j, fichasGanadoras){
     
     console.log(j);
-    while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
+    while(((horizontalActual+1) < this.columnas-1) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
       if (fichasGanadoras.length == this.cantFichasGan) {
@@ -193,7 +193,7 @@ class Tablero {
   }
 
   validacionDiagonalArriba(horizontalActual, verticalActual, actual, fichasGanadoras){
-    while((((horizontalActual+1) < this.columnas) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
+    while((((horizontalActual+1) < this.columnas-1) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
       horizontalActual++;
       verticalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
