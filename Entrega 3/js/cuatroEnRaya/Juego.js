@@ -1,3 +1,12 @@
+document.getElementById("btn-jugar").addEventListener("click", function(){
+  document.getElementById("menu-inicio").style.opacity="0";
+  setTimeout(() => {
+    document.getElementById("menu-inicio").style.display="none";
+  }, 400);
+
+
+})
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let clicked = false;
@@ -28,6 +37,7 @@ canvas.onmousemove = function (e){
     j2.pintar(jugadorActual.getNombre());
   }
 }
+
 canvas.onmousedown = function(e){
   //console.log(e.clientX);
   if (canGetFicha(jugadorActual.getNombre(),(e.clientX-canvas.getBoundingClientRect().left),(e.clientY - canvas.getBoundingClientRect().top))) {
@@ -37,6 +47,8 @@ canvas.onmousedown = function(e){
   }
   
 }
+
+
 function caidaDeFicha(ficha, x) {
   let y = 0;
   let dy = 2;
