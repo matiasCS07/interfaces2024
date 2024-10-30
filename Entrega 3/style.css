@@ -901,13 +901,27 @@ button.cart.removed::before{
     border-radius: 100%;
 } */
 
+.container-btn-titulo{
+    display: flex;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-btn-titulo h1{
+    color: white;
+    width: inherit;
+    margin-left: 5%;
+}
+
 .botones-juegos{
     height: 105px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 18%;
+    margin-right: 5%;
 }
 
 .botones-juegos button{
@@ -923,8 +937,8 @@ button.cart.removed::before{
 
 .breadcrumbs{
     display: flex;
-    margin-top: 36px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: 35px;
 }
 
