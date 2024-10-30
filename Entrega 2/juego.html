@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PixelPlay</title>
+</head>
+<body>
+    <section class="header">
+        <div class="menu-hamburguesa">
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="assets\svg\menu-hamburguesa.svg" alt="menu hambuerguesa">
+            </label>
+            <div class="menu-desplegado">
+                <div>
+                    <a href="index.html" 
+                        style="display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        align-items: center;"
+                        >
+                        <img src="assets/svg/logout.svg"> 
+                        <h3>Log out</h3>
+                    </a>
+                </div>
+                <div>
+                    <img src="assets/svg/user.svg">
+                    <h3>Perfil</h3>
+                </div>
+                <h2>- Nuestras Redes -</h2>
+
+                <div>
+                    <img src="assets/svg/facebook blanco y negro.svg">
+                    <h3>Facebook</h3>
+                </div>
+
+                <div>
+                    <img src="assets/svg/twitter bnw.svg">
+                    <h3>Twitter</h3>
+                </div>
+
+                <div>   
+                    <img src="assets/svg/ig bnw.svg">
+                    <h3>Instagram</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <img src="assets/img/logo.png" alt="logo del sitio" class="logo">
+            <a href="home.html" class="titulo">
+                <h1>PixelPlay</h1>
+            </a>
+        </div>
+
+        <div class="carrito">
+            <img src="assets\svg\carrito-normal.svg" alt="carrito">
+        </div>
+    </section>
+
+    <section class="container juego">
+        <nav>
+            <ul>
+                <li>
+                    <img src="assets\svg\home.svg" alt="icono home">
+                    <h2>Home</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/deporte.svg" alt="icono deporte">
+                    <h2>Deporte</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/arcade.svg" alt="icono arcade">
+                    <h2>Arcade</h2>
+                </li>
+    
+                <li>
+                    <img src="assets\svg\estrategia.svg" alt="icono estrategia">
+                    <h2>Estrategia</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/bowling.svg" alt="icono de mesa">
+                    <h2>De Mesa</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/runner.svg" alt="icono runner">
+                    <h2>Runners</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/familia.svg" alt="icono familia">
+                    <h2>Familiares</h2>
+                </li>
+    
+                <li>
+                    <img src="assets\svg\castillo.svg" alt="icono plataformas">
+                    <h2>Plataformas</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/piano.svg" alt="icono de musica">
+                    <h2>Música</h2>
+                </li>
+    
+                <li>
+                    <img src="assets/svg/planeta.svg" alt="icono simulacion">
+                    <h2>Simulación</h2>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="breadcrumbs">
+            <a href="home.html"><h3>Jugados recientemente</h3></a>
+            <h3>> De mesa > 4 en raya</h3>
+        </div>
+
+        <section class="juego-container">
+            <h1 style="width: -webkit-fill-available; margin-left: 35px;">Cuatro en raya</h1>
+
+            <section class="pantalla">
+                <div class="tablero">
+                    <div class="casilleros">
+                        <img src="assets/img/img-casilleros.png" alt="casilleros">
+                    </div>
+                    <div class="datos-juegos">
+                        <div class="jugador">
+                            <div>
+                                <h1>Tu turno:</h1>
+                                <img src="assets/img/ficha spider.jpeg">
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; margin-bottom: 191px;">
+                            <button style="margin-bottom: 34px;">Reglas</button>
+                            <button>Ayuda</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="botones-juegos">
+                    <button id="like" data-liked=false>
+                        <img src="assets/svg/thumb_up.svg">
+                        Me gusta
+                    </button>
+                    <button popovertarget="compartir-container">
+                        <img src="assets/svg/share.svg">
+                        Compartir
+                    </button>
+                </div>
+            </section>
+
+            <section class="descripcion-juego">
+                <div>
+                    <h3>Descripcion</h3>
+                    <p>
+                        ¡La batalla por Nueva York está a punto de comenzar! En este emocionante juego de 4 en Raya, los icónicos personajes Spiderman y Duende Verde se enfrentan en una lucha estratégica por el control de la ciudad. Cada jugador toma el rol de su héroe o villano favorito, utilizando sus fichas temáticas para crear una línea de cuatro y reclamar la victoria.
+Elige entre Spiderman o el Duende Verde y planifica cada movimiento con precisión. Coloca tus fichas en el tablero para formar una fila de 4 en horizontal, vertical o diagonal antes que tu oponente.
+
+¿Tienes lo que se necesita para ser más astuto que el Duende Verde o vencer a Spiderman en su propio terreno? ¡Enfréntate a tu oponente en este duelo de ingenio y estrategia!
+                    </p>
+                </div>
+
+                <div class="capturas-juego">
+                    <h3>Capturas del juego</h3>
+                    <div style="overflow-x: hidden;;">
+                        <div class="carrusel-capturas" data-posicion="0">
+                            <img src="assets/img/captura 1.png">
+                            <img src="assets/img/captura 2.png">
+                            <img src="assets/img/captura 3.png">
+                            <img src="assets/img/duendeVsSpider.jpg">
+                            <img src="assets/img/duendeVsSpider2.jpg">
+                            <img src="assets/img/duendeVsSpider3.jpg">
+                            <img src="assets/img/duendeVsSpider4.jpg">
+                        </div>
+                        <div class="btns-desplazamiento">
+                            <button class="prev">
+                                <img src="assets/svg/flecha-izq.svg">
+                            </button>
+                            <button class="next">
+                                <img src="assets/svg/flecha-der.svg">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controles-juego">
+                    <h3>Controles</h3>
+                    <p>
+                        Clic para seleccionar columna: Usa el ratón para mover el cursor sobre las columnas del tablero. Cuando hayas decidido en qué columna colocar tu ficha, haz un clic izquierdo en la parte superior de la columna elegida.
+                        Toque táctil (en dispositivos móviles o tabletas): Si juegas en un dispositivo con pantalla táctil, simplemente toca la columna en la que quieres dejar tu ficha.
+                    </p>
+                </div>
+                
+            </section>
+
+            <section class="comentarios-container">
+
+                <div class="comentario nuevo">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">Tú</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p style="opacity: 0.5;">
+                            Escribe tu comentario...
+                        </p>
+                    </div>
+                    <div style="display: flex; flex-direction: row-reverse;">
+                        <button class="chico" style="margin-right: 25px;"><img src="assets/svg/lapiz.svg" alt="publicar"></button>
+                    </div>
+                </div>
+
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@carlosM123</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Es un clásico, pero la opción online lo hace mucho más entretenido. Me encanta poder jugar con amigos aunque estemos lejos. ¡Super recomendable!
+                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>12 de septiembre de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@mariP</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Es divertido para pasar el rato, pero creo que la IA en modo difícil es demasiado predecible. Sería genial que le subieran un poco la dificultad.
+                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>25 de agosto de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@cjuanita_rock</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Me gusta la simplicidad, pero me gustaría ver más variantes o modos de juego diferentes. A veces se vuelve repetitivo.                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>5 de octubre de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@sofi_lol</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            ¡Adoro el modo multijugador! Es increíble que no tenga lag y todo funciona rápido. No es el juego más complejo, pero es muy adictivo                        
+                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>18 de julio de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@pedro_snake</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Está bien para los más chicos. Yo me cansé después de unas cuantas partidas, pero mi hijo lo juega todo el día. Cumple con su propósito.                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>3 de junio de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@valeryT89</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Un juego sencillo y rápido. Perfecto para cuando tienes unos minutos libres. Me gustaría que tuviera más opciones de personalización de tableros.                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>9 de septiembre de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@roboGamer</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            La interfaz es muy intuitiva y es fácil encontrar oponentes. Ideal para jugar con amigos en línea. ¡Lo recomiendo para esos momentos de ocio!                        
+                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>21 de agosto de 2023</p>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <div class="comentario-user">
+                        <img src="assets/img/logo-usuario.png" alt="user">
+                        <p class="body2">@andyFun3000</p>
+                    </div>
+                    <div class="comentario-contenido">
+                        <p>
+                            Me encanta, pero podría ser más desafiante. Es perfecto para partidas rápidas, pero se siente igual después de un tiempo. Espero ver nuevas actualizaciones.                        
+                        </p>
+                    </div>
+                    <div class="fecha-comentario">
+                        <p>30 de septiembre de 2023</p>
+                    </div>
+                </div>
+                <p style="opacity: 0.5;">Ver más comentarios</p>
+            </section>
+
+            <section popover id="compartir-container">
+                <h2>Compartir</h2>
+
+                <div class="grupo-iconos">
+                    <div>
+                        <img src="assets/svg/icono-facebook-color.svg">
+                        <p class="body2">Facebook</p>
+                    </div>
+
+                    <div>
+                        <img src="assets/svg/icono-gmail-color.svg">
+                        <p class="body2">Gmail</p>
+                    </div>
+                    <div>
+                        <img src="assets/svg/icono-sms-color.svg">
+                        <p class="body2">Sms</p>
+                    </div>
+                    <div>
+                        <img src="assets/svg/icono-twitter-color.svg">
+                        <p class="body2">Twitter</p>
+                    </div>
+                    <div>
+                        <img src="assets/svg/icono-reddit-color.svg">
+                        <p class="body2">Reddit</p>
+                    </div>
+                </div>
+                
+                <div class="compartir-barra">
+                    <p class="body2">www.pixelplay.com/games/cuatro-en-raya</p>
+                    <button>Copiar</button>
+                </div>
+
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <div class="descripcion">
+            <h3>
+                PixelPlay te ofrece una gran variedad de minijuegos gratuitos para disfrutar en línea, desde clásicos retro hasta nuevas aventuras emocionantes. Con acceso instantáneo en cualquier dispositivo y sin la necesidad de descargar nada, podrás jugar desde donde quieras. Únete a nuestra comunidad de jugadores, compite para desbloquear logros y enfrenta a amigos o jugadores de todo el mundo en retos y torneos. ¡La diversión nunca se detiene con PixelPlay, tu destino para horas de entretenimiento sin límites!
+            </h3>
+            <div>
+                <img src="assets/img/logo.png" alt="logo del sitio" class="logo">
+                <a href="home.html" class="titulo">
+                    <h1>PixelPlay</h1>
+                </a>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <h2>Navegación</h2>
+                <h3>Popular</h3>
+                <h3>Destacado</h3>
+                <h3>Agregados ultimamente</h3>
+                <h3>Top juegos historicos</h3>
+                <h3>Con conexión a Twitch</h3>
+                <h3>Más visitados</h3>
+            </li>
+            <li>
+                <h2>Categorías</h2>
+                <h3>Deportes</h3>
+                <h3>Estrategia</h3>
+                <h3>Bichos</h3>
+                <h3>Acción</h3>
+                <h3>Aventura</h3>
+                <h3>De mesa</h3>
+            </li>
+            <li>
+                <h2>Contactanos</h2>
+                <h3>Youtube</h3>
+                <h3>Facebook</h3>
+                <h3>Twitter</h3>
+                <h3>TikTok</h3>
+                <h3>Twitch</h3>
+                <h3>Reddit</h3>
+            </li>
+            <li>
+                <h2>Sobre nosotros</h2>
+                <h3>Ayuda</h3>
+                <h3>Términos y privacidad</h3>
+                <h3>Escríbenos</h3>
+                <h3>Nuestra historia</h3>
+                <h3>Conoce al equipo</h3>
+                <h3>Prensa y reconocimientos</h3>
+            </li>
+            <li>
+                <h2>Cuenta</h2>
+                <h3>Cambiar cuenta</h3>
+                <h3>Tus favoritos</h3>
+                <h3>Historial</h3>
+                <h3>Configuración y privacidad</h3>
+                <h3>Notificaciones y alertas</h3>
+                <h3>Métodos de pago</h3>
+            </li>
+        </ul>
+
+        <div class="iconos-footer">
+            <div class="suscribe-input">
+                <input type="email" name="search" placeholder="Ingresa tu email">
+                <button>Suscribete</button>
+            </div>
+            <div class="grupo-iconos">
+                <img src="assets/svg/icono-facebook-color.svg">
+                <img src="assets/svg/icono-gmail-color.svg">
+                <img src="assets/svg/icono-sms-color.svg">
+                <img src="assets/svg/icono-twitter-color.svg">
+                <img src="assets/svg/icono-reddit-color.svg">
+            </div>
+        </div>
+        <div class="fondo-footer">
+            <p>Copyright © 2024 TUDAI - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="scriptJuego.js"></script>
+</body>
+</html>
