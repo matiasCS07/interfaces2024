@@ -92,28 +92,36 @@ class Tablero {
     const numColumns = this.tablero.length;
     const cellWidth = rectWidth / numColumns;
 
-    var columna;
-    if (x>paddingX && x<=paddingX+cellWidth) { // seguro hay alguna manera mejor, pero
-      columna = 0;
-    }else if(x>paddingX+cellWidth && x<=paddingX+2*cellWidth){
-      columna = 1;
-    }else if(x>paddingX+2*cellWidth && x<=paddingX+3*cellWidth){
-      columna = 2;
-    }else if(x>paddingX+3*cellWidth && x<=paddingX+4*cellWidth){
-      columna = 3;
-    }else if(x>paddingX+4*cellWidth && x<=paddingX+5*cellWidth){
-      columna = 4;
-    }else if(x>paddingX+5*cellWidth && x<=paddingX+6*cellWidth){
-      columna = 5;
-    }else if(x>paddingX+6*cellWidth && x<=paddingX+7*cellWidth){
-      columna = 6;
-    }else if(x>paddingX+8*cellWidth && x<=paddingX+9*cellWidth){
-      columna = 7;
-    }else{
-      return false;
+    let columna=0;
+    let j=0;
+    while(columna<this.columnas-1 && !(x>paddingX+j*cellWidth && x<=paddingX+(j+1)*cellWidth)){
+      //console.log("aca");
+      columna++;
+      j++;
     }
-
-    for (var i = 0; i < this.tablero.length; i++) {
+    
+    // if (x>paddingX && x<=paddingX+cellWidth) { // seguro hay alguna manera mejor, pero
+    //   columna = 0;
+    // }else if(x>paddingX+cellWidth && x<=paddingX+2*cellWidth){
+    //   columna = 1;
+    // }else if(x>paddingX+2*cellWidth && x<=paddingX+3*cellWidth){
+    //   columna = 2;
+    // }else if(x>paddingX+3*cellWidth && x<=paddingX+4*cellWidth){
+    //   columna = 3;
+    // }else if(x>paddingX+4*cellWidth && x<=paddingX+5*cellWidth){
+    //   columna = 4;
+    // }else if(x>paddingX+5*cellWidth && x<=paddingX+6*cellWidth){
+    //   columna = 5;
+    // }else if(x>paddingX+6*cellWidth && x<=paddingX+7*cellWidth){
+    //   columna = 6;
+    // }else if(x>paddingX+8*cellWidth && x<=paddingX+9*cellWidth){
+    //   columna = 7;
+    // }else{
+    //   return false;
+    // }
+    console.log(columna);
+    console.log(this.tablero[columna][0].ficha.getNombre())
+    for (let i = 0; i < this.tablero.length; i++) {
       if (this.tablero[columna][i].ficha.getNombre() == 'base') {
         this.tablero[columna][i].ficha = ficha;
         return true;
@@ -166,15 +174,11 @@ class Tablero {
           fichasGanadoras.push(actual);
           horizontalActual = i;
           verticalActual = j;
-          while((((horizontalActual+1) < this.columnas) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
-            horizontalActual++;
-            verticalActual++;
-            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
-            if (fichasGanadoras.length == 4) {
-              return fichasGanadoras;
-            }
-            actual = this.tablero[horizontalActual][verticalActual].ficha;
+          fichasGanadoras=this.validacionDiagonalArriba(horizontalActual, verticalActual, actual, fichasGanadoras);
+          if(fichasGanadoras.length==4){
+            return fichasGanadoras;
           }
+       
           fichasGanadoras = [];
           //no encontro nada en diagonal arriba
 
@@ -207,14 +211,23 @@ class Tablero {
     while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
-      console.log('largo de fichas ganadoras '+fichasGanadoras.length);
       if (fichasGanadoras.length == 4) {
         return fichasGanadoras;
       }
       actual = this.tablero[horizontalActual][j].ficha; 
-      console.log(horizontalActual);
-      console.log(actual);
-      console.log(j);
+    }
+    return fichasGanadoras;
+  }
+
+  validacionDiagonalArriba(horizontalActual, verticalActual, actual, fichasGanadoras){
+    while((((horizontalActual+1) < this.columnas) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
+      horizontalActual++;
+      verticalActual++;
+      fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
+      if (fichasGanadoras.length == 4) {
+        return fichasGanadoras;
+      }
+      actual = this.tablero[horizontalActual][verticalActual].ficha;
     }
     return fichasGanadoras;
   }
