@@ -82,25 +82,32 @@ class Tablero {
   }
   add(x,ficha){
 
-    // const rectWidth = 0.5 * canvasWidth;
-    // const rectHeight = 0.8 * canvasHeight;
+    const canvasWidth = this.canvas.width;
+    const rectWidth = 0.5 * canvasWidth;
+    //const rectHeight = 0.8 * canvasHeight;
+
+    //donde comienza el tablero o col 0
+    const paddingX = (canvasWidth - rectWidth) / 2;
+
+    const numColumns = this.tablero.length;
+    const cellWidth = rectWidth / numColumns;
 
     var columna;
-    if (x>640 && x<=690) { // seguro hay alguna manera mejor, pero
+    if (x>paddingX && x<=paddingX+cellWidth) { // seguro hay alguna manera mejor, pero
       columna = 0;
-    }else if(x>690 && x<=740){
+    }else if(x>paddingX+cellWidth && x<=paddingX+2*cellWidth){
       columna = 1;
-    }else if(x>740 && x<=790){
+    }else if(x>paddingX+2*cellWidth && x<=paddingX+3*cellWidth){
       columna = 2;
-    }else if(x>790 && x<=840){
+    }else if(x>paddingX+3*cellWidth && x<=paddingX+4*cellWidth){
       columna = 3;
-    }else if(x>840 && x<=890){
+    }else if(x>paddingX+4*cellWidth && x<=paddingX+5*cellWidth){
       columna = 4;
-    }else if(x>890 && x<=940){
+    }else if(x>paddingX+5*cellWidth && x<=paddingX+6*cellWidth){
       columna = 5;
-    }else if(x>940 && x<=990){
+    }else if(x>paddingX+6*cellWidth && x<=paddingX+7*cellWidth){
       columna = 6;
-    }else if(x>990 && x<=1040){
+    }else if(x>paddingX+8*cellWidth && x<=paddingX+9*cellWidth){
       columna = 7;
     }else{
       return false;
