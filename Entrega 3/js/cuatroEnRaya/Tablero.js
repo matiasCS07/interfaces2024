@@ -153,14 +153,10 @@ class Tablero {
           fichasGanadoras.push(actual);
           horizontalActual = i;
           fichasGanadoras=this.validacionHorizontal(horizontalActual, actual, j, fichasGanadoras);
-          // while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
-          //   horizontalActual++;
-          //   fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
-          //   if (fichasGanadoras.length == 4) {
-          //     return fichasGanadoras;
-          //   }
-          //   actual = this.tablero[horizontalActual][j];
-          // }
+          if(fichasGanadoras.length==4){
+            return fichasGanadoras;
+          }
+       
           fichasGanadoras = [];
           //no encontro nada horizontalmente
 
@@ -211,10 +207,11 @@ class Tablero {
     while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
+      console.log('largo de fichas ganadoras '+fichasGanadoras.length);
       if (fichasGanadoras.length == 4) {
         return fichasGanadoras;
       }
-      actual = this.tablero[horizontalActual][j]; 
+      actual = this.tablero[horizontalActual][j].ficha; 
       console.log(horizontalActual);
       console.log(actual);
       console.log(j);

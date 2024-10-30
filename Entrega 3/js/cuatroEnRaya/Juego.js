@@ -49,9 +49,9 @@ canvas.onmouseup = function(e){
         for (var i = 0; i < ganador.length; i++) {
           ganador[i].ganadora();
         }
-        var ganador = document.getElementById("ganador");
-        ganador.innerHTML += (jugadorActual.getNombre() == "j1" ? 1 : 2);
-        ganador.style.display = "block";
+        // var ganador = document.getElementById("ganador");
+        // ganador.innerHTML += (jugadorActual.getNombre() == "j1" ? 1 : 2);
+        // ganador.style.display = "block"; deje estas lineas comentadas para hacer pruebas mientras no tengamos un elemento html de id ganador
         setTimeout(function(){ location.reload() }, 3000);
       }
       fichaActual = null;
