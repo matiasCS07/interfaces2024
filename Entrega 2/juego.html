@@ -124,7 +124,23 @@
             <h1 style="width: -webkit-fill-available; margin-left: 35px;">Cuatro en raya</h1>
 
             <section class="pantalla">
-               <canvas id="canvas" width="1300" height="800"></canvas>
+                <div class="tablero">
+                    <div class="casilleros">
+                        <img src="assets/img/img-casilleros.png" alt="casilleros">
+                    </div>
+                    <div class="datos-juegos">
+                        <div class="jugador">
+                            <div>
+                                <h1>Tu turno:</h1>
+                                <img src="assets/img/ficha spider.jpeg">
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; margin-bottom: 191px;">
+                            <button style="margin-bottom: 34px;">Reglas</button>
+                            <button>Ayuda</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="botones-juegos">
                     <button id="like" data-liked=false>
                         <img src="assets/svg/thumb_up.svg">
@@ -424,10 +440,6 @@ Elige entre Spiderman o el Duende Verde y planifica cada movimiento con precisi√
         </div>
     </footer>
 
-    <script src="js/scriptJuego.js"></script>
-    <script src="js/cuatroEnRaya/Jugador.js"></script>
-    <script src="js/cuatroEnRaya/Ficha.js"></script>
-    <script src="js/cuatroEnRaya/Tablero.js"></script>
-    <script src="js/cuatroEnRaya/Juego.js"></script>
+    <script src="scriptJuego.js"></script>
 </body>
 </html>
