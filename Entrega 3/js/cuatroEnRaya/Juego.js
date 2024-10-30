@@ -6,7 +6,8 @@ const columnas = 7;
 const anchoTablero=747;
 const altoTablero=714;
 const margen=0;
-tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero);
+const cantFichasGan=2;
+tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
 var j1 = new Jugador('j1');
 var j2 = new Jugador('j2');
 var jugadorActual = j1;
@@ -45,7 +46,7 @@ canvas.onmouseup = function(e){
       j2.pintar(jugadorActual.getNombre());
       clicked = false;
       var ganador = tablero.gane(fichaActual);
-      if (ganador.length == 4){// retorna un arreglo con las fichas ganadoras, o uno vacio
+      if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
         for (var i = 0; i < ganador.length; i++) {
           ganador[i].ganadora();
         }

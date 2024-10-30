@@ -15,7 +15,8 @@ class Tablero {
     return matriz;
 }
 
-  constructor(canvas, ctx, filas, columnas, margen, anchoTablero, altoTablero) {
+  constructor(canvas, ctx, filas, columnas, margen, anchoTablero, altoTablero, cantFichasGan) {
+    this.cantFichasGan=cantFichasGan;
     this.canvas=canvas;
     this.ctx=ctx;
     this.tablero =  this.crearMatriz(filas, columnas);;
@@ -34,7 +35,6 @@ class Tablero {
     this.yOffset = this.altoTablero-this.altoCelda*this.filas;
     //console.log(this.xOffset);
     //console.log(this.yOffset);
-    this.cantFichasGan=4;
     console.log(this.tablero);
     this.startGame();
   }
@@ -119,8 +119,7 @@ class Tablero {
     // }else{
     //   return false;
     // }
-    console.log(columna);
-    console.log(this.tablero[columna][0].ficha.getNombre())
+
     for (let i = 0; i < this.tablero.length; i++) {
       if (this.tablero[columna][i].ficha.getNombre() == 'base') {
         this.tablero[columna][i].ficha = ficha;
@@ -147,7 +146,7 @@ class Tablero {
             while(actual.getNombre()==this.tablero[i][verticalActual+1].ficha.getNombre()){
               verticalActual++;
               fichasGanadoras.push(this.tablero[i][verticalActual].ficha);
-              if (fichasGanadoras.length == 4) {
+              if (fichasGanadoras.length == this.cantFichasGan) {
                 return fichasGanadoras;
               }
               actual = this.tablero[i][verticalActual].ficha;
@@ -161,7 +160,7 @@ class Tablero {
           fichasGanadoras.push(actual);
           horizontalActual = i;
           fichasGanadoras=this.validacionHorizontal(horizontalActual, actual, j, fichasGanadoras);
-          if(fichasGanadoras.length==4){
+          if(fichasGanadoras.length==this.cantFichasGan){
             return fichasGanadoras;
           }
        
@@ -175,7 +174,7 @@ class Tablero {
           horizontalActual = i;
           verticalActual = j;
           fichasGanadoras=this.validacionDiagonalArriba(horizontalActual, verticalActual, actual, fichasGanadoras);
-          if(fichasGanadoras.length==4){
+          if(fichasGanadoras.length==this.cantFichasGan){
             return fichasGanadoras;
           }
        
@@ -188,11 +187,11 @@ class Tablero {
           horizontalActual = i;
           verticalActual = j;
 
-          while((((horizontalActual+1) < 8) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].ficha.getNombre()){
+          while((((horizontalActual+1) < this.columnas) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].ficha.getNombre()){
             horizontalActual++;
             verticalActual--;
             fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
-            if (fichasGanadoras.length == 4) {
+            if (fichasGanadoras.length == this.cantFichasGan) {
               return fichasGanadoras;
             }
             actual = this.tablero[horizontalActual][verticalActual].ficha;
@@ -211,7 +210,7 @@ class Tablero {
     while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
-      if (fichasGanadoras.length == 4) {
+      if (fichasGanadoras.length == this.cantFichasGan) {
         return fichasGanadoras;
       }
       actual = this.tablero[horizontalActual][j].ficha; 
@@ -224,7 +223,7 @@ class Tablero {
       horizontalActual++;
       verticalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
-      if (fichasGanadoras.length == 4) {
+      if (fichasGanadoras.length == this.cantFichasGan) {
         return fichasGanadoras;
       }
       actual = this.tablero[horizontalActual][verticalActual].ficha;
