@@ -1,7 +1,12 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-var clicked = false;
-var tablero = new Tablero();
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let clicked = false;
+const filas = 6;
+const columnas = 7;
+const anchoTablero=747;
+const altoTablero=714;
+const margen=0;
+tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero);
 var j1 = new Jugador('j1');
 var j2 = new Jugador('j2');
 var jugadorActual = j1;
@@ -25,7 +30,7 @@ canvas.onmousemove = function (e){
   }
 }
 canvas.onmousedown = function(e){
-  console.log(e.clientX);
+  //console.log(e.clientX);
   if (canGetFicha(jugadorActual.getNombre(),(e.clientX-canvas.getBoundingClientRect().left),(e.clientY - canvas.getBoundingClientRect().top))) {
     // console.log(jugadorActual.getCantFichas());
     clicked = true;
@@ -52,7 +57,7 @@ canvas.onmouseup = function(e){
       fichaActual = null;
       j1 = [j2, j2=j1][0];//toggle entre jugadores
       jugadorActual = j1;
-      jugadorActual.setTitulo();
+      //jugadorActual.setTitulo();
     }
     tablero.dibujar();
   }

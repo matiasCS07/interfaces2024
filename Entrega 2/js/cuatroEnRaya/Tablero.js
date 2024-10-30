@@ -1,15 +1,48 @@
 class Tablero {
-  constructor() {
-    this.canvas = document.getElementById('canvas');
-    this.ctx = this.canvas.getContext('2d');
-    this.tablero = [[], [], [], [], [], [], [], []];
+
+  crearMatriz(filas, columnas) {
+    let matriz = [];
+    for (let i = 0; i < filas; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < columnas; j++) {
+            matriz[i][j] ={
+              "ficha": new Ficha('base', i),
+              "x":0,
+              "y":0
+            };
+        }
+    }
+    return matriz;
+}
+
+  constructor(canvas, ctx, filas, columnas, margen, anchoTablero, altoTablero) {
+    this.canvas=canvas;
+    this.ctx=ctx;
+    this.tablero =  this.crearMatriz(filas, columnas);;
+    this.filas=filas;
+    this.columnas=columnas;
+    this.altoTablero=altoTablero;
+    this.anchoTablero=anchoTablero;
+    this.anchoCelda=this.anchoTablero/this.filas;
+    //console.log(this.anchoCelda);
+    this.altoCelda=this.altoTablero/this.columnas;
+    //console.log(this.altoCelda);
+    this.areaFicha=this.anchoCelda*this.altoCelda;
+    this.margen= margen;
+    // Centrar el tablero
+    this.xOffset = this.anchoTablero-this.anchoCelda*this.columnas;
+    this.yOffset = this.altoTablero-this.altoCelda*this.filas;
+    //console.log(this.xOffset);
+    //console.log(this.yOffset);
+    this.cantFichasGan=4;
+    console.log(this.tablero);
     this.startGame();
   }
 
   startGame() {
-    for (let i = 0; i < this.tablero.length; i++) {
-      for (let j = 0; j < 8; j++) {
-        this.tablero[i][j] = new Ficha('base', i);
+    for (let i = 0; i < this.filas; i++) {
+      for (let j = 0; j < this.columnas; j++) {
+        this.tablero[i][j].ficha = new Ficha('base', i);
       }
     }
     this.dibujar();
@@ -37,13 +70,13 @@ class Tablero {
     const cellWidth = rectWidth / numColumns;
     const cellHeight = rectHeight / numRows;
 
-    for (let i = 0; i < numColumns; i++) {
-      for (let j = 0; j < numRows; j++) {
+    for (let i = 0; i < this.filas; i++) {
+      for (let j = 0; j < this.columnas; j++) {
         // Calculamos la posición de cada celda, centrando cada ficha dentro de su celda
         const x = paddingX + (cellWidth * i) + (cellWidth / 2);
         const y = paddingY + rectHeight - (cellHeight * j) - (cellHeight / 2);
         
-        this.tablero[i][j].dibujar(this.ctx, x, y, cellWidth, cellHeight);
+        this.tablero[i][j].ficha.dibujar(this.ctx, x, y, cellWidth, cellHeight);
       }
     }
   }
@@ -74,8 +107,8 @@ class Tablero {
     }
 
     for (var i = 0; i < this.tablero.length; i++) {
-      if (this.tablero[columna][i].getNombre() == 'base') {
-        this.tablero[columna][i] = ficha;
+      if (this.tablero[columna][i].ficha.getNombre() == 'base') {
+        this.tablero[columna][i].ficha = ficha;
         return true;
       }
     }
@@ -87,76 +120,75 @@ class Tablero {
     var verticalActual;
     var horizontalActual;
 
-    for (var i = 0; i < this.tablero.length; i++) {
-      for (var j = 0; j < 8; j++) {
-        if (ultimo.getNombre() == this.tablero[i][j].getNombre()) { // si estoy parado en una ficha del tipo q quiero buscar
+    for (var i = 0; i < this.filas; i++) {
+      for (var j = 0; j < this.columnas; j++) {
+        if (ultimo.getNombre() == this.tablero[i][j].ficha.getNombre()) { // si estoy parado en una ficha del tipo q quiero buscar
           //--Validacion vertical --//
-          actual = this.tablero[i][j];
+          actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           verticalActual = j;
 
-          if ((verticalActual+1) < 7) {
-            while(actual.getNombre()==this.tablero[i][verticalActual+1].getNombre()){
+          if ((verticalActual+1) < this.filas) {
+            while(actual.getNombre()==this.tablero[i][verticalActual+1].ficha.getNombre()){
               verticalActual++;
-              fichasGanadoras.push(this.tablero[i][verticalActual]);
+              fichasGanadoras.push(this.tablero[i][verticalActual].ficha);
               if (fichasGanadoras.length == 4) {
                 return fichasGanadoras;
               }
-              actual = this.tablero[i][verticalActual];
+              actual = this.tablero[i][verticalActual].ficha;
             }
           }
           fichasGanadoras = [];
           //no encontro nada verticalmente
 
           //--Validacion Horizontal --//
-          actual = this.tablero[i][j];
+          actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
-
-          while(((horizontalActual+1) < 8) && actual.getNombre()==this.tablero[horizontalActual+1][j].getNombre()){
-            horizontalActual++;
-            fichasGanadoras.push(this.tablero[horizontalActual][j]);
-            if (fichasGanadoras.length == 4) {
-              return fichasGanadoras;
-            }
-            actual = this.tablero[horizontalActual][j];
-          }
+          fichasGanadoras=this.validacionHorizontal(horizontalActual, actual, j, fichasGanadoras);
+          // while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
+          //   horizontalActual++;
+          //   fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
+          //   if (fichasGanadoras.length == 4) {
+          //     return fichasGanadoras;
+          //   }
+          //   actual = this.tablero[horizontalActual][j];
+          // }
           fichasGanadoras = [];
           //no encontro nada horizontalmente
 
 
           //--Validacion diagonal arriba --//
-          actual = this.tablero[i][j];
+          actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
           verticalActual = j;
-
-          while((((horizontalActual+1) < 8) && ((verticalActual+1) < 8))&&actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].getNombre()){
+          while((((horizontalActual+1) < this.columnas) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
             horizontalActual++;
             verticalActual++;
-            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual]);
+            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
             if (fichasGanadoras.length == 4) {
               return fichasGanadoras;
             }
-            actual = this.tablero[horizontalActual][verticalActual];
+            actual = this.tablero[horizontalActual][verticalActual].ficha;
           }
           fichasGanadoras = [];
           //no encontro nada en diagonal arriba
 
           //--Validacion diagonal abajo --//
-          actual = this.tablero[i][j];
+          actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
           verticalActual = j;
 
-          while((((horizontalActual+1) < 8) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].getNombre()){
+          while((((horizontalActual+1) < 8) && ((verticalActual-1) > -1)) && actual.getNombre()==this.tablero[horizontalActual+1][verticalActual-1].ficha.getNombre()){
             horizontalActual++;
             verticalActual--;
-            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual]);
+            fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
             if (fichasGanadoras.length == 4) {
               return fichasGanadoras;
             }
-            actual = this.tablero[horizontalActual][verticalActual];
+            actual = this.tablero[horizontalActual][verticalActual].ficha;
           }
           fichasGanadoras = [];
           //no encontro nada en diagonal arriba
@@ -166,4 +198,21 @@ class Tablero {
     }
     return fichasGanadoras;
   }
+  validacionHorizontal(horizontalActual, actual, j, fichasGanadoras){
+    
+  
+    while(((horizontalActual+1) < this.columnas) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
+      horizontalActual++;
+      fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
+      if (fichasGanadoras.length == 4) {
+        return fichasGanadoras;
+      }
+      actual = this.tablero[horizontalActual][j]; 
+      console.log(horizontalActual);
+      console.log(actual);
+      console.log(j);
+    }
+    return fichasGanadoras;
+  }
+
 }
