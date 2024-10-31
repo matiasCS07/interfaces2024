@@ -26,7 +26,10 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
         menu.style.display="none";
         containerMenu.style.display="none";
       }, 400);
-      iniciarJuego(6,7,4);
+
+      let j1Avatar=document.querySelector(".jugador1.selected").src;
+      let j2Avatar=document.querySelector(".jugador2.selected").src;
+      iniciarJuego(6,7,4, j1Avatar, j2Avatar);
     })
 
   }else if(e.innerText=="Jugar de nuevo"){
@@ -47,9 +50,6 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
   }
 
 })
-
-setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
-setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 
 canvas.onmousemove = function (e){
   // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));
@@ -160,14 +160,17 @@ function mostrarGanador(ganador){
   }, 1000);
 }
 
-function iniciarJuego(filas, columnas, tipo){
+function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   clicked = false;
   filas = filas;
   columnas = columnas;
   cantFichasGan=tipo;
   tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
-  j1 = new Jugador('Jugador 1');
-  j2 = new Jugador('Jugador 2');
+  j1 = new Jugador('Jugador 1', avatar1);
+  j2 = new Jugador('Jugador 2', avatar2);
   jugadorActual = j1;
   fichaActual="";
+
+  setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
+  setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 }

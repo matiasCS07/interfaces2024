@@ -1,10 +1,11 @@
 class Jugador {
-  constructor(jugador) {
+  constructor(jugador, imagen) {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.fichas = [];
     this.posPiloteY = 110;
+    this.avatar=imagen;
     if (this.jugador == 'Jugador 1') {
       this.posPiloteX = 110;
     }else {
@@ -15,9 +16,9 @@ class Jugador {
 
   startGame(){
     for (var i = 0; i < 32; i++) {
-      var ficha = new Ficha(this.jugador,this.jugador+i);
+      var ficha = new Ficha(this.jugador,this.jugador+i, this.avatar);
       this.fichas.push(ficha);
-      ficha.dibujar(ctx,this.posPiloteX,this.posPiloteY);
+      ficha.dibujar(ctx,this.posPiloteX,this.posPiloteY, this.avatar);
     }
   }
 

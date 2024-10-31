@@ -1,16 +1,20 @@
 class Ficha {
-  constructor(jugador,id) {
+  constructor(jugador,id, imagen) {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio = 30;
     this.id = id;
-    this.ruta="";
-    if (jugador == 'Jugador 1') {
-      this.ruta = "././assets/img/ficha-spider.png";
-    }else if (jugador == 'Jugador 2') {
-      this.ruta = "././assets/img/ficha-duende.png";
+    if(imagen){
+      this.ruta=imagen;
+    }else{
+      this.ruta="";
     }
+    //if (jugador == 'Jugador 1') {
+    //  this.ruta = "././assets/img/ficha-spider.png";
+    //}else if (jugador == 'Jugador 2') {
+    //  this.ruta = "././assets/img/ficha-duende.png";
+    //}
     this.color = "rgb(29, 29, 29)";
     // this.pintar(document.getElementById('canvasMain').getContext('2d'),50,50
   }
