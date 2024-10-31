@@ -53,12 +53,11 @@ class Tablero {
     this.ctx.fillStyle = "rgb(54, 54, 54)";
     this.ctx.fillRect(paddingX, paddingY, rectWidth, rectHeight);
 
-    const numColumns = this.tablero.length;
-    const numRows = 8;
 
     // Calculamos el ancho y alto de cada celda
-    const cellWidth = rectWidth / numColumns;
-    const cellHeight = rectHeight / numRows;
+    // Este calculo quedo al reves por motivos que no comprendemos
+    const cellWidth = rectWidth / this.filas;
+    const cellHeight = rectHeight / this.columnas;
 
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {

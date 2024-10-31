@@ -48,7 +48,7 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
               menu=document.getElementById("inicio");
               menu.style.opacity="1";
               menu.style.display="flex";
-              document.getElementById("final-menu").innerHTML="";
+               document.getElementById("final-menu").innerHTML="";
             }, 400)
       });
     })
