@@ -36,6 +36,7 @@ class Jugador {
     return this.jugador;
   }
 
+  //dibuja las fichas que se usan para jugar
   pintar(jugadorActual){
     var cant = 0;
     if (this.jugador == jugadorActual) {

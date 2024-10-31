@@ -3,9 +3,6 @@ const ctx = canvas.getContext('2d');
 let clicked;
 let filas;
 let columnas;
-const anchoTablero=747;
-const altoTablero=714;
-const margen=0;
 let cantFichasGan;
 let tablero;
 let j1;
@@ -56,6 +53,7 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
   }
 )
 
+//onmousemove indica que sucede cuando el mouse está en movimiento
 canvas.onmousemove = function (e){
   // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));
   if (clicked) {
@@ -69,6 +67,7 @@ canvas.onmousemove = function (e){
   }
 }
 
+//onmousedown indica que sucede una vez se presiona el click
 canvas.onmousedown = function(e){
   //console.log(e.clientX);
   if (canGetFicha(jugadorActual.getNombre(),(e.clientX-canvas.getBoundingClientRect().left),(e.clientY - canvas.getBoundingClientRect().top))) {
@@ -112,6 +111,7 @@ function caidaDeFicha(ficha, x) {
  
   animar();
 }
+//onmouseup indica que sucede cuando levantamos el click
 canvas.onmouseup = function(e){
   
   if(clicked){
@@ -177,7 +177,7 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   filas = filas;
   columnas = columnas;
   cantFichasGan=tipo;
-  tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
+  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan);
   j1 = new Jugador('Jugador 1', avatar1);
   j2 = new Jugador('Jugador 2', avatar2);
   jugadorActual = j1;
