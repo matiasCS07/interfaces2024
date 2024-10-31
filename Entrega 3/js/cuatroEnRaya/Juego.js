@@ -14,10 +14,10 @@ let jugadorActual;
 let fichaActual;
 let containerMenu=document.getElementById("menu-container");
 
+
 document.querySelectorAll(".btn-jugar").forEach(e=> {
-  console.log("entre")
   let menu;
-  if(e.innerText=="Jugar"){
+    console.log("inicio");
     menu=document.getElementById("inicio");
     e.addEventListener("click", function(){
       menu.style.opacity="0";
@@ -30,26 +30,31 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       let j1Avatar=document.querySelector(".jugador1.selected").src;
       let j2Avatar=document.querySelector(".jugador2.selected").src;
       iniciarJuego(6,7,4, j1Avatar, j2Avatar);
+
+      document.getElementById("final-menu").innerHTML="";
+      document.getElementById("final-menu").innerHTML=`<div class="menu-juego" id="final">
+      <h1>Juego terminado!</h1>
+      <div class="info-ganador">
+          <h2>Jugador ganador: </h2>
+          <h2 id="ganador"></h2>
+      </div>
+      <h1 class="btn-jugar">Jugar de nuevo</h1>
+      </div>`;
+      document.getElementById("final").addEventListener("click", function(){
+        console.log("se reinicio");
+            iniciarJuego(6,7,4);
+            
+            setTimeout(()=>{
+              menu=document.getElementById("inicio");
+              menu.style.opacity="1";
+              menu.style.display="flex";
+              document.getElementById("final-menu").innerHTML="";
+            }, 400)
+      });
     })
 
-  }else if(e.innerText=="Jugar de nuevo"){
-    e.addEventListener("click", function(){
-      console.log("se reinicio");
-      iniciarJuego(6,7,4);
-      
-      setTimeout(()=>{
-        menu=document.getElementById("inicio");
-        menu.style.opacity="1";
-        menu.style.display="flex";
-  
-        menu=document.getElementById("final");
-        menu.style.opacity="0";
-        menu.style.display="none";
-      }, 400)
-    })
   }
-
-})
+)
 
 canvas.onmousemove = function (e){
   // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));
