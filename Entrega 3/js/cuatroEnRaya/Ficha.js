@@ -19,6 +19,7 @@ class Ficha {
     // this.pintar(document.getElementById('canvasMain').getContext('2d'),50,50
   }
 
+  //dibuja las fichas 
   dibujar(ctx,posX,posY){
     ctx.beginPath();
     ctx.fillStyle = this.color;

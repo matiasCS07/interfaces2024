@@ -15,16 +15,30 @@ class Tablero {
     return matriz;
 }
 
-  constructor(canvas, ctx, filas, columnas, margen, anchoTablero, altoTablero, cantFichasGan) {
+  constructor(canvas, ctx, filas, columnas, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
     this.canvas=canvas;
     this.ctx=ctx;
     this.tablero =  this.crearMatriz(filas, columnas);;
     this.filas=filas;
     this.columnas=columnas;
-   
-    //console.log(this.xOffset);
-    //console.log(this.yOffset);
+    //Alto y ancho del canvas
+    this.canvasWidth = this.canvas.width;
+    this.canvasHeight = this.canvas.height;
+    
+    // Ajustamos el ancho y alto del rectángulo al 50% y 80% del tamaño del canvas, respectivamente
+    this.rectWidth = 0.5 * this.canvasWidth;
+    this.rectHeight = 0.8 *this.canvasHeight;
+    
+    // Calculamos el padding para centrar el rectángulo
+    this.paddingX = (this.canvasWidth - this.rectWidth) / 2;
+    this.paddingY = (this.canvasHeight - this.rectHeight) / 2;
+    
+    // Calculamos el ancho y alto de cada celda
+    // Este calculo quedo al reves por motivos que no comprendemos
+    this.cellWidth = this.rectWidth / this.filas;
+    this.cellHeight = this.rectHeight / this.columnas;
+    
     console.log(this.tablero);
     this.startGame();
   }
@@ -39,55 +53,30 @@ class Tablero {
   }
 
   dibujar() {
-    const canvasWidth = this.canvas.width;
-    const canvasHeight = this.canvas.height;
 
-    // Ajustamos el ancho y alto del rectángulo al 50% y 80% del tamaño del canvas, respectivamente
-    const rectWidth = 0.5 * canvasWidth;
-    const rectHeight = 0.8 * canvasHeight;
-
-    // Calculamos el padding para centrar el rectángulo
-    const paddingX = (canvasWidth - rectWidth) / 2;
-    const paddingY = (canvasHeight - rectHeight) / 2;
-
+    //dibujamos el tablero
     this.ctx.fillStyle = "rgb(54, 54, 54)";
-    this.ctx.fillRect(paddingX, paddingY, rectWidth, rectHeight);
+    this.ctx.fillRect(this.paddingX, this.paddingY, this.rectWidth, this.rectHeight);
 
-
-    // Calculamos el ancho y alto de cada celda
-    // Este calculo quedo al reves por motivos que no comprendemos
-    const cellWidth = rectWidth / this.filas;
-    const cellHeight = rectHeight / this.columnas;
 
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {
         // Calculamos la posición de cada celda, centrando cada ficha dentro de su celda
-        const x = paddingX + (cellWidth * i) + (cellWidth / 2);
-        const y = paddingY + rectHeight - (cellHeight * j) - (cellHeight / 2);
+        const x = this.paddingX + (this.cellWidth * i) + (this.cellWidth / 2);
+        const y = this.paddingY + this.rectHeight - (this.cellHeight * j) - (this.cellHeight / 2);
         
-        this.tablero[i][j].ficha.dibujar(this.ctx, x, y, cellWidth, cellHeight);
+        //dibujamos los espacios para las fichas
+        this.tablero[i][j].ficha.dibujar(this.ctx, x, y, this.cellWidth, this.cellHeight);
       }
     }
   }
-  getRectWidth(){
-    return rectWidth;
-  }
-  getRectHei
+ 
+  //la funcion add se fija que la posicion donde queres soltar la ficha corresponda a una columna y a cual
   add(x,ficha){
-
-    const canvasWidth = this.canvas.width;
-    const rectWidth = 0.5 * canvasWidth;
-    //const rectHeight = 0.8 * canvasHeight;
-
-    //donde comienza el tablero o col 0
-    const paddingX = (canvasWidth - rectWidth) / 2;
-
-    const numColumns = this.tablero.length;
-    const cellWidth = rectWidth / numColumns;
 
     let columna=0;
     let j=0;
-    while(columna<this.columnas-1 && !(x>paddingX+j*cellWidth && x<=paddingX+(j+1)*cellWidth)){
+    while(columna<this.columnas-1 && !(x>this.paddingX+j*this.cellWidth && x<=this.paddingX+(j+1)*this.cellWidth)){
       columna++;
       j++;
     }
@@ -101,6 +90,8 @@ class Tablero {
     }
     return false;
   }
+
+  // la funcion gane se encarga de la verificacion una vez que la ficha está posicionada
   gane(ultimo){
     var fichasGanadoras = [];
     var actual;
