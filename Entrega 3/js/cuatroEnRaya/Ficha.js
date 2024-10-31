@@ -3,7 +3,7 @@ class Ficha {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
-    this.radio = 30;
+    this.radio = 40;
     this.id = id;
     if(imagen){
       this.ruta=imagen;
@@ -29,7 +29,7 @@ class Ficha {
       var img = new Image();
       img.src = this.ruta;
       // img.onload = function() { //tilda todo
-      ctx.drawImage(img,posX-this.radio,posY-this.radio,60,60);
+      ctx.drawImage(img,posX-this.radio,posY-this.radio,80,80);
       // }
     }
   }

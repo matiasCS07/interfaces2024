@@ -109,28 +109,35 @@ function caidaDeFicha(ficha, x) {
         j2.pintar(jugadorActual.getNombre());
       } 
   }
+ 
   animar();
 }
 canvas.onmouseup = function(e){
+  
   if(clicked){
-    if (tablero.add((e.clientX - canvas.getBoundingClientRect().left),fichaActual)) {   
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      j1.pintar(jugadorActual.getNombre());
-      j2.pintar(jugadorActual.getNombre());
-      clicked = false;
-      let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
-      if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
-        for (let i = 0; i < ganador.length; i++) {
-          ganador[i].ganadora();
-        }
+    caidaDeFicha(fichaActual,  e.clientX-canvas.getBoundingClientRect().left);
+    setTimeout(() => {
+      if (tablero.add((e.clientX - canvas.getBoundingClientRect().left),fichaActual)) {  
+     
 
-        mostrarGanador(fichaActual.jugador);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        j1.pintar(jugadorActual.getNombre());
+        j2.pintar(jugadorActual.getNombre());
+        clicked = false;
+        let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
+        if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
+          for (let i = 0; i < ganador.length; i++) {
+            ganador[i].ganadora();
+          }
+  
+          mostrarGanador(fichaActual.jugador);
+        }
+        fichaActual = null;
+        j1 = [j2, j2=j1][0];//toggle entre jugadores
+        jugadorActual = j1;
+        //jugadorActual.setTitulo();
       }
-      fichaActual = null;
-      j1 = [j2, j2=j1][0];//toggle entre jugadores
-      jugadorActual = j1;
-      //jugadorActual.setTitulo();
-    }
+    }, 4500 );
     tablero.dibujar();
   }
 }

@@ -72,7 +72,7 @@ class Tablero {
   getRectWidth(){
     return rectWidth;
   }
-  getRectHei
+  
   add(x,ficha){
 
     const canvasWidth = this.canvas.width;
