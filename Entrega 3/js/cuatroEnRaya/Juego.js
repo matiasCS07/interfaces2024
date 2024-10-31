@@ -1,3 +1,17 @@
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let clicked;
+let filas;
+let columnas;
+const anchoTablero=747;
+const altoTablero=714;
+const margen=0;
+let cantFichasGan;
+let tablero;
+let j1;
+let j2;
+let jugadorActual;
+let fichaActual;
 let containerMenu=document.getElementById("menu-container");
 
 document.querySelectorAll(".btn-jugar").forEach(e=> {
@@ -5,34 +19,34 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
   let menu;
   if(e.innerText=="Jugar"){
     menu=document.getElementById("inicio");
+    e.addEventListener("click", function(){
+      menu.style.opacity="0";
+      containerMenu.style.opacity="0";
+      setTimeout(() => {
+        menu.style.display="none";
+        containerMenu.style.display="none";
+      }, 400);
+      iniciarJuego(6,7,4);
+    })
+
   }else if(e.innerText=="Jugar de nuevo"){
-    menu=document.getElementById("final");
+    e.addEventListener("click", function(){
+      console.log("se reinicio");
+      iniciarJuego(6,7,4);
+      
+      setTimeout(()=>{
+        menu=document.getElementById("inicio");
+        menu.style.opacity="1";
+        menu.style.display="flex";
+  
+        menu=document.getElementById("final");
+        menu.style.opacity="0";
+        menu.style.display="none";
+      }, 400)
+    })
   }
 
-  e.addEventListener("click", function(){
-    menu.style.opacity="0";
-    containerMenu.style.opacity="0";
-    setTimeout(() => {
-      menu.style.display="none";
-      containerMenu.style.display="none";
-    }, 400);
-  })
 })
-
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-let clicked = false;
-const filas = 6;
-const columnas = 7;
-const anchoTablero=747;
-const altoTablero=714;
-const margen=0;
-const cantFichasGan=4;
-tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
-let j1 = new Jugador('Jugador 1');
-let j2 = new Jugador('Jugador 2');
-let jugadorActual = j1;
-let fichaActual;
 
 setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
@@ -144,4 +158,16 @@ function mostrarGanador(ganador){
     containerMenu.style.opacity="1";
     containerMenu.style.display="flex";
   }, 1000);
+}
+
+function iniciarJuego(filas, columnas, tipo){
+  clicked = false;
+  filas = filas;
+  columnas = columnas;
+  cantFichasGan=tipo;
+  tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
+  j1 = new Jugador('Jugador 1');
+  j2 = new Jugador('Jugador 2');
+  jugadorActual = j1;
+  fichaActual="";
 }

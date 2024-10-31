@@ -887,6 +887,11 @@ button.cart.removed::before{
     transition: all 400ms ease-in;
 }
 
+#final{
+    display: "none";
+    opacity: 0;
+}
+
 .info-ganador{
     display: flex;
     width: 35%;
