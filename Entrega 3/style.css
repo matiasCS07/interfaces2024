@@ -854,7 +854,7 @@ button.cart.removed::before{
     background-color: #5271FF;
 } 
 
-#menu-inicio{
+#menu-container{
     background-image: url(./assets/img/fondo-menu.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -865,19 +865,40 @@ button.cart.removed::before{
     position: absolute;
     top: 13.3%;
     left: 14.3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+
     transition: all 400ms ease-out;
 }
 
-#menu-inicio h1, #menu-inicio h2{
+#menu-container h1, #menu-container h2{
     font-family: Coiny;
     text-shadow: -2px 2px 0 #000,
     2px 2px 0 #000,
     2px -2px 0 #000,
     -2px -2px 0 #000;
+}
+
+.menu-juego{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 400ms ease-in;
+}
+
+.info-ganador{
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+}
+
+.info-ganador h2{
+    font-size: 30px;
+}
+
+#ganador{
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 0, 0.85));
 }
 
 .opciones-juego{
@@ -924,7 +945,7 @@ button.cart.removed::before{
     height: auto;
 }
 
-#btn-jugar{
+.btn-jugar{
     cursor: pointer;
 }
 

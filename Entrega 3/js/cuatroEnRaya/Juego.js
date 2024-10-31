@@ -1,10 +1,22 @@
-document.getElementById("btn-jugar").addEventListener("click", function(){
-  document.getElementById("menu-inicio").style.opacity="0";
-  setTimeout(() => {
-    document.getElementById("menu-inicio").style.display="none";
-  }, 400);
+let containerMenu=document.getElementById("menu-container");
 
+document.querySelectorAll(".btn-jugar").forEach(e=> {
+  console.log("entre")
+  let menu;
+  if(e.innerText=="Jugar"){
+    menu=document.getElementById("inicio");
+  }else if(e.innerText=="Jugar de nuevo"){
+    menu=document.getElementById("final");
+  }
 
+  e.addEventListener("click", function(){
+    menu.style.opacity="0";
+    containerMenu.style.opacity="0";
+    setTimeout(() => {
+      menu.style.display="none";
+      containerMenu.style.display="none";
+    }, 400);
+  })
 })
 
 const canvas = document.getElementById('canvas');
@@ -17,10 +29,10 @@ const altoTablero=714;
 const margen=0;
 const cantFichasGan=4;
 tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
-var j1 = new Jugador('j1');
-var j2 = new Jugador('j2');
-var jugadorActual = j1;
-var fichaActual;
+let j1 = new Jugador('Jugador 1');
+let j2 = new Jugador('Jugador 2');
+let jugadorActual = j1;
+let fichaActual;
 
 setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
@@ -28,8 +40,8 @@ setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn 
 canvas.onmousemove = function (e){
   // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));
   if (clicked) {
-    var x = e.clientX - canvas.getBoundingClientRect().left;
-    var y = e.clientY - canvas.getBoundingClientRect().top;
+    let x = e.clientX - canvas.getBoundingClientRect().left;
+    let y = e.clientY - canvas.getBoundingClientRect().top;
     ctx.clearRect(0,0,canvas.width,canvas.height);
     tablero.dibujar();
     fichaActual.dibujar(ctx,x,y);
@@ -87,15 +99,13 @@ canvas.onmouseup = function(e){
       j1.pintar(jugadorActual.getNombre());
       j2.pintar(jugadorActual.getNombre());
       clicked = false;
-      var ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
+      let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
       if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
-        for (var i = 0; i < ganador.length; i++) {
+        for (let i = 0; i < ganador.length; i++) {
           ganador[i].ganadora();
         }
-        // var ganador = document.getElementById("ganador");
-        // ganador.innerHTML += (jugadorActual.getNombre() == "j1" ? 1 : 2);
-        // ganador.style.display = "block"; deje estas lineas comentadas para hacer pruebas mientras no tengamos un elemento html de id ganador
-        setTimeout(function(){ location.reload() }, 3000);
+
+        mostrarGanador(fichaActual.jugador);
       }
       fichaActual = null;
       j1 = [j2, j2=j1][0];//toggle entre jugadores
@@ -107,13 +117,13 @@ canvas.onmouseup = function(e){
 }
 
 function canGetFicha(jugador,x,y){
-  if (jugador == 'j1') {
+  if (jugador == 'Jugador 1') {
     if (x<200&&y<200) {
       return true;
     }else{
       return false;
     }
-  }else if (jugador == 'j2') {
+  }else if (jugador == 'Jugador 2') {
     if (x>800&&y<200) {
       return true;
     }else{
@@ -123,4 +133,15 @@ function canGetFicha(jugador,x,y){
     return false;
   }
   
+}
+
+function mostrarGanador(ganador){
+  setTimeout(() => {
+    let menu=document.getElementById("final")
+    document.getElementById("ganador").innerText=ganador;
+    menu.style.display="flex";
+    menu.style.opacity="1";
+    containerMenu.style.opacity="1";
+    containerMenu.style.display="flex";
+  }, 1000);
 }

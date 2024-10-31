@@ -6,9 +6,9 @@ class Ficha {
     this.radio = 30;
     this.id = id;
     this.ruta="";
-    if (jugador == 'j1') {
+    if (jugador == 'Jugador 1') {
       this.ruta = "././assets/img/ficha-spider.png";
-    }else if (jugador == 'j2') {
+    }else if (jugador == 'Jugador 2') {
       this.ruta = "././assets/img/ficha-duende.png";
     }
     this.color = "rgb(29, 29, 29)";
