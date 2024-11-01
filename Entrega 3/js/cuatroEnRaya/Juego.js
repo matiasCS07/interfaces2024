@@ -115,8 +115,8 @@ canvas.onmouseup = function(e){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       j1.pintar(jugadorActual.getNombre());
       j2.pintar(jugadorActual.getNombre());
-      clicked = false;
-      let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
+
+      let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left);
       if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
         for (let i = 0; i < ganador.length; i++) {
           ganador[i].ganadora();
@@ -135,6 +135,7 @@ canvas.onmouseup = function(e){
       jugadorActual = j1;
       //jugadorActual.setTitulo();
     }
+    clicked = false;
     tablero.dibujar();
   }
 }

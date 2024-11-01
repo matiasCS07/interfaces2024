@@ -85,7 +85,6 @@ class Tablero {
     for (let i = 0; i < this.tablero.length; i++) {
       if(columna==this.columnas-1){
         this.tablero[i][j].ficha.borrar(this.ctx, x, y);
-        return true;
       }else{
         if (this.tablero[columna][i].ficha.getNombre() == 'base') {
           this.tablero[columna][i].ficha = ficha;
