@@ -1,9 +1,9 @@
 class Ficha {
-  constructor(jugador,id, imagen) {
+  constructor(jugador,id, radio, imagen) {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
-    this.radio = 40;
+    this.radio = radio;
     this.id = id;
     if(imagen){
       this.ruta=imagen;
@@ -30,7 +30,7 @@ class Ficha {
       var img = new Image();
       img.src = this.ruta;
       // img.onload = function() { //tilda todo
-      ctx.drawImage(img,posX-this.radio,posY-this.radio,80,80);
+      ctx.drawImage(img,posX-this.radio,posY-this.radio,this.radio*2,this.radio*2);
       // }
     }
   }
@@ -47,6 +47,9 @@ class Ficha {
   ganadora(){
     this.ruta="";
     this.color = "rgb(204, 215, 4)";
+  }
+  setRadio(radio){
+    this.radio=radio;
   }
 
   // start(ctx,posX,posY){
