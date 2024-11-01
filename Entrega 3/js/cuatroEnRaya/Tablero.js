@@ -1,12 +1,12 @@
 class Tablero {
 
-  crearMatriz(filas, columnas, radio) {
+  crearMatriz(filas, columnas, cantFichasGan) {
     let matriz = [];
     for (let i = 0; i < filas+1; i++) {
         matriz[i] = [];
         for (let j = 0; j < columnas; j++) {
             matriz[i][j] ={
-              "ficha": new Ficha('base', i, radio),
+              "ficha": new Ficha('base', i, cantFichasGan, ""),
               "x":0,
               "y":0
             };
@@ -15,15 +15,14 @@ class Tablero {
     return matriz;
   }
 
-  constructor(canvas, ctx, filas, columnas, cantFichasGan, radio) {
+  constructor(canvas, ctx, filas, columnas, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
     this.canvas=canvas;
     this.ctx=ctx;
-    this.tablero =  this.crearMatriz(filas, columnas, radio);;
+    this.tablero =  this.crearMatriz(filas, columnas, cantFichasGan);
     this.filas=filas;
     this.columnas=columnas;
-    //radio de las fichas
-    this.radio=radio;
+
     //Alto y ancho del canvas
     this.canvasWidth = this.canvas.width;
     this.canvasHeight = this.canvas.height;
@@ -54,7 +53,7 @@ class Tablero {
   startGame() {
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {
-        this.tablero[i][j].ficha = new Ficha('base', i, this.radio);
+        this.tablero[i][j].ficha = new Ficha('base', i, this.cantFichasGan, "");
       }
     }
     this.dibujar();

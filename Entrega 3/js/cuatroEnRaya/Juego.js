@@ -18,7 +18,6 @@ let temporizadorUi=document.getElementById("temporizador");
 let tiempoInicial=120;
 let tiempo = tiempoInicial;
 let temporizador;
-let radio=40;
 
 
 
@@ -37,12 +36,11 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       let j2Avatar=document.querySelector(".jugador2.selected").src;
       let modo= document.querySelector(".opcion-tablero.selected").id;
       if(modo=="4enlinea"){
-        iniciarJuego(6,7,4, j1Avatar, j2Avatar, radio);
+        iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
       } else if(modo=="5enlinea"){
-        iniciarJuego(7,8,5, j1Avatar, j2Avatar, radio);
+        iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
       } else {
-        radio=35;
-        iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, radio);
+        iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, 6);
       }
       
       document.getElementById("replay").addEventListener("click", function(){
@@ -50,11 +48,11 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
           clearInterval(temporizador);
         }
         if(modo=="4enlinea"){
-          iniciarJuego(6,7,4, j1Avatar, j2Avatar, 40);
+          iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
         } else if(modo=="5enlinea"){
-          iniciarJuego(7,8,5, j1Avatar, j2Avatar, 40);
+          iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
         } else {
-          iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 35);
+          iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 6);
         }
         
       })
@@ -195,14 +193,14 @@ function mostrarGanador(ganador){
   }, 1000);
 }
 
-function iniciarJuego(filas, columnas, tipo, avatar1, avatar2, radio){
+function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   clicked = false;
   filas = filas;
   columnas = columnas;
   cantFichasGan=tipo;
-  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan, radio);
-  j1 = new Jugador('Jugador 1', avatar1, radio);
-  j2 = new Jugador('Jugador 2', avatar2, radio);
+  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan);
+  j1 = new Jugador('Jugador 1', avatar1, cantFichasGan);
+  j2 = new Jugador('Jugador 2', avatar2, cantFichasGan);
   jugadorActual = j1;
   fichaActual="";
 

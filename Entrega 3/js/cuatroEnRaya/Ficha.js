@@ -1,22 +1,19 @@
 class Ficha {
-  constructor(jugador,id, radio, imagen) {
+  constructor(jugador,id, modoJuego, imagen) {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
-    this.radio = radio;
+    this.radio=this.setRadio(modoJuego);
+    console.log(this.radio);
     this.id = id;
+
     if(imagen){
       this.ruta=imagen;
     }else{
       this.ruta="";
     }
-    //if (jugador == 'Jugador 1') {
-    //  this.ruta = "././assets/img/ficha-spider.png";
-    //}else if (jugador == 'Jugador 2') {
-    //  this.ruta = "././assets/img/ficha-duende.png";
-    //}
+
     this.color = "rgb(29, 29, 29)";
-    // this.pintar(document.getElementById('canvasMain').getContext('2d'),50,50
   }
 
   //dibuja las fichas 
@@ -48,8 +45,21 @@ class Ficha {
     this.ruta="";
     this.color = "rgb(204, 215, 4)";
   }
-  setRadio(radio){
-    this.radio=radio;
+  setRadio(modoJuego){
+    let radio;
+    switch(modoJuego){
+      case 4:
+        radio=40;
+        break;
+      case 5:
+        radio=35;
+        break;
+      case 6:
+        radio=30;
+        break;
+      default: radio=40;
+    }
+    return radio;
   }
 
   // start(ctx,posX,posY){
