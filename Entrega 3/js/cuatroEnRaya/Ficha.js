@@ -36,6 +36,7 @@ class Ficha {
   }
 
   borrar(ctx, posX, posY){
+    console.log("entre en borrar")
     ctx.clearRect(posX - this.radio, posY - this.radio, this.radio * 2, this.radio * 2);
   }
 

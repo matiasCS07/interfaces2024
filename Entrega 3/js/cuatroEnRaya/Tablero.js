@@ -95,23 +95,6 @@ class Tablero {
     return false;
   }
 
-  obtenerFilaDeLlegada(x){
-
-    let columna=0;
-    let j=0;
-    while(columna<this.columnas-1 && !(x>this.paddingX+j*this.cellWidth && x<=this.paddingX+(j+1)*this.cellWidth)){
-      columna++;
-      j++;
-    }
-    
-    
-    for (let u = 0; u < this.tablero.length; u++) {
-      if (this.tablero[columna][u].ficha.getNombre() == 'base') {
-        return u;
-      }
-    }
-    return -1;
-  }
   // la funcion gane se encarga de la verificacion una vez que la ficha está posicionada
   gane(ultimo){
     var fichasGanadoras = [];
@@ -216,6 +199,24 @@ class Tablero {
     return fichasGanadoras;
   }
 
+  obtenerFilaDeLlegada(x){
+
+    let columna=0;
+    let j=0;
+    while(columna<this.columnas-1 && !(x>this.paddingX+j*this.cellWidth && x<=this.paddingX+(j+1)*this.cellWidth)){
+      columna++;
+      j++;
+    }
+    
+    if(columna!=this.columnas-1){
+      for (let u = 0; u < this.tablero.length; u++) {
+        if (this.tablero[columna][u].ficha.getNombre() == 'base') {
+          return u;
+        }
+      }
+    }
+    return -1;
+  }
   //caidaDeFicha(ficha, x){
   //  let y=0;
   //  let dy=2;   

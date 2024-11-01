@@ -119,14 +119,19 @@ function caidaDeFicha(ficha, x, filaLlegada) {
  
   animar();
 }
+
 canvas.onmouseup = function(e){
   
   if(clicked){
     let filaLlegada=tablero.obtenerFilaDeLlegada(e.clientX-canvas.getBoundingClientRect().left);
     console.log(filaLlegada);
-    caidaDeFicha(fichaActual,  e.clientX-canvas.getBoundingClientRect().left, (e.clientY-canvas.getBoundingClientRect().top), filaLlegada);
+    if(filaLlegada!=-1){
+      caidaDeFicha(fichaActual,  e.clientX-canvas.getBoundingClientRect().left, filaLlegada);
+    }else{
+      fichaActual.borrar(ctx, (e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top));
+    }
     setTimeout(() => {
-      if (tablero.add((e.clientX - canvas.getBoundingClientRect().left),fichaActual)) {   
+      if (tablero.add((e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top), fichaActual)) {   
         ctx.clearRect(0,0,canvas.width,canvas.height);
         j1.pintar(jugadorActual.getNombre());
         j2.pintar(jugadorActual.getNombre());
@@ -149,7 +154,7 @@ canvas.onmouseup = function(e){
       }  
     }, 4500-(4500/8)*filaLlegada);
     clicked=false;
-    tablero.dibujar();
+    setTimeout(()=>{tablero.dibujar()}, 2000);
   }
 }
 
