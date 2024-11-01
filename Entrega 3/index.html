@@ -24,8 +24,10 @@
         </div>
         
         <div>
-            <img src="assets/img/logo.png" alt="logo del sitio" class="logo">
-            <a class="titulo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="logo del sitio" class="logo">
+            </a>
+            <a href="index.html" class="titulo">
                 <h1>PixelPlay</h1>
             </a>
         </div>
@@ -40,18 +42,20 @@
             <div id="login-form">
                 <h1>Log In</h1>
     
-                <form action="">
-                    <div>
+                <form id="formLogin" action="">
+                    <div class="input-control">
                         <label for="email-user">Email o usuario</label>
-                        <input type="text" name="email-user">
+                        <input id="email-user" name="email-user" type="text">
+                        <div class="error"></div>
                     </div>
     
-                    <div>
+                    <div class="input-control">
                         <label for="pass">Contraseña</label>
-                        <input type="password" name="pass">
+                        <input id="pass" name="pass" type="password">
+                        <div class="error"></div>
                     </div>
                 
-                    <button type="button" id="btn-ingresar" class="largo">Ingresar</button>
+                    <button type="submit" id="btn-ingresar" class="largo">Ingresar</button>
     
                 </form>
                 
@@ -75,40 +79,47 @@
             <div id="signin-form">
                 <h1>Sign In</h1>
     
-                <form action="">
-                    <div>
+                <form id="signinForm" action="">
+                    <div class="input-control">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre">
+                        <input id="nombre" type="text" name="nombre">
+                        <div class="error"></div>
                     </div>
 
-                    <div>
+                    <div class="input-control">
                         <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido">
+                        <input id="apellido" type="text" name="apellido">
+                        <div class="error"></div>
                     </div>
     
-                    <div>
+                    <div class="input-control">
                         <label for="nacimiento">Fecha de nacimiento</label>
                         <input type="date" name="nacimiento" placeholder="">
+                        <div class="error"></div>
                     </div>
 
-                    <div>
+                    <div class="input-control">
                         <label for="usuario">Usuario</label>
-                        <input type="text" name="usuario">
+                        <input id="usuario" type="text" name="usuario">
+                        <div class="error"></div>
                     </div>
 
-                    <div>
+                    <div class="input-control">
                         <label for="mail">Email</label>
-                        <input type="email" name="mail">
+                        <input id="email" type="email" name="mail">
+                        <div class="error"></div>
                     </div>
 
-                    <div>
+                    <div class="input-control">
                         <label for="pass">Contraseña</label>
-                        <input type="password" name="pass">
+                        <input id="passSign" type="password" name="pass">
+                        <div class="error"></div>
                     </div>
 
-                    <div>
+                    <div class="input-control">
                         <label for="rep-pass">Repite la contraseña</label>
-                        <input type="password" name="rep-pass">
+                        <input id="passSign" type="password" name="rep-pass">
+                        <div class="error"></div>
                     </div>
     
                     <div>
@@ -204,6 +215,6 @@
         </div>
     </footer>
 
-    <script src="js/scriptLogin.js"></script>
+    <script defer src="js/scriptLogin.js"></script>
 </body>
 </html>
