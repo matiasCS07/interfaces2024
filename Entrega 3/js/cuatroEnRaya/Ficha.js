@@ -35,6 +35,10 @@ class Ficha {
     }
   }
 
+  borrar(ctx, posX, posY){
+    ctx.clearRect(posX - this.radio, posY - this.radio, this.radio * 2, this.radio * 2);
+  }
+
   getNombre(){
     return this.jugador;
   }

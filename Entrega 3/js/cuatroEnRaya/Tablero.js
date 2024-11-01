@@ -13,7 +13,7 @@ class Tablero {
         }
     }
     return matriz;
-}
+  }
 
   constructor(canvas, ctx, filas, columnas, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
@@ -72,7 +72,7 @@ class Tablero {
   }
  
   //la funcion add se fija que la posicion donde queres soltar la ficha corresponda a una columna y a cual
-  add(x,ficha){
+  add(x, y,ficha){
 
     let columna=0;
     let j=0;
@@ -83,9 +83,14 @@ class Tablero {
     
     
     for (let i = 0; i < this.tablero.length; i++) {
-      if (this.tablero[columna][i].ficha.getNombre() == 'base') {
-        this.tablero[columna][i].ficha = ficha;
+      if(columna==this.columnas-1){
+        this.tablero[i][j].ficha.borrar(this.ctx, x, y);
         return true;
+      }else{
+        if (this.tablero[columna][i].ficha.getNombre() == 'base') {
+          this.tablero[columna][i].ficha = ficha;
+          return true;
+        }
       }
     }
     return false;
@@ -194,16 +199,14 @@ class Tablero {
     }
     return fichasGanadoras;
   }
-//   caidaDeFicha(ficha, x){
-  
-//     let y=0;
-//     let dy=2;
-     
-//      while(y <= this.canvas.height){
-//        y += dy;
-//        ficha.dibujar(ctx, x, y);
-//      }
- 
-//  }
+
+  //caidaDeFicha(ficha, x){
+  //  let y=0;
+  //  let dy=2;   
+  //  while(y <= this.canvas.height){
+  //    y += dy;
+  //    ficha.dibujar(ctx, x, y);
+  //  }
+  //}
 
 }
