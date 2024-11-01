@@ -83,7 +83,7 @@ canvas.onmousedown = function(e){
 function caidaDeFicha(ficha, x, filaLlegada) {
 
   let y = 0;//multiplico por el diametro de la ficha
-  let dy = 2;
+  let dy = 4;
   function animar() {
       let rectHeight= 0.8 * this.canvas.height;
       //borro todo para que no se vea la ficha anterior
@@ -142,8 +142,16 @@ canvas.onmouseup = function(e){
         jugadorActual = j1;
         //jugadorActual.setTitulo();
       }
-    }, 4500-(4500/8)*filaLlegada);
-    setTimeout(tablero.dibujar(), 2000);
+    }, 2250-(2250/8)*filaLlegada);
+    setTimeout(()=>{
+     
+      //borro todo para que no se vea la ficha anterior
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+       // dibujo el tablero nuevamente
+      tablero.dibujar();
+      //vuelvo a dibujar las fichas de los jugadores
+      j1.pintar(jugadorActual.getNombre());
+      j2.pintar(jugadorActual.getNombre());}, 2250);
   }
 }
 
@@ -182,7 +190,7 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   filas = filas;
   columnas = columnas;
   cantFichasGan=tipo;
-  tablero= new Tablero(canvas,ctx,filas,columnas,margen,anchoTablero,altoTablero, cantFichasGan);
+  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan);
   j1 = new Jugador('Jugador 1', avatar1);
   j2 = new Jugador('Jugador 2', avatar2);
   jugadorActual = j1;
