@@ -13,7 +13,7 @@ class Tablero {
         }
     }
     return matriz;
-}
+  }
 
   constructor(canvas, ctx, filas, columnas, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
@@ -72,7 +72,7 @@ class Tablero {
   }
  
   //la funcion add se fija que la posicion donde queres soltar la ficha corresponda a una columna y a cual
-  add(x,ficha){
+  add(x, y,ficha){
 
     let columna=0;
     let j=0;
@@ -83,31 +83,18 @@ class Tablero {
     
     
     for (let i = 0; i < this.tablero.length; i++) {
-      if (this.tablero[columna][i].ficha.getNombre() == 'base') {
-        this.tablero[columna][i].ficha = ficha;
-        return true;
+      if(columna==this.columnas-1){
+        this.tablero[i][j].ficha.borrar(this.ctx, x, y);
+      }else{
+        if (this.tablero[columna][i].ficha.getNombre() == 'base') {
+          this.tablero[columna][i].ficha = ficha;
+          return true;
+        }
       }
     }
     return false;
   }
 
-  obtenerFilaDeLlegada(x){
-
-    let columna=0;
-    let j=0;
-    while(columna<this.columnas-1 && !(x>this.paddingX+j*this.cellWidth && x<=this.paddingX+(j+1)*this.cellWidth)){
-      columna++;
-      j++;
-    }
-    
-    
-    for (let u = 0; u < this.tablero.length; u++) {
-      if (this.tablero[columna][u].ficha.getNombre() == 'base') {
-        return u;
-      }
-    }
-    return -1;
-  }
   // la funcion gane se encarga de la verificacion una vez que la ficha está posicionada
   gane(ultimo){
     var fichasGanadoras = [];
@@ -211,16 +198,32 @@ class Tablero {
     }
     return fichasGanadoras;
   }
-//   caidaDeFicha(ficha, x){
-  
-//     let y=0;
-//     let dy=2;
-     
-//      while(y <= this.canvas.height){
-//        y += dy;
-//        ficha.dibujar(ctx, x, y);
-//      }
- 
-//  }
+
+  obtenerFilaDeLlegada(x){
+
+    let columna=0;
+    let j=0;
+    while(columna<this.columnas-1 && !(x>this.paddingX+j*this.cellWidth && x<=this.paddingX+(j+1)*this.cellWidth)){
+      columna++;
+      j++;
+    }
+    
+    if(columna!=this.columnas-1){
+      for (let u = 0; u < this.tablero.length; u++) {
+        if (this.tablero[columna][u].ficha.getNombre() == 'base') {
+          return u;
+        }
+      }
+    }
+    return -1;
+  }
+  //caidaDeFicha(ficha, x){
+  //  let y=0;
+  //  let dy=2;   
+  //  while(y <= this.canvas.height){
+  //    y += dy;
+  //    ficha.dibujar(ctx, x, y);
+  //  }
+  //}
 
 }
