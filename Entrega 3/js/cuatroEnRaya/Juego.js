@@ -14,26 +14,29 @@ let jugadorActual;
 let fichaActual;
 let containerMenu=document.getElementById("menu-container");
 let controlesJuego=document.querySelectorAll(".control-juego");
-let temporizadorUi=document.getElementById("temporizador")
+let temporizadorUi=document.getElementById("temporizador");
 let tiempoInicial=120;
 let tiempo = tiempoInicial;
+let temporizador;
 
 document.querySelectorAll(".btn-jugar").forEach(e=> {
-  let menu;
   if(e.innerText=="Jugar"){
-    menu=document.getElementById("inicio");
     e.addEventListener("click", function(){
-      menu.style.opacity="0";
       containerMenu.style.opacity="0";
       setTimeout(() => {
-        menu.style.display="none";
         containerMenu.style.display="none";
+        containerMenu.style.visibility="hidden";
       }, 400);
+
+      ocultarMenu("inicio");
 
       let j1Avatar=document.querySelector(".jugador1.selected").src;
       let j2Avatar=document.querySelector(".jugador2.selected").src;
       iniciarJuego(6,7,4, j1Avatar, j2Avatar);
       document.getElementById("replay").addEventListener("click", function(){
+        if(temporizador){
+          clearInterval(temporizador);
+        }
         iniciarJuego(6,7,4, j1Avatar, j2Avatar);
       })
     })
@@ -43,17 +46,10 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       console.log("se reinicio");
       
       setTimeout(()=>{
-        menu=document.getElementById("inicio");
-        menu.style.opacity="1";
-        menu.style.display="flex";
+        mostrarMenu("inicio");
   
-        menu=document.getElementById("final");
-        menu.style.opacity="0";
-        menu.style.display="none";
-
-        menu=document.getElementById("empate");
-        menu.style.opacity="0";
-        menu.style.display="none";
+        ocultarMenu("final");
+        ocultarMenu("empate");
       }, 400)
     })
   }
@@ -154,14 +150,12 @@ canvas.onmouseup = function(e){
       }
     }, 2250-(2250/8)*filaLlegada);
     setTimeout(()=>{
-     
-      //borro todo para que no se vea la ficha anterior
        ctx.clearRect(0, 0, canvas.width, canvas.height);
-       // dibujo el tablero nuevamente
       tablero.dibujar();
-      //vuelvo a dibujar las fichas de los jugadores
       j1.pintar(jugadorActual.getNombre());
-      j2.pintar(jugadorActual.getNombre());}, 2250);
+      j2.pintar(jugadorActual.getNombre());
+    }, 2250);
+    clicked=false;
   }
 }
 
@@ -186,12 +180,11 @@ function canGetFicha(jugador,x,y){
 
 function mostrarGanador(ganador){
   setTimeout(() => {
-    let menu=document.getElementById("final")
     document.getElementById("ganador").innerText=ganador;
-    menu.style.display="flex";
-    menu.style.opacity="1";
+    mostrarMenu("final");
     containerMenu.style.opacity="1";
     containerMenu.style.display="flex";
+    containerMenu.style.visibility="visible";
   }, 1000);
 }
 
@@ -209,14 +202,15 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   controlesJuego.forEach(e=> {
     e.style.display="flex";
     e.style.opacity="1";
+    e.style.visibility="visible";
   })
 
   setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
   setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
 
   tiempo=tiempoInicial;
-  const temporizador = setInterval(() => {
-    if (tiempo === 0) {
+  temporizador = setInterval(() => {
+    if (tiempo == 0) {
       clearInterval(temporizador);
       setTimeout(() => {
         empate();
@@ -232,14 +226,29 @@ function empate(){
   ocultarControles();
   containerMenu.style.opacity="1";
   containerMenu.style.display="flex";
-  let menu=document.getElementById("empate");
-  menu.style.opacity="1";
-  menu.style.display="flex";
+  containerMenu.style.visibility="visible";
+
+  mostrarMenu("empate");
 }
 
 function ocultarControles(){
   controlesJuego.forEach(e=> {
     e.style.display="none";
     e.style.opacity="0";
+    e.style.visibility="hidden";
   })
+}
+
+function mostrarMenu(menu){
+  menu=document.getElementById(menu);
+  menu.style.opacity="1";
+  menu.style.display="flex";
+  menu.style.visibility="visible";
+}
+
+function ocultarMenu(menu){
+  menu=document.getElementById(menu);
+  menu.style.opacity="0";
+  menu.style.display="none";
+  menu.style.visibility="hidden";
 }

@@ -889,6 +889,7 @@ button.cart.removed::before{
 #final, .control-juego, #empate{
     display: none;
     opacity: 0;
+    visibility: hidden;
     color: white;
 }
 
