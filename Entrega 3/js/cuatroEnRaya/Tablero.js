@@ -38,7 +38,14 @@ class Tablero {
     this.cellWidth = this.rectWidth / this.filas;
     this.cellHeight = this.rectHeight / this.columnas;
     
-    console.log(this.tablero);
+    this.fondoCargado=false;
+    this.fondo=new Image();
+    this.fondo.src = "./assets/img/fondo-tablero.png";
+    this.fondo.onload=()=>{
+      this.fondoCargado=true;
+      this.dibujar();
+    }
+
     this.startGame();
   }
 
@@ -57,6 +64,9 @@ class Tablero {
     this.ctx.fillStyle = "rgb(54, 54, 54)";
     this.ctx.fillRect(this.paddingX, this.paddingY, this.rectWidth, this.rectHeight);
 
+    if(this.fondo.complete){
+      this.ctx.drawImage(this.fondo,this.paddingX,this.paddingY,this.rectWidth,this.rectHeight);
+    }
 
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {
