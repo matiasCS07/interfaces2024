@@ -2,7 +2,7 @@ class Tablero {
 
   crearMatriz(filas, columnas) {
     let matriz = [];
-    for (let i = 0; i < filas; i++) {
+    for (let i = 0; i < filas+1; i++) {
         matriz[i] = [];
         for (let j = 0; j < columnas; j++) {
             matriz[i][j] ={
@@ -35,7 +35,6 @@ class Tablero {
     this.paddingY = (this.canvasHeight - this.rectHeight) / 2;
     
     // Calculamos el ancho y alto de cada celda
-    // Este calculo quedo al reves por motivos que no comprendemos
     this.cellWidth = this.rectWidth / this.filas;
     this.cellHeight = this.rectHeight / this.columnas;
     
@@ -66,7 +65,7 @@ class Tablero {
         const y = this.paddingY + this.rectHeight - (this.cellHeight * j) - (this.cellHeight / 2);
         
         //dibujamos los espacios para las fichas
-        this.tablero[i][j].ficha.dibujar(this.ctx, x, y, this.cellWidth, this.cellHeight);
+        this.tablero[i][j].ficha.dibujar(this.ctx, x, y);
       }
     }
   }
@@ -174,7 +173,6 @@ class Tablero {
   }
   validacionHorizontal(horizontalActual, actual, j, fichasGanadoras){
     
-    console.log(j);
     while(((horizontalActual+1) < this.columnas-1) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
       horizontalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][j].ficha);
@@ -217,13 +215,5 @@ class Tablero {
     }
     return -1;
   }
-  //caidaDeFicha(ficha, x){
-  //  let y=0;
-  //  let dy=2;   
-  //  while(y <= this.canvas.height){
-  //    y += dy;
-  //    ficha.dibujar(ctx, x, y);
-  //  }
-  //}
 
 }

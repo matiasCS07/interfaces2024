@@ -81,38 +81,27 @@ canvas.onmousedown = function(e){
 
 
 function caidaDeFicha(ficha, x, filaLlegada) {
+  let y = 0;
+  let dy = 8;
 
-  let y = 0;//multiplico por el diametro de la ficha
-  let dy = 4;
   function animar() {
-      let rectHeight= 0.8 * this.canvas.height;
-      //borro todo para que no se vea la ficha anterior
-       ctx.clearRect(0, 0, canvas.width, canvas.height);
-       // dibujo el tablero nuevamente
+      let alturaLlegada = (tablero.rectHeight + (ficha.radio/2)) - (filaLlegada * (ficha.radio*2))-(tablero.cellHeight-ficha.radio);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
-      // Dibujar la ficha en la nueva posición
-      ficha.dibujar(ctx, x, y);
-      //vuelvo a dibujar las fichas de los jugadores
-      j1.pintar(jugadorActual.getNombre());
-      j2.pintar(jugadorActual.getNombre());
-      // Actualizar la posición
-      y += dy;
-      // Si la ficha no ha llegado al suelo, solicitar el siguiente frame
-      console.log(filaLlegada);
-      let alturaLlegada=rectHeight+40-filaLlegada*80;
+
       if (y < alturaLlegada) {
+          ficha.dibujar(ctx, x, y); 
+          y += dy;
           requestAnimationFrame(animar);
       } else {
-        // si la ficha ya llego al final, borro el tablero y lo dibujo nuevamente
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // dibujo el tablero nuevamente
-        tablero.dibujar();
-        //vuelvo a dibujar las fichas de los jugadores
-        j1.pintar(jugadorActual.getNombre());
-        j2.pintar(jugadorActual.getNombre());
-      } 
+          ficha.dibujar(ctx, x, alturaLlegada);
+      }
+
+      j1.pintar(jugadorActual.getNombre());
+      j2.pintar(jugadorActual.getNombre());
   }
- 
+
   animar();
 }
 
@@ -120,7 +109,6 @@ canvas.onmouseup = function(e){
   
   if(clicked){
     let filaLlegada=tablero.obtenerFilaDeLlegada(e.clientX-canvas.getBoundingClientRect().left);
-    console.log(filaLlegada);
     if(filaLlegada!=-1){
       caidaDeFicha(fichaActual,  e.clientX-canvas.getBoundingClientRect().left, filaLlegada);
     }else{
@@ -148,13 +136,13 @@ canvas.onmouseup = function(e){
         jugadorActual = j1;
         //jugadorActual.setTitulo();
       }
-    }, 2250-(2250/8)*filaLlegada);
+    }, 2000-(2000/tablero.filas)*filaLlegada);
     setTimeout(()=>{
        ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
       j1.pintar(jugadorActual.getNombre());
       j2.pintar(jugadorActual.getNombre());
-    }, 2250);
+    }, 2000-(2000/tablero.filas)*filaLlegada);
     clicked=false;
   }
 }
