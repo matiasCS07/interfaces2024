@@ -18,6 +18,9 @@ let temporizadorUi=document.getElementById("temporizador");
 let tiempoInicial=120;
 let tiempo = tiempoInicial;
 let temporizador;
+let radio=40;
+
+
 
 document.querySelectorAll(".btn-jugar").forEach(e=> {
   if(e.innerText=="Jugar"){
@@ -32,12 +35,28 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
 
       let j1Avatar=document.querySelector(".jugador1.selected").src;
       let j2Avatar=document.querySelector(".jugador2.selected").src;
-      iniciarJuego(6,7,4, j1Avatar, j2Avatar);
+      let modo= document.querySelector(".opcion-tablero.selected").id;
+      if(modo=="4enlinea"){
+        iniciarJuego(6,7,4, j1Avatar, j2Avatar, radio);
+      } else if(modo=="5enlinea"){
+        iniciarJuego(7,8,5, j1Avatar, j2Avatar, radio);
+      } else {
+        radio=35;
+        iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, radio);
+      }
+      
       document.getElementById("replay").addEventListener("click", function(){
         if(temporizador){
           clearInterval(temporizador);
         }
-        iniciarJuego(6,7,4, j1Avatar, j2Avatar);
+        if(modo=="4enlinea"){
+          iniciarJuego(6,7,4, j1Avatar, j2Avatar, 40);
+        } else if(modo=="5enlinea"){
+          iniciarJuego(7,8,5, j1Avatar, j2Avatar, 40);
+        } else {
+          iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 35);
+        }
+        
       })
     })
 
@@ -176,14 +195,14 @@ function mostrarGanador(ganador){
   }, 1000);
 }
 
-function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
+function iniciarJuego(filas, columnas, tipo, avatar1, avatar2, radio){
   clicked = false;
   filas = filas;
   columnas = columnas;
   cantFichasGan=tipo;
-  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan);
-  j1 = new Jugador('Jugador 1', avatar1);
-  j2 = new Jugador('Jugador 2', avatar2);
+  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan, radio);
+  j1 = new Jugador('Jugador 1', avatar1, radio);
+  j2 = new Jugador('Jugador 2', avatar2, radio);
   jugadorActual = j1;
   fichaActual="";
 
