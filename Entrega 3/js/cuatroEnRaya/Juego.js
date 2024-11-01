@@ -11,7 +11,9 @@ let jugadorActual;
 let fichaActual;
 let containerMenu=document.getElementById("menu-container");
 let controlesJuego=document.querySelectorAll(".control-juego");
-let temporizador=document.getElementById("temporizador")
+let temporizadorUi=document.getElementById("temporizador")
+let tiempoInicial=120;
+let tiempo = tiempoInicial;
 
 document.querySelectorAll(".btn-jugar").forEach(e=> {
   let menu;
@@ -43,6 +45,10 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
         menu.style.display="flex";
   
         menu=document.getElementById("final");
+        menu.style.opacity="0";
+        menu.style.display="none";
+
+        menu=document.getElementById("empate");
         menu.style.opacity="0";
         menu.style.display="none";
       }, 400)
@@ -124,10 +130,7 @@ canvas.onmouseup = function(e){
 
         mostrarGanador(fichaActual.jugador);
         setTimeout(() => {          
-          controlesJuego.forEach(e=> {
-            e.style.display="none";
-            e.style.opacity="0";
-          })
+          ocultarControles();
         }, 1000);
       }
       fichaActual = null;
@@ -188,4 +191,33 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
 
   setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
   setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
+
+  tiempo=tiempoInicial;
+  const temporizador = setInterval(() => {
+    if (tiempo === 0) {
+      clearInterval(temporizador);
+      setTimeout(() => {
+        empate();
+        temporizadorUi.innerText = tiempoInicial + "s";
+      }, 1000);
+    }
+    temporizadorUi.innerText = tiempo + "s";
+    tiempo--;
+  }, 1000);
+}
+
+function empate(){
+  ocultarControles();
+  containerMenu.style.opacity="1";
+  containerMenu.style.display="flex";
+  let menu=document.getElementById("empate");
+  menu.style.opacity="1";
+  menu.style.display="flex";
+}
+
+function ocultarControles(){
+  controlesJuego.forEach(e=> {
+    e.style.display="none";
+    e.style.opacity="0";
+  })
 }

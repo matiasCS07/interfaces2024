@@ -886,14 +886,14 @@ button.cart.removed::before{
     transition: all 400ms ease-in;
 }
 
-#final, .control-juego{
+#final, .control-juego, #empate{
     display: none;
     opacity: 0;
     color: white;
 }
 
 .control-juego{
-    width: 150px;
+    width: 180px;
     justify-content: center;
     background-color: brown;
     padding: 20px;
