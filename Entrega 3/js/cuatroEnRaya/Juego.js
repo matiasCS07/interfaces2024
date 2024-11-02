@@ -37,10 +37,13 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       let modo= document.querySelector(".opcion-tablero.selected").id;
       if(modo=="4enlinea"){
         iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
+        tiempoInicial=120
       } else if(modo=="5enlinea"){
         iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
-      } else {
+        tiempoInicial=180
+      } else if(modo=="6enlinea"){
         iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, 6);
+        tiempoInicial=240
       }
       
       document.getElementById("replay").addEventListener("click", function(){
@@ -49,10 +52,13 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
         }
         if(modo=="4enlinea"){
           iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
+          tiempoInicial=120
         } else if(modo=="5enlinea"){
           iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
+          tiempoInicial=180
         } else {
           iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 6);
+          tiempoInicial=240
         }
         
       })
@@ -60,7 +66,6 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
 
   }else if(e.innerText=="Jugar de nuevo"){
     e.addEventListener("click", function(){
-      console.log("se reinicio");
       
       setTimeout(()=>{
         mostrarMenu("inicio");
@@ -151,7 +156,15 @@ canvas.onmouseup = function(e){
         fichaActual = null;
         j1 = [j2, j2=j1][0];//toggle entre jugadores
         jugadorActual = j1;
-        //jugadorActual.setTitulo();
+        console.log(jugadorActual.getNombre());
+        document.querySelectorAll(".jugador").forEach(e=> {
+          if(e.innerText==jugadorActual.getNombre()){
+            e.classList.add("selected");
+          }
+          if(e.innerText!=jugadorActual.getNombre()&&e.classList.contains("selected")){
+            e.classList.remove("selected");
+          }
+        })
       }
     }, 2000-(2000/tablero.filas)*filaLlegada);
     setTimeout(()=>{
@@ -212,6 +225,8 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
 
   setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
   setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
+
+  document.getElementById("jugador1").classList.add("selected");
 
   tiempo=tiempoInicial;
   temporizador = setInterval(() => {

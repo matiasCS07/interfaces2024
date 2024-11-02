@@ -4,7 +4,6 @@ class Ficha {
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio=this.setRadio(modoJuego);
-    console.log(this.radio);
     this.id = id;
 
     if(imagen){
@@ -13,7 +12,7 @@ class Ficha {
       this.ruta="";
     }
 
-    this.color = "rgb(29, 29, 29)";
+    this.color = "#A8D8B9";
   }
 
   //dibuja las fichas 
@@ -45,6 +44,7 @@ class Ficha {
     this.ruta="";
     this.color = "rgb(204, 215, 4)";
   }
+
   setRadio(modoJuego){
     let radio;
     switch(modoJuego){

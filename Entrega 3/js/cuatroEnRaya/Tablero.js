@@ -28,7 +28,7 @@ class Tablero {
     this.canvasHeight = this.canvas.height;
     
     // Ajustamos el ancho y alto del rectángulo al 50% y 80% del tamaño del canvas, respectivamente
-    this.rectWidth = 0.5 * this.canvasWidth;
+    this.rectWidth = 0.6 * this.canvasWidth;
     this.rectHeight = 0.8 *this.canvasHeight;
     
     // Calculamos el padding para centrar el rectángulo
@@ -41,7 +41,7 @@ class Tablero {
     
     this.fondoCargado=false;
     this.fondo=new Image();
-    this.fondo.src = "./assets/img/fondo-tablero.png";
+    this.fondo.src = "./assets/img/fondo-tablero.jpg";
     this.fondo.onload=()=>{
       this.fondoCargado=true;
       this.dibujar();

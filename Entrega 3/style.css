@@ -881,9 +881,9 @@ button.cart.removed::before{
 #canvas{
     display: flex;
     margin: 30px 22px 0 22px;
-    /* width: 1300px;
-    height: 800px; */
-    background-color: #5271FF;
+    background-image:   url(./assets/img/fondo-juego.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 } 
 
 #menu-container{
@@ -929,20 +929,40 @@ button.cart.removed::before{
     width: 180px;
     justify-content: center;
     background-color: brown;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10%;
     position: absolute;
     justify-content: space-around;
     align-items: center;
 }
 
+.jugador{
+    width: fit-content;
+    background-color: rgb(0, 0, 0, 0);
+    top: 20%;
+    transition: all 400ms ease-in;
+}
+
+#jugador1{
+    left: 18%;
+}
+
+#jugador2{
+    right: 18%;
+}
+
+.jugador.selected{
+    filter: drop-shadow(0px 8px 5px rgba(0, 51, 102, 1));
+}
+
 #temporizador-container{
-    top: 17%;
-    right: 17%;
+    bottom: 10%;
+    right: 35%;
 }
 
 #replay{
     bottom: 10%;
+    left: 35%;
     cursor: pointer;
 }
 
