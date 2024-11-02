@@ -10,6 +10,7 @@ let cantFichasGan;
 let tablero;
 let j1;
 let j2;
+let indiceJugador=0;
 let jugadorActual;
 let fichaActual;
 let containerMenu=document.getElementById("menu-container");
@@ -36,14 +37,14 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       let j2Avatar=document.querySelector(".jugador2.selected").src;
       let modo= document.querySelector(".opcion-tablero.selected").id;
       if(modo=="4enlinea"){
+        tiempoInicial=120;
         iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
-        tiempoInicial=120
       } else if(modo=="5enlinea"){
+        tiempoInicial=180;
         iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
-        tiempoInicial=180
       } else if(modo=="6enlinea"){
+        tiempoInicial=240;
         iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, 6);
-        tiempoInicial=240
       }
       
       document.getElementById("replay").addEventListener("click", function(){
@@ -51,14 +52,14 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
           clearInterval(temporizador);
         }
         if(modo=="4enlinea"){
+          tiempoInicial=120;
           iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
-          tiempoInicial=120
         } else if(modo=="5enlinea"){
+          tiempoInicial=180;
           iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
-          tiempoInicial=180
-        } else {
+        } else if(modo="6enlinea"){
+          tiempoInicial=240;
           iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 6);
-          tiempoInicial=240
         }
         
       })
@@ -85,9 +86,11 @@ canvas.onmousemove = function (e){
     let y = e.clientY - canvas.getBoundingClientRect().top;
     ctx.clearRect(0,0,canvas.width,canvas.height);
     tablero.dibujar();
+    tablero.dibujarPila(j1, j2, cantFichasGan);
     fichaActual.dibujar(ctx,x,y);
-    j1.pintar(jugadorActual.getNombre());
-    j2.pintar(jugadorActual.getNombre());
+
+    mostrarGuia();
+    pintarJugadores();
   }
 }
 
@@ -120,8 +123,8 @@ function caidaDeFicha(ficha, x, filaLlegada) {
           ficha.dibujar(ctx, x, alturaLlegada);
       }
 
-      j1.pintar(jugadorActual.getNombre());
-      j2.pintar(jugadorActual.getNombre());
+      tablero.dibujarPila(j1, j2, cantFichasGan);
+      pintarJugadores();
   }
 
   animar();
@@ -139,8 +142,7 @@ canvas.onmouseup = function(e){
     setTimeout(() => {
       if (tablero.add((e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top), fichaActual)) {   
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        j1.pintar(jugadorActual.getNombre());
-        j2.pintar(jugadorActual.getNombre());
+        pintarJugadores();
         clicked = false;
         let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
         if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
@@ -151,11 +153,11 @@ canvas.onmouseup = function(e){
           mostrarGanador(fichaActual.jugador);
           setTimeout(() => {          
             ocultarControles();
-          }, 1000);
+          }, 2000);
         }
         fichaActual = null;
-        j1 = [j2, j2=j1][0];//toggle entre jugadores
-        jugadorActual = j1;
+        indiceJugador = (indiceJugador + 1) % 2;
+        jugadorActual = indiceJugador === 0 ? j1 : j2;
         console.log(jugadorActual.getNombre());
         document.querySelectorAll(".jugador").forEach(e=> {
           if(e.innerText==jugadorActual.getNombre()){
@@ -170,8 +172,8 @@ canvas.onmouseup = function(e){
     setTimeout(()=>{
        ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
-      j1.pintar(jugadorActual.getNombre());
-      j2.pintar(jugadorActual.getNombre());
+      pintarJugadores();
+      tablero.dibujarPila(j1, j2, cantFichasGan);
     }, 2000-(2000/tablero.filas)*filaLlegada);
     clicked=false;
   }
@@ -217,18 +219,20 @@ function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
   jugadorActual = j1;
   fichaActual="";
 
+  tablero.dibujarPila(j1, j2, tipo);
+
   controlesJuego.forEach(e=> {
     e.style.display="flex";
     e.style.opacity="1";
     e.style.visibility="visible";
   })
 
-  setTimeout(function(){ j1.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
-  setTimeout(function(){ j2.pintar(jugadorActual.getNombre()); }, 400);// cargarn la primera ficha, por un bug del onload
+  setTimeout(function(){ pintarJugadores(); }, 400);
 
   document.getElementById("jugador1").classList.add("selected");
 
   tiempo=tiempoInicial;
+  console.log(tiempo);
   temporizador = setInterval(() => {
     if (tiempo == 0) {
       clearInterval(temporizador);
@@ -271,4 +275,13 @@ function ocultarMenu(menu){
   menu.style.opacity="0";
   menu.style.display="none";
   menu.style.visibility="hidden";
+}
+
+function pintarJugadores(){
+  j1.pintar(jugadorActual.getNombre());
+  j2.pintar(jugadorActual.getNombre());
+}
+
+function mostrarGuia(){
+  tablero.mostrarGuia();
 }

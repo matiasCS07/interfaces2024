@@ -4,7 +4,7 @@ class Jugador {
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.fichas = [];
-    this.posPiloteY = 110;
+    this.posPiloteY = 200;
     this.avatar=imagen;
     if (this.jugador == 'Jugador 1') {
       this.posPiloteX = 110;
@@ -16,7 +16,7 @@ class Jugador {
 
   startGame(modo){
     for (var i = 0; i < 32; i++) {
-      var ficha = new Ficha(this.jugador,this.jugador+i,modo, this.avatar);
+      var ficha = new Ficha(this.jugador, modo, this.avatar);
       this.fichas.push(ficha);
       ficha.dibujar(ctx,this.posPiloteX,this.posPiloteY, modo, this.avatar);
     }

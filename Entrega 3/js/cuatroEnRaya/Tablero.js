@@ -1,20 +1,4 @@
 class Tablero {
-
-  crearMatriz(filas, columnas, cantFichasGan) {
-    let matriz = [];
-    for (let i = 0; i < filas+1; i++) {
-        matriz[i] = [];
-        for (let j = 0; j < columnas; j++) {
-            matriz[i][j] ={
-              "ficha": new Ficha('base', i, cantFichasGan, ""),
-              "x":0,
-              "y":0
-            };
-        }
-    }
-    return matriz;
-  }
-
   constructor(canvas, ctx, filas, columnas, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
     this.canvas=canvas;
@@ -50,10 +34,25 @@ class Tablero {
     this.startGame();
   }
 
+  crearMatriz(filas, columnas, cantFichasGan) {
+    let matriz = [];
+    for (let i = 0; i < filas+1; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < columnas; j++) {
+            matriz[i][j] ={
+              "ficha": new Ficha('base', cantFichasGan, ""),
+              "x":0,
+              "y":0
+            };
+        }
+    }
+    return matriz;
+  }
+
   startGame() {
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {
-        this.tablero[i][j].ficha = new Ficha('base', i, this.cantFichasGan, "");
+        this.tablero[i][j].ficha = new Ficha('base', this.cantFichasGan, "");
       }
     }
     this.dibujar();
@@ -226,5 +225,32 @@ class Tablero {
     }
     return -1;
   }
+
+  dibujarPila(j1, j2, modo){
+    let j1x=110;
+    let j2x=this.canvasWidth-110;
+    let y=600;
+    for(let i=0; i<=20; i++){
+      y-=20;
+      new Ficha(j1, modo, j1.avatar).dibujar(this.ctx, j1x, y)
+      let id=i+50;
+      new Ficha(j2, modo, j2.avatar).dibujar(this.ctx, j2x, y);
+    }
+  }
+
+mostrarGuia() {
+  for (let columna = 0; columna < this.columnas - 1; columna++) {
+    let x = this.paddingX + columna * this.cellWidth + this.cellWidth / 2; 
+    let y = 40; 
+    let gradient = this.ctx.createRadialGradient(x, y, 5, x, y, this.cellWidth / 2);
+    gradient.addColorStop(0, 'rgba(255, 70, 65, 0.5)'); 
+    gradient.addColorStop(1, 'rgba(255, 70, 65, 0)'); 
+
+    this.ctx.fillStyle = gradient;
+    this.ctx.beginPath();
+    this.ctx.arc(x, y, this.cellWidth / 2, 0, Math.PI * 2);
+    this.ctx.fill();
+  }
+}
 
 }

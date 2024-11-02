@@ -928,7 +928,7 @@ button.cart.removed::before{
 .control-juego{
     width: 180px;
     justify-content: center;
-    background-color: brown;
+    background-color: #a71814;
     padding: 15px;
     border-radius: 10%;
     position: absolute;
@@ -937,18 +937,20 @@ button.cart.removed::before{
 }
 
 .jugador{
+    font-size: 35px;
     width: fit-content;
     background-color: rgb(0, 0, 0, 0);
     top: 20%;
     transition: all 400ms ease-in;
+    pointer-events: none;
 }
 
 #jugador1{
-    left: 18%;
+    left: 16%;
 }
 
 #jugador2{
-    right: 18%;
+    right: 16.5%;
 }
 
 .jugador.selected{

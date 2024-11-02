@@ -1,10 +1,9 @@
 class Ficha {
-  constructor(jugador,id, modoJuego, imagen) {
+  constructor(jugador, modoJuego, imagen) {
     this.canvas = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio=this.setRadio(modoJuego);
-    this.id = id;
 
     if(imagen){
       this.ruta=imagen;
@@ -21,7 +20,9 @@ class Ficha {
     ctx.fillStyle = this.color;
     ctx.arc(posX,posY,this.radio,0,Math.PI * 2);
     ctx.fill();
-    ctx.closePath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#003366';
+    ctx.stroke();
     if (this.ruta!="") {
       var img = new Image();
       img.src = this.ruta;
