@@ -131,8 +131,10 @@ function caidaDeFicha(ficha, x, filaLlegada) {
 canvas.onmouseup = function(e){
   
   if(clicked){
+    //pedimos la fila de llegada usando la posicion del mouse
     let filaLlegada=tablero.obtenerFilaDeLlegada(e.clientX-canvas.getBoundingClientRect().left);
     if(filaLlegada!=-1){
+      //luego de verificar que sea una fila valida iniciamos la animacion
       caidaDeFicha(fichaActual,  e.clientX-canvas.getBoundingClientRect().left, filaLlegada);
     }else{
       fichaActual.borrar(ctx, (e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top));
@@ -191,7 +193,7 @@ canvas.onmouseup = function(e){
 }
 
 
-//
+//verificamos que el jugador haga click en la ficha correspondiente teniendo en cuenta la posicion en x y en y
 function canGetFicha(jugador,x,y){
   if (jugador == 'Jugador 1') {
     if (x<200&&y<800) {
