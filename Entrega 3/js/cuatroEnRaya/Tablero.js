@@ -11,7 +11,7 @@ class Tablero {
     this.canvasWidth = this.canvas.width;
     this.canvasHeight = this.canvas.height;
     
-    // Ajustamos el ancho y alto del rectángulo al 50% y 80% del tamaño del canvas, respectivamente
+    // Ajustamos el ancho y alto del rectángulo al 60% y 80% del tamaño del canvas, respectivamente
     this.rectWidth = 0.6 * this.canvasWidth;
     this.rectHeight = 0.8 *this.canvasHeight;
     
@@ -23,6 +23,8 @@ class Tablero {
     this.cellWidth = this.rectWidth / this.filas;
     this.cellHeight = this.rectHeight / this.columnas;
     
+
+    //traemos la imagen de fondo del tablero, cuando cargue, se dibuja
     this.fondoCargado=false;
     this.fondo=new Image();
     this.fondo.src = "./assets/img/fondo-tablero.jpg";
@@ -34,6 +36,7 @@ class Tablero {
     this.startGame();
   }
 
+  //se crea la matriz base, estructura que se utilizará para verificaciones e inserciones
   crearMatriz() {
     let matriz = [];
     for (let i = 0; i < this.filas+1; i++) {
@@ -49,6 +52,7 @@ class Tablero {
     return matriz;
   }
 
+  //llena el tablero de las fichas "vacias"
   startGame() {
     for (let i = 0; i < this.filas; i++) {
       for (let j = 0; j < this.columnas; j++) {
@@ -58,12 +62,12 @@ class Tablero {
     this.dibujar();
   }
 
+  //dibujamos el tablero
   dibujar() {
-
-    //dibujamos el tablero
     this.ctx.fillStyle = "rgb(54, 54, 54)";
     this.ctx.fillRect(this.paddingX, this.paddingY, this.rectWidth, this.rectHeight);
 
+    //se verifica nuevamente si el fondo está cargado
     if(this.fondo.complete){
       this.ctx.drawImage(this.fondo,this.paddingX,this.paddingY,this.rectWidth,this.rectHeight);
     }
@@ -113,8 +117,11 @@ class Tablero {
 
     for (var i = 0; i < this.filas; i++) {
       for (var j = 0; j < this.columnas; j++) {
-        if (ultimo.getNombre() == this.tablero[i][j].ficha.getNombre()) { // si estoy parado en una ficha del tipo q quiero buscar
-          //--Validacion vertical --//
+
+        // si estoy parado en una ficha del tipo q quiero buscar
+        if (ultimo.getNombre() == this.tablero[i][j].ficha.getNombre()) { 
+
+          // validacion vertical
           actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           verticalActual = j;
@@ -132,7 +139,7 @@ class Tablero {
           fichasGanadoras = [];
           //no encontro nada verticalmente
 
-          //--Validacion Horizontal --//
+          //validacion horizontal
           actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
@@ -145,7 +152,7 @@ class Tablero {
           //no encontro nada horizontalmente
 
 
-          //--Validacion diagonal arriba --//
+          //validacion diagonal arriba
           actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
@@ -158,7 +165,7 @@ class Tablero {
           fichasGanadoras = [];
           //no encontro nada en diagonal arriba
 
-          //--Validacion diagonal abajo --//
+          //validacion diagonal abajo
           actual = this.tablero[i][j].ficha;
           fichasGanadoras.push(actual);
           horizontalActual = i;
@@ -181,6 +188,8 @@ class Tablero {
     }
     return fichasGanadoras;
   }
+
+  //verifica si las fichas acumuladas, horizontalmente, son de la cantidad de fichas para ganar
   validacionHorizontal(horizontalActual, actual, j, fichasGanadoras){
     
     while(((horizontalActual+1) < this.columnas-1) && actual.getNombre()==this.tablero[horizontalActual+1][j].ficha.getNombre()){
@@ -194,8 +203,10 @@ class Tablero {
     return fichasGanadoras;
   }
 
+    //verifica si las fichas acumuladas, vertical y diagonal hacia arriba, son de la cantidad de fichas para ganar
   validacionDiagonalArriba(horizontalActual, verticalActual, actual, fichasGanadoras){
     while((((horizontalActual+1) < this.columnas-1) && ((verticalActual+1) < this.filas))&& actual.getNombre()==this.tablero[horizontalActual+1][verticalActual+1].ficha.getNombre()){
+      //se mueve una ficha adelante y, una ficha arriba
       horizontalActual++;
       verticalActual++;
       fichasGanadoras.push(this.tablero[horizontalActual][verticalActual].ficha);
@@ -207,6 +218,7 @@ class Tablero {
     return fichasGanadoras;
   }
 
+  //verifica sobre que conjunto de fichas se soltó la del jugador
   obtenerFilaDeLlegada(x){
 
     let columna=0;
@@ -216,6 +228,7 @@ class Tablero {
       j++;
     }
     
+    //comprobamos que el lugar esté vacío
     if(columna!=this.columnas-1){
       for (let u = 0; u < this.tablero.length; u++) {
         if (this.tablero[columna][u].ficha.getNombre() == 'base') {
@@ -226,69 +239,85 @@ class Tablero {
     return -1;
   }
 
+  //dibuja la pila de fichas de cada jugador
   dibujarPila(j1, j2, modo){
+    //sobre que lado se dibujarán, dependiendo el juegador
     let j1x=110;
     let j2x=this.canvasWidth-110;
+
+    //hasta donde llegarán las fichas
     let y=600;
+
     for(let i=0; i<=20; i++){
+      //por cada ficha dibujada, se dibuja otra, un poco mas arriba
       y-=20;
       new Ficha(j1, modo, j1.avatar).dibujar(this.ctx, j1x, y)
       new Ficha(j2, modo, j2.avatar).dibujar(this.ctx, j2x, y);
     }
   }
 
-mostrarGuia() {
-  for (let columna = 0; columna < this.columnas-1; columna++) {
-    let x = this.paddingX + columna * this.cellWidth + this.cellWidth / 2; 
-    let y = 40; 
-    let gradient = this.ctx.createRadialGradient(x, y, 5, x, y, this.cellWidth / 2);
-    gradient.addColorStop(0, 'rgba(255, 70, 65, 0.5)'); 
-    gradient.addColorStop(1, 'rgba(255, 70, 65, 0)'); 
 
-    this.ctx.fillStyle = gradient;
-    this.ctx.beginPath();
-    this.ctx.arc(x, y, this.cellWidth / 2, 0, Math.PI * 2);
-    this.ctx.fill();
-  }
-}
+  //muestra las guias visuales para insertar una ficha
+  mostrarGuia() {
+    for (let columna = 0; columna < this.columnas-1; columna++) {
 
-setFilas(modo){
-  let filas;
+      //determina la posicion donde estara la guia
+      let x = this.paddingX + columna * this.cellWidth + this.cellWidth / 2; 
+      let y = 40; 
 
-  switch(modo){
-    case 5: 
-      filas=7;
-      break;
-    case 6:
-      filas=8;
-      break;
-    case 7:
-      filas=9;
-      break;
-    default:
-      filas=6
+      //se dibuja la guia, simulando una sombra
+      let gradient = this.ctx.createRadialGradient(x, y, 5, x, y, this.cellWidth / 2);
+      gradient.addColorStop(0, 'rgba(255, 70, 65, 0.5)'); 
+      gradient.addColorStop(1, 'rgba(255, 70, 65, 0)'); 
+
+      this.ctx.fillStyle = gradient;
+      this.ctx.beginPath();
+      this.ctx.arc(x, y, this.cellWidth / 2, 0, Math.PI * 2);
+      this.ctx.fill();
+    }
   }
 
-  return filas
-}
 
-setColumnas(modo){
-  let columnas;
+  //dependiendo el modo, determina cuantas filas se usarán para el tablero
+  setFilas(modo){
+    let filas;
 
-  switch(modo){
-    case 5: 
-      columnas=8;
-      break;
-    case 6:
-      columnas=9;
-      break;
-    case 7:
-      columnas=10;
-      break;
-    default:
-      columnas=7
+    switch(modo){
+      case 5: 
+        filas=7;
+        break;
+      case 6:
+        filas=8;
+        break;
+      case 7:
+        filas=9;
+        break;
+      default:
+        filas=6
+    }
+
+    return filas
   }
-  return columnas
-}
+
+
+  //dependiendo el modo, determina cuantas columnas se usarán para el tablero
+  setColumnas(modo){
+    let columnas;
+
+    switch(modo){
+      case 5: 
+        columnas=8;
+        break;
+      case 6:
+        columnas=9;
+        break;
+      case 7:
+        columnas=10;
+        break;
+      default:
+        columnas=7
+    }
+    return columnas
+  }
 
 }

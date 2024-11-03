@@ -4,17 +4,11 @@ class Ficha {
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio=this.setRadio(modoJuego);
-
-    if(imagen){
-      this.ruta=imagen;
-    }else{
-      this.ruta="";
-    }
-
+    this.ruta=setRuta(imagen);
     this.color = "#A8D8B9";
   }
 
-  //dibuja las fichas 
+  //dibuja la ficha
   dibujar(ctx,posX,posY){
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -26,14 +20,12 @@ class Ficha {
     if (this.ruta!="") {
       var img = new Image();
       img.src = this.ruta;
-      // img.onload = function() { //tilda todo
       ctx.drawImage(img,posX-this.radio,posY-this.radio,this.radio*2,this.radio*2);
-      // }
     }
   }
 
+  //borra la ficha en el canvas
   borrar(ctx, posX, posY){
-    console.log("entre en borrar")
     ctx.clearRect(posX - this.radio, posY - this.radio, this.radio * 2, this.radio * 2);
   }
 
@@ -41,11 +33,13 @@ class Ficha {
     return this.jugador;
   }
 
+  //pinta la ficha de manera destacada, en el caso que sea ganadora
   ganadora(){
     this.ruta="";
     this.color = "rgb(204, 215, 4)";
   }
 
+  //setea el radio dependiendo del modo de juego, asi se adapta al tamaño del tablero
   setRadio(modoJuego){
     let radio;
     switch(modoJuego){
@@ -58,16 +52,20 @@ class Ficha {
       case 6:
         radio=30;
         break;
+      case 7:
+        radio=25;
+        break;
       default: radio=40;
     }
     return radio;
   }
 
-  // start(ctx,posX,posY){
-  //   var img = new Image();
-  //   img.src = this.ruta;
-  //   img.onload = function() {
-  //     ctx.drawImage(img,posX-this.radio,posY-this.radio,60,60);
-  //   }
-  // }
+  //setea la ruta de la imagen de la ficha
+  setRuta(imagen){
+    if(imagen){
+      return imagen;
+    }else{
+      return "";
+    }
+  }
 }

@@ -16,9 +16,11 @@ let tiempo = tiempoInicial;
 let temporizador;
 
 
-
+// se les agrega las funcionalidades a los botones de "Jugar", "Jugar de nuevo" y del boton de "replay"
 document.querySelectorAll(".btn-jugar").forEach(e=> {
   if(e.innerText=="Jugar"){
+
+    //hace que se oculte el fondo del menu
     e.addEventListener("click", function(){
       containerMenu.style.opacity="0";
       setTimeout(() => {
@@ -28,13 +30,18 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
 
       ocultarMenu("inicio");
 
+      //se obtienen los avatares seleccionados por el usuario
       let j1Avatar=document.querySelector(".jugador1.selected").src;
       let j2Avatar=document.querySelector(".jugador2.selected").src;
-      let modo= document.querySelector(".opcion-tablero.selected").id;
+
+      //se obtiene el modo de juego dependiendo de lo seleccionado por el usuario
+      let modo=document.querySelector(".opcion-tablero.selected").id;
+
       IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo);
 
       
       document.getElementById("replay").addEventListener("click", function(){
+        //se reinicia el temporizador
         if(temporizador){
           clearInterval(temporizador);
         }
@@ -56,8 +63,8 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
 
 })
 
+//se agrega la funcionalidades del movimiento del mouse en el canvas
 canvas.onmousemove = function (e){
-  // console.log('X: '+(e.clientX-canvas.getBoundingClientRect().left)+"| Y: "+(e.clientY-canvas.getBoundingClientRect().top));
   if (clicked) {
     let x = e.clientX - canvas.getBoundingClientRect().left;
     let y = e.clientY - canvas.getBoundingClientRect().top;
@@ -71,21 +78,24 @@ canvas.onmousemove = function (e){
   }
 }
 
+//se agrega la funcionalidades del click del mouse sobre el canvas
 canvas.onmousedown = function(e){
-  //console.log(e.clientX);
   if (canGetFicha(jugadorActual.getNombre(),(e.clientX-canvas.getBoundingClientRect().left),(e.clientY - canvas.getBoundingClientRect().top))) {
-    // console.log(jugadorActual.getCantFichas());
     clicked = true;
     fichaActual = jugadorActual.getFicha();
   }
   
 }
 
-
+//se aplica la animación de las fichas al tirarlas sobre el tablero
 function caidaDeFicha(ficha, x, filaLlegada) {
   let y = 0;
+
+  //dy: la aceleración de la caida de la ficha
   let dy = 8;
 
+
+  //se encarga de dibujar, borrar y re dibujar el canvas, teniendo en cuenta el cambio en la y de la ficha al caer
   function animar() {
       let alturaLlegada = (tablero.rectHeight + (ficha.radio/2)) - (filaLlegada * (ficha.radio*2))-(tablero.cellHeight-ficha.radio);
 
@@ -107,6 +117,8 @@ function caidaDeFicha(ficha, x, filaLlegada) {
   animar();
 }
 
+
+//se agrega la funcionalidades al soltar el click del mouse sobre el canvas
 canvas.onmouseup = function(e){
   
   if(clicked){
@@ -116,14 +128,21 @@ canvas.onmouseup = function(e){
     }else{
       fichaActual.borrar(ctx, (e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top));
     }
+
+    //ejecutamos esta funcion luego de un tiempo maximo de espera a la animación
     setTimeout(() => {
       if (tablero.add((e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top), fichaActual)) {   
         ctx.clearRect(0,0,canvas.width,canvas.height);
         pintarJugadores();
+
+        //se indica que el click se solto
         clicked = false;
         let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
-        if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
+
+        //ganador.legnth representa el tamaño del arreglo con las fichas ganadoras, o uno vacio
+        if (ganador.length == cantFichasGan){
           for (let i = 0; i < ganador.length; i++) {
+            //destaca las fichas ganadoras, una por una
             ganador[i].ganadora();
           }
 
@@ -132,10 +151,15 @@ canvas.onmouseup = function(e){
             ocultarControles();
           }, 1000);
         }
+
+        //se define que no hay ficha actual
         fichaActual = null;
+
+        //se intercambia el turno del usuario
         indiceJugador = (indiceJugador + 1) % 2;
         jugadorActual = indiceJugador === 0 ? j1 : j2;
-        console.log(jugadorActual.getNombre());
+
+        //se intercambia la pista visual del turno de los jugadores (la sombra sobre el nombre del jugador)
         document.querySelectorAll(".jugador").forEach(e=> {
           if(e.innerText==jugadorActual.getNombre()){
             e.classList.add("selected");
@@ -146,16 +170,22 @@ canvas.onmouseup = function(e){
         })
       }
     }, 2000-(2000/tablero.filas)*filaLlegada);
+
+    //se redibujan los elementos del canvas
     setTimeout(()=>{
        ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
       pintarJugadores();
       tablero.dibujarPila(j1, j2, cantFichasGan);
     }, 2000-(2000/tablero.filas)*filaLlegada);
+
+    //se indica que se soltó el click aunque no se haya insertado la ficha (aunque sin cambiar el turno)
     clicked=false;
   }
 }
 
+
+//
 function canGetFicha(jugador,x,y){
   if (jugador == 'Jugador 1') {
     if (x<200&&y<200) {
@@ -175,6 +205,8 @@ function canGetFicha(jugador,x,y){
   
 }
 
+
+//se encarga de establecer los datos del menu de juego terminado (cuando un jugador gana) y, ademas mostrar el menu
 function mostrarGanador(ganador){
   setTimeout(() => {
     document.getElementById("ganador").innerText=ganador;
@@ -185,17 +217,23 @@ function mostrarGanador(ganador){
   }, 1000);
 }
 
+
+//inicia el juego determinado el modo de juego y los avatares de los jugadores
 function iniciarJuego(tipo, avatar1, avatar2){
   clicked = false;
   cantFichasGan=tipo;
   tablero= new Tablero(canvas,ctx,cantFichasGan);
   j1 = new Jugador('Jugador 1', avatar1, cantFichasGan);
   j2 = new Jugador('Jugador 2', avatar2, cantFichasGan);
+
+  //se establece al j1 como primero en turno
   jugadorActual = j1;
+
   fichaActual="";
 
   tablero.dibujarPila(j1, j2, tipo);
 
+  //mostramos los controles de juego (replay, nombres y timer)
   controlesJuego.forEach(e=> {
     e.style.display="flex";
     e.style.opacity="1";
@@ -208,7 +246,10 @@ function iniciarJuego(tipo, avatar1, avatar2){
 
   tiempo=tiempoInicial;
   console.log(tiempo);
+
+  //inicia el timer del juego
   temporizador = setInterval(() => {
+    //si se termina el tiempo, se ejecuta la funcion de empate y se reinicia el texto del timer
     if (tiempo == 0) {
       clearInterval(temporizador);
       setTimeout(() => {
@@ -221,6 +262,8 @@ function iniciarJuego(tipo, avatar1, avatar2){
   }, 1000);
 }
 
+
+//se encarga de establecer los datos del menu de juego terminado (cuando el tiempo termian) y, ademas muestra el menu
 function empate(){
   ocultarControles();
   containerMenu.style.opacity="1";
@@ -230,6 +273,7 @@ function empate(){
   mostrarMenu("empate");
 }
 
+//oculta el timer, el boton de replay y los nombres de jugador
 function ocultarControles(){
   controlesJuego.forEach(e=> {
     e.style.display="none";
@@ -238,6 +282,8 @@ function ocultarControles(){
   })
 }
 
+
+//se encarga de mostrar un menú de juego especificado a través de un id pasado por parámetro
 function mostrarMenu(menu){
   menu=document.getElementById(menu);
   menu.style.opacity="1";
@@ -245,6 +291,7 @@ function mostrarMenu(menu){
   menu.style.visibility="visible";
 }
 
+//oculta un menú de juego, especificando un id por parámetro
 function ocultarMenu(menu){
   menu=document.getElementById(menu);
   menu.style.opacity="0";
@@ -252,15 +299,20 @@ function ocultarMenu(menu){
   menu.style.visibility="hidden";
 }
 
+
+//pinta la fichas de los jugadores
 function pintarJugadores(){
   j1.pintar(jugadorActual.getNombre());
   j2.pintar(jugadorActual.getNombre());
 }
 
+
+//muestra las guias visuales de donde insertar las fichas
 function mostrarGuia(){
   tablero.mostrarGuia();
 }
 
+//verifica que tipo de juego se jugará e inicia el juego dependiendo de la decisión
 function IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo){
   if(modo=="4enlinea"){
     tiempoInicial=120;
