@@ -22,6 +22,7 @@ let temporizador;
 
 
 
+
 document.querySelectorAll(".btn-jugar").forEach(e=> {
   if(e.innerText=="Jugar"){
     e.addEventListener("click", function(){
@@ -88,9 +89,8 @@ canvas.onmousemove = function (e){
     tablero.dibujar();
     tablero.dibujarPila(j1, j2, cantFichasGan);
     fichaActual.dibujar(ctx,x,y);
-
     mostrarGuia();
-    pintarJugadores();
+   console.log("entra");
   }
 }
 
@@ -111,7 +111,16 @@ function caidaDeFicha(ficha, x, filaLlegada) {
 
   function animar() {
       let alturaLlegada = (tablero.rectHeight + (ficha.radio/2)) - (filaLlegada * (ficha.radio*2))-(tablero.cellHeight-ficha.radio);
-
+      let columna=0;
+      let j=0;
+      while(columna<tablero.getColumnas()-1 && !(x>tablero.getPaddingX()+j*tablero.getCellWidth() && x<=tablero.getPaddingX()+(j+1)*tablero.getCellWidth())){
+        columna++;
+        j++;
+      }
+      console.log(tablero.getX(2, columna));
+      x=tablero.getX(columna, 2);
+      console.log(x);
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
 
@@ -124,7 +133,7 @@ function caidaDeFicha(ficha, x, filaLlegada) {
       }
 
       tablero.dibujarPila(j1, j2, cantFichasGan);
-      pintarJugadores();
+    
   }
 
   animar();
@@ -142,7 +151,6 @@ canvas.onmouseup = function(e){
     setTimeout(() => {
       if (tablero.add((e.clientX - canvas.getBoundingClientRect().left), (e.clientY-canvas.getBoundingClientRect().top), fichaActual)) {   
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        pintarJugadores();
         clicked = false;
         let ganador = tablero.gane(fichaActual,e.clientX - canvas.getBoundingClientRect().left );
         if (ganador.length == cantFichasGan){// retorna un arreglo con las fichas ganadoras, o uno vacio
@@ -172,7 +180,6 @@ canvas.onmouseup = function(e){
     setTimeout(()=>{
        ctx.clearRect(0, 0, canvas.width, canvas.height);
       tablero.dibujar();
-      pintarJugadores();
       tablero.dibujarPila(j1, j2, cantFichasGan);
     }, 2000-(2000/tablero.filas)*filaLlegada);
     clicked=false;
@@ -181,13 +188,14 @@ canvas.onmouseup = function(e){
 
 function canGetFicha(jugador,x,y){
   if (jugador == 'Jugador 1') {
-    if (x<200&&y<200) {
+    if (x<200&&y<800) {
       return true;
     }else{
+      console.log("aca no se puede");
       return false;
     }
   }else if (jugador == 'Jugador 2') {
-    if (x>800&&y<200) {
+    if (x>800&&y<800) {
       return true;
     }else{
       return false;

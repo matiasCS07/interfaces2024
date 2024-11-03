@@ -26,9 +26,7 @@ class Ficha {
     if (this.ruta!="") {
       var img = new Image();
       img.src = this.ruta;
-      // img.onload = function() { //tilda todo
       ctx.drawImage(img,posX-this.radio,posY-this.radio,this.radio*2,this.radio*2);
-      // }
     }
   }
 
