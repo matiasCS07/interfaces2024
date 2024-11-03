@@ -104,7 +104,7 @@ function caidaDeFicha(ficha, x, filaLlegada) {
         columna++;
         j++;
       }
-      console.log(tablero.getX(2, columna));
+
       x=tablero.getX(columna, 2);
       console.log(x);
       
@@ -330,5 +330,8 @@ function IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo){
   } else if(modo=="6enlinea"){
     tiempoInicial=240;
     iniciarJuego(6, j1Avatar, j2Avatar);
+  }else if(modo=="7enlinea"){
+    tiempoInicial=360;
+    iniciarJuego(7, j1Avatar, j2Avatar);
   }
 }

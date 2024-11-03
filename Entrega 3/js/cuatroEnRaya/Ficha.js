@@ -4,7 +4,7 @@ class Ficha {
     this.ctx = canvas.getContext('2d');
     this.jugador = jugador;
     this.radio=this.setRadio(modoJuego);
-    this.ruta=setRuta(imagen);
+    this.ruta=this.setRuta(imagen);
     this.color = "#A8D8B9";
   }
 
