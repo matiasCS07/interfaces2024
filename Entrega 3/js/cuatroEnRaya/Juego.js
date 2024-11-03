@@ -1,11 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let clicked;
-let filas;
-let columnas;
-const anchoTablero=747;
-const altoTablero=714;
-const margen=0;
 let cantFichasGan;
 let tablero;
 let j1;
@@ -36,32 +31,14 @@ document.querySelectorAll(".btn-jugar").forEach(e=> {
       let j1Avatar=document.querySelector(".jugador1.selected").src;
       let j2Avatar=document.querySelector(".jugador2.selected").src;
       let modo= document.querySelector(".opcion-tablero.selected").id;
-      if(modo=="4enlinea"){
-        tiempoInicial=120;
-        iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
-      } else if(modo=="5enlinea"){
-        tiempoInicial=180;
-        iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
-      } else if(modo=="6enlinea"){
-        tiempoInicial=240;
-        iniciarJuego(8, 9, 5, j1Avatar, j2Avatar, 6);
-      }
+      IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo);
+
       
       document.getElementById("replay").addEventListener("click", function(){
         if(temporizador){
           clearInterval(temporizador);
         }
-        if(modo=="4enlinea"){
-          tiempoInicial=120;
-          iniciarJuego(6,7,4, j1Avatar, j2Avatar, 4);
-        } else if(modo=="5enlinea"){
-          tiempoInicial=180;
-          iniciarJuego(7,8,5, j1Avatar, j2Avatar, 5);
-        } else if(modo="6enlinea"){
-          tiempoInicial=240;
-          iniciarJuego(8, 9, 6, j1Avatar, j2Avatar, 6);
-        }
-        
+        IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo);
       })
     })
 
@@ -153,7 +130,7 @@ canvas.onmouseup = function(e){
           mostrarGanador(fichaActual.jugador);
           setTimeout(() => {          
             ocultarControles();
-          }, 2000);
+          }, 1000);
         }
         fichaActual = null;
         indiceJugador = (indiceJugador + 1) % 2;
@@ -208,12 +185,10 @@ function mostrarGanador(ganador){
   }, 1000);
 }
 
-function iniciarJuego(filas, columnas, tipo, avatar1, avatar2){
+function iniciarJuego(tipo, avatar1, avatar2){
   clicked = false;
-  filas = filas;
-  columnas = columnas;
   cantFichasGan=tipo;
-  tablero= new Tablero(canvas,ctx,filas,columnas, cantFichasGan);
+  tablero= new Tablero(canvas,ctx,cantFichasGan);
   j1 = new Jugador('Jugador 1', avatar1, cantFichasGan);
   j2 = new Jugador('Jugador 2', avatar2, cantFichasGan);
   jugadorActual = j1;
@@ -284,4 +259,17 @@ function pintarJugadores(){
 
 function mostrarGuia(){
   tablero.mostrarGuia();
+}
+
+function IniciarJuegoPorTipo(j1Avatar, j2Avatar, modo){
+  if(modo=="4enlinea"){
+    tiempoInicial=120;
+    iniciarJuego(4, j1Avatar, j2Avatar);
+  } else if(modo=="5enlinea"){
+    tiempoInicial=180;
+    iniciarJuego(5, j1Avatar, j2Avatar);
+  } else if(modo=="6enlinea"){
+    tiempoInicial=240;
+    iniciarJuego(6, j1Avatar, j2Avatar);
+  }
 }

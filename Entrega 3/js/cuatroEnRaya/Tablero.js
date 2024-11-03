@@ -1,11 +1,11 @@
 class Tablero {
-  constructor(canvas, ctx, filas, columnas, cantFichasGan) {
+  constructor(canvas, ctx, cantFichasGan) {
     this.cantFichasGan=cantFichasGan;
     this.canvas=canvas;
     this.ctx=ctx;
-    this.tablero =  this.crearMatriz(filas, columnas, cantFichasGan);
-    this.filas=filas;
-    this.columnas=columnas;
+    this.filas=this.setFilas(cantFichasGan);
+    this.columnas=this.setColumnas(cantFichasGan);
+    this.tablero =  this.crearMatriz();
 
     //Alto y ancho del canvas
     this.canvasWidth = this.canvas.width;
@@ -34,13 +34,13 @@ class Tablero {
     this.startGame();
   }
 
-  crearMatriz(filas, columnas, cantFichasGan) {
+  crearMatriz() {
     let matriz = [];
-    for (let i = 0; i < filas+1; i++) {
+    for (let i = 0; i < this.filas+1; i++) {
         matriz[i] = [];
-        for (let j = 0; j < columnas; j++) {
+        for (let j = 0; j < this.columnas; j++) {
             matriz[i][j] ={
-              "ficha": new Ficha('base', cantFichasGan, ""),
+              "ficha": new Ficha('base', this.cantFichasGan, ""),
               "x":0,
               "y":0
             };
@@ -233,13 +233,12 @@ class Tablero {
     for(let i=0; i<=20; i++){
       y-=20;
       new Ficha(j1, modo, j1.avatar).dibujar(this.ctx, j1x, y)
-      let id=i+50;
       new Ficha(j2, modo, j2.avatar).dibujar(this.ctx, j2x, y);
     }
   }
 
 mostrarGuia() {
-  for (let columna = 0; columna < this.columnas - 1; columna++) {
+  for (let columna = 0; columna < this.columnas-1; columna++) {
     let x = this.paddingX + columna * this.cellWidth + this.cellWidth / 2; 
     let y = 40; 
     let gradient = this.ctx.createRadialGradient(x, y, 5, x, y, this.cellWidth / 2);
@@ -251,6 +250,45 @@ mostrarGuia() {
     this.ctx.arc(x, y, this.cellWidth / 2, 0, Math.PI * 2);
     this.ctx.fill();
   }
+}
+
+setFilas(modo){
+  let filas;
+
+  switch(modo){
+    case 5: 
+      filas=7;
+      break;
+    case 6:
+      filas=8;
+      break;
+    case 7:
+      filas=9;
+      break;
+    default:
+      filas=6
+  }
+
+  return filas
+}
+
+setColumnas(modo){
+  let columnas;
+
+  switch(modo){
+    case 5: 
+      columnas=8;
+      break;
+    case 6:
+      columnas=9;
+      break;
+    case 7:
+      columnas=10;
+      break;
+    default:
+      columnas=7
+  }
+  return columnas
 }
 
 }
