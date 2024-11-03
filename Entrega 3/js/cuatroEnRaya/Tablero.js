@@ -80,8 +80,14 @@ class Tablero {
         
         //dibujamos los espacios para las fichas
         this.tablero[i][j].ficha.dibujar(this.ctx, x, y);
+        this.tablero[i][j].x=x;
+        this.tablero[i][j].y=y; 
       }
     }
+  }
+
+  getX(fila, columna){
+    return this.tablero[fila][columna].x;
   }
  
   //la funcion add se fija que la posicion donde queres soltar la ficha corresponda a una columna y a cual
@@ -107,7 +113,16 @@ class Tablero {
     }
     return false;
   }
-
+   
+  getColumnas(){
+    return this.columnas;
+  }
+  getPaddingX(){
+    return this.paddingX;
+  }
+  getCellWidth(){
+    return this.cellWidth;
+  }
   // la funcion gane se encarga de la verificacion una vez que la ficha está posicionada
   gane(ultimo){
     var fichasGanadoras = [];

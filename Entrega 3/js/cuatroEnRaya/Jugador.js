@@ -15,7 +15,7 @@ class Jugador {
     for (var i = 0; i < 32; i++) {
       var ficha = new Ficha(this.jugador, modo, this.avatar);
       this.fichas.push(ficha);
-      ficha.dibujar(ctx,this.posPiloteX,this.posPiloteY, modo, this.avatar);
+      ficha.dibujar(ctx,this.posPiloteX,this.posPiloteY-i, modo, this.avatar);
     }
   }
 
