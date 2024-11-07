@@ -1,0 +1,26 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.container{
+    display: block;
+    width: 100%;
+}
+.container img{
+    width: 100%;
+    object-fit: fill;
+   
+}
+
+.layer0{
+    z-index: 0;
+}
+.layer1{
+    z-index: 1;
+}
+.layer2{
+    z-index: 2;
+}
+.layer3{
+    z-index: 3;
+}
