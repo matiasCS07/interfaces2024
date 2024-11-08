@@ -2,16 +2,76 @@ body{
     margin: 0%;
     padding: 0%;
 }
-.container{
-    display: block;
-    width: 100%;
+.contenedorhorizontal img{
+    display: inline;
+    width: inherit;
 }
-.container img{
+.container{
     width: 100%;
-    object-fit: fill;
-   
 }
 
+h1{
+    margin: 0%;
+    padding: 0%;
+    width: 460px;
+    height: 123px;
+    top: 0;
+    left: 0;
+    font-size: 47px;
+    font-weight: bold;
+    color: #1B428F;
+
+}
+#ff-1{
+    width: 240.403px;
+    height: 314.481px;
+    transform: rotate(-6.515deg);
+    flex-shrink: 0;
+    top: 500px;
+    left: 441px;
+    position:absolute;
+  }
+#ff-2{
+    width: 197px;
+    height: 270px; 
+    transform: rotate(-6.716deg);
+    position: absolute;
+    top: 403px;
+    left: 536px;
+}
+#ff-3{
+    width: 174px;
+    height: 384px;
+    transform: rotate(8.725deg);
+    flex-shrink: 0;
+    position:absolute;
+    top:338px;
+    right: 395px;
+}
+#logo{
+    padding-top: 56px;
+    padding-left: 360px;
+}
+#titulosegundacara{
+    padding-left: 100px;
+    padding-top: 60px;
+}
+#ff-arbol{
+    position: absolute;
+    width: 560.1px;
+    height: 867.751px;
+    flex-shrink: 0;
+    right: 952px;
+    bottom: 52px;
+}
+#arbusto-corto{
+    
+    width: 155.508px;
+    height: 102.326px;
+    position: absolute;
+    top:823px;
+    left: 350px;
+}
 .layer0{
     z-index: 0;
 }
@@ -24,3 +84,17 @@ body{
 .layer3{
     z-index: 3;
 }
+.primerCara{
+    background-image: url("assets/images/ff.png");
+    width:1280px;
+    height: 959px;
+   
+   
+   }
+  
+.SegundaCara{
+    background-image:url("assets/images/ff2.png");
+    width:1280px;
+    height: 894px;
+  
+}   
