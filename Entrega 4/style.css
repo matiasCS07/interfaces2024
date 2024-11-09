@@ -42,6 +42,29 @@ h1{
     color: #1B428F;
 
 }
+h3{
+    width: 467px;
+    height: 76px;
+    font-size: 40px;
+    margin: 10px;
+}
+.ff3{
+    background-image:url("assets/images/ff3.png");
+    width: 1280px;
+    height: 1157px;
+    top:2830px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.ff4{
+    background-image:url("assets/images/ff4.png");
+    position: absolute;
+    top: 9408px;
+    width: 1280px;
+    height: 1444px;
+    
+}
 #ff-1{
     width: 240.403px;
     height: 314.481px;
@@ -66,7 +89,7 @@ h1{
     flex-shrink: 0;
     position:absolute;
     top:338px;
-    right: 395px;
+    left: 752px;
 }
 #logo{
     padding-top: 56px;
@@ -80,8 +103,8 @@ h1{
     position: absolute;
     width: 560.1px;
     height: 867.751px;
-    right: 871px;
-    top: 0%;
+    left: -153px;
+    top: -1;
 }
 #ff-arbol-2{
     position: absolute;
@@ -195,14 +218,101 @@ h1{
     
 }
 #ff2-caja-1{
-    
     top: 2174px;
-    
     width: 1080px;
     height: 544px;
-
     left: 100px;
+}
+#ff3-titulo{
+    position:absolute;
+    margin-top: 175px;
+    width: 950px;
+    height: 153px;
+    font-size: 61px;
+    text-align: center;
+    left: 165px;
+    color:white;
+}
+#ff3-descarga-numblock{
+    height: 66px;
+    width: 540px;
+    position: absolute;
+    left: 360px;
+    margin-top: 390px;
+}
+#ff3-grupo-numeros{
+    position: absolute;
+    bottom: 0px;
+}
+.seccion-larga{
+    height:9408px;
+}
+.font-size-60{
+    font-size: 60px;
+}
+.titulo-seccionlarga{
+    position: absolute;
+    left: 100px;
+    top: 4161px;
+    color:black;
+    width: 802px;
+    height: 57px;
+}
+#seccion-larga-0{
+    position: absolute;
+    width: 292px;
+    height: 436px;
+    left: 243px;
+    top: 4286px;
+}
+.contenedor-datos{
+    position: absolute;
+    width: 467px; 
+    height: 4884px;
+    left: 713px;
+    top: 4377px;
+  
     
+}
+.contenedor-dato{
+    width: 467px;
+    height:148px;
+    padding-bottom: 267px;
+}
+.dato{
+    width: 467px;
+    height: 114px;
+    font-size: 20px;
+    
+}
+#ff4-3{
+    position: absolute;
+    width: 638px;
+    height: 989px;
+    top:351px;
+    left: 731px;
+}
+#ff4-titulo{
+    position: absolute;
+    width: 802px;
+    height: 171px;
+    left: 100px;
+    padding-top: 308px;
+    color: #FFF;
+    font-family: Lato;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+}
+#ff4-imagen{
+    position: relative;
+    padding-top: 46px;
+    width: 804px;
+    height: 452px;
+    top: 525px;
+    left: 100px;
+ 
 }
 .ff2-texto{
     width: 333px;
