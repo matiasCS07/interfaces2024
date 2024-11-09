@@ -1,13 +1,24 @@
 body{
     margin: 0%;
     padding: 0%;
+    width: 1280px;
+    height: fit-content;
+    overflow-x:hidden ;
+    overflow-y: scroll;
 }
-.contenedorhorizontal img{
+.contenedorhorizontal{
     display: inline;
-    width: inherit;
+    
+}
+.contenedorvertical{
+    display: block;
 }
 .container{
-    width: 100%;
+    width: 1280px;
+    overflow: hidden;
+}
+.container img{
+    overflow: hidden;
 }
 span{
     position: inherit;
@@ -146,6 +157,55 @@ h1{
     position: absolute;
     top:823px;
     left: 197px;
+}
+#ff2-texto-1{
+    padding-top: 22px;
+    padding-left: 100px;
+    width: 600px;
+    height: 96px;
+    font-size: 20;
+}
+#ff2-tablet-juego{
+    position: absolute;
+    width: 576px;
+    height: 324px;
+    left: 236px;
+    top: 1290px;
+}
+#ff2-456{
+    position: absolute;
+    width: 601.642px;
+    height: 543.243px;
+    top: 1491px;
+    left: 48px;
+}
+#ff2-5{
+    width: 572px;
+    height: 1259px;
+    left: 787px;
+    top: 867px;
+    position: absolute;
+}
+.contenedor-texto-ff2{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-around;
+    
+}
+#ff2-caja-1{
+    
+    top: 2174px;
+    
+    width: 1080px;
+    height: 544px;
+
+    left: 100px;
+    
+}
+.ff2-texto{
+    width: 333px;
+    align-self:center;
 }
 .layer0{
     z-index: 0;
