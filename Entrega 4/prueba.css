@@ -1,0 +1,9 @@
+body{
+    overflow-x: hidden;
+}
+.prueba{
+    width: 1000px;
+    height: auto;
+    left: 700px;
+    position: absolute;
+}

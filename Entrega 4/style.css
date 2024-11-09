@@ -3,8 +3,7 @@ body{
     padding: 0%;
     width: 1280px;
     height: fit-content;
-    overflow-x:hidden ;
-    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .contenedorhorizontal{
     display: inline;
@@ -15,10 +14,10 @@ body{
 }
 .container{
     width: 1280px;
-    overflow: hidden;
+
 }
 .container img{
-    overflow: hidden;
+  
 }
 span{
     position: inherit;
@@ -28,6 +27,7 @@ span{
 img{
     padding: 0px;
     margin: 0px;
+
 }
 
 h1{
@@ -191,6 +191,7 @@ h1{
     flex-direction: row;
     position: absolute;
     justify-content: space-around;
+
     
 }
 #ff2-caja-1{
@@ -236,6 +237,7 @@ h1{
     background-image: url("assets/images/ff.png");
     width:1280px;
     height: 959px;
+
    
    
    }
@@ -244,5 +246,6 @@ h1{
     background-image:url("assets/images/ff2.png");
     width:1280px;
     height: 894px;
+
   
 }   
