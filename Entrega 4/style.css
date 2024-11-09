@@ -9,6 +9,15 @@ body{
 .container{
     width: 100%;
 }
+span{
+    position: inherit;
+    width: inherit;
+    height: inherit;
+}
+img{
+    padding: 0px;
+    margin: 0px;
+}
 
 h1{
     margin: 0%;
@@ -56,21 +65,87 @@ h1{
     padding-left: 100px;
     padding-top: 60px;
 }
-#ff-arbol{
+#ff-arbol-1{
     position: absolute;
     width: 560.1px;
     height: 867.751px;
-    flex-shrink: 0;
-    right: 952px;
-    bottom: 52px;
+    right: 871px;
+    top: 0%;
 }
-#arbusto-corto{
+#ff-arbol-2{
+    position: absolute;
+    width: 278.03px;
+    height: 430.846px;
+    left: 1041px;
+    top: 279px;
+}
+#ff-arbol-3{
+    position: absolute;
+    width: 434.212px;
+    height: 672.524px;
+    left: 841px;
+    top: 107px;
+}
+#ff-arbusto-largo-1{
+    width: 249.756px;
+    height: 114.443px;
+    left: 162px;
+    top:718px;
+   
+    position: absolute;
+}
+#ff-arbusto-largo-2{
+    width: 191.188px;
+    height: 63.281px;   
+    left: 1029px;
+    top:631px;
+    width: 244.37px;
+    height: 107.711px;
+    position: absolute;
+}
+#ff-arbusto-largo-3{
+    
+    left: 1081px;
+    top:662px;
+    width: 244.37px;
+    height: 107.711px;
+    position: absolute;
+}
+#ff-roca-grande1{
+    width: 145.411px;
+    height: 78.091px;
+    top: 794px;
+    left: 129px;
+    position: absolute;
+}
+#ff-roca-grande2{
+    width: 66px;
+    height: 56px;
+    top: 738px;
+    left: 1035px;
+    position: absolute;
+}
+#ff-roca-grande3{
+    width: 113.77px;
+    height: 74.052px;
+    top: 737px;
+    left: 1072px;
+    position: absolute;
+}
+#ff-roca-grande4{
+    width: 59.241px;
+    height: 35.006px;
+    top: 787px;
+    left: 1042px;
+    position: absolute;
+}
+#ff-arbusto-corto-1{
     
     width: 155.508px;
     height: 102.326px;
     position: absolute;
     top:823px;
-    left: 350px;
+    left: 197px;
 }
 .layer0{
     z-index: 0;
@@ -83,6 +158,19 @@ h1{
 }
 .layer3{
     z-index: 3;
+}
+.layer5{
+    z-index: 5;
+}
+
+.layer6{
+    z-index: 6;
+}
+.layer7{
+    z-index: 7;
+}
+.layer8{
+    z-index: 8;
 }
 .primerCara{
     background-image: url("assets/images/ff.png");
