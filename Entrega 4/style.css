@@ -14,6 +14,7 @@ body{
 }
 .container{
     width: 1280px;
+    height: fit-content;
 
 }
 .container img{
@@ -245,32 +246,34 @@ h3{
     bottom: 0px;
 }
 .seccion-larga{
-    height:9408px;
+    height:5421px;
+    position: absolute;
+    top:3987px
 }
 .font-size-60{
     font-size: 60px;
 }
 .titulo-seccionlarga{
-    position: absolute;
+    position: relative;
     left: 100px;
-    top: 4161px;
+    top: 360px;
     color:black;
     width: 802px;
     height: 57px;
 }
 #seccion-larga-0{
-    position: absolute;
+    position: relative;
     width: 292px;
     height: 436px;
     left: 243px;
-    top: 4286px;
+    top: 390px;
 }
 .contenedor-datos{
-    position: absolute;
+    position: relative;
     width: 467px; 
     height: 4884px;
     left: 713px;
-    top: 4377px;
+    top: 390px;
   
     
 }
@@ -318,6 +321,47 @@ h3{
     width: 333px;
     align-self:center;
 }
+.Efectos3d{
+    width: 1280px;
+    height: 1034px;
+    position: absolute;
+    top: 10852px;
+
+}
+#efectos3d-1{
+    width: 667px;
+    height: 973px;
+    left: 599px;
+    top:0px;
+    position: absolute;
+}
+#efectos3d-titulo{
+    position: absolute;
+    top: 220px;
+    left: 102px;
+    width:746px;
+    height: 285px;
+    color: #9D2121;
+    font-family: Lato;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%; 
+}
+#efectos3d-texto{
+    position: absolute;
+    width: 467px;
+    height: 190px;
+    color: #000;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%; 
+    top: 548px;;
+    left: 100px;
+
+}
 .layer0{
     z-index: 0;
 }
@@ -359,3 +403,83 @@ h3{
 
   
 }   
+.grilla-colores{
+    position: absolute;
+    top: 11886px;
+    height: 729px;
+    width: auto;
+    background-image: url(assets/images/455.png);
+}
+.pre-footer{
+    height: 1575px;
+    width: 1280px;
+    position: absolute;
+    top:12615px;
+    background-image: url(assets/images/ff5.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+#prefooter-titulo{
+    width: 816px;
+    color: #000;
+    font-family: Lato;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+    position: absolute;
+    top: 190px;
+    left: 100px;
+}
+#prefooter-texto{
+    width: 578px;
+    height: 95px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%;
+    position: absolute;
+    top: 543px;
+    left: 100px;
+}
+#prefooter-input{
+ position: absolute;
+ top: 397px;
+ left: 100px;
+ width: 780px;
+ height: 100px;
+ display: flex;
+ flex-direction: row;
+    
+}
+#prefooter-input input{
+    width: 553px;
+    height: 82px;
+    border-radius: 50px 0px 0px 50px;
+    border-top: 9px solid #FFF;
+    border-bottom: 9px solid #FFF;
+    border-left: 9px solid #FFF;
+    background: #ECECEC;
+}
+#prefooter-input button{
+    width: 218px;
+    height: 100px;
+    border-radius: 0px 50px 50px 0px;
+    border: 9px solid #FFF;
+    background: #83C252;   
+    color: #FFF;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 94.5%; /* 18.9px */
+    letter-spacing: 2.2px;
+}
+#prefooter-input button text{
+ 
+}
