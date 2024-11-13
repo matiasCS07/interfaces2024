@@ -1,3 +1,26 @@
+window.addEventListener("load", ()=> {
+  const numeros = document.querySelectorAll(".numero");
+
+  //muestra cada numero gradualmente
+  numeros.forEach((numero, index)=>{
+    setTimeout(() => {
+      numero.style.opacity = 1;
+
+    }, index*500);
+  });
+
+  //oculta el loader y muestra la pagina
+  setTimeout(()=>{
+    document.getElementById("pantalla-carga").style.display = "none";
+    const pagina = document.getElementById("container");
+    pagina.style.display = "flex";
+    pagina.style.opacity = 1;
+  }, numeros.length * 500 + 2000);
+});
+
+
+
+
 const idGrupoNumero = "ff3-grupo-numeros";
 let grupoNumeros = document.getElementById(idGrupoNumero);
 
