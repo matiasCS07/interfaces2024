@@ -1,13 +1,19 @@
+
 window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
+  const textoCarga = document.getElementById("texto-carga");
+  
+  //espera un segundo antes de empezar con el loader
+  setTimeout(() => {
+    //muestra cada numero gradualmente
+    numeros.forEach((numero, index)=>{
+      setTimeout(() => {
+        numero.style.opacity = 1;
+        textoCarga.innerHTML = `${index + 1}`;
+      }, index*1000);
+    });
 
-  //muestra cada numero gradualmente
-  numeros.forEach((numero, index)=>{
-    setTimeout(() => {
-      numero.style.opacity = 1;
-
-    }, index*500);
-  });
+  }, 1000);
 
   //oculta el loader y muestra la pagina
   setTimeout(()=>{
@@ -15,7 +21,7 @@ window.addEventListener("load", ()=> {
     const pagina = document.getElementById("container");
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
-  }, numeros.length * 500 + 2000);
+  }, numeros.length * 1000 + 1000);
 });
 
 
