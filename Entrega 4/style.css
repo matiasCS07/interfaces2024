@@ -68,13 +68,16 @@ body{
     display: block;
 }
 #container{
-    width: 1280px;
+    width: 1080px;
     height: 14780px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
     transition: opacity 1s ease;
+    overflow-x: hidden;
+    margin-left: 100px;
+    margin-right: 100px;
 
 }
 span{
@@ -108,7 +111,7 @@ h3{
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
-    width: 1280px;
+    width: 1080px;
     height: 1157px;
     top:2830px;
     position: absolute;
@@ -119,7 +122,7 @@ h3{
     background-image:url("assets/images/ff4.png");
     position: absolute;
     top: 9408px;
-    width: 1280px;
+    width: 1080px;
     height: 1444px;
     
 }
@@ -415,7 +418,7 @@ h3{
     align-self:center;
 }
 .Efectos3d{
-    width: 1280px;
+    width: 1080px;
     height: 1034px;
     position: absolute;
     top: 10852px;
@@ -482,7 +485,7 @@ h3{
 }
 .primerCara{
     background-image: url("assets/images/ff.png");
-    width:1280px;
+    width:1080px;
     height: 959px; 
     position: absolute;
     top: 0px;
@@ -490,7 +493,7 @@ h3{
   
 .SegundaCara{
     background-image:url("assets/images/ff2.png");
-    width:1280px;
+    width:1080px;
     height: 894px;
 
   
@@ -504,7 +507,7 @@ h3{
 }
 .pre-footer{
     height: 1575px;
-    width: 1280px;
+    width: 1080px;
     position: absolute;
     top:12894px;
     background-image: url(assets/images/ff5.png);
@@ -631,7 +634,7 @@ footer{
 .footer-consolas{
     position: relative;
     bottom:0px;        
-    width: 1280px;
+    width: 1080px;
     height: 80px;
     background: #242424;
 }
@@ -640,7 +643,7 @@ footer{
     height: 75px;
 }
 .footer-data{
-    width: 1280px;
+    width: 1080px;
     height: 515px;
     background: #5E5E5D;
 }
