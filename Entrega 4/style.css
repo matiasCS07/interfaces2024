@@ -150,6 +150,7 @@ body{
     top: 500px;
     left: 441px;
     position:absolute;
+    z-index: 14;
   }
 #ff-2{
     width: 197px;
@@ -158,6 +159,7 @@ body{
     position: absolute;
     top: 403px;
     left: 536px;
+    z-index: 13;
 }
 #ff-3{
     width: 174px;
@@ -167,6 +169,7 @@ body{
     position: absolute;
     top: 338px;
     left: 695px;
+    z-index: 9;
 }
 #logo{
     padding-top: 56px;
@@ -182,6 +185,7 @@ body{
     height: 867.751px;
     left: -153px;
     top: -1;
+    z-index: 15;
 }
 #ff-arbol-2{
     position: absolute;
@@ -189,6 +193,7 @@ body{
     height: 430.846px;
     left: 1075px;
     top: 279px;
+    z-index: 6;
 }
 #ff-arbol-3{
     position: absolute;
@@ -196,13 +201,14 @@ body{
     height: 672.524px;
     left: 885px;
     top: 107px;
+    z-index: 10;
 }
 #ff-arbusto-largo-1{
     width: 249.756px;
     height: 114.443px;
     left: 162px;
     top:718px;
-   
+    z-index: 14;
     position: absolute;
 }
 .inverted{
@@ -224,6 +230,7 @@ body{
     width: 244.37px;
     height: 107.711px;
     position: absolute;
+    z-index: 9;
 }
 #ff-roca-grande1{
     width: 145.411px;
@@ -231,6 +238,7 @@ body{
     top: 794px;
     left: 129px;
     position: absolute;
+    z-index: 16;
 }
 #ff-roca-grande2{
     width: 66px;
@@ -238,6 +246,7 @@ body{
     top: 738px;
     left: 1035px;
     position: absolute;
+    z-index: 11;
 }
 #ff-roca-grande3{
     width: 113.77px;
@@ -245,6 +254,7 @@ body{
     top: 737px;
     left: 1072px;
     position: absolute;
+    z-index: 12;
 }
 #ff-roca-grande4{
     width: 59.241px;
@@ -252,6 +262,7 @@ body{
     top: 780px;
     left: 1042px;
     position: absolute;
+    z-index: 13;
 }
 #ff-arbusto-corto-1{
     
@@ -260,6 +271,7 @@ body{
     position: absolute;
     top:823px;
     left: 197px;
+    z-index: 17;
 }
 .menu{
     display: flex;
@@ -399,6 +411,7 @@ body{
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
+    z-index: 99;
 }
 .seccion-larga{
     height:5421px;
