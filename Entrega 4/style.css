@@ -134,7 +134,7 @@ body{
     background-image:url("assets/images/ff4.png");
     position: absolute;
     top: 9408px;
-    width: 1080px;
+    width: 1280px;
     height: 1444px;
     
 }
@@ -357,8 +357,11 @@ body{
 }
 .seccion-larga{
     height:5421px;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top:3987px
+    top:3800px
 }
 .font-size-60{
     font-size: 60px;
@@ -376,14 +379,14 @@ body{
     width: 292px;
     height: 436px;
     left: 243px;
-    top: 390px;
+    top: 450px;
 }
 .contenedor-datos{
     position: relative;
     width: 467px; 
     height: 4884px;
     left: 713px;
-    top: 390px;
+    top: 100px;
   
     
 }
@@ -402,8 +405,8 @@ body{
     position: absolute;
     width: 638px;
     height: 989px;
-    top:351px;
-    left: 731px;
+    top: 395px;
+    left: 705px;
 }
 #ff4-titulo{
     position: absolute;
@@ -412,11 +415,8 @@ body{
     left: 100px;
     padding-top: 308px;
     color: #FFF;
-    font-family: Lato;
     font-size: 60px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 94.5%;
+    line-height: 56.7px;
 }
 #ff4-imagen{
     position: relative;
