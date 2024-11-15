@@ -49,4 +49,18 @@ grupoNumeros.addEventListener("mousemove", (e)=>{
 
 grupoNumeros.addEventListener("mouseleave", () => {
     grupoNumeros.style.transform = `translate(0, 0)`;
-  });
+});
+
+
+let carrusel=document.querySelector(".slider");
+let index=1;
+let imagenes=document.querySelectorAll(".slider img");
+setInterval(() => {
+  let traslado=index*-100;
+  carrusel.style.transform="translateX("+traslado+"%)";
+  if(index<imagenes.length-1){
+    index++;
+  }else{
+    index=0;
+  }
+}, 3000);
