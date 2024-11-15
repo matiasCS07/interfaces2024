@@ -151,13 +151,13 @@ h3{
     height: 384px;
     transform: rotate(8.725deg);
     flex-shrink: 0;
-    position:absolute;
-    top:338px;
-    left: 752px;
+    position: absolute;
+    top: 338px;
+    left: 695px;
 }
 #logo{
     padding-top: 56px;
-    padding-left: 360px;
+    padding-left: 400px;
 }
 #titulosegundacara{
     padding-left: 100px;
@@ -174,14 +174,14 @@ h3{
     position: absolute;
     width: 278.03px;
     height: 430.846px;
-    left: 1041px;
+    left: 1075px;
     top: 279px;
 }
 #ff-arbol-3{
     position: absolute;
     width: 434.212px;
     height: 672.524px;
-    left: 841px;
+    left: 885px;
     top: 107px;
 }
 #ff-arbusto-largo-1{
@@ -191,6 +191,9 @@ h3{
     top:718px;
    
     position: absolute;
+}
+.inverted{
+    transform: rotateY(180deg)
 }
 #ff-arbusto-largo-2{
     width: 191.188px;
@@ -233,7 +236,7 @@ h3{
 #ff-roca-grande4{
     width: 59.241px;
     height: 35.006px;
-    top: 787px;
+    top: 780px;
     left: 1042px;
     position: absolute;
 }
@@ -483,11 +486,17 @@ h3{
 .layer8{
     z-index: 8;
 }
+.personajes-titulo{
+    position: absolute;
+    top: 0%;
+    left: 4%;
+}
 .primerCara{
     background-image: url("assets/images/ff.png");
-    width:1080px;
+    width:1280px;
     height: 959px; 
     position: absolute;
+    overflow: hidden;
     top: 0px;
    }
   
