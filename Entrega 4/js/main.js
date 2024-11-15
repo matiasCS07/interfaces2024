@@ -1,4 +1,4 @@
-
+//INCISO 1 (OPCIONAL)
 window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
   const textoCarga = document.getElementById("texto-carga");
@@ -24,9 +24,12 @@ window.addEventListener("load", ()=> {
   }, numeros.length * 1000 + 1000);
 });
 
+//INCISO 4
+const wrapper = getElementById("wrapper");
 
 
 
+//INCISO 8
 const idGrupoNumero = "ff3-grupo-numeros";
 let grupoNumeros = document.getElementById(idGrupoNumero);
 
@@ -44,7 +47,7 @@ grupoNumeros.addEventListener("mousemove", (e)=>{
 
     //agregamos una transformacion a la imagen modificando el css desde js
     grupoNumeros.style.transform = `translate(${moveX}px, ${moveY}px)
-                                    scale(1.02)`;
+                                    scale(1.05)`;
 });
 
 grupoNumeros.addEventListener("mouseleave", () => {
