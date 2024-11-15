@@ -95,7 +95,7 @@ body{
     margin: 0%;
     padding: 0%;
     max-width: 1280px;
-    height: fit-content;
+    height: 14780px;
     overflow-x: hidden;
 }
 .contenedorhorizontal{
@@ -527,12 +527,13 @@ body{
 }
 .pre-footer{
     height: 1575px;
-    width: 1080px;
+    width: 1280px;
     position: absolute;
-    top:12894px;
+    top: 12600px;
     background-image: url(assets/images/ff5.png);
     background-position: bottom;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 #prefooter-titulo{
     width: 816px;
@@ -578,6 +579,11 @@ body{
     border-bottom: 9px solid #FFF;
     border-left: 9px solid #FFF;
     background: #ECECEC;
+    font-size: 20px;
+    line-height: 18.9px;
+    font-weight: 400;
+    text-indent: 30px;
+    letter-spacing: 11%;
 }
 #prefooter-input button{
     width: 218px;
