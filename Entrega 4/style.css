@@ -94,9 +94,12 @@ nav{
 body{
     margin: 0%;
     padding: 0%;
-    max-width: 1280px;
     height: 14780px;
     overflow-x: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
 }
 .contenedorhorizontal{
     display: inline;
