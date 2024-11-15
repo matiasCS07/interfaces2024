@@ -136,6 +136,7 @@ body{
 .ff4{
     background-image:url("assets/images/ff4.png");
     position: absolute;
+    overflow: hidden;
     top: 9408px;
     width: 1280px;
     height: 1444px;
@@ -313,6 +314,23 @@ body{
     flex-wrap: nowrap;
     justify-content: center;
 }
+
+.recuadro-video{
+    position: relative;
+    margin-top: 46px;
+    width: 775px;
+    height: 423px;
+    top: 525px;
+    left: 100px;
+    border: 29px solid rgba(255, 255, 255, 1);
+    border-radius: 29px;
+}
+
+.recuadro-video iframe{
+    width: inherit;
+    height: inherit;
+}
+
 .slider{
     transition: all 600ms ease-in-out;
     display: flex;
@@ -433,7 +451,7 @@ body{
     width: 638px;
     height: 989px;
     top: 395px;
-    left: 705px;
+    left: 743px;
 }
 #ff4-titulo{
     position: absolute;
@@ -444,15 +462,6 @@ body{
     color: #FFF;
     font-size: 60px;
     line-height: 56.7px;
-}
-#ff4-imagen{
-    position: relative;
-    padding-top: 46px;
-    width: 804px;
-    height: 452px;
-    top: 525px;
-    left: 100px;
- 
 }
 .ff2-texto{
     width: 333px;
