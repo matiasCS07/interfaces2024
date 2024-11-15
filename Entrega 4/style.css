@@ -110,13 +110,16 @@ h3{
     margin: 10px;
 }
 .ff3{
-    background-image:url("assets/images/ff3.png");
+    overflow: hidden;
+    background-image: url(assets/images/ff3.png);
     width: 1080px;
     height: 1157px;
-    top:2830px;
+    top: 2830px;
     position: absolute;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 .ff4{
     background-image:url("assets/images/ff4.png");
@@ -314,7 +317,6 @@ h3{
     left: 100px;
 }
 #ff3-titulo{
-    position:absolute;
     margin-top: 175px;
     width: 950px;
     height: 153px;
@@ -326,9 +328,9 @@ h3{
 #ff3-descarga-numblock{
     height: 66px;
     width: 540px;
-    position: absolute;
-    left: 360px;
-    margin-top: 390px;
+    position: relative;
+    top: 10%;
+    left: 0;
 }
 
 .grupoContainer{
@@ -338,8 +340,6 @@ h3{
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
-    position: absolute;
-    bottom: 0px;
 }
 .seccion-larga{
     height:5421px;
