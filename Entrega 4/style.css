@@ -17,6 +17,16 @@ img{
 
 }
 
+button{
+    cursor: pointer;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    color: transparent;
+    font-size: 0px;
+}
+
 h1{
     margin: 0%;
     padding: 0%;
@@ -271,19 +281,6 @@ body{
     left: 197px;
     z-index: 17;
 }
-.menu{
-    position: absolute;
-    top: 0;
-    left: 30%;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    height: fit-content;
-    border: 0px;
-    background: transparent;
-    cursor: pointer;
-    color: transparent;
-}
 .boton-comprar{
     width: 200px;
     height: 50px;
@@ -393,7 +390,7 @@ body{
     height: 66px;
     width: 540px;
     position: relative;
-    top: 10%;
+    top: 140%;
     left: 0;
 }
 
@@ -670,6 +667,7 @@ body{
     height: 997px;
     top: 613px;
     left: 756px;
+    z-index: 2;
 }
 #prefooter-nube1{
     position: absolute;
@@ -751,7 +749,7 @@ footer{
     width: 1280px;
     height: 2228px;
     position: relative;
-    top: -5595px;
+    top: -5615px;
 }
 #check-menu{
     width: 34px;
@@ -763,6 +761,22 @@ footer{
     opacity: 0.1;
     z-index: 9;
 }
+
+/*  menu hamburguesa    */
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    border: 0px;
+    background: transparent;
+    color: transparent;
+}
+
 .menu-desplegable{
     position: relative;
     top: -40%;
@@ -867,5 +881,55 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     }
     50%, 100%{
         opacity: 1;
+    }
+}
+
+/*  parallax nubes del prefooter    */
+
+#prefooter-nube1{
+    animation: parallax-nube1 20s ease-in-out infinite;
+}
+
+#prefooter-nube2{
+    animation: parallax-nube2 20s ease-in-out infinite;
+}
+
+#prefooter-nube3{
+    animation: parallax-nube3 25s ease-in-out infinite;
+}
+
+@keyframes parallax-nube3 {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-25px) translateY(-25px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes parallax-nube2 {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(50px) translateY(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes parallax-nube1 {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(75px) translateY(25px);
+    }
+    100%{
+        transform: translateX(0px);
     }
 }
