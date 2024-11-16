@@ -22,7 +22,7 @@ window.addEventListener("load", ()=> {
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
   }, numeros.length * 1000 + 1000);
-});
+});*/
 
 //INCISO 4
 //const wrapper = getElementById("wrapper");
@@ -87,9 +87,6 @@ menu.addEventListener("click", function(){
 function desplegarItems(){
   document.querySelectorAll(".desplegable-item").forEach((item, index) =>{
     setTimeout(()=>{
-      setTimeout(()=>{
-        item.style.opacity="1";
-      }, 250*index)
       item.style.transform="translateX(0px)";
     }, 500*index)
   })
@@ -100,3 +97,20 @@ function ocultarItems(){
     item.style.transform="translateX(-400px)";
   })
 }
+
+//parallax de video y personaje INCISO 10
+let contenedor=document.querySelector(".ff4");
+let video=document.querySelector(".recuadro-video");
+let personaje=document.querySelector("#ff4-3");
+let texto=document.querySelector("#ff4-titulo");
+
+window.addEventListener("scroll", function(){
+  let contenedorTop=contenedor.getBoundingClientRect().top;
+
+  if (contenedorTop<window.innerHeight && contenedorTop > (contenedor.offsetHeight*(-1))) {
+    let desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+    texto.style.transform= 
+    video.style.transform=`translateY(${desplazamientoRelativo * 0.25}px)`;
+    personaje.style.transform=`translateY(${desplazamientoRelativo * 0.1}px)`;
+  }
+})
