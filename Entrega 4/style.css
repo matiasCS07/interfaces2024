@@ -301,21 +301,6 @@ body{
     line-height: 24px;
     color: rgba(27, 66, 143, 1);
 }
-#ff2-tablet-slider{
-    position: absolute;
-    overflow: hidden;
-    display: flex;
-    width: 499px;
-    height: 247px;
-    left: 236px;
-    top: 370px;
-    border-radius: 77px;
-    border: 29px solid rgba(27, 95, 153, 1);
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
 
 .recuadro-video{
     position: relative;
@@ -333,18 +318,6 @@ body{
     height: inherit;
 }
 
-.slider{
-    transition: all 600ms ease-in-out;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 576.38px; 
-    height: 324.35px;
-}
-.slider img{
-    width: inherit;
-    height: inherit;
-}
 .ff2-tablet-juego img{
     width: 576px;
     height: 324px;
@@ -468,7 +441,6 @@ body{
 }
 .ff2-texto{
     width: 333px;
-    align-self:center;
 }
 .Efectos3d{
     width: 1080px;
@@ -550,7 +522,7 @@ body{
     top: 0px;
    }
   
-.SegundaCara{
+.segunda-cara{
     background-image:url("assets/images/ff2.png");
     width:1280px;
     height: 894px;
@@ -751,16 +723,37 @@ footer{
     position: relative;
     top: -5615px;
 }
-#check-menu{
-    width: 34px;
-    height: 26px;
-    position: relative;
-    top: 35px;
-    left: -2px;
-    cursor: pointer;
-    opacity: 0.1;
-    z-index: 9;
+
+/*  slider de imagenes  */
+#ff2-tablet-slider{
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    width: 499px;
+    height: 247px;
+    left: 236px;
+    top: 370px;
+    border-radius: 77px;
+    border: 29px solid rgba(27, 95, 153, 1);
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
+
+.slider{
+    transition: all 600ms ease-in-out;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 576.38px; 
+    height: 324.35px;
+}
+.slider img{
+    width: inherit;
+    height: inherit;
+}
+/**/
 
 /*  menu hamburguesa    */
 
@@ -932,4 +925,21 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     100%{
         transform: translateX(0px);
     }
+}
+
+/*  animacion cards "la app mas divertida" */
+
+.card-app{
+    transition: all 1s ease-out;
+    transform: translateY(700px);
+}
+
+.card-app p{
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.appear{
+    transform: translateY(0px);
+    animation-fill-mode: forwards;
 }
