@@ -25,7 +25,7 @@ window.addEventListener("load", ()=> {
 });
 
 //INCISO 4
-const wrapper = getElementById("wrapper");
+//const wrapper = getElementById("wrapper");
 
 
 
@@ -55,6 +55,7 @@ grupoNumeros.addEventListener("mouseleave", () => {
 });
 
 
+//slider de fotos
 let carrusel=document.querySelector(".slider");
 let index=1;
 let imagenes=document.querySelectorAll(".slider img");
@@ -67,3 +68,35 @@ setInterval(() => {
     index=0;
   }
 }, 3000);
+
+//animacion menu hamburguesa
+let menu=document.getElementById("menu-hamburguesa");
+menu.addEventListener("click", function(){
+  menu.classList.toggle("open");
+  menu.classList.toggle("close");
+  let desplegable=document.querySelector(".menu-desplegable");
+  if(menu.classList.contains("open")){
+    desplegable.style.transform="translateX(0px)";
+    desplegarItems();
+  }else{
+    desplegable.style.transform="translateX(-800px)";
+    ocultarItems();
+  }
+})
+
+function desplegarItems(){
+  document.querySelectorAll(".desplegable-item").forEach((item, index) =>{
+    setTimeout(()=>{
+      setTimeout(()=>{
+        item.style.opacity="1";
+      }, 250*index)
+      item.style.transform="translateX(0px)";
+    }, 500*index)
+  })
+}
+
+function ocultarItems(){
+  document.querySelectorAll(".desplegable-item").forEach(item =>{
+    item.style.transform="translateX(-400px)";
+  })
+}

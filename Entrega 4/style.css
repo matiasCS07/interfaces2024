@@ -184,7 +184,7 @@ body{
     width: 560.1px;
     height: 867.751px;
     left: -153px;
-    top: -1;
+    top: -1px;
     z-index: 15;
 }
 #ff-arbol-2{
@@ -219,8 +219,6 @@ body{
     height: 63.281px;   
     left: 1029px;
     top:631px;
-    width: 244.37px;
-    height: 107.711px;
     position: absolute;
 }
 #ff-arbusto-largo-3{
@@ -274,22 +272,17 @@ body{
     z-index: 17;
 }
 .menu{
+    position: absolute;
+    top: 0;
+    left: 30%;
     display: flex;
     flex-direction: column;
-    position: sticky;
-    top:20px;
-    left: 100px;
-    width: 34px;
-    height: 26px;
-    filter: drop-shadow(4px 5px 0px #02187E);
-}
-.linea-menu{
-    width: 34px;
-    height: 4px;
-    border-radius: 111px;
-    border: 4px solid #FFF;
-    background: #F39E46;
-
+    width: fit-content;
+    height: fit-content;
+    border: 0px;
+    background: transparent;
+    cursor: pointer;
+    color: transparent;
 }
 .boton-comprar{
     width: 200px;
@@ -758,5 +751,121 @@ footer{
     width: 1280px;
     height: 2228px;
     position: relative;
-    top: -5330px;
+    top: -5595px;
+}
+#check-menu{
+    width: 34px;
+    height: 26px;
+    position: relative;
+    top: 35px;
+    left: -2px;
+    cursor: pointer;
+    opacity: 0.1;
+    z-index: 9;
+}
+.menu-desplegable{
+    position: relative;
+    top: -40%;
+    left: 0%;
+    background-color: #E0E1FF;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    transform: translateX(-800px);
+    transition: all 600ms ease-in-out;
+    z-index: 8;
+}
+
+.desplegable-item{
+    background-color: #E0E1FF;
+    width: fit-content;
+    font-size: 40px;
+    text-align: center;
+    transition: all 600ms ease-in-out;
+    transform: translateX(-800px);
+}
+
+button#menu-hamburguesa.close .linea-menu{
+    filter: drop-shadow(4px 5px 0px #02187E);
+}
+
+button#menu-hamburguesa.open #hamburguesa-linea1{
+    animation: top_barra 600ms ease-in-out;
+    animation-fill-mode: forwards;
+    filter: drop-shadow(-1px 3px 0px #02187E);
+}
+
+button#menu-hamburguesa.open #hamburguesa-linea2{
+    animation: middle_barra 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+button#menu-hamburguesa.open #hamburguesa-linea3{
+    animation: bottom_barra 600ms ease-in-out;
+    animation-fill-mode: forwards;
+    filter: drop-shadow(3.5px 1.9px 0px #02187E);
+}
+
+button#menu-hamburguesa.close #hamburguesa-linea1{
+    animation: top_barra_close 600ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+button#menu-hamburguesa.close #hamburguesa-linea2{
+    animation: middle_barra_close 600ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+button#menu-hamburguesa.close #hamburguesa-linea3{
+    animation: bottom_barra_close 600ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bottom_barra {
+    50%, 100%{
+        transform: translateY(-12px) rotate(45deg);
+    }
+}
+
+@keyframes top_barra {
+    50%, 100%{
+        transform: translateY(11px) rotate(-45deg);
+    }
+}
+
+@keyframes middle_barra {
+    20%, 100%{
+        opacity: 0;
+    }
+}
+
+@keyframes bottom_barra_close {
+    0%, 50%{
+        transform: translateY(-12px) rotate(45deg);
+    }
+    50%, 100%{
+        transform: translateY(0px) rotate(0deg);
+    }
+
+}
+
+@keyframes top_barra_close {
+    0%, 50%{
+        transform: translateY(12px) rotate(-45deg);
+    }
+    50%, 100%{
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes middle_barra_close {
+    0%, 50%{
+        opacity: 0;
+    }
+    50%, 100%{
+        opacity: 1;
+    }
 }
