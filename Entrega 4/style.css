@@ -646,7 +646,7 @@ body{
     left: 100px;
 }
 #prefooter-2{
-    position: relative;
+    position: absolute;
     width: 480px;
     height: 480px;
     top: 1048px;
@@ -914,7 +914,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 }
 
 #prefooter-nube3{
-    animation: parallax-nube3 25s ease-in-out infinite;
+    animation: parallax-nube3 15s ease-in-out infinite;
 }
 
 @keyframes parallax-nube3 {
@@ -968,4 +968,63 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 .appear{
     transform: translateY(0px);
     animation-fill-mode: forwards;
+}
+
+/*  spritesheets    */
+
+#spritesheet1{
+    position: relative;
+    width: 97px;
+    height: 128px;
+    top: 70%;
+    left: 3%;
+
+    background: url('assets/images/Numbers\ spritesheet-corrected.png') no-repeat;
+    animation: count 10s steps(10) infinite;
+}
+
+@keyframes count {
+    from{
+        background-position: 0px;
+    }to{
+        background-position: -969px;
+    }
+}
+
+#spritesheet2{
+    position: relative;
+    width: 97px;
+    height: 94px;
+    top: 20%;
+    left: 90%;
+
+    background: url('assets/images/Number\ Icons\ spritesheet-corrected.png') no-repeat;
+    animation: count-round 9s steps(9) infinite;
+}
+
+@keyframes count-round {
+    from{
+        background-position: 0px;
+    }to{
+        background-position: -839px;
+    }
+}
+
+#spritesheet3{
+    position: relative;
+    width: 48px;
+    height: 60px;
+    top: 30%;
+    left: 30%;
+
+    background: url('assets/images/spritesheet-spinning-number.png') no-repeat;
+    animation: spinning-number 1.5s steps(13) infinite;
+}
+
+@keyframes spinning-number {
+    from{
+        background-position: 0px;
+    }to{
+        background-position: -623px;
+    }
 }

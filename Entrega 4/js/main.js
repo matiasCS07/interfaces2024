@@ -111,7 +111,7 @@ window.addEventListener("scroll", function(){
     let desplazamiento = window.scrollY - contenedorCara4.offsetTop;
     texto.style.transform= `translateY(${desplazamiento * 0.25}px)`;
     video.style.transform=`translateY(${desplazamiento * 0.25}px)`;
-    personaje.style.transform=`translateY(${desplazamiento * 0.1}px)`;
+    personaje.style.transform=`translateY(${desplazamiento * 0.15}px)`;
   }
 })
 
