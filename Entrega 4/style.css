@@ -189,6 +189,10 @@ body{
     padding-left: 100px;
     padding-top: 60px;
 }
+.entrada{
+    transition: all 600ms ease-in-out;
+    transform: translateX(-8000px);
+}
 #ff-arbol-1{
     position: absolute;
     width: 560.1px;
@@ -539,13 +543,18 @@ body{
     top: 0%;
     left: 4%;
 }
-.primerCara{
+#primerCara{
     background-image: url("assets/images/ff.png");
     width:1280px;
     height: 959px; 
     position: absolute;
     overflow: hidden;
     top: 0px;
+    z-index: 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
    }
   
 .segunda-cara{

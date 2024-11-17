@@ -21,12 +21,63 @@ window.addEventListener("load", ()=> {
     const pagina = document.getElementById("container");
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
+    entrarHero();
   }, numeros.length * 1000 + 1000);
 });
 
 //INCISO 4
-//const wrapper = getElementById("wrapper");
+const wrapper = document.getElementById("primerCara");//
+const arbustoCorto1 = document.getElementById("ff-arbusto-corto-1");//
+const rocaGrande1 = document.getElementById("ff-roca-grande1");//
+const arbol1 = document.getElementById("ff-arbol-1");//
+const arbustoLargo1 = document.getElementById("ff-arbusto-largo-1");//
+const rocaGrande3 = document.getElementById("ff-roca-grande3");
+const rocaGrande4 = document.getElementById("ff-roca-grande4");
+const rocaGrande2 = document.getElementById("ff-roca-grande2");//
+const arbol3 = document.getElementById("ff-arbol-3");
+const arbustoLargo3 = document.getElementById("ff-arbusto-largo-3");
+const arbol2 = document.getElementById("ff-arbol-2");
+const arbustoLargo2 = document.getElementById("ff-arbusto-largo-2");
+const numero1 = document.getElementById("ff-1");
+const numero2 = document.getElementById("ff-2");
+const numero3 = document.getElementById("ff-3");
 
+//funcion parallax
+window.addEventListener("scroll", function(){
+  let contenedorTop=wrapper.getBoundingClientRect().top;
+
+  if (contenedorTop<window.innerHeight && contenedorTop > (wrapper.offsetHeight*(-1))) {
+    let desplazamientoRelativo = window.scrollY - wrapper.offsetTop;
+    
+    //lado izquierdo
+    arbustoCorto1.style.transform=`translateY(${desplazamientoRelativo * 0.65}px)`;
+    rocaGrande1.style.transform=`translateY(${desplazamientoRelativo * 0.6}px)`;
+    arbol1.style.transform=`translateY(${desplazamientoRelativo * 0.55}px)`;
+    arbustoLargo1.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+
+    //lado derecho
+    rocaGrande3.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+    rocaGrande4.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+    rocaGrande2.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+    arbol3.style.transform=`translateY(${desplazamientoRelativo * 0.48}px)`;
+    arbustoLargo3.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
+    arbol2.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
+    arbustoLargo2.style.transform=`translateY(${desplazamientoRelativo * 0.38}px)`;
+
+    //personajes
+    numero1.style.transform=`translateY(${desplazamientoRelativo * 0.54}px)`;
+    numero2.style.transform=`translateY(${desplazamientoRelativo * 0.3}px)`;
+    numero3.style.transform=`translateY(${desplazamientoRelativo * 0.47}px)`;
+  }
+})
+
+function entrarHero(){
+  document.querySelectorAll(".entrada").forEach((item, index) =>{
+    setTimeout(()=>{
+      item.style.transform="translateX(0px)";
+    }, 500*index)
+  })
+}
 
 
 //INCISO 8
