@@ -348,7 +348,20 @@
                 ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: 
                 Una Aventura Matemática Inmersiva!
             </h1>
-            <img id="efectos3d-1" class="layer0" src="assets/images/image 239.png" alt="">  
+
+            <model-viewer 
+                src="assets/3d objects/one.glb" 
+                camera-controls tone-mapping="aces" 
+                poster="assets\images\image 239.png" 
+                shadow-intensity="1" 
+                id="object-3d" 
+                loading="eager" 
+                touch-action="pan-y" 
+                alt="A 3D model of the number one character" 
+                auto-rotate
+            ></model-viewer>
+
+            <!--img id="efectos3d-1" class="layer0" src="assets/images/image 239.png" alt=""-->  
             <p id="efectos3d-texto">
                 En NumberBlocks, la aventura no solo está en el aprendizaje, 
                 ¡sino también en la experiencia visual! Disfruta de efectos 3D 
@@ -429,5 +442,7 @@
         </footer>
     </div>
 <script src="js/main.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 </body>
 </html>
