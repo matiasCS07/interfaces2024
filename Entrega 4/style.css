@@ -560,13 +560,6 @@ body{
 
   
 }   
-.grilla-colores{
-    position: absolute;
-    top: 11886px;
-    height: 729px;
-    width: auto;
-    background-image: url(assets/images/455.png);
-}
 .pre-footer{
     height: 1575px;
     width: 1280px;
@@ -986,6 +979,11 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     animation-fill-mode:both; */
 }
 
+.reveal-img{
+    transform: scale(1);
+    opacity: 1;
+}
+
 .sticky-slider{
     width: 50%;
     height: 90%;
@@ -1089,5 +1087,41 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         background-position: 0px;
     }to{
         background-position: -623px;
+    }
+}
+
+/*  inciso 12 grilla colores*/
+
+.grilla-colores{
+    position: absolute;
+    top: 11886px;
+    height: 729px;
+    width: 1280px;
+    background-image: url(assets/images/455.png);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pj-grilla{
+    width: auto;
+    transition: all 300ms ease-in-out;
+    transform-origin: bottom;
+}
+
+.pj-grilla:hover{
+    animation: destacar-pj 500ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes destacar-pj {
+    from{
+        transform: scale(1);
+    }to{
+        transform: scale(1.25);
+        filter: drop-shadow(0 0 15px rgba(255, 255, 153, 1));
     }
 }
