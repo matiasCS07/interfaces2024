@@ -108,22 +108,30 @@ grupoNumeros.addEventListener("mouseleave", () => {
 
 // //INCISO 9
 
-const seccion_larga=document.getElementById('seccion-larga');
-seccion_larga.addEventListener('scroll', ()=> {
-  seccion_larga.classList.add('overflor-auto');
-    const img= document.getElementById('seccion-larga-0');
-    console.log('antes de el if');
-    console.log(img.getBoundingClientRect().top);
-    console.log(seccion_larga.innerHeight);
-    console.log(contenedor.offsetHeight);
-    console.log();
+const seccionLarga = document.querySelector('.sticky-slider');
+const seccionesTexto = document.querySelectorAll(".contenedor-dato");
+let imagen=document.querySelector(".seccion-larga-0");
 
-    if(img.getBoundingClientRect().top < seccion_larga.getBoundingClientRect().top && img.getBoundingClientRect().top > (contenedor.offsetHeight*(-1))){
-      let desplazamientoRelativo = window.scrollY - seccion_larga.offsetTop;
-      img.style.transform=`translateY(${desplazamientoRelativo * 1}px)`;
-    }
+window.addEventListener('scroll', () => {
+    const seccionLargaPos = seccionLarga.getBoundingClientRect();
+    const centroVentana=window.innerHeight/2;
+    let seccionTop=seccionLargaPos.top+window.scrollY;
+    imagen.style.opacity="0";
+    
+    seccionesTexto.forEach((seccion) => {
+      const seccionLimites = seccion.getBoundingClientRect();
+      const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
+      const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
+      
+      if (distancia<seccionLimites.height) {
+        imagen.style.opacity="1";
+        imagen.src=`assets/images/${seccion.getAttribute("data-imagen")}.png`;
+        
+        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height*1.5);
+        imagen.style.transform=`translateY(${desplazamiento}px)`;
+      }
+    });
 });
-
 
 
 //slider de fotos

@@ -133,20 +133,21 @@ body{
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
-    width: 1080px;
-    height: 976px;
+    width: 1280px;
+    height: 1157px;
     top:2830px;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 }
 .ff4{
     background-image:url("assets/images/ff4.png");
     position: absolute;
     overflow: hidden;
-    top: 9408px;
+    top: 9125px;
     width: 1280px;
     height: 1444px;
     
@@ -403,7 +404,6 @@ body{
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
-    z-index: 99;
 }
 .seccion-larga{
     height:5421px;
@@ -417,27 +417,7 @@ body{
 .font-size-60{
     font-size: 60px;
 }
-.titulo-seccionlarga{
-    position: relative;
-    left: 100px;
-    top: 360px;
-    color:black;
-    width: 802px;
-    height: 57px;
-}
-#seccion-larga-0{
-    position: relative;
-    width: 292px;
-    height: 436px;
-    left: 243px;
-    top: 650px;
-    /* view-timeline-name: --image;
-    view-timeline-axis: block;
-    animation-timeline: --image;
-    animation-name: seccion-larga-slider-1;
-    animation-range: entry 25% cover 100%;
-    animation-fill-mode:both; */
-}
+
 .contenedor-datos{
     position: absolute;
     width: 467px; 
@@ -449,14 +429,24 @@ body{
 }
 .contenedor-dato{
     width: 467px;
-    height:148px;
-    padding-bottom: 267px;
+    height: 167px;
+    padding-bottom: 200px;
 }
 .dato{
     width: 467px;
     height: 114px;
     font-size: 20px;
-    
+    line-height: 18.9px;
+}
+.titulo-dato{
+    width: 467px;
+    height: 38px;
+    font-size: 40px;
+    margin: 10px;
+    line-height: 37.8px;
+}
+.titulo-dato.largo{
+    height: 76px;
 }
 #ff4-3{
     position: absolute;
@@ -970,6 +960,38 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 /* inciso 9 */
 
+.titulo-seccionlarga{
+    position: relative;
+    left: 100px;
+    top: 360px;
+    color:black;
+    width: 802px;
+    height: 57px;
+}
+
+.seccion-larga-0{
+    position: absolute;
+    width: auto;
+    height: 436px;
+    left: 175px;
+    top: 700px;
+    opacity: 0;
+    transform: scale(0.75);
+    transition: opacity 600ms ease-in;
+    /* view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: seccion-larga-slider-1;
+    animation-range: entry 25% cover 100%;
+    animation-fill-mode:both; */
+}
+
+.sticky-slider{
+    width: 50%;
+    height: 90%;
+    margin-top: 50%;
+}
+
 @keyframes seccion-larga-slider-1{
     0% {
         opacity: 0;
@@ -983,13 +1005,17 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         opacity: 0;
       }
 }
+
 #seccion-larga img{
-    view-timeline-name: --reveal;
-    animation-name: seccion-larga-slider-1;
-    animation-fill-mode:both;
-    animation-timeline: --reveal;
-    animation-range: entry 70% cover 80%;
+    /*
+        view-timeline-name: --reveal;
+        animation-name: seccion-larga-slider-1;
+        animation-fill-mode:both;
+        animation-timeline: --reveal;
+        animation-range: entry 70% cover 80%;
+    */
 }
+
 /*  animacion cards "la app mas divertida" */
 
 .card-app{
