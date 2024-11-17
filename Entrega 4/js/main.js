@@ -22,7 +22,7 @@ window.addEventListener("load", ()=> {
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
   }, numeros.length * 1000 + 1000);
-});*/
+});
 
 //INCISO 4
 //const wrapper = getElementById("wrapper");
@@ -53,6 +53,26 @@ grupoNumeros.addEventListener("mousemove", (e)=>{
 grupoNumeros.addEventListener("mouseleave", () => {
     grupoNumeros.style.transform = `translate(0, 0)`;
 });
+
+
+// //INCISO 9
+
+const seccion_larga=document.getElementById('seccion-larga');
+seccion_larga.addEventListener('scroll', ()=> {
+  seccion_larga.classList.add('overflor-auto');
+    const img= document.getElementById('seccion-larga-0');
+    console.log('antes de el if');
+    console.log(img.getBoundingClientRect().top);
+    console.log(seccion_larga.innerHeight);
+    console.log(contenedor.offsetHeight);
+    console.log();
+
+    if(img.getBoundingClientRect().top < seccion_larga.getBoundingClientRect().top && img.getBoundingClientRect().top > (contenedor.offsetHeight*(-1))){
+      let desplazamientoRelativo = window.scrollY - seccion_larga.offsetTop;
+      img.style.transform=`translateY(${desplazamientoRelativo * 1}px)`;
+    }
+});
+
 
 
 //slider de fotos

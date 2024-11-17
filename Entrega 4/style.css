@@ -132,11 +132,10 @@ body{
 
 }
 .ff3{
-    overflow: hidden;
-    background-image: url(assets/images/ff3.png);
-    width: 1280px;
-    height: 1157px;
-    top: 2830px;
+    background-image:url("assets/images/ff3.png");
+    width: 1080px;
+    height: 976px;
+    top:2830px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -409,7 +408,8 @@ body{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top:3800px
+    top:3800px;
+
 }
 .font-size-60{
     font-size: 60px;
@@ -427,14 +427,20 @@ body{
     width: 292px;
     height: 436px;
     left: 243px;
-    top: 450px;
+    top: 650px;
+    /* view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: seccion-larga-slider-1;
+    animation-range: entry 25% cover 100%;
+    animation-fill-mode:both; */
 }
 .contenedor-datos{
-    position: relative;
+    position: absolute;
     width: 467px; 
     height: 4884px;
     left: 713px;
-    top: 100px;
+    top: 799px;
   
     
 }
@@ -932,4 +938,27 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     100%{
         transform: translateX(0px);
     }
+}
+
+/* inciso 9 */
+
+@keyframes seccion-larga-slider-1{
+    0% {
+        opacity: 0;
+        transform: translateY(-300px);
+      }
+      50% {
+        transform: translateY(0px);
+        opacity: 1;
+      } 
+      100%{
+        opacity: 0;
+      }
+}
+#seccion-larga img{
+    view-timeline-name: --reveal;
+    animation-name: seccion-larga-slider-1;
+    animation-fill-mode:both;
+    animation-timeline: --reveal;
+    animation-range: entry 70% cover 80%;
 }
