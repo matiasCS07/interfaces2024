@@ -142,18 +142,46 @@ function ocultarItems(){
 }
 
 //parallax de video y personaje INCISO 10
-let contenedor=document.querySelector(".ff4");
+let contenedorCara4=document.querySelector(".ff4");
 let video=document.querySelector(".recuadro-video");
 let personaje=document.querySelector("#ff4-3");
 let texto=document.querySelector("#ff4-titulo");
 
 window.addEventListener("scroll", function(){
-  let contenedorTop=contenedor.getBoundingClientRect().top;
+  let contenedorCara4Top=contenedorCara4.getBoundingClientRect().top;
 
-  if (contenedorTop<window.innerHeight && contenedorTop > (contenedor.offsetHeight*(-1))) {
-    let desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
-    texto.style.transform= 
-    video.style.transform=`translateY(${desplazamientoRelativo * 0.25}px)`;
-    personaje.style.transform=`translateY(${desplazamientoRelativo * 0.1}px)`;
+  if (contenedorCara4Top<window.innerHeight && contenedorCara4Top > (contenedorCara4.offsetHeight*(-1))) {
+    let desplazamiento = window.scrollY - contenedorCara4.offsetTop;
+    texto.style.transform= `translateY(${desplazamiento * 0.25}px)`;
+    video.style.transform=`translateY(${desplazamiento * 0.25}px)`;
+    personaje.style.transform=`translateY(${desplazamiento * 0.1}px)`;
+  }
+})
+
+// animacion cards, INCISO 7
+
+let cards=document.querySelectorAll(".card-app");
+let contenedorCara2=document.querySelector(".app-mas-divertida")
+
+window.addEventListener("scroll", function(){
+  let contenedorCara2Top=contenedorCara2.getBoundingClientRect().top+window.scrollY;
+  let desplazamiento=window.scrollY-contenedorCara2Top;
+
+  if(desplazamiento<100||desplazamiento>contenedorCara2.getBoundingClientRect().bottom){
+    document.querySelectorAll(".card-app").forEach((card, index)=>{
+      if(card.classList.contains("appear")){
+        setTimeout(()=>{
+          card.classList.remove("appear");
+        }, 300*index)
+      }
+    })
+  }else if(desplazamiento>=100) {
+    document.querySelectorAll(".card-app").forEach((card, index)=>{
+      if(!card.classList.contains("appear")){
+        setTimeout(()=>{
+          card.classList.add("appear");
+        }, 300*index)
+      }
+    })
   }
 })
