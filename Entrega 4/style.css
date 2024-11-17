@@ -189,6 +189,10 @@ body{
     padding-left: 100px;
     padding-top: 60px;
 }
+.entrada{
+    transition: all 600ms ease-in-out;
+    transform: translateX(-8000px);
+}
 #ff-arbol-1{
     position: absolute;
     width: 560.1px;

@@ -21,6 +21,7 @@ window.addEventListener("load", ()=> {
     const pagina = document.getElementById("container");
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
+    entrarHero();
   }, numeros.length * 1000 + 1000);
 });
 
@@ -70,6 +71,13 @@ window.addEventListener("scroll", function(){
   }
 })
 
+function entrarHero(){
+  document.querySelectorAll(".entrada").forEach((item, index) =>{
+    setTimeout(()=>{
+      item.style.transform="translateX(0px)";
+    }, 500*index)
+  })
+}
 
 
 //INCISO 8
