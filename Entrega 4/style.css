@@ -110,6 +110,7 @@ body{
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 }
 .contenedorhorizontal{
     display: inline;
@@ -129,6 +130,7 @@ body{
     overflow-x: hidden;
     margin-left: 100px;
     margin-right: 100px;
+    overflow-y:scroll;
 
 }
 .ff3{
@@ -287,7 +289,7 @@ body{
 .boton-comprar{
     position: absolute;
     top: 3%;
-    right: 30%;
+    right: 384px;
     width: 200px;
     height: 50px;
     flex-shrink: 0;
@@ -431,12 +433,6 @@ body{
     height: 436px;
     left: 243px;
     top: 650px;
-    /* view-timeline-name: --image;
-    view-timeline-axis: block;
-    animation-timeline: --image;
-    animation-name: seccion-larga-slider-1;
-    animation-range: entry 25% cover 100%;
-    animation-fill-mode:both; */
 }
 .contenedor-datos{
     position: absolute;
@@ -801,7 +797,7 @@ footer{
 .menu{
     position: absolute;
     top: 3%;
-    left: 30%;
+    left: 384px;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -1063,5 +1059,61 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         background-position: 0px;
     }to{
         background-position: -623px;
+    }
+}
+@keyframes boton-sticky {
+    0%{
+        transform: translateX(0px);
+    } 
+    100%{
+        transform: translateX(192px);
+    }
+}
+.boton-comprar-2{
+   
+    position: fixed;
+    top: 3%;
+    width: 200px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 111px;
+    border: 8px solid #FFF;
+    background: #83C252;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    z-index: 8;
+    animation: boton-sticky 2s ease-in ;
+}
+.boton-comprar-2-posicion{
+    right: 192px;
+}
+.boton-comprar-2:hover{
+    transition: all 400ms ease-out;
+    animation: animacion_comprar 1s ease-in infinite;
+}
+.menu-2{
+    position: sticky;
+    top: 3%;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    border: 0px;
+    background: transparent;
+    color: transparent;
+    z-index: 8;
+    animation: menu-sticky 2s ease-in;
+}
+.menu-2-posicion{
+    left: 50px;
+}
+@keyframes menu-sticky {
+    0%{
+        transform: translateX(0px);
+    } 
+    100%{
+        transform: translateX(-100px);
     }
 }

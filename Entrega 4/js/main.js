@@ -212,4 +212,24 @@ window.addEventListener("scroll", function(){
       }
     })
   }
+});
+
+
+
+
+
+  
+  window.addEventListener('scroll', ()=>{
+  console.log('entra addeventListener scroll container');  
+  document.getElementById("menu-hamburguesa").classList.add("menu-2");
+  document.getElementById("boton-comprar").classList.add("boton-comprar-2");
+  setTimeout(() => {
+  document.getElementById("boton-comprar").classList.remove("boton-comprar");
+  document.getElementById("boton-comprar").classList.add("boton-comprar-2-posicion");
+  document.getElementById("menu-hamburguesa").classList.remove("menu");
+  document.getElementById("menu-hamburguesa").classList.add("menu-2-posicion");
+
+
+    
+  }, 2000);
 })
