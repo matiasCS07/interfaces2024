@@ -40,20 +40,20 @@ const gruposParallax = [
     contenedor: document.getElementById("primerCara"),
     elementos: [
                                                             //factor es la velocidad con la que se desplazara cada elem
-      { elem: document.getElementById("ff-arbusto-corto-1"), factor: 0.65 },
-      { elem: document.getElementById("ff-roca-grande1"), factor: 0.6 },
-      { elem: document.getElementById("ff-arbol-1"), factor: 0.55 },
-      { elem: document.getElementById("ff-arbusto-largo-1"), factor: 0.5 },
-      { elem: document.getElementById("ff-roca-grande3"), factor: 0.5 },
-      { elem: document.getElementById("ff-roca-grande4"), factor: 0.5 },
-      { elem: document.getElementById("ff-roca-grande2"), factor: 0.5 },
-      { elem: document.getElementById("ff-arbol-3"), factor: 0.48 },
-      { elem: document.getElementById("ff-arbusto-largo-3"), factor: 0.4 },
-      { elem: document.getElementById("ff-arbol-2"), factor: 0.4 },
-      { elem: document.getElementById("ff-arbusto-largo-2"), factor: 0.38 },
-      { elem: document.getElementById("ff-1"), factor: 0.54 },
-      { elem: document.getElementById("ff-2"), factor: 0.3 },
-      { elem: document.getElementById("ff-3"), factor: 0.47 },
+      { elem: document.getElementById("ff-arbusto-corto-1"), factor: 0.125 },
+      { elem: document.getElementById("ff-roca-grande1"), factor: 0.15 },
+      { elem: document.getElementById("ff-arbol-1"), factor: 0.125 },
+      { elem: document.getElementById("ff-arbusto-largo-1"), factor: 0.1 },
+      { elem: document.getElementById("ff-roca-grande3"), factor: 0.125 },
+      { elem: document.getElementById("ff-roca-grande4"), factor: 0.125 },
+      { elem: document.getElementById("ff-roca-grande2"), factor: 0.125 },
+      { elem: document.getElementById("ff-arbol-3"), factor: 0.12 },
+      { elem: document.getElementById("ff-arbusto-largo-3"), factor: 0.1 },
+      { elem: document.getElementById("ff-arbol-2"), factor: 0.1 },
+      { elem: document.getElementById("ff-arbusto-largo-2"), factor: 0.052 },
+      { elem: document.getElementById("ff-1"), factor: 0.135 },
+      { elem: document.getElementById("ff-2"), factor: 0.1 },
+      { elem: document.getElementById("ff-3"), factor: 0.115 },
     ],
   },
   {
@@ -300,28 +300,30 @@ window.addEventListener("scroll", function(){
 
   //inciso 3
   window.addEventListener('scroll', ()=>{
-      let logo= document.getElementById("logo");
-      let nav=  document.getElementById("nav");
-      let menu= document.getElementById("menu-hamburguesa");
-      let boton= document.getElementById("boton-comprar");
-      console.log('entra addeventListener scroll container');  
-
-
-      menu.classList.add("menu-2");
+  let estado=document.getElementById("container").style.display;
+  let limite=document.getElementById("primerCara").getBoundingClientRect().bottom;
+  if(estado=="flex"){
+    let logo= document.getElementById("logo");
+    let nav=  document.getElementById("nav");
+    let menu= document.getElementById("menu-hamburguesa");
+    let boton= document.getElementById("boton-comprar");
+    //console.log('entra addeventListener scroll container');  
+  
+    if(window.scrollY>limite){
       boton.classList.add("boton-comprar-2");
-      logo.classList.remove("position-absolute");
       logo.classList.remove("entrada");
       logo.classList.remove("logo");
       logo.classList.add("logo-sticky");
       nav.classList.add("nav");
-
-          setTimeout(() => {
-          boton.classList.remove("boton-comprar");
-          boton.classList.add("boton-comprar-2-posicion");
-          menu.classList.remove("menu");
-          menu.classList.add("menu-2-posicion");
-          nav.classList.add("nav-color");
-
-          }, 1000);
-          console.log(nav.getBoundingClientRect.top);
+      nav.classList.add("nav-color");
+    }else{
+      boton.classList.remove("boton-comprar-2");
+      logo.classList.add("entrada");
+      logo.classList.add("logo");
+      logo.classList.remove("logo-sticky");
+      nav.classList.remove("nav");
+    }
+  
+    //console.log(nav.getBoundingClientRect.top);
+  }
 });

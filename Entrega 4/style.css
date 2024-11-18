@@ -51,6 +51,7 @@ h3{
     width: 1280px;
     height: 100%;
     background-image: url("./assets/images/ff.png");
+    overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
@@ -98,10 +99,6 @@ h3{
     
 } 
 
-
-nav{
-    overflow-x: hidden;
-}
 body{
     margin: 0%;
     padding: 0%;
@@ -131,7 +128,6 @@ body{
     overflow-x: hidden;
     margin-left: 100px;
     margin-right: 100px;
-    overflow-y:scroll;
 
 }
 .ff3{
@@ -185,9 +181,7 @@ body{
     z-index: 9;
 }
 .logo{
-    top:0px;
-    padding-top: 56px;
-    padding-left: 400px;
+    padding-top: 30px;
 }
 #titulosegundacara{
     padding-left: 100px;
@@ -290,9 +284,6 @@ body{
     z-index: 17;
 }
 .boton-comprar{
-    position: absolute;
-    top: 3%;
-    right: 30%;
     width: 200px;
     height: 50px;
     flex-shrink: 0;
@@ -560,7 +551,6 @@ body{
     overflow: hidden;
     top: 0px;
     z-index: 0;
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -568,6 +558,8 @@ body{
   
 .segunda-cara{
     background-image:url("assets/images/ff2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     width:1280px;
     height: 894px;
 
@@ -758,7 +750,7 @@ footer{
     width: 1280px;
     height: 2228px;
     position: relative;
-    top: -5317px;
+    top: -5320px;
 }
 
 /*  slider de imagenes  */
@@ -790,14 +782,12 @@ footer{
     width: inherit;
     height: inherit;
 }
+
 /**/
 
 /*  menu hamburguesa    */
 
 .menu{
-    position: absolute;
-    top: 3%;
-    left: 30%;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -1114,12 +1104,8 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     }
 }
 .boton-comprar-2{
-   
-    position: fixed;
-    top: 3%;
     width: 200px;
     height: 50px;
-    flex-shrink: 0;
     border-radius: 111px;
     border: 8px solid #FFF;
     background: #83C252;
@@ -1128,7 +1114,6 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     text-transform: uppercase;
     font-size: 20px;
     z-index: 8;
-    animation: boton-sticky 1s ease-in ;
 }
 .boton-comprar-2-posicion{
     right: 20%;
@@ -1137,30 +1122,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     transition: all 400ms ease-out;
     animation: animacion_comprar 1s ease-in infinite;
 }
-.menu-2{
-    position: fixed;
-    top: 3%;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    height: fit-content;
-    border: 0px;
-    background: transparent;
-    color: transparent;
-    z-index: 8;
-    animation: menu-sticky 1s ease-in;
-}
-.menu-2-posicion{
-    left: 20%;
-}
-@keyframes menu-sticky {
-    0%{
-        transform: translateX(0px);
-    } 
-    100%{
-        transform: translateX(-170px);
-    }
-}
+
 
 /*  inciso 12 grilla colores*/
 
@@ -1210,9 +1172,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 .logo-sticky{
     padding-top: 0px;
-    top: 0px;
-    align-self:center;
-    position: fixed;
+    padding-left: 0px;
     width: 280px;
     height: 170px;
     animation: all logo-sticky 1s;
@@ -1232,20 +1192,39 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 .position-absolute{
     position: absolute;
 }
+
+nav{
+    overflow-x: hidden;
+    width: 1280px;
+    height: fit-content;
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: space-around;
+    margin-top: 70px;
+}
+
 .nav{
     position: fixed;
-    top:0px;
+    top: 0px;
     left: 312px;
-    width: 1280px;
+    width: 1240px;
     height: 160px;
+    padding-left: 21px;
+    padding-right: 21px;
+    margin-top: 0px;
+    align-items: center;
     background-color: rgb(76, 250, 250);
+    justify-content: space-between;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    
+    transition: opacity 1s ease-in-out;   
+    overflow: hidden;
 }
+
 .nav-color{
   opacity: 1;
 }
+
 @keyframes nav-background {
     0%{
        transform: opacity(0);
