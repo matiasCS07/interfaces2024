@@ -78,14 +78,13 @@ h3{
     align-items: baseline;
     justify-content: left;
 }
-/* .numero-container img{
-    width: 100px;
-    height: 200px;
-} */
+
 .silueta{
     width: inherit;
     position: absolute;
     height: auto;
+    opacity: 1;
+    transition: opacity 2s ease-out;
     filter: grayscale(100%) brightness(0.3);
 }
 .numero{
@@ -94,6 +93,7 @@ h3{
     z-index: 1;
     opacity: 0;
     transition: opacity 2s ease;
+    
 } 
 
 

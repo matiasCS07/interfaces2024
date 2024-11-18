@@ -1,6 +1,7 @@
 //INCISO 1 (OPCIONAL)
 window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
+  const siluetas = document.querySelectorAll(".silueta");
   const textoCarga = document.getElementById("texto-carga");
   
   //espera un segundo antes de empezar con el loader
@@ -8,7 +9,13 @@ window.addEventListener("load", ()=> {
     //muestra cada numero gradualmente
     numeros.forEach((numero, index)=>{
       setTimeout(() => {
+        siluetas.forEach((silueta,i)=>{
+          setTimeout(() => {
+            silueta.style.opacity = 0;
+          }, i*1000);
+        });
         numero.style.opacity = 1;
+        numero.style.transform = `scale(1.1)`
         textoCarga.innerHTML = `${index + 1}`;
       }, index*1000);
     });
@@ -22,7 +29,7 @@ window.addEventListener("load", ()=> {
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
     entrarHero();
-  }, numeros.length * 1000 + 1000);
+  }, numeros.length * 1000 + 2000);
 });
 
 //INCISO 4
