@@ -807,8 +807,8 @@ footer{
 
 .menu-desplegable{
     position: fixed;
-    top: 15%;
-    left: 10%;
+    top: 14%;
+    left: 16.5%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
@@ -816,9 +816,10 @@ footer{
     align-items: center;
     border-radius: 20px;
     padding: 20px;
-    transform: translateX(-800px);
-    transition: all 600ms ease-in-out;
+    transform: translateX(-1000px);
+    transition: transfrom 600ms ease-in-out, opacity 800ms ease-in-out;
     z-index: 8;
+    opacity: 0;
 }
 
 .desplegable-item{
@@ -826,8 +827,9 @@ footer{
     width: fit-content;
     font-size: 40px;
     text-align: center;
-    transition: all 600ms ease-in-out;
-    transform: translateX(-800px);
+    transition: transform 600ms ease-in-out, opacity 800ms ease-in-out;;
+    transform: translateX(-1000px);
+    opacity: 0;
 }
 
 button#menu-hamburguesa.close .linea-menu{

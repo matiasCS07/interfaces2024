@@ -224,9 +224,11 @@ menu.addEventListener("click", function(){
   let desplegable=document.querySelector(".menu-desplegable");
   if(menu.classList.contains("open")){
     desplegable.style.transform="translateX(0px)";
+    desplegable.style.opacity="1";
     desplegarItems();
   }else{
-    desplegable.style.transform="translateX(-800px)";
+    desplegable.style.transform="translateX(-1000px)";
+    desplegable.style.opacity="0";
     ocultarItems();
   }
 })
@@ -235,13 +237,15 @@ function desplegarItems(){
   document.querySelectorAll(".desplegable-item").forEach((item, index) =>{
     setTimeout(()=>{
       item.style.transform="translateX(0px)";
+      item.style.opacity="1";
     }, 500*index)
   })
 }
 
 function ocultarItems(){
   document.querySelectorAll(".desplegable-item").forEach(item =>{
-    item.style.transform="translateX(-400px)";
+    item.style.transform="translateX(-1000px)";
+    item.style.opacity="0";
   })
 }
 
