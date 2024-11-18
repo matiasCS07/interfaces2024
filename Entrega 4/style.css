@@ -48,53 +48,52 @@ h3{
 
 /* loader */
  #pantalla-carga{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    width: 1280px;
     height: 100vh;
-    background-color: #ECECEC;
+    background-image: url("./assets/images/ff.png");
+    background-repeat: round;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     justify-content: center;
     align-items: center;
-    /* z-index: 3; */
+    overflow-x: hidden;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 .carga-container{
     width: 50%;
-    height: 50%;
+    height: 40%;
     display: flex;
-
+    align-items: baseline;  
+}
+#texto-carga{
+    display: flex;
+    justify-content: center;
 }
 .numero-container{
     display: flex;
     position: relative;
     width: 150px;
-    height: 150px;
+    height: 400 px;
     align-items: baseline;
+    justify-content: left;
 }
-.numero-container img{
-    width: 100px;
-    height: 200px;
-}
+
 .silueta{
     width: inherit;
-    height: auto;
     position: absolute;
-    top: 0;
-    left: 0;
+    height: auto;
+    opacity: 1;
+    transition: opacity 2s ease-out;
     filter: grayscale(100%) brightness(0.3);
 }
 .numero{
     width: inherit;
     height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 1;
     opacity: 0;
     transition: opacity 2s ease;
+    
 } 
 
 
@@ -135,20 +134,21 @@ body{
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
-    width: 1080px;
-    height: 976px;
+    width: 1280px;
+    height: 1157px;
     top:2830px;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 }
 .ff4{
     background-image:url("assets/images/ff4.png");
     position: absolute;
     overflow: hidden;
-    top: 9408px;
+    top: 9125px;
     width: 1280px;
     height: 1444px;
     
@@ -182,7 +182,8 @@ body{
     left: 695px;
     z-index: 9;
 }
-#logo{
+.logo{
+    top:0px;
     padding-top: 56px;
     padding-left: 400px;
 }
@@ -289,7 +290,7 @@ body{
 .boton-comprar{
     position: absolute;
     top: 3%;
-    right: 384px;
+    right: 30%;
     width: 200px;
     height: 50px;
     flex-shrink: 0;
@@ -405,7 +406,6 @@ body{
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
-    z-index: 99;
 }
 .seccion-larga{
     height:5421px;
@@ -434,6 +434,7 @@ body{
     left: 243px;
     top: 650px;
 }
+
 .contenedor-datos{
     position: absolute;
     width: 467px; 
@@ -445,14 +446,24 @@ body{
 }
 .contenedor-dato{
     width: 467px;
-    height:148px;
-    padding-bottom: 267px;
+    height: 167px;
+    padding-bottom: 200px;
 }
 .dato{
     width: 467px;
     height: 114px;
     font-size: 20px;
-    
+    line-height: 18.9px;
+}
+.titulo-dato{
+    width: 467px;
+    height: 38px;
+    font-size: 40px;
+    margin: 10px;
+    line-height: 37.8px;
+}
+.titulo-dato.largo{
+    height: 76px;
 }
 #ff4-3{
     position: absolute;
@@ -475,11 +486,10 @@ body{
     width: 333px;
 }
 .Efectos3d{
-    width: 1080px;
+    width: 1280px;
     height: 1034px;
     position: absolute;
-    top: 10852px;
-
+    top: 10650px;
 }
 #efectos3d-1{
     width: 667px;
@@ -492,14 +502,12 @@ body{
     position: absolute;
     top: 220px;
     left: 102px;
-    width:746px;
+    width: 746px;
     height: 285px;
     color: #9D2121;
     font-family: Lato;
     font-size: 60px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 94.5%; 
+    line-height: 56.7px;
 }
 #efectos3d-texto{
     position: absolute;
@@ -508,12 +516,9 @@ body{
     color: #000;
     font-family: Lato;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 94.5%; 
-    top: 548px;;
+    line-height: 18.9px;
+    top: 548px;
     left: 100px;
-
 }
 .layer0{
     z-index: 0;
@@ -566,13 +571,6 @@ body{
 
   
 }   
-.grilla-colores{
-    position: absolute;
-    top: 11886px;
-    height: 729px;
-    width: auto;
-    background-image: url(assets/images/455.png);
-}
 .pre-footer{
     height: 1575px;
     width: 1280px;
@@ -797,7 +795,7 @@ footer{
 .menu{
     position: absolute;
     top: 3%;
-    left: 384px;
+    left: 30%;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -966,6 +964,43 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 /* inciso 9 */
 
+.titulo-seccionlarga{
+    position: relative;
+    left: 100px;
+    top: 360px;
+    color:black;
+    width: 802px;
+    height: 57px;
+}
+
+.seccion-larga-0{
+    position: absolute;
+    width: auto;
+    height: 436px;
+    left: 175px;
+    top: 700px;
+    opacity: 0;
+    transform: scale(0.75);
+    transition: opacity 600ms ease-in;
+    /* view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation-timeline: --image;
+    animation-name: seccion-larga-slider-1;
+    animation-range: entry 25% cover 100%;
+    animation-fill-mode:both; */
+}
+
+.reveal-img{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.sticky-slider{
+    width: 50%;
+    height: 90%;
+    margin-top: 50%;
+}
+
 @keyframes seccion-larga-slider-1{
     0% {
         opacity: 0;
@@ -979,13 +1014,18 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         opacity: 0;
       }
 }
-#seccion-larga img{
-    view-timeline-name: --reveal;
-    animation-name: seccion-larga-slider-1;
-    animation-fill-mode:both;
-    animation-timeline: --reveal;
-    animation-range: entry 70% cover 80%;
-}
+
+/* #seccion-larga img{
+    
+        view-timeline-name: --reveal;
+        animation-name: seccion-larga-slider-1;
+        animation-fill-mode:both;
+        animation-timeline: --reveal;
+        animation-range: entry 70% cover 80%;
+   
+} */
+
+
 /*  animacion cards "la app mas divertida" */
 
 .card-app{
@@ -1066,7 +1106,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         transform: translateX(0px);
     } 
     100%{
-        transform: translateX(192px);
+        transform: translateX(100%);
     }
 }
 .boton-comprar-2{
@@ -1084,17 +1124,17 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     text-transform: uppercase;
     font-size: 20px;
     z-index: 8;
-    animation: boton-sticky 2s ease-in ;
+    animation: boton-sticky 1s ease-in ;
 }
 .boton-comprar-2-posicion{
-    right: 192px;
+    right: 20%;
 }
 .boton-comprar-2:hover{
     transition: all 400ms ease-out;
     animation: animacion_comprar 1s ease-in infinite;
 }
 .menu-2{
-    position: sticky;
+    position: fixed;
     top: 3%;
     display: flex;
     flex-direction: column;
@@ -1104,16 +1144,112 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     background: transparent;
     color: transparent;
     z-index: 8;
-    animation: menu-sticky 2s ease-in;
+    animation: menu-sticky 1s ease-in;
 }
 .menu-2-posicion{
-    left: 50px;
+    left: 20%;
 }
 @keyframes menu-sticky {
     0%{
         transform: translateX(0px);
     } 
     100%{
-        transform: translateX(-100px);
+        transform: translateX(-170px);
+    }
+}
+
+/*  inciso 12 grilla colores*/
+
+.grilla-colores{
+    position: absolute;
+    top: 11886px;
+    height: 729px;
+    width: 1280px;
+    background-image: url(assets/images/455.png);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pj-grilla{
+    width: auto;
+    transition: all 300ms ease-in-out;
+    transform-origin: bottom;
+}
+
+.pj-grilla:hover{
+    animation: destacar-pj 500ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes destacar-pj {
+    from{
+        transform: scale(1);
+    }to{
+        transform: scale(1.25);
+        filter: drop-shadow(0 0 15px rgba(255, 255, 153, 1));
+    }
+}
+
+/**/
+
+#object-3d{
+    position: absolute;
+    top: 0px;
+    left: 600px;
+    width: 800px;
+    height: 973px;
+}
+
+.logo-sticky{
+    padding-top: 0px;
+    top: 0px;
+    align-self:center;
+    position: fixed;
+    width: 280px;
+    height: 170px;
+    animation: all logo-sticky 1s;
+ 
+}
+@keyframes logo-sticky {
+    0% {
+        transform: translateY(0px);
+        transform: scale(1);
+        }
+
+    100%{
+        transform: translateY(20px);
+        transform: scale(0.5);
+    }    
+}
+.position-absolute{
+    position: absolute;
+}
+.nav{
+    position: fixed;
+    top:0px;
+    left: 312px;
+    width: 1280px;
+    height: 160px;
+    background-color: rgb(76, 250, 250);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+.nav-color{
+  opacity: 1;
+}
+@keyframes nav-background {
+    0%{
+       transform: opacity(0);
+       transform: background-color ( rgb(76, 250, 250));
+    }
+    100%{
+        transform: opacity(1);
+        
+
     }
 }

@@ -33,10 +33,11 @@
             <h1 id="texto-carga">Contemos juntos!</h1>
     </div>
     <header>
-        <nav></nav>
-    </header>
+        <nav id="nav" class="layer7"></nav>
+    </header> 
    
     <div id="container" style="display: none;">
+        
         <button class="menu layer8 close" id="menu-hamburguesa">
             boton
             <img src="assets/images/linea-menu.png" class="linea-menu" id="hamburguesa-linea1">
@@ -68,9 +69,10 @@
         <button id="boton-comprar" class="boton-comprar">
             comprar
         </button>
+        <img class="layer8 logo entrada position-absolute" id="logo" width="560px" height="320px" src="assets/images/logo 1.png" alt="">
+
         <section>
             <div id="primerCara" class="layer1"  >
-                <img class="layer1 entrada" id="logo" width="560px" height="320px" src="assets/images/logo 1.png" alt="">
                 <img class="layer0 entrada" id="ff-arbusto-largo-1" src="assets/images/arbusto-largo.png" alt="arbusto largo">
                 <img class="layer1 entrada" id="ff-arbol-1" src="assets/images/arbol 1.png" alt="arbol">
                 <img class="layer2 entrada" id="ff-roca-grande1" src="assets/images/roca-grande.png" alt="roca grande"> 
@@ -162,23 +164,15 @@
                     Más amigos, más diversión!
                 </p>
             </div>
-            <img id="seccion-larga-0" src="assets/images/0.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/1.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/2.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/3.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/4 56.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/5.png" alt="">
-            <img id="seccion-larga-0" src="assets/images/6.png" alt="">            
-            <img id="seccion-larga-0" src="assets/images/7.png" alt="">            
-            <img id="seccion-larga-0" src="assets/images/8.png" alt="">  
-            <img id="seccion-larga-0" src="assets/images/9.png" alt="">            
-            <img id="seccion-larga-0" src="assets/images/10.png" alt="">            
-            <img id="seccion-larga-0" src="assets/images/11.png" alt="">            
+
+            <div class="sticky-slider">
+                <img class="seccion-larga-0" src="assets/images/0.png">        
+            </div>
 
             
             <div class="contenedor-datos">
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="0">
+                    <h3 class="titulo-dato layer1">
                         Sumas Mágicas
                     </h3>
                     <div class="dato">
@@ -192,8 +186,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="1">
+                    <h3 class="titulo-dato layer1">
                         Rompecabezas de Restas
                     </h3>
                     <div class="dato">
@@ -207,8 +201,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="2">
+                    <h3 class="titulo-dato layer1">
                         Carrera de Conteo
                     </h3>
                     <div class="dato">
@@ -220,8 +214,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="3">
+                    <h3 class="titulo-dato largo layer1">
                         Encuentra el Número Oculto
                     </h3>
                     <div class="dato">
@@ -234,8 +228,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="4">
+                    <h3 class="titulo-dato layer1">
                         Desafío de Comparación
                     </h3>
                     <div class="dato">
@@ -248,8 +242,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="5">
+                    <h3 class="titulo-dato largo layer1">
                         Forma el Número Correcto
                     </h3>
                     <div class="dato">
@@ -263,8 +257,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="6">
+                    <h3 class="titulo-dato largo layer1">
                         Encuentra el Número Oculto
                     </h3>
                     <div class="dato">
@@ -276,8 +270,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato" class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="7">
+                    <h3 class="titulo-dato layer1">
                         Salto de Sumas
                     </h3>
                     <div class="dato">
@@ -290,8 +284,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="8">
+                    <h3 class="titulo-dato largo layer1">
                         Rompecabezas de Secuencias
                     </h3>
                     <div class="dato">
@@ -304,8 +298,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="9">
+                    <h3 class="titulo-dato layer1">
                         El Desafío del Doble
                     </h3>
                     <div class="dato">
@@ -319,8 +313,8 @@
                         </p>
                     </div>
                 </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
+                <section class="contenedor-dato" data-imagen="10">
+                    <h3 class="titulo-dato layer1">
                         Aventura de Divisiones
                     </h3>
                     <div class="dato">
@@ -331,21 +325,6 @@
                             que cada NumberBlock tenga su parte justa. 
                             Un desafío perfecto para entender la división 
                             de una forma divertida y visual.
-                        </p>
-                    </div>
-                </section>
-                <section class="contenedor-dato">
-                    <h3 class="layer1">
-                        Suma de Amigos
-                    </h3>
-                    <div class="dato">
-                        <p>
-                            Haz que UNO se junte con otros 
-                            personajes para ver cómo los números 
-                            crecen en equipo. Los niños aprenderán 
-                            cómo las sumas se construyen cuando se 
-                            unen varios bloques, ¡formando un número mayor 
-                            cada vez!
                         </p>
                     </div>
                 </section>
@@ -371,7 +350,20 @@
                 ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: 
                 Una Aventura Matemática Inmersiva!
             </h1>
-            <img id="efectos3d-1" class="layer0" src="assets/images/image 239.png" alt="">  
+
+            <model-viewer 
+                src="assets/3d objects/one.glb" 
+                camera-controls tone-mapping="aces" 
+                poster="assets\images\image 239.png" 
+                shadow-intensity="1" 
+                id="object-3d" 
+                loading="eager" 
+                touch-action="pan-y" 
+                alt="A 3D model of the number one character" 
+                auto-rotate
+            ></model-viewer>
+
+            <!--img id="efectos3d-1" class="layer0" src="assets/images/image 239.png" alt=""-->  
             <p id="efectos3d-texto">
                 En NumberBlocks, la aventura no solo está en el aprendizaje, 
                 ¡sino también en la experiencia visual! Disfruta de efectos 3D 
@@ -384,7 +376,16 @@
             </p>
         </section> <!-- ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva! -->
         <section class="grilla-colores">
-        <img src="assets/images/455.png" alt="">
+            <img class="pj-grilla" src="assets/images/grilla-colores/1.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/2.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/3.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/4.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/5.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/6.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/7.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/8.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/9.png">
+            <img class="pj-grilla" src="assets/images/grilla-colores/10.png">
         </section> <!-- grilla de colores -->
         <section class="pre-footer">
             <h1 id="prefooter-titulo">¿Quieres ser el primero en enterarse de todas las novedades?</h1>
@@ -443,5 +444,7 @@
         </footer>
     </div>
 <script src="js/main.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 </body>
 </html>

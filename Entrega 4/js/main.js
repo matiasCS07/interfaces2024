@@ -1,6 +1,7 @@
 //INCISO 1 (OPCIONAL)
 window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
+  const siluetas = document.querySelectorAll(".silueta");
   const textoCarga = document.getElementById("texto-carga");
   
   //espera un segundo antes de empezar con el loader
@@ -8,7 +9,13 @@ window.addEventListener("load", ()=> {
     //muestra cada numero gradualmente
     numeros.forEach((numero, index)=>{
       setTimeout(() => {
+        siluetas.forEach((silueta,i)=>{
+          setTimeout(() => {
+            silueta.style.opacity = 0;
+          }, i*1000);
+        });
         numero.style.opacity = 1;
+        numero.style.transform = `scale(1.1)`
         textoCarga.innerHTML = `${index + 1}`;
       }, index*1000);
     });
@@ -22,7 +29,7 @@ window.addEventListener("load", ()=> {
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
     entrarHero();
-  }, numeros.length * 1000 + 1000);
+  }, numeros.length * 1000 + 2000);
 });
 
 //INCISO 4
@@ -108,22 +115,30 @@ grupoNumeros.addEventListener("mouseleave", () => {
 
 // //INCISO 9
 
-const seccion_larga=document.getElementById('seccion-larga');
-seccion_larga.addEventListener('scroll', ()=> {
-  seccion_larga.classList.add('overflor-auto');
-    const img= document.getElementById('seccion-larga-0');
-    console.log('antes de el if');
-    console.log(img.getBoundingClientRect().top);
-    console.log(seccion_larga.innerHeight);
-    console.log(contenedor.offsetHeight);
-    console.log();
+const seccionLarga = document.querySelector('.sticky-slider');
+const seccionesTexto = document.querySelectorAll(".contenedor-dato");
+let imagen=document.querySelector(".seccion-larga-0");
 
-    if(img.getBoundingClientRect().top < seccion_larga.getBoundingClientRect().top && img.getBoundingClientRect().top > (contenedor.offsetHeight*(-1))){
-      let desplazamientoRelativo = window.scrollY - seccion_larga.offsetTop;
-      img.style.transform=`translateY(${desplazamientoRelativo * 1}px)`;
-    }
+window.addEventListener('scroll', () => {
+    const seccionLargaPos = seccionLarga.getBoundingClientRect();
+    const centroVentana=window.innerHeight/2;
+    let seccionTop=seccionLargaPos.top+window.scrollY;
+    imagen.style.opacity="0";
+    
+    seccionesTexto.forEach((seccion) => {
+      const seccionLimites = seccion.getBoundingClientRect();
+      const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
+      const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
+      
+      if (distancia<seccionLimites.height) {
+        imagen.style.opacity="1";
+        imagen.src=`assets/images/${seccion.getAttribute("data-imagen")}.png`;
+        
+        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height*1.5);
+        imagen.style.transform=`translateY(${desplazamiento}px)`;
+      }
+    });
 });
-
 
 
 //slider de fotos
@@ -218,18 +233,30 @@ window.addEventListener("scroll", function(){
 
 
 
-  
+  //inciso 3
   window.addEventListener('scroll', ()=>{
-  console.log('entra addeventListener scroll container');  
-  document.getElementById("menu-hamburguesa").classList.add("menu-2");
-  document.getElementById("boton-comprar").classList.add("boton-comprar-2");
-  setTimeout(() => {
-  document.getElementById("boton-comprar").classList.remove("boton-comprar");
-  document.getElementById("boton-comprar").classList.add("boton-comprar-2-posicion");
-  document.getElementById("menu-hamburguesa").classList.remove("menu");
-  document.getElementById("menu-hamburguesa").classList.add("menu-2-posicion");
+      let logo= document.getElementById("logo");
+      let nav=  document.getElementById("nav");
+      let menu= document.getElementById("menu-hamburguesa");
+      let boton= document.getElementById("boton-comprar");
+      console.log('entra addeventListener scroll container');  
 
 
-    
-  }, 2000);
-})
+      menu.classList.add("menu-2");
+      boton.classList.add("boton-comprar-2");
+      logo.classList.remove("position-absolute");
+      logo.classList.remove("entrada");
+      logo.classList.remove("logo");
+      logo.classList.add("logo-sticky");
+      nav.classList.add("nav");
+
+          setTimeout(() => {
+          boton.classList.remove("boton-comprar");
+          boton.classList.add("boton-comprar-2-posicion");
+          menu.classList.remove("menu");
+          menu.classList.add("menu-2-posicion");
+          nav.classList.add("nav-color");
+
+          }, 1000);
+          console.log(nav.getBoundingClientRect.top);
+});
