@@ -48,50 +48,49 @@ h3{
 
 /* loader */
  #pantalla-carga{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    width: 1280px;
     height: 100vh;
-    background-color: #ECECEC;
+    background-image: url("./assets/images/ff.png");
+    background-repeat: round;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     justify-content: center;
     align-items: center;
-    /* z-index: 3; */
+    overflow-x: hidden;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 .carga-container{
     width: 50%;
-    height: 50%;
+    height: 40%;
     display: flex;
-
+    align-items: baseline;  
+}
+#texto-carga{
+    display: flex;
+    justify-content: center;
 }
 .numero-container{
     display: flex;
     position: relative;
     width: 150px;
-    height: 150px;
+    height: 400 px;
     align-items: baseline;
+    justify-content: left;
 }
-.numero-container img{
+/* .numero-container img{
     width: 100px;
     height: 200px;
-}
+} */
 .silueta{
     width: inherit;
-    height: auto;
     position: absolute;
-    top: 0;
-    left: 0;
+    height: auto;
     filter: grayscale(100%) brightness(0.3);
 }
 .numero{
     width: inherit;
     height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 1;
     opacity: 0;
     transition: opacity 2s ease;
@@ -998,15 +997,16 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
       }
 }
 
-#seccion-larga img{
-    /*
+/* #seccion-larga img{
+    
         view-timeline-name: --reveal;
         animation-name: seccion-larga-slider-1;
         animation-fill-mode:both;
         animation-timeline: --reveal;
         animation-range: entry 70% cover 80%;
-    */
-}
+   
+} */
+
 
 /*  animacion cards "la app mas divertida" */
 
