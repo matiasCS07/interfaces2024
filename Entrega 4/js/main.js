@@ -218,6 +218,7 @@ setInterval(() => {
 //animacion menu hamburguesa
 let menu=document.getElementById("menu-hamburguesa");
 menu.addEventListener("click", function(){
+  console.log('aca')
   menu.classList.toggle("open");
   menu.classList.toggle("close");
   let desplegable=document.querySelector(".menu-desplegable");

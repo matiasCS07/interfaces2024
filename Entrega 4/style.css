@@ -756,7 +756,7 @@ footer{
     width: 1280px;
     height: 2228px;
     position: relative;
-    top: -5615px;
+    top: -5317px;
 }
 
 /*  slider de imagenes  */
@@ -806,9 +806,9 @@ footer{
 }
 
 .menu-desplegable{
-    position: relative;
-    top: -39.5%;
-    left: 0%;
+    position: fixed;
+    top: 15%;
+    left: 10%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
