@@ -32,51 +32,111 @@ window.addEventListener("load", ()=> {
   }, numeros.length * 1000 + 2000);
 });
 
-//INCISO 4
-const wrapper = document.getElementById("primerCara");//
-const arbustoCorto1 = document.getElementById("ff-arbusto-corto-1");//
-const rocaGrande1 = document.getElementById("ff-roca-grande1");//
-const arbol1 = document.getElementById("ff-arbol-1");//
-const arbustoLargo1 = document.getElementById("ff-arbusto-largo-1");//
-const rocaGrande3 = document.getElementById("ff-roca-grande3");
-const rocaGrande4 = document.getElementById("ff-roca-grande4");
-const rocaGrande2 = document.getElementById("ff-roca-grande2");//
-const arbol3 = document.getElementById("ff-arbol-3");
-const arbustoLargo3 = document.getElementById("ff-arbusto-largo-3");
-const arbol2 = document.getElementById("ff-arbol-2");
-const arbustoLargo2 = document.getElementById("ff-arbusto-largo-2");
-const numero1 = document.getElementById("ff-1");
-const numero2 = document.getElementById("ff-2");
-const numero3 = document.getElementById("ff-3");
 
-//funcion parallax
-window.addEventListener("scroll", function(){
-  let contenedorTop=wrapper.getBoundingClientRect().top;
+//INCISO 4 y 9
+const gruposParallax = [
+  {
+    //elementos parallax del inciso 4
+    contenedor: document.getElementById("primerCara"),
+    elementos: [
+                                                            //factor es la velocidad con la que se desplazara cada elem
+      { elem: document.getElementById("ff-arbusto-corto-1"), factor: 0.65 },
+      { elem: document.getElementById("ff-roca-grande1"), factor: 0.6 },
+      { elem: document.getElementById("ff-arbol-1"), factor: 0.55 },
+      { elem: document.getElementById("ff-arbusto-largo-1"), factor: 0.5 },
+      { elem: document.getElementById("ff-roca-grande3"), factor: 0.5 },
+      { elem: document.getElementById("ff-roca-grande4"), factor: 0.5 },
+      { elem: document.getElementById("ff-roca-grande2"), factor: 0.5 },
+      { elem: document.getElementById("ff-arbol-3"), factor: 0.48 },
+      { elem: document.getElementById("ff-arbusto-largo-3"), factor: 0.4 },
+      { elem: document.getElementById("ff-arbol-2"), factor: 0.4 },
+      { elem: document.getElementById("ff-arbusto-largo-2"), factor: 0.38 },
+      { elem: document.getElementById("ff-1"), factor: 0.54 },
+      { elem: document.getElementById("ff-2"), factor: 0.3 },
+      { elem: document.getElementById("ff-3"), factor: 0.47 },
+    ],
+  },
+  {
+    //elementos parallax del inciso 9
+    contenedor: document.querySelector(".ff4"),
+    elementos: [
+      { elem: document.querySelector(".recuadro-video"), factor: 0.25 },
+      { elem: document.querySelector("#ff4-3"), factor: 0.15 },
+      { elem: document.querySelector("#ff4-titulo"), factor: 0.25 },
+    ],
+  },
+];
 
-  if (contenedorTop<window.innerHeight && contenedorTop > (wrapper.offsetHeight*(-1))) {
-    let desplazamientoRelativo = window.scrollY - wrapper.offsetTop;
+// Función para aplicar parallax
+function aplicarParallax(grupos) {
+  //recorre el array grupos, este tiene 2 propiedades, contenedor y elementos
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    //si está dentro de lo visible en pantalla
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      //ahora recorremos elementos para acceder a elem y a facotr
+      elementos.forEach(({ elem, factor }) => {
+        elem.style.transform = `translateY(${desplazamientoRelativo * factor}px)`;
+      });
+    }
+  });
+}
+
+// Evento scroll para aplicar la lógica a todos los grupos
+window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
+
+
+
+// const wrapper = document.getElementById("primerCara");//
+// const arbustoCorto1 = document.getElementById("ff-arbusto-corto-1");//
+// const rocaGrande1 = document.getElementById("ff-roca-grande1");//
+// const arbol1 = document.getElementById("ff-arbol-1");//
+// const arbustoLargo1 = document.getElementById("ff-arbusto-largo-1");//
+// const rocaGrande3 = document.getElementById("ff-roca-grande3");
+// const rocaGrande4 = document.getElementById("ff-roca-grande4");
+// const rocaGrande2 = document.getElementById("ff-roca-grande2");//
+// const arbol3 = document.getElementById("ff-arbol-3");
+// const arbustoLargo3 = document.getElementById("ff-arbusto-largo-3");
+// const arbol2 = document.getElementById("ff-arbol-2");
+// const arbustoLargo2 = document.getElementById("ff-arbusto-largo-2");
+// const numero1 = document.getElementById("ff-1");
+// const numero2 = document.getElementById("ff-2");
+// const numero3 = document.getElementById("ff-3");
+
+// //funcion parallax
+// window.addEventListener("scroll", function(){
+//   let contenedorTop=wrapper.getBoundingClientRect().top;
+
+//   if (contenedorTop<window.innerHeight && contenedorTop > (wrapper.offsetHeight*(-1))) {
+//     let desplazamientoRelativo = window.scrollY - wrapper.offsetTop;
     
-    //lado izquierdo
-    arbustoCorto1.style.transform=`translateY(${desplazamientoRelativo * 0.65}px)`;
-    rocaGrande1.style.transform=`translateY(${desplazamientoRelativo * 0.6}px)`;
-    arbol1.style.transform=`translateY(${desplazamientoRelativo * 0.55}px)`;
-    arbustoLargo1.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+//     //lado izquierdo
+//     arbustoCorto1.style.transform=`translateY(${desplazamientoRelativo * 0.65}px)`;
+//     rocaGrande1.style.transform=`translateY(${desplazamientoRelativo * 0.6}px)`;
+//     arbol1.style.transform=`translateY(${desplazamientoRelativo * 0.55}px)`;
+//     arbustoLargo1.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
 
-    //lado derecho
-    rocaGrande3.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-    rocaGrande4.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-    rocaGrande2.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-    arbol3.style.transform=`translateY(${desplazamientoRelativo * 0.48}px)`;
-    arbustoLargo3.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
-    arbol2.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
-    arbustoLargo2.style.transform=`translateY(${desplazamientoRelativo * 0.38}px)`;
+//     //lado derecho
+//     rocaGrande3.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+//     rocaGrande4.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+//     rocaGrande2.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
+//     arbol3.style.transform=`translateY(${desplazamientoRelativo * 0.48}px)`;
+//     arbustoLargo3.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
+//     arbol2.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
+//     arbustoLargo2.style.transform=`translateY(${desplazamientoRelativo * 0.38}px)`;
 
-    //personajes
-    numero1.style.transform=`translateY(${desplazamientoRelativo * 0.54}px)`;
-    numero2.style.transform=`translateY(${desplazamientoRelativo * 0.3}px)`;
-    numero3.style.transform=`translateY(${desplazamientoRelativo * 0.47}px)`;
-  }
-})
+//     //personajes
+//     numero1.style.transform=`translateY(${desplazamientoRelativo * 0.54}px)`;
+//     numero2.style.transform=`translateY(${desplazamientoRelativo * 0.3}px)`;
+//     numero3.style.transform=`translateY(${desplazamientoRelativo * 0.47}px)`;
+//   }
+// })
 
 function entrarHero(){
   document.querySelectorAll(".entrada").forEach((item, index) =>{
@@ -185,21 +245,21 @@ function ocultarItems(){
 }
 
 //parallax de video y personaje INCISO 10
-let contenedorCara4=document.querySelector(".ff4");
-let video=document.querySelector(".recuadro-video");
-let personaje=document.querySelector("#ff4-3");
-let texto=document.querySelector("#ff4-titulo");
+// let contenedorCara4=document.querySelector(".ff4");
+// let video=document.querySelector(".recuadro-video");
+// let personaje=document.querySelector("#ff4-3");
+// let texto=document.querySelector("#ff4-titulo");
 
-window.addEventListener("scroll", function(){
-  let contenedorCara4Top=contenedorCara4.getBoundingClientRect().top;
+// window.addEventListener("scroll", function(){
+//   let contenedorCara4Top=contenedorCara4.getBoundingClientRect().top;
 
-  if (contenedorCara4Top<window.innerHeight && contenedorCara4Top > (contenedorCara4.offsetHeight*(-1))) {
-    let desplazamiento = window.scrollY - contenedorCara4.offsetTop;
-    texto.style.transform= `translateY(${desplazamiento * 0.25}px)`;
-    video.style.transform=`translateY(${desplazamiento * 0.25}px)`;
-    personaje.style.transform=`translateY(${desplazamiento * 0.15}px)`;
-  }
-})
+//   if (contenedorCara4Top<window.innerHeight && contenedorCara4Top > (contenedorCara4.offsetHeight*(-1))) {
+//     let desplazamiento = window.scrollY - contenedorCara4.offsetTop;
+//     texto.style.transform= `translateY(${desplazamiento * 0.25}px)`;
+//     video.style.transform=`translateY(${desplazamiento * 0.25}px)`;
+//     personaje.style.transform=`translateY(${desplazamiento * 0.15}px)`;
+//   }
+// })
 
 // animacion cards, INCISO 7
 
