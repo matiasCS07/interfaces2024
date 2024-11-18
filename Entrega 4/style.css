@@ -49,9 +49,11 @@ h3{
 /* loader */
  #pantalla-carga{
     width: 1280px;
-    height: 100vh;
+    height: 100%;
     background-image: url("./assets/images/ff.png");
-    background-repeat: round;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
