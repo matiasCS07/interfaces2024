@@ -120,7 +120,7 @@ body{
 #container{
     position: absolute;
     top: 0;
-    left: 0;
+    right: 22%;
     width: 1280px;
     height: 14780px;
     display: flex;
@@ -128,7 +128,6 @@ body{
     justify-content: center;
     opacity: 0;
     overflow-x: hidden;
-    margin-left: 250px;
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
@@ -181,6 +180,9 @@ body{
     z-index: 9;
 }
 .logo{
+    top: 0;
+    position: relative;
+    left: 10%;
     padding-top: 30px;
 }
 #titulosegundacara{
@@ -799,8 +801,8 @@ footer{
 
 .menu-desplegable{
     position: fixed;
-    top: 14%;
-    left: 16.5%;
+    top: 14.4%;
+    left: 10.75%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
@@ -1173,6 +1175,9 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 .logo-sticky{
     padding-top: 0px;
     padding-left: 0px;
+    position: relative;
+    top: 0;
+    left: 5%;
     width: 280px;
     height: 170px;
     animation: all logo-sticky 1s;
