@@ -153,7 +153,7 @@ body{
 #ff-1{
     width: 240.403px;
     height: 314.481px;
-    transform: rotate(-6.515deg);
+    /* transform: rotate(-6.515deg); */
     flex-shrink: 0;
     top: 500px;
     left: 441px;
@@ -163,7 +163,7 @@ body{
 #ff-2{
     width: 197px;
     height: 270px; 
-    transform: rotate(-6.716deg);
+    /* transform: rotate(-6.716deg); */
     position: absolute;
     top: 403px;
     left: 536px;
@@ -172,7 +172,7 @@ body{
 #ff-3{
     width: 174px;
     height: 384px;
-    transform: rotate(8.725deg);
+    /* transform: rotate(8.725deg); */
     flex-shrink: 0;
     position: absolute;
     top: 338px;
