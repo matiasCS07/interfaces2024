@@ -28,7 +28,6 @@ window.addEventListener("load", ()=> {
     const pagina = document.getElementById("container");
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
-    // entrarHero();
   }, numeros.length * 1000 + 2000);
 });
 
@@ -40,17 +39,17 @@ const gruposParallax = [
     contenedor: document.getElementById("primerCara"),
     elementos: [
                                                             //factor es la velocidad con la que se desplazara cada elem
-      { elem: document.getElementById("ff-arbusto-corto-1"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande1"), factor: 0.15 },
-      { elem: document.getElementById("ff-arbol-1"), factor: 0.125 },
-      { elem: document.getElementById("ff-arbusto-largo-1"), factor: 0.1 },
-      { elem: document.getElementById("ff-roca-grande3"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande4"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande2"), factor: 0.125 },
-      { elem: document.getElementById("ff-arbol-3"), factor: 0.12 },
-      { elem: document.getElementById("ff-arbusto-largo-3"), factor: 0.1 },
-      { elem: document.getElementById("ff-arbol-2"), factor: 0.1 },
-      { elem: document.getElementById("ff-arbusto-largo-2"), factor: 0.052 },
+      { elem: document.getElementById("arbusto-corto-izquierda"), factor: 0.125 },
+      { elem: document.getElementById("roca-izquierda"), factor: 0.15 },
+      { elem: document.getElementById("arbol-izquierda"), factor: 0.125 },
+      { elem: document.getElementById("arbusto-largo-izquierda"), factor: 0.1 },
+      { elem: document.getElementById("roca-grande-derecha"), factor: 0.125 },
+      { elem: document.getElementById("roca-chica-derecha-1"), factor: 0.125 },
+      { elem: document.getElementById("roca-chica-derecha-2"), factor: 0.125 },
+      { elem: document.getElementById("arbol-derecha-delante"), factor: 0.12 },
+      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.1 },
+      { elem: document.getElementById("arbol-derecha-detras"), factor: 0.1 },
+      { elem: document.getElementById("arbusto-largo-derecha-detras"), factor: 0.052 },
       { elem: document.getElementById("ff-1"), factor: 0.135 },
       { elem: document.getElementById("ff-2"), factor: 0.1 },
       { elem: document.getElementById("ff-3"), factor: 0.115 },
@@ -93,13 +92,13 @@ window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
 
 
 
-function entrarHero(){
-  document.querySelectorAll(".entrada").forEach((item, index) =>{
-    setTimeout(()=>{
-      item.style.transform="translateX(0px)";
-    }, 250 * index)
-  })
-}
+// function entrarHero(){
+//   document.querySelectorAll(".entrada").forEach((item, index) =>{
+//     setTimeout(()=>{
+//       item.style.transform="translateX(0px)";
+//     }, 250 * index)
+//   })
+// }
 
 
 //INCISO 8

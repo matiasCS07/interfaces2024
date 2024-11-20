@@ -200,11 +200,12 @@ body{
     font-weight: 600;
     line-height: 94.5%
 }
-.entrada{
+
+/* .entrada{
     transition: all 600ms ease-in-out;
     transform: translateX(-8000px);
-}
-#ff-arbol-1{
+} */
+#arbol-izquierda{
     position: absolute;
     width: 796px;
     height: 1233px;
@@ -212,7 +213,7 @@ body{
     top: -1px;
     z-index: 15;
 }
-#ff-arbol-2{
+#arbol-derecha-detras{
     position: absolute;
     width: 395px;
     height: 612px;
@@ -220,7 +221,7 @@ body{
     top: 395px;
     z-index: 6;
 }
-#ff-arbol-3{
+#arbol-derecha-delante{
     position: absolute;
     width: 617px;
     height: 956px;
@@ -228,7 +229,7 @@ body{
     top: 131px;
     z-index: 10;
 }
-#ff-arbusto-largo-1{
+#arbusto-largo-izquierda{
     width: 355px;
     height: 162px;
     left: 229px;
@@ -239,14 +240,14 @@ body{
 .inverted{
     transform: rotateY(180deg)
 }
-#ff-arbusto-largo-2{
+#arbusto-largo-derecha-detras{
     width: 271px;
     height: 89px;   
     left: 1463px;
     top:896px;
     position: absolute;
 }
-#ff-arbusto-largo-3{
+#arbusto-largo-derecha-delante{
     
     left: 1537px;
     top:941px;
@@ -255,7 +256,7 @@ body{
     position: absolute;
     z-index: 11;
 }
-#ff-roca-grande1{
+#roca-izquierda{
     width: 206px;
     height: 111px;
     top: 1128px;
@@ -263,7 +264,7 @@ body{
     position: absolute;
     z-index: 16;
 }
-#ff-roca-grande2{
+#roca-chica-derecha-2{
     width: 94px;
     height: 80px;
     top: 1048px;
@@ -271,7 +272,7 @@ body{
     position: absolute;
     z-index: 11;
 }
-#ff-roca-grande3{
+#roca-grande-derecha{
     width: 161px;
     height: 105px;
     top: 1058px;
@@ -279,7 +280,7 @@ body{
     position: absolute;
     z-index: 12;
 }
-#ff-roca-grande4{
+#roca-chica-derecha-1{
     width: 84px;
     height: 49px;
     top: 1118px;
@@ -287,7 +288,7 @@ body{
     position: absolute;
     z-index: 13;
 }
-#ff-arbusto-corto-1{
+#arbusto-corto-izquierda{
     
     width: 221px;
     height: 145px;
