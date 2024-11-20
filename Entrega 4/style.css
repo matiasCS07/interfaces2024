@@ -200,11 +200,6 @@ body{
     font-weight: 600;
     line-height: 94.5%
 }
-
-/* .entrada{
-    transition: all 600ms ease-in-out;
-    transform: translateX(-8000px);
-} */
 #arbol-izquierda{
     position: absolute;
     width: 796px;
