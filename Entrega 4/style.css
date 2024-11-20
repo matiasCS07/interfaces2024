@@ -95,6 +95,7 @@ h3{
 } 
 
 body{
+    width: 100%;
     margin: 0%;
     padding: 0%;
     height: 21015px;
@@ -145,9 +146,9 @@ body{
     overflow: hidden;
     background-repeat:no-repeat;
     background-size:cover;
-    top: 11125px;
-    width: 2031px;
-    height: 2052px;
+    top: 13477px;
+    width: 1820px;
+    height: 1838px;
     
 }
 #ff-1{
@@ -345,7 +346,7 @@ body{
     margin-top: 46px;
     width: 1143.188px;
     height: 642.688px;
-    top: 525px;
+    top: 747px;
     left: 100px;
     border-radius: 63.984px;
     border: 41.234px solid #FFF;
@@ -421,7 +422,7 @@ body{
 height: 1181.578px;
 }
 .seccion-larga{
-    height:5421px;
+    height:7708px;
     width: inherit;
     display: flex;
     flex-direction: column;
@@ -450,50 +451,62 @@ height: 1181.578px;
 
 .contenedor-datos{
     position: absolute;
-    width: 467px; 
-    height: 4884px;
-    left: 713px;
+    width: 668px; 
+    height: 6354px;
+    left: 1013px;
     top: 799px;
   
     
 }
 .contenedor-dato{
-    width: 467px;
-    height: 167px;
-    padding-bottom: 200px;
+    width: 664px;
+    height: 210px;
+    padding-bottom: 379px;
 }
 .dato{
-    width: 467px;
-    height: 114px;
-    font-size: 20px;
-    line-height: 18.9px;
+    width: 664px;
+    height: 135px;
+    color: #000;
+    font-family: Lato;
+    font-size: 28.438px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%;
 }
 .titulo-dato{
-    width: 467px;
-    height: 38px;
-    font-size: 40px;
-    margin: 10px;
-    line-height: 37.8px;
+    width: 664px;
+    height: 54px;
+    color: #000;
+    font-family: Lato;
+    font-size: 56.875px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%
 }
 .titulo-dato.largo{
     height: 76px;
 }
 #ff4-3{
     position: absolute;
-    width: 638px;
-    height: 989px;
-    top: 395px;
-    left: 743px;
+    width: 907px;
+    height: 1406px;
+    top: 500px;
+    left: 1039px;
 }
 #ff4-titulo{
     position: absolute;
-    width: 802px;
-    height: 171px;
-    left: 100px;
-    padding-top: 308px;
+    width: 1140px;
+    height: 243px;
+    left: 142px;
+    padding-top: 439px;
     color: #FFF;
     font-size: 60px;
-    line-height: 56.7px;
+    color: #FFF;
+    font-family: Lato;
+    font-size: 85.313px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;;
 }
 .ff2-texto{
     width: 333px;
@@ -501,37 +514,41 @@ height: 1181.578px;
 .Efectos3d{
     width: 1820px;
     height: 1470px;
-    position: absolute;
-    top: 13650px;
+    position:absolute;
+    bottom:4114px;
 }
 #efectos3d-1{
-    width: 667px;
-    height: 973px;
-    left: 599px;
+    width: 948.391px;
+    height: 1383.484px;
+    left: 852px;
     top:0px;
     position: absolute;
 }
 #efectos3d-titulo{
     position: absolute;
-    top: 220px;
-    left: 102px;
-    width: 746px;
-    height: 285px;
+    top: 312px;
+    left: 157px;
+    width: 1060px;
+    height: 405px;
     color: #9D2121;
     font-family: Lato;
-    font-size: 60px;
-    line-height: 56.7px;
+    font-size: 85.313px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
 }
 #efectos3d-texto{
     position: absolute;
-    width: 467px;
-    height: 190px;
+    width: 664px;
+    height: 250px;
     color: #000;
     font-family: Lato;
-    font-size: 20px;
-    line-height: 18.9px;
-    top: 548px;
-    left: 100px;
+    font-size: 28.438px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%;
+    top: 779px;
+    left: 157px;
 }
 .layer0{
     z-index: 0;
