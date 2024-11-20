@@ -37,22 +37,27 @@ const hero = [
     //elementos parallax hero
     contenedor: document.getElementById("primerCara"),
     elementos: [
-      { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.65, inicioFuera: 100 },
-      { elem: document.getElementById("roca-izquierda"),                factor: 0.6, inicioFuera: 150 },
-      { elem: document.getElementById("arbol-izquierda"),               factor: 0.55, inicioFuera: 120 },
-      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.5, inicioFuera: 140 },
-      { elem: document.getElementById("roca-grande-derecha"),           factor: 0.5, inicioFuera: 160 },
-      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.5, inicioFuera: 160 },
-      { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.5, inicioFuera: 180 },
-      { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.48, inicioFuera: 200 },
-      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.4, inicioFuera: 150 },
-      { elem: document.getElementById("arbol-derecha-detras"),          factor: 0.4, inicioFuera: 130 },
-      { elem: document.getElementById("arbusto-largo-derecha-detras"),  factor: 0.38, inicioFuera: 100 },
+      { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.65, inicioFuera: 50 },
+      { elem: document.getElementById("roca-izquierda"),                factor: 0.6,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-izquierda"),               factor: 0.55, inicioFuera: 60 },
+      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.5,  inicioFuera: 65 },
+      { elem: document.getElementById("roca-grande-derecha"),           factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.5,  inicioFuera: 70 },
+      { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.48, inicioFuera: 80 },
+      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.4,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-derecha-detras"),          factor: 0.4,  inicioFuera: 55 },
+      { elem: document.getElementById("arbusto-largo-derecha-detras"),  factor: 0.38, inicioFuera: 25 },
+      { elem: document.getElementById("ff-2"),                          factor: 0.3,  inicioFuera: 75},
+      { elem: document.getElementById("ff-3"),                          factor: 0.47, inicioFuera: 75 },
+      { elem: document.getElementById("ff-1"),                          factor: 0.54, inicioFuera: 75 },
     ],
   },
 ];
 
-function aplicarParallaxHero(grupos) {
+
+
+function aplicarParallaxConEntrada(grupos) {
   grupos.forEach(({ contenedor, elementos }) => {
     const contenedorTop = contenedor.getBoundingClientRect().top;
     const visible =
@@ -63,17 +68,25 @@ function aplicarParallaxHero(grupos) {
       const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
 
       elementos.forEach(({ elem, factor, inicioFuera }) => {
-        const posicionFinal = desplazamientoRelativo * factor;
-        const posicionInicial = inicioFuera; // Comienza fuera de pantalla
-        const posicionActual = Math.max(posicionFinal - posicionInicial, 0);
-        elem.style.transform = `translateY(${posicionActual}px)`;
-        elem.style.opacity = Math.min(1, posicionActual / 200); // Añadimos un efecto de opacidad
+        const entradaCompleta = desplazamientoRelativo >= inicioFuera;
+        const posicionEntrada = Math.max(inicioFuera - desplazamientoRelativo, 0);
+        const posicionParallax = desplazamientoRelativo * factor;
+
+        if (!entradaCompleta) {
+          // Fase 1: Animación de entrada
+          elem.style.transform = `translateY(${posicionEntrada}px)`;
+          elem.style.opacity = Math.min(1, 1 - posicionEntrada / inicioFuera); // Gradualmente opaco
+        } else {
+          // Fase 2: Movimiento parallax
+          elem.style.transform = `translateY(${posicionParallax}px)`;
+          elem.style.opacity = 1; // Totalmente visible
+        }
       });
     }
   });
 }
 
-// Inicializamos la posición de los elementos fuera de pantalla
+// Inicializamos los elementos fuera de pantalla
 hero.forEach(({ elementos }) => {
   elementos.forEach(({ elem, inicioFuera }) => {
     elem.style.transform = `translateY(${inicioFuera}px)`;
@@ -82,7 +95,40 @@ hero.forEach(({ elementos }) => {
 });
 
 // Evento scroll
-window.addEventListener("scroll", () => aplicarParallaxHero(hero));
+window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
+
+
+// function aplicarParallaxHero(grupos) {
+//   grupos.forEach(({ contenedor, elementos }) => {
+//     const contenedorTop = contenedor.getBoundingClientRect().top;
+//     const visible =
+//       contenedorTop < window.innerHeight &&
+//       contenedorTop > -contenedor.offsetHeight;
+
+//     if (visible) {
+//       const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+//       elementos.forEach(({ elem, factor, inicioFuera }) => {
+//         const posicionFinal = desplazamientoRelativo * factor;
+//         const posicionInicial = inicioFuera; // Comienza fuera de pantalla
+//         const posicionActual = Math.max(posicionFinal - posicionInicial, 0);
+//         elem.style.transform = `translateY(${posicionActual}px)`;
+//         elem.style.opacity = Math.min(1, posicionActual / 200); // Añadimos un efecto de opacidad
+//       });
+//     }
+//   });
+// }
+
+// // Inicializamos la posición de los elementos fuera de pantalla
+// hero.forEach(({ elementos }) => {
+//   elementos.forEach(({ elem, inicioFuera }) => {
+//     elem.style.transform = `translateY(${inicioFuera}px)`;
+//     elem.style.opacity = 0; // Ocultamos inicialmente
+//   });
+// });
+
+// // Evento scroll
+// window.addEventListener("scroll", () => aplicarParallaxHero(hero));
 
 
 //INCISO 9
