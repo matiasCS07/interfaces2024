@@ -28,7 +28,7 @@ window.addEventListener("load", ()=> {
     const pagina = document.getElementById("container");
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
-    entrarHero();
+    // entrarHero();
   }, numeros.length * 1000 + 2000);
 });
 
@@ -301,7 +301,7 @@ window.addEventListener("scroll", function(){
   //inciso 3
   window.addEventListener('scroll', ()=>{
   let estado=document.getElementById("container").style.display;
-  let limite=document.getElementById("primerCara").getBoundingClientRect().bottom;
+  let limite=document.getElementById("primerCara").getBoundingClientRect().top+100;
   if(estado=="flex"){
     let logo= document.getElementById("logo");
     let nav=  document.getElementById("nav");
