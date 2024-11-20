@@ -31,30 +31,62 @@ window.addEventListener("load", ()=> {
   }, numeros.length * 1000 + 2000);
 });
 
-
-//INCISO 4 y 9
-const gruposParallax = [
+//INCISO 4
+const hero = [
   {
-    //elementos parallax del inciso 4
+    //elementos parallax hero
     contenedor: document.getElementById("primerCara"),
     elementos: [
-                                                            //factor es la velocidad con la que se desplazara cada elem
-      { elem: document.getElementById("arbusto-corto-izquierda"), factor: 0.125 },
-      { elem: document.getElementById("roca-izquierda"), factor: 0.15 },
-      { elem: document.getElementById("arbol-izquierda"), factor: 0.125 },
-      { elem: document.getElementById("arbusto-largo-izquierda"), factor: 0.1 },
-      { elem: document.getElementById("roca-grande-derecha"), factor: 0.125 },
-      { elem: document.getElementById("roca-chica-derecha-1"), factor: 0.125 },
-      { elem: document.getElementById("roca-chica-derecha-2"), factor: 0.125 },
-      { elem: document.getElementById("arbol-derecha-delante"), factor: 0.12 },
-      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.1 },
-      { elem: document.getElementById("arbol-derecha-detras"), factor: 0.1 },
-      { elem: document.getElementById("arbusto-largo-derecha-detras"), factor: 0.052 },
-      { elem: document.getElementById("ff-1"), factor: 0.135 },
-      { elem: document.getElementById("ff-2"), factor: 0.1 },
-      { elem: document.getElementById("ff-3"), factor: 0.115 },
+      { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.65, inicioFuera: 100 },
+      { elem: document.getElementById("roca-izquierda"),                factor: 0.6, inicioFuera: 150 },
+      { elem: document.getElementById("arbol-izquierda"),               factor: 0.55, inicioFuera: 120 },
+      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.5, inicioFuera: 140 },
+      { elem: document.getElementById("roca-grande-derecha"),           factor: 0.5, inicioFuera: 160 },
+      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.5, inicioFuera: 160 },
+      { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.5, inicioFuera: 180 },
+      { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.48, inicioFuera: 200 },
+      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.4, inicioFuera: 150 },
+      { elem: document.getElementById("arbol-derecha-detras"),          factor: 0.4, inicioFuera: 130 },
+      { elem: document.getElementById("arbusto-largo-derecha-detras"),  factor: 0.38, inicioFuera: 100 },
     ],
   },
+];
+
+function aplicarParallaxHero(grupos) {
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      elementos.forEach(({ elem, factor, inicioFuera }) => {
+        const posicionFinal = desplazamientoRelativo * factor;
+        const posicionInicial = inicioFuera; // Comienza fuera de pantalla
+        const posicionActual = Math.max(posicionFinal - posicionInicial, 0);
+        elem.style.transform = `translateY(${posicionActual}px)`;
+        elem.style.opacity = Math.min(1, posicionActual / 200); // Añadimos un efecto de opacidad
+      });
+    }
+  });
+}
+
+// Inicializamos la posición de los elementos fuera de pantalla
+hero.forEach(({ elementos }) => {
+  elementos.forEach(({ elem, inicioFuera }) => {
+    elem.style.transform = `translateY(${inicioFuera}px)`;
+    elem.style.opacity = 0; // Ocultamos inicialmente
+  });
+});
+
+// Evento scroll
+window.addEventListener("scroll", () => aplicarParallaxHero(hero));
+
+
+//INCISO 9
+const gruposParallax = [
   {
     //elementos parallax del inciso 9
     contenedor: document.querySelector(".ff4"),
@@ -89,16 +121,6 @@ function aplicarParallax(grupos) {
 
 // Evento scroll para aplicar la lógica a todos los grupos
 window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
-
-
-
-// function entrarHero(){
-//   document.querySelectorAll(".entrada").forEach((item, index) =>{
-//     setTimeout(()=>{
-//       item.style.transform="translateX(0px)";
-//     }, 250 * index)
-//   })
-// }
 
 
 //INCISO 8
