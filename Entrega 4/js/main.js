@@ -98,39 +98,6 @@ hero.forEach(({ elementos }) => {
 window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
 
 
-// function aplicarParallaxHero(grupos) {
-//   grupos.forEach(({ contenedor, elementos }) => {
-//     const contenedorTop = contenedor.getBoundingClientRect().top;
-//     const visible =
-//       contenedorTop < window.innerHeight &&
-//       contenedorTop > -contenedor.offsetHeight;
-
-//     if (visible) {
-//       const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
-
-//       elementos.forEach(({ elem, factor, inicioFuera }) => {
-//         const posicionFinal = desplazamientoRelativo * factor;
-//         const posicionInicial = inicioFuera; // Comienza fuera de pantalla
-//         const posicionActual = Math.max(posicionFinal - posicionInicial, 0);
-//         elem.style.transform = `translateY(${posicionActual}px)`;
-//         elem.style.opacity = Math.min(1, posicionActual / 200); // Añadimos un efecto de opacidad
-//       });
-//     }
-//   });
-// }
-
-// // Inicializamos la posición de los elementos fuera de pantalla
-// hero.forEach(({ elementos }) => {
-//   elementos.forEach(({ elem, inicioFuera }) => {
-//     elem.style.transform = `translateY(${inicioFuera}px)`;
-//     elem.style.opacity = 0; // Ocultamos inicialmente
-//   });
-// });
-
-// // Evento scroll
-// window.addEventListener("scroll", () => aplicarParallaxHero(hero));
-
-
 //INCISO 9
 const gruposParallax = [
   {
@@ -312,8 +279,7 @@ window.addEventListener("scroll", function(){
     let logo= document.getElementById("logo");
     let nav=  document.getElementById("nav");
     let menu= document.getElementById("menu-hamburguesa");
-    let boton= document.getElementById("boton-comprar");
-    //console.log('entra addeventListener scroll container');  
+    let boton= document.getElementById("boton-comprar"); 
   
     if(window.scrollY>limite){
       boton.classList.add("boton-comprar-2");
@@ -329,7 +295,6 @@ window.addEventListener("scroll", function(){
       logo.classList.remove("logo-sticky");
       nav.classList.remove("nav");
     }
-  
-    //console.log(nav.getBoundingClientRect.top);
+
   }
 });
