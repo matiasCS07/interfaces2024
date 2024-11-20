@@ -30,9 +30,14 @@ button{
 h1{
     margin: 0%;
     padding: 0%;
-    border: 0px;
-    color: transparent;
-    font-size: 0px;
+    width: 460px;
+    height: 123px;
+    top: 0;
+    left: 0;
+    font-size: 47px;
+    font-weight: bold;
+    color: #1B428F;
+
 }
 h3{
     width: 467px;
@@ -43,7 +48,7 @@ h3{
 
 /* loader */
  #pantalla-carga{
-    width: 1820px;
+    width: 1280px;
     height: 100%;
     background-image: url("./assets/images/ff.png");
     overflow: hidden;
@@ -116,25 +121,25 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    width: 1820px;
+    width: 1280px;
     height: 14780px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
     overflow-x: hidden;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 250px;
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
-    width: 1820px;
-    height: 1645px;
-    top:4023px;
+    width: 1280px;
+    height: 1157px;
+    top:2830px;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     overflow: hidden;
 }
 .ff4{
@@ -142,59 +147,45 @@ body{
     position: absolute;
     overflow: hidden;
     top: 9125px;
-    width: 1820px;
+    width: 1280px;
     height: 1444px;
     
 }
 #ff-1{
-    width: 341px;
-    height: 447px;
-    /* transform: rotate(-6.515deg); */
+    width: 240.403px;
+    height: 314.481px;
+    transform: rotate(-6.515deg);
     flex-shrink: 0;
-    top: 749px;
-    left: 584px;
+    top: 500px;
+    left: 441px;
     position:absolute;
     z-index: 14;
   }
 #ff-2{
-    width: 280px;
-    height: 383px; 
-    /* transform: rotate(-6.716deg); */
+    width: 197px;
+    height: 270px; 
+    transform: rotate(-6.716deg);
     position: absolute;
-    top: 605px;
-    left: 762px;
+    top: 403px;
+    left: 536px;
     z-index: 13;
 }
 #ff-3{
-    width: 247px;
-    height: 546px;
-    /* transform: rotate(8.725deg); */
+    width: 174px;
+    height: 384px;
+    transform: rotate(8.725deg);
     flex-shrink: 0;
     position: absolute;
-    top: 480px;
-    left: 1069px;
+    top: 338px;
+    left: 695px;
     z-index: 9;
 }
 .logo{
-    position: fixed;
-    top:78px;
-    left: 511px;
-    height: 455px;
-    width: 796px;
-    align-self: center;
+    padding-top: 30px;
 }
 #titulosegundacara{
-    position: absolute;
-    top: 85px;
-    left: 142px;
-    width: 722px;
-    height: 189px;
-    color: #1B428F;
-    font-family: Lato;
-    font-size: 66.828px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 94.5%
+    padding-left: 100px;
+    padding-top: 60px;
 }
 .entrada{
     transition: all 600ms ease-in-out;
@@ -202,33 +193,33 @@ body{
 }
 #ff-arbol-1{
     position: absolute;
-    width: 796px;
-    height: 1233px;
-    left: -217px;
+    width: 560.1px;
+    height: 867.751px;
+    left: -153px;
     top: -1px;
     z-index: 15;
 }
 #ff-arbol-2{
     position: absolute;
-    width: 395px;
-    height: 612px;
-    left: 1537px;
-    top: 395px;
+    width: 278.03px;
+    height: 430.846px;
+    left: 1075px;
+    top: 279px;
     z-index: 6;
 }
 #ff-arbol-3{
     position: absolute;
-    width: 617px;
-    height: 956px;
-    left: 1252px;
-    top: 131px;
+    width: 434.212px;
+    height: 672.524px;
+    left: 885px;
+    top: 107px;
     z-index: 10;
 }
 #ff-arbusto-largo-1{
-    width: 355px;
-    height: 162px;
-    left: 229px;
-    top:1020px;
+    width: 249.756px;
+    height: 114.443px;
+    left: 162px;
+    top:718px;
     z-index: 14;
     position: absolute;
 }
@@ -236,70 +227,70 @@ body{
     transform: rotateY(180deg)
 }
 #ff-arbusto-largo-2{
-    width: 271px;
-    height: 89px;   
-    left: 1463px;
-    top:896px;
+    width: 191.188px;
+    height: 63.281px;   
+    left: 1029px;
+    top:631px;
     position: absolute;
 }
 #ff-arbusto-largo-3{
     
-    left: 1537px;
-    top:941px;
-    width: 347px;
-    height: 153px;
+    left: 1081px;
+    top:662px;
+    width: 244.37px;
+    height: 107.711px;
     position: absolute;
-    z-index: 11;
+    z-index: 9;
 }
 #ff-roca-grande1{
-    width: 206px;
-    height: 111px;
-    top: 1128px;
-    left: 183px;
+    width: 145.411px;
+    height: 78.091px;
+    top: 794px;
+    left: 129px;
     position: absolute;
     z-index: 16;
 }
 #ff-roca-grande2{
-    width: 94px;
-    height: 80px;
-    top: 1048px;
-    left: 1566px;
+    width: 66px;
+    height: 56px;
+    top: 738px;
+    left: 1035px;
     position: absolute;
     z-index: 11;
 }
 #ff-roca-grande3{
-    width: 161px;
-    height: 105px;
-    top: 1058px;
-    left: 1524px;
+    width: 113.77px;
+    height: 74.052px;
+    top: 737px;
+    left: 1072px;
     position: absolute;
     z-index: 12;
 }
 #ff-roca-grande4{
-    width: 84px;
-    height: 49px;
-    top: 1118px;
-    left: 1566px;
+    width: 59.241px;
+    height: 35.006px;
+    top: 780px;
+    left: 1042px;
     position: absolute;
     z-index: 13;
 }
 #ff-arbusto-corto-1{
     
-    width: 221px;
-    height: 145px;
+    width: 155.508px;
+    height: 102.326px;
     position: absolute;
-    top:1168px;
-    left: 280px;
+    top:823px;
+    left: 197px;
     z-index: 17;
 }
 .boton-comprar{
-    width: 284px;
-    height: 71px;
+    width: 200px;
+    height: 50px;
     flex-shrink: 0;
-    border-radius: 157.828px;
-    border: 11.375px solid #FFF;
+    border-radius: 111px;
+    border: 8px solid #FFF;
     background: #83C252;
-    box-shadow: 5.688px 7.109px 0px 0px #02187E;
+    box-shadow: 4px 5px 0px 0px #02187E;
     color: white;
     text-transform: uppercase;
     font-size: 20px;
@@ -327,28 +318,24 @@ body{
 }
 
 #ff2-texto-1{
-    width: 1001px;
-    height: 218.969px;
-    color: #1B428F;
-    font-family: Lato;
-    font-size: 28.438px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    top: 304px;
-    left: 142px;
+    padding-top: 50px;
+    padding-left: 100px;
+    width: 704px;
+    height: 154px;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(27, 66, 143, 1);
 }
 
 .recuadro-video{
     position: relative;
     margin-top: 46px;
-    width: 1143.188px;
-    height: 642.688px;
+    width: 775px;
+    height: 423px;
     top: 525px;
     left: 100px;
-    border-radius: 63.984px;
-    border: 41.234px solid #FFF;
+    border: 29px solid rgba(255, 255, 255, 1);
+    border-radius: 29px;
 }
 
 .recuadro-video iframe{
@@ -362,16 +349,16 @@ body{
 }
 #ff2-456{
     position: absolute;
-    width: 855.46px;
-    height: 772.424px;
-    top: 763px;
-    left: 68px;
+    width: 601.642px;
+    height: 543.243px;
+    top: 560px;
+    left: 48px;
 }
 #ff2-5{
-    width: 813px;
-    height: 1790px;
-    left: 1119px;
-    top: -104px;
+    width: 572px;
+    height: 1259px;
+    left: 787px;
+    top: -100px;
     position: absolute;
 }
 .contenedor-texto-ff2{
@@ -383,28 +370,23 @@ body{
     
 }
 #ff2-caja-1{
-    top: 0px;
-    width: 1535px;
-    height: 773px;
-    left: 142px;
+    top: 1230px;
+    width: 1080px;
+    height: 544px;
+    left: 100px;
 }
 #ff3-titulo{
     margin-top: 175px;
-    width: 1350.781px;
-    height: 217.547px;
-    color: #FFF;
+    width: 950px;
+    height: 153px;
+    font-size: 61px;
     text-align: center;
-    font-family: Lato;
-    font-size: 86.933px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 110%;
     left: 165px;
     color:white;
 }
 #ff3-descarga-numblock{
-    width: 767.813px;
-    height: 93.844px;
+    height: 66px;
+    width: 540px;
     position: relative;
     top: 140%;
     left: 0;
@@ -417,8 +399,6 @@ body{
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
-    width: 2024.75px;
-height: 1181.578px;
 }
 .seccion-larga{
     height:5421px;
@@ -426,7 +406,7 @@ height: 1181.578px;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top:5668px;
+    top:3800px;
 
 }
 .font-size-60{
@@ -499,7 +479,7 @@ height: 1181.578px;
     width: 333px;
 }
 .Efectos3d{
-    width: 1820px;
+    width: 1280px;
     height: 1034px;
     position: absolute;
     top: 10650px;
@@ -565,8 +545,8 @@ height: 1181.578px;
 }
 #primerCara{
     background-image: url("assets/images/ff.png");
-    width:1820px;
-    height: 1363px; 
+    width:1280px;
+    height: 959px; 
     position: absolute;
     overflow: hidden;
     top: 0px;
@@ -580,14 +560,14 @@ height: 1181.578px;
     background-image:url("assets/images/ff2.png");
     background-size: cover;
     background-repeat: no-repeat;
-    width:1820px;
-    height: 1271px;
+    width:1280px;
+    height: 894px;
 
   
 }   
 .pre-footer{
     height: 1575px;
-    width: 1820px;
+    width: 1280px;
     position: absolute;
     top: 12600px;
     background-image: url(assets/images/ff5.png);
@@ -721,16 +701,16 @@ footer{
 .footer-consolas{
     position: relative;
     bottom:0px;        
-    width: 1820px;
+    width: 1280px;
     height: 80px;
     background: #242424;
 }
 .footer-consolas img{
-    width: 1820px;
+    width: 1280px;
     height: 75px;
 }
 .footer-data{
-    width: 1820px;
+    width: 1280px;
     height: 515px;
     background: #5E5E5D;
 }
@@ -767,10 +747,10 @@ footer{
 }
 
 .app-mas-divertida{
-    width: 1820px;
+    width: 1280px;
     height: 2228px;
     position: relative;
-    top: -4913px;
+    top: -5320px;
 }
 
 /*  slider de imagenes  */
@@ -778,10 +758,10 @@ footer{
     position: absolute;
     overflow: hidden;
     display: flex;
-    width: 819px;
-    height: 461px;
-    left: 335px;
-    top: 477px;
+    width: 499px;
+    height: 247px;
+    left: 236px;
+    top: 370px;
     border-radius: 77px;
     border: 29px solid rgba(27, 95, 153, 1);
     align-items: center;
@@ -795,8 +775,8 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 819px; 
-    height: 461.35px;
+    width: 576.38px; 
+    height: 324.35px;
 }
 .slider img{
     width: inherit;
@@ -819,8 +799,8 @@ footer{
 
 .menu-desplegable{
     position: fixed;
-    top: 14.4%;
-    left: 10.75%;
+    top: 14%;
+    left: 16.5%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
@@ -1044,7 +1024,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 .card-app{
     transition: all 1s ease-out;
-    transform: translateY(1700px);
+    transform: translateY(700px);
 }
 
 .card-app p{
@@ -1120,7 +1100,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
         transform: translateX(0px);
     } 
     100%{
-        transform: translateX(50px);
+        transform: translateX(100%);
     }
 }
 .boton-comprar-2{
@@ -1134,7 +1114,6 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     text-transform: uppercase;
     font-size: 20px;
     z-index: 8;
-    animation: boton-sticky 1s ease-in ;
 }
 .boton-comprar-2-posicion{
     right: 20%;
@@ -1151,7 +1130,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     position: absolute;
     top: 11886px;
     height: 729px;
-    width: 1820px;
+    width: 1280px;
     background-image: url(assets/images/455.png);
     background-repeat: no-repeat;
     display: flex;
@@ -1194,9 +1173,6 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 .logo-sticky{
     padding-top: 0px;
     padding-left: 0px;
-    position: relative;
-    top: 0;
-    left: 5%;
     width: 280px;
     height: 170px;
     animation: all logo-sticky 1s;
@@ -1219,7 +1195,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 nav{
     overflow-x: hidden;
-    width: 100%;
+    width: 1280px;
     height: fit-content;
     display: flex;
     position: absolute;
@@ -1231,8 +1207,10 @@ nav{
 .nav{
     position: fixed;
     top: 0px;
-    width: 1820px;
+    width: 1240px;
     height: 160px;
+    padding-left: 21px;
+    padding-right: 21px;
     margin-top: 0px;
     align-items: center;
     background-color: rgb(76, 250, 250);

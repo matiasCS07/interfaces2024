@@ -26,14 +26,6 @@ button{
     color: transparent;
     font-size: 0px;
 }
-
-h1{
-    margin: 0%;
-    padding: 0%;
-    border: 0px;
-    color: transparent;
-    font-size: 0px;
-}
 h3{
     width: 467px;
     height: 76px;
@@ -128,6 +120,7 @@ body{
 }
 .ff3{
     background-image:url("assets/images/ff3.png");
+    background-image:image-set(1820, 1645);
     width: 1820px;
     height: 1645px;
     top:4023px;
@@ -149,7 +142,7 @@ body{
 #ff-1{
     width: 341px;
     height: 447px;
-    /* transform: rotate(-6.515deg); */
+    transform: rotate(-6.515deg);
     flex-shrink: 0;
     top: 749px;
     left: 584px;
@@ -159,7 +152,7 @@ body{
 #ff-2{
     width: 280px;
     height: 383px; 
-    /* transform: rotate(-6.716deg); */
+    transform: rotate(-6.716deg);
     position: absolute;
     top: 605px;
     left: 762px;
@@ -168,7 +161,7 @@ body{
 #ff-3{
     width: 247px;
     height: 546px;
-    /* transform: rotate(8.725deg); */
+    transform: rotate(8.725deg);
     flex-shrink: 0;
     position: absolute;
     top: 480px;
@@ -819,8 +812,8 @@ footer{
 
 .menu-desplegable{
     position: fixed;
-    top: 14.4%;
-    left: 10.75%;
+    top: 14%;
+    left: 16.5%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
@@ -1194,9 +1187,6 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 .logo-sticky{
     padding-top: 0px;
     padding-left: 0px;
-    position: relative;
-    top: 0;
-    left: 5%;
     width: 280px;
     height: 170px;
     animation: all logo-sticky 1s;
