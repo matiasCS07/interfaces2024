@@ -1266,27 +1266,22 @@ nav{
     height: 160px;
     margin-top: 0px;
     align-items: center;
-    background-image: linear-gradient(rgb(76, 250, 250, 1),rgb(76, 250, 250, 0));
+    background-image: linear-gradient(rgb(76, 250, 250, 1),rgb(76, 250, 250, 0.2));
     justify-content: space-between;
     transition: height 1s ease, background-color 5s ease-out;
     animation: nav-scroll 2s ease forwards;
     overflow: hidden;
 }
 
-.nav-color{
-  opacity: 1;
-}
 
 @keyframes nav-scroll {
     0%{
         height: 75%;
     }
-    99%{
-        background-image: linear-gradient(rgb(76, 250, 250, 1),rgb(76, 250, 250, 0));
-    }
+ 
     100%{
         height: 160px;
-        background-color: #4cfafa; 
+
     }
 }
 .menu-2{
