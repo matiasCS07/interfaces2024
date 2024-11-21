@@ -167,25 +167,30 @@ grupoNumeros.addEventListener("mouseleave", () => {
 
 const seccionLarga = document.querySelector('.sticky-slider');
 const seccionesTexto = document.querySelectorAll(".contenedor-dato");
+const seccionesTextoLimits=document.querySelector(".contenedor-datos").getBoundingClientRect();
 let imagen=document.querySelector(".seccion-larga-0");
+let seccionActual;
+
 
 window.addEventListener('scroll', () => {
     const seccionLargaPos = seccionLarga.getBoundingClientRect();
     const centroVentana=window.innerHeight/2;
-    let seccionTop=seccionLargaPos.top+window.scrollY;
-    imagen.style.opacity="0";
-    
+
     seccionesTexto.forEach((seccion) => {
       const seccionLimites = seccion.getBoundingClientRect();
       const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
       const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
       
-      if (distancia<seccionLimites.height) {
-        imagen.style.opacity="1";
-        imagen.src=`assets/images/${seccion.getAttribute("data-imagen")}.png`;
-        
-        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height);
-        imagen.style.transform=`translateY(${desplazamiento}px)`;
+      if (distancia<(seccionLimites.height)) {
+        if(seccionActual!=seccion.getAttribute("data-imagen")){
+          seccionActual=seccion.getAttribute("data-imagen");
+          imagen.classList.add("reveal");
+          imagen.classList.add("fixed");
+        }else{
+          imagen.classList.remove("reveal");
+          imagen.classList.remove("fixed");
+        }
+        imagen.src=`assets/images/scroll-personajes/${seccionActual}.png`;
       }
     });
 });
