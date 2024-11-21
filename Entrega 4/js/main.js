@@ -26,14 +26,14 @@ window.addEventListener("load", ()=> {
   }, 1000);
 
   //oculta el loader y muestra la pagina
-  //setTimeout(()=>{
+  setTimeout(()=>{
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
     body.style.overflowY = "scroll";
     window.scrollTo(0, 0);
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
-  //}, numeros.length * 1000 + 2000);
+  }, numeros.length * 1000 + 2000);
 });
 
 //INCISO 4
