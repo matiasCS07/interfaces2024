@@ -45,9 +45,9 @@ const hero = [
       { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.325, inicioFuera: 50 },
       { elem: document.getElementById("roca-izquierda"),                factor: 0.3,  inicioFuera: 70 },
       { elem: document.getElementById("arbol-izquierda"),               factor: 0.225, inicioFuera: 60 },
-      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.25,  inicioFuera: 65 },
+      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.23,  inicioFuera: 65 },
       { elem: document.getElementById("roca-grande-derecha"),           factor: 0.25,  inicioFuera: 75 },
-      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.25,  inicioFuera: 70 },
+      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.21,  inicioFuera: 70 },
       { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.25,  inicioFuera: 75 },
       { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.24, inicioFuera: 80 },
       { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.2,  inicioFuera: 70 },
@@ -108,6 +108,49 @@ hero.forEach(({ elementos }) => {
 window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
 
 
+//inciso 5 (opcional)
+const  parallaxAppDivertida= [
+  {
+    //elementos parallax del inciso 5
+    contenedor: document.querySelector(".app-mas-divertida"),
+    elementos: [
+      { elem: document.querySelector("#ff2-456"), factor:  0.2},
+      { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+    ] 
+  },
+];
+
+// Función para aplicar parallax
+function aplicarParallaxAppdivertida(grupos) {
+  //recorre el array grupos, este tiene 2 propiedades, contenedor y elementos
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    //si está dentro de lo visible en pantalla
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      //ahora recorremos elementos para acceder a elem y a facotr
+      elementos.forEach(({ elem, factor }) => {
+        elem.style.transform = `translateY(${desplazamientoRelativo * factor}px)`;
+      });
+    }
+  });
+}
+window.addEventListener("scroll", () => aplicarParallaxAppdivertida(parallaxAppDivertida));
+
+
+
+
+
+
+
+
+
+
 //INCISO 10
 const gruposParallax = [
   {
@@ -118,11 +161,11 @@ const gruposParallax = [
       { elem: document.querySelector("#ff4-3"), factor: 0.2 },
       { elem: document.querySelector("#ff4-titulo"), factor: 0.15 },
     ],
-    contenedor: document.querySelector(".app-mas-divertida"),
-    elementos: [
-      { elem: document.querySelector("#ff2-456"), factor:  0.2},
-      { elem: document.querySelector("#ff2-5"), factor: 0.3 }
-    ] 
+    // contenedor: document.querySelector(".app-mas-divertida"),
+    // elementos: [
+    //   { elem: document.querySelector("#ff2-456"), factor:  0.2},
+    //   { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+    // ] 
   },
 ];
 
@@ -287,8 +330,7 @@ window.addEventListener("scroll", function(){
   let desplazamiento=window.scrollY-contenedorCara2Top; //desplazamiento es la diferencia entre el scroll vertical y tope del contenedor
   let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2) //se obtiene la mitad de la pantalla
 
-  //si 
-  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
+  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){ //solo se desplaza si esta entre los limites de la cara y si se desplazo hasta la mitad de la pantalla
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
         setTimeout(()=>{

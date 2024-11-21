@@ -277,7 +277,7 @@ body{
 #roca-chica-derecha-1{
     width: 84px;
     height: 49px;
-    top: 1075px;
+    top: 1090px;
     left: 1487px;
     position: absolute;
     z-index: 13;
@@ -338,22 +338,6 @@ body{
     position: absolute;
     top: 304px;
     left: 142px;
-}
-
-.recuadro-video{
-    position: relative;
-    margin-top: 46px;
-    width: 1143.188px;
-    height: 642.688px;
-    top: 640px;
-    left: 100px;
-    border-radius: 63.984px;
-    border: 41.234px solid #FFF;
-}
-
-.recuadro-video iframe{
-    width: inherit;
-    height: inherit;
 }
 
 .ff2-tablet-juego img{
@@ -501,16 +485,16 @@ body{
 }
 #ff4-3{
     position: absolute;
-    width: 907px;
-    height: 1406px;
-    top: 450px;
-    left: 1039px;
+    width: 638px;
+    height: 989px;
+    top: 480px;
+    left: 1050px;
 }
 #ff4-titulo{
     position: absolute;
     width: 1140px;
     height: 243px;
-    left: 142px;
+    left: 294px;
     padding-top: 250px;
     color: #FFF;
     font-size: 60px;
@@ -524,6 +508,23 @@ body{
 .ff2-texto{
     width: 333px;
 }
+
+.recuadro-video{
+    position: relative;
+    margin-top: 46px;
+    width: 854px;
+    height: 452px;
+    top: 641px;
+    left: 294px;
+    border-radius: 63.984px;
+    border: 41.234px solid #FFF;
+}
+
+.recuadro-video iframe{
+    width: inherit;
+    height: inherit;
+}
+
 .Efectos3d{
     width: 1820px;
     height: 1470px;
