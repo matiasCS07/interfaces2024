@@ -3,7 +3,7 @@ window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
   const siluetas = document.querySelectorAll(".silueta");
   const textoCarga = document.getElementById("texto-carga");
-  
+  const body = document.querySelector("body");
   //espera un segundo antes de empezar con el loader
   setTimeout(() => {
     //muestra cada numero gradualmente
@@ -26,36 +26,81 @@ window.addEventListener("load", ()=> {
   setTimeout(()=>{
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
+    body.style.overflowY = "scroll";
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
-    entrarHero();
   }, numeros.length * 1000 + 2000);
 });
 
-
-//INCISO 4 y 9
-const gruposParallax = [
+//INCISO 4
+const hero = [
   {
-    //elementos parallax del inciso 4
+    //elementos parallax hero
     contenedor: document.getElementById("primerCara"),
     elementos: [
-                                                            //factor es la velocidad con la que se desplazara cada elem
-      { elem: document.getElementById("ff-arbusto-corto-1"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande1"), factor: 0.15 },
-      { elem: document.getElementById("ff-arbol-1"), factor: 0.125 },
-      { elem: document.getElementById("ff-arbusto-largo-1"), factor: 0.1 },
-      { elem: document.getElementById("ff-roca-grande3"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande4"), factor: 0.125 },
-      { elem: document.getElementById("ff-roca-grande2"), factor: 0.125 },
-      { elem: document.getElementById("ff-arbol-3"), factor: 0.12 },
-      { elem: document.getElementById("ff-arbusto-largo-3"), factor: 0.1 },
-      { elem: document.getElementById("ff-arbol-2"), factor: 0.1 },
-      { elem: document.getElementById("ff-arbusto-largo-2"), factor: 0.052 },
-      { elem: document.getElementById("ff-1"), factor: 0.135 },
-      { elem: document.getElementById("ff-2"), factor: 0.1 },
-      { elem: document.getElementById("ff-3"), factor: 0.115 },
+      { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.65, inicioFuera: 50 },
+      { elem: document.getElementById("roca-izquierda"),                factor: 0.6,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-izquierda"),               factor: 0.55, inicioFuera: 60 },
+      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.5,  inicioFuera: 65 },
+      { elem: document.getElementById("roca-grande-derecha"),           factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.5,  inicioFuera: 70 },
+      { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.48, inicioFuera: 80 },
+      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.4,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-derecha-detras"),          factor: 0.4,  inicioFuera: 55 },
+      { elem: document.getElementById("arbusto-largo-derecha-detras"),  factor: 0.38, inicioFuera: 25 },
+      { elem: document.getElementById("ff-2"),                          factor: 0.3,  inicioFuera: 75},
+      { elem: document.getElementById("ff-3"),                          factor: 0.47, inicioFuera: 75 },
+      { elem: document.getElementById("ff-1"),                          factor: 0.54, inicioFuera: 75 },
     ],
   },
+];
+
+
+
+function aplicarParallaxConEntrada(grupos) {
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      elementos.forEach(({ elem, factor, inicioFuera }) => {
+        const entradaCompleta = desplazamientoRelativo >= inicioFuera;
+        const posicionEntrada = Math.max(inicioFuera - desplazamientoRelativo, 0);
+        const posicionParallax = desplazamientoRelativo * factor;
+
+        if (!entradaCompleta) {
+          // Fase 1: Animación de entrada
+          elem.style.transform = `translateY(${posicionEntrada}px)`;
+          elem.style.opacity = Math.min(1, 1 - posicionEntrada / inicioFuera); // Gradualmente opaco
+        } else {
+          // Fase 2: Movimiento parallax
+          elem.style.transform = `translateY(${posicionParallax}px)`;
+          elem.style.opacity = 1; // Totalmente visible
+        }
+      });
+    }
+  });
+}
+
+// Inicializamos los elementos fuera de pantalla
+hero.forEach(({ elementos }) => {
+  elementos.forEach(({ elem, inicioFuera }) => {
+    elem.style.transform = `translateY(${inicioFuera}px)`;
+    elem.style.opacity = 0; // Ocultamos inicialmente
+  });
+});
+
+// Evento scroll
+window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
+
+
+//INCISO 9
+const gruposParallax = [
   {
     //elementos parallax del inciso 9
     contenedor: document.querySelector(".ff4"),
@@ -90,61 +135,6 @@ function aplicarParallax(grupos) {
 
 // Evento scroll para aplicar la lógica a todos los grupos
 window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
-
-
-
-// const wrapper = document.getElementById("primerCara");//
-// const arbustoCorto1 = document.getElementById("ff-arbusto-corto-1");//
-// const rocaGrande1 = document.getElementById("ff-roca-grande1");//
-// const arbol1 = document.getElementById("ff-arbol-1");//
-// const arbustoLargo1 = document.getElementById("ff-arbusto-largo-1");//
-// const rocaGrande3 = document.getElementById("ff-roca-grande3");
-// const rocaGrande4 = document.getElementById("ff-roca-grande4");
-// const rocaGrande2 = document.getElementById("ff-roca-grande2");//
-// const arbol3 = document.getElementById("ff-arbol-3");
-// const arbustoLargo3 = document.getElementById("ff-arbusto-largo-3");
-// const arbol2 = document.getElementById("ff-arbol-2");
-// const arbustoLargo2 = document.getElementById("ff-arbusto-largo-2");
-// const numero1 = document.getElementById("ff-1");
-// const numero2 = document.getElementById("ff-2");
-// const numero3 = document.getElementById("ff-3");
-
-// //funcion parallax
-// window.addEventListener("scroll", function(){
-//   let contenedorTop=wrapper.getBoundingClientRect().top;
-
-//   if (contenedorTop<window.innerHeight && contenedorTop > (wrapper.offsetHeight*(-1))) {
-//     let desplazamientoRelativo = window.scrollY - wrapper.offsetTop;
-    
-//     //lado izquierdo
-//     arbustoCorto1.style.transform=`translateY(${desplazamientoRelativo * 0.65}px)`;
-//     rocaGrande1.style.transform=`translateY(${desplazamientoRelativo * 0.6}px)`;
-//     arbol1.style.transform=`translateY(${desplazamientoRelativo * 0.55}px)`;
-//     arbustoLargo1.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-
-//     //lado derecho
-//     rocaGrande3.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-//     rocaGrande4.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-//     rocaGrande2.style.transform=`translateY(${desplazamientoRelativo * 0.5}px)`;
-//     arbol3.style.transform=`translateY(${desplazamientoRelativo * 0.48}px)`;
-//     arbustoLargo3.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
-//     arbol2.style.transform=`translateY(${desplazamientoRelativo * 0.4}px)`;
-//     arbustoLargo2.style.transform=`translateY(${desplazamientoRelativo * 0.38}px)`;
-
-//     //personajes
-//     numero1.style.transform=`translateY(${desplazamientoRelativo * 0.54}px)`;
-//     numero2.style.transform=`translateY(${desplazamientoRelativo * 0.3}px)`;
-//     numero3.style.transform=`translateY(${desplazamientoRelativo * 0.47}px)`;
-//   }
-// })
-
-function entrarHero(){
-  document.querySelectorAll(".entrada").forEach((item, index) =>{
-    setTimeout(()=>{
-      item.style.transform="translateX(0px)";
-    }, 500*index)
-  })
-}
 
 
 //INCISO 8
@@ -202,21 +192,21 @@ window.addEventListener('scroll', () => {
 
 
 //slider de fotos
-let carrusel=document.querySelector(".slider");
-let index=1;
-let imagenes=document.querySelectorAll(".slider img");
+let carrusel = document.querySelector(".slider");
+let index = 1;
+let imagenes = document.querySelectorAll(".slider img");
 setInterval(() => {
-  let traslado=index*-100;
-  carrusel.style.transform="translateX("+traslado+"%)";
-  if(index<imagenes.length-1){
-    index++;
+  let traslado = index*-100;
+  carrusel.style.transform = "translateX("+traslado+"%)";
+  if(index < imagenes.length - 1){
+    index ++;
   }else{
-    index=0;
+    index = 0;
   }
 }, 3000);
 
 //animacion menu hamburguesa
-let menu=document.getElementById("menu-hamburguesa");
+let menu = document.getElementById("menu-hamburguesa");
 menu.addEventListener("click", function(){
   console.log('aca')
   menu.classList.toggle("open");
@@ -249,22 +239,6 @@ function ocultarItems(){
   })
 }
 
-//parallax de video y personaje INCISO 10
-// let contenedorCara4=document.querySelector(".ff4");
-// let video=document.querySelector(".recuadro-video");
-// let personaje=document.querySelector("#ff4-3");
-// let texto=document.querySelector("#ff4-titulo");
-
-// window.addEventListener("scroll", function(){
-//   let contenedorCara4Top=contenedorCara4.getBoundingClientRect().top;
-
-//   if (contenedorCara4Top<window.innerHeight && contenedorCara4Top > (contenedorCara4.offsetHeight*(-1))) {
-//     let desplazamiento = window.scrollY - contenedorCara4.offsetTop;
-//     texto.style.transform= `translateY(${desplazamiento * 0.25}px)`;
-//     video.style.transform=`translateY(${desplazamiento * 0.25}px)`;
-//     personaje.style.transform=`translateY(${desplazamiento * 0.15}px)`;
-//   }
-// })
 
 // animacion cards, INCISO 7
 
@@ -301,13 +275,12 @@ window.addEventListener("scroll", function(){
   //inciso 3
   window.addEventListener('scroll', ()=>{
   let estado=document.getElementById("container").style.display;
-  let limite=document.getElementById("primerCara").getBoundingClientRect().bottom;
+  let limite=document.getElementById("primerCara").getBoundingClientRect().top+100;
   if(estado=="flex"){
     let logo= document.getElementById("logo");
     let nav=  document.getElementById("nav");
     let menu= document.getElementById("menu-hamburguesa");
-    let boton= document.getElementById("boton-comprar");
-    //console.log('entra addeventListener scroll container');  
+    let boton= document.getElementById("boton-comprar"); 
   
     if(window.scrollY>limite){
       boton.classList.add("boton-comprar-2");
@@ -323,7 +296,6 @@ window.addEventListener("scroll", function(){
       logo.classList.remove("logo-sticky");
       nav.classList.remove("nav");
     }
-  
-    //console.log(nav.getBoundingClientRect.top);
+
   }
 });
