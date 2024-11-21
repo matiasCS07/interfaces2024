@@ -179,7 +179,7 @@ body{
 }
 .logo{
     position: fixed;
-    top: 30%;
+    top: 10%;
     left: 30%;
     height: 455px;
     width: 796px;
@@ -252,7 +252,7 @@ body{
     width: 347px;
     height: 153px;
     position: absolute;
-    z-index: 11;
+    z-index: 10;
 }
 #roca-izquierda{
     width: 206px;
@@ -265,15 +265,15 @@ body{
 #roca-chica-derecha-2{
     width: 94px;
     height: 80px;
-    top: 1048px;
-    left: 1566px;
+    top: 1028px;
+    left: 1475px;
     position: absolute;
     z-index: 11;
 }
 #roca-grande-derecha{
     width: 161px;
     height: 105px;
-    top: 1058px;
+    top: 1017px;
     left: 1524px;
     position: absolute;
     z-index: 12;
@@ -281,8 +281,8 @@ body{
 #roca-chica-derecha-1{
     width: 84px;
     height: 49px;
-    top: 1118px;
-    left: 1566px;
+    top: 1075px;
+    left: 1487px;
     position: absolute;
     z-index: 13;
 }
@@ -1226,12 +1226,12 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     left: 5%;
     width: 280px;
     height: 170px;
-    animation: logo-sticky 2s ease;
+    animation: logo-sticky 2s ease forwards;
  
 }
 @keyframes logo-sticky {
     0% {
-        transform: translateY(178px);
+        top: 5%;
         width:796px;
         height: 455px;
         }
@@ -1239,7 +1239,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     100%{
         width: 280px;
         height: 170px;
-        transform: translateY(0px);
+        top: 0;
     }    
 }
 .position-absolute{
