@@ -6,11 +6,6 @@
     font-family: Lato;
 }
 
-span{
-    position: inherit;
-    width: inherit;
-    height: inherit;
-}
 img{
     padding: 0px;
     margin: 0px;
@@ -753,11 +748,14 @@ footer{
     bottom:0px;        
     width: 1820px;
     height: 113px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #242424;
 }
 .footer-consolas img{
-    width: 1820px;
-    height: 113px;
+    width: 1520px;
+    height: auto;
 }
 .footer-data{
     width: 1820px;
