@@ -1282,7 +1282,7 @@ nav{
         height: 75%;
     }
     99%{
-        background-color: #4cfafa;
+        background-image: linear-gradient(rgb(76, 250, 250, 1),rgb(76, 250, 250, 0));
     }
     100%{
         height: 160px;
