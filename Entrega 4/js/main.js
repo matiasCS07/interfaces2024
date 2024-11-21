@@ -1,3 +1,6 @@
+
+
+
 //INCISO 1 (OPCIONAL)
 window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
@@ -27,6 +30,7 @@ window.addEventListener("load", ()=> {
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
     body.style.overflowY = "scroll";
+    window.scrollTo(0, 0);
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
   }, numeros.length * 1000 + 2000);
