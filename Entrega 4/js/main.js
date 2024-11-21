@@ -3,7 +3,7 @@ window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
   const siluetas = document.querySelectorAll(".silueta");
   const textoCarga = document.getElementById("texto-carga");
-  
+  const body = document.querySelector("body");
   //espera un segundo antes de empezar con el loader
   setTimeout(() => {
     //muestra cada numero gradualmente
@@ -26,6 +26,7 @@ window.addEventListener("load", ()=> {
   setTimeout(()=>{
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
+    body.style.overflowY = "scroll";
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
   }, numeros.length * 1000 + 2000);
