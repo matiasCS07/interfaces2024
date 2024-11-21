@@ -1194,7 +1194,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     from{
         transform: scale(1);
     }to{
-        transform: scale(1.25);
+        transform: scale(1.05);
         filter: drop-shadow(0 0 15px rgba(255, 255, 153, 1));
     }
 }

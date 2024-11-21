@@ -31,30 +31,75 @@ window.addEventListener("load", ()=> {
   }, numeros.length * 1000 + 2000);
 });
 
-
-//INCISO 4 y 9
-const gruposParallax = [
+//INCISO 4
+const hero = [
   {
-    //elementos parallax del inciso 4
+    //elementos parallax hero
     contenedor: document.getElementById("primerCara"),
     elementos: [
-                                                            //factor es la velocidad con la que se desplazara cada elem
-      { elem: document.getElementById("arbusto-corto-izquierda"), factor: 0.125 },
-      { elem: document.getElementById("roca-izquierda"), factor: 0.15 },
-      { elem: document.getElementById("arbol-izquierda"), factor: 0.125 },
-      { elem: document.getElementById("arbusto-largo-izquierda"), factor: 0.1 },
-      { elem: document.getElementById("roca-grande-derecha"), factor: 0.125 },
-      { elem: document.getElementById("roca-chica-derecha-1"), factor: 0.125 },
-      { elem: document.getElementById("roca-chica-derecha-2"), factor: 0.125 },
-      { elem: document.getElementById("arbol-derecha-delante"), factor: 0.12 },
-      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.1 },
-      { elem: document.getElementById("arbol-derecha-detras"), factor: 0.1 },
-      { elem: document.getElementById("arbusto-largo-derecha-detras"), factor: 0.052 },
-      { elem: document.getElementById("ff-1"), factor: 0.135 },
-      { elem: document.getElementById("ff-2"), factor: 0.1 },
-      { elem: document.getElementById("ff-3"), factor: 0.115 },
+      { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.65, inicioFuera: 50 },
+      { elem: document.getElementById("roca-izquierda"),                factor: 0.6,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-izquierda"),               factor: 0.55, inicioFuera: 60 },
+      { elem: document.getElementById("arbusto-largo-izquierda"),       factor: 0.5,  inicioFuera: 65 },
+      { elem: document.getElementById("roca-grande-derecha"),           factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("roca-chica-derecha-1"),          factor: 0.5,  inicioFuera: 70 },
+      { elem: document.getElementById("roca-chica-derecha-2"),          factor: 0.5,  inicioFuera: 75 },
+      { elem: document.getElementById("arbol-derecha-delante"),         factor: 0.48, inicioFuera: 80 },
+      { elem: document.getElementById("arbusto-largo-derecha-delante"), factor: 0.4,  inicioFuera: 70 },
+      { elem: document.getElementById("arbol-derecha-detras"),          factor: 0.4,  inicioFuera: 55 },
+      { elem: document.getElementById("arbusto-largo-derecha-detras"),  factor: 0.38, inicioFuera: 25 },
+      { elem: document.getElementById("ff-2"),                          factor: 0.3,  inicioFuera: 75},
+      { elem: document.getElementById("ff-3"),                          factor: 0.47, inicioFuera: 75 },
+      { elem: document.getElementById("ff-1"),                          factor: 0.54, inicioFuera: 75 },
     ],
   },
+];
+
+
+
+function aplicarParallaxConEntrada(grupos) {
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      elementos.forEach(({ elem, factor, inicioFuera }) => {
+        const entradaCompleta = desplazamientoRelativo >= inicioFuera;
+        const posicionEntrada = Math.max(inicioFuera - desplazamientoRelativo, 0);
+        const posicionParallax = desplazamientoRelativo * factor;
+
+        if (!entradaCompleta) {
+          // Fase 1: Animación de entrada
+          elem.style.transform = `translateY(${posicionEntrada}px)`;
+          elem.style.opacity = Math.min(1, 1 - posicionEntrada / inicioFuera); // Gradualmente opaco
+        } else {
+          // Fase 2: Movimiento parallax
+          elem.style.transform = `translateY(${posicionParallax}px)`;
+          elem.style.opacity = 1; // Totalmente visible
+        }
+      });
+    }
+  });
+}
+
+// Inicializamos los elementos fuera de pantalla
+hero.forEach(({ elementos }) => {
+  elementos.forEach(({ elem, inicioFuera }) => {
+    elem.style.transform = `translateY(${inicioFuera}px)`;
+    elem.style.opacity = 0; // Ocultamos inicialmente
+  });
+});
+
+// Evento scroll
+window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
+
+
+//INCISO 9
+const gruposParallax = [
   {
     //elementos parallax del inciso 9
     contenedor: document.querySelector(".ff4"),
@@ -89,16 +134,6 @@ function aplicarParallax(grupos) {
 
 // Evento scroll para aplicar la lógica a todos los grupos
 window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
-
-
-
-// function entrarHero(){
-//   document.querySelectorAll(".entrada").forEach((item, index) =>{
-//     setTimeout(()=>{
-//       item.style.transform="translateX(0px)";
-//     }, 250 * index)
-//   })
-// }
 
 
 //INCISO 8
@@ -244,8 +279,7 @@ window.addEventListener("scroll", function(){
     let logo= document.getElementById("logo");
     let nav=  document.getElementById("nav");
     let menu= document.getElementById("menu-hamburguesa");
-    let boton= document.getElementById("boton-comprar");
-    //console.log('entra addeventListener scroll container');  
+    let boton= document.getElementById("boton-comprar"); 
   
     if(window.scrollY>limite){
       boton.classList.add("boton-comprar-2");
@@ -261,7 +295,6 @@ window.addEventListener("scroll", function(){
       logo.classList.remove("logo-sticky");
       nav.classList.remove("nav");
     }
-  
-    //console.log(nav.getBoundingClientRect.top);
+
   }
 });
