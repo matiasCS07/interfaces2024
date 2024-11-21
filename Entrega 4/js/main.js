@@ -106,8 +106,8 @@ const gruposParallax = [
     contenedor: document.querySelector(".ff4"),
     elementos: [
       { elem: document.querySelector(".recuadro-video"), factor: 0.25 },
-      { elem: document.querySelector("#ff4-3"), factor: 0.15 },
-      { elem: document.querySelector("#ff4-titulo"), factor: 0.25 },
+      { elem: document.querySelector("#ff4-3"), factor: 0.2 },
+      { elem: document.querySelector("#ff4-titulo"), factor: 0.15 },
     ],
   },
 ];
@@ -184,7 +184,7 @@ window.addEventListener('scroll', () => {
         imagen.style.opacity="1";
         imagen.src=`assets/images/${seccion.getAttribute("data-imagen")}.png`;
         
-        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height*1.5);
+        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height);
         imagen.style.transform=`translateY(${desplazamiento}px)`;
       }
     });
@@ -248,8 +248,9 @@ let contenedorCara2=document.querySelector(".app-mas-divertida")
 window.addEventListener("scroll", function(){
   let contenedorCara2Top=contenedorCara2.getBoundingClientRect().top+window.scrollY;
   let desplazamiento=window.scrollY-contenedorCara2Top;
+  let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2)
 
-  if(desplazamiento<100||desplazamiento>contenedorCara2.getBoundingClientRect().bottom){
+  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
         setTimeout(()=>{
@@ -257,7 +258,7 @@ window.addEventListener("scroll", function(){
         }, 300*index)
       }
     })
-  }else if(desplazamiento>=100) {
+  }else if(desplazamiento>=appear) {
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(!card.classList.contains("appear")){
         setTimeout(()=>{
