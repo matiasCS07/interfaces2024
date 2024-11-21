@@ -128,7 +128,7 @@ body{
     background-image:url("assets/images/ff3.png");
     width: 1820px;
     height: 1645px;
-    top:4023px;
+    top:4014px;
     position: absolute;
     background-repeat:no-repeat;
     background-size:cover;
@@ -391,6 +391,7 @@ body{
     width: 1535px;
     height: 773px;
     left: 142px;
+    background-color: white;
 }
 #ff3-titulo{
     margin-top: 175px;
@@ -425,27 +426,32 @@ body{
 height: 1181.578px;
 }
 .seccion-larga{
-    height:7708px;
+    height: 6521px;
     width: inherit;
     display: flex;
     flex-direction: column;
     position: absolute;
     top:5668px;
-
+    overflow: hidden;
 }
 .font-size-60{
     font-size: 60px;
 }
 .titulo-seccionlarga{
     position: relative;
-    left: 100px;
-    top: 360px;
-    color:black;
-    width: 802px;
-    height: 57px;
+    left: 150px;
+    top: 165px;
+    color: black;
+    width: fit-content;
+    height: fit-content;
+    font-size: 60px;
+    line-height: 56.7px;
+    font-weight: 600;
+    word-spacing: 20px;
+    background-color: white;
 }
 #seccion-larga-0{
-    position: relative;
+    position: fixed;
     width: 292px;
     height: 436px;
     left: 243px;
@@ -454,40 +460,45 @@ height: 1181.578px;
 
 .contenedor-datos{
     position: absolute;
-    width: 668px; 
+    width: 467px; 
     height: 6354px;
-    left: 1013px;
-    top: 799px;
-  
-    
+    left: 1200px;
+    top: 500px;
 }
 .contenedor-dato{
-    width: 664px;
-    height: 210px;
+    width: 467px;
+    height: 167px;
     padding-bottom: 379px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .dato{
-    width: 664px;
+    width: inherit;
     height: 135px;
     color: #000;
     font-family: Lato;
-    font-size: 28.438px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 94.5%;
+    line-height: 18.9px;
 }
 .titulo-dato{
-    width: 664px;
+    width: inherit;
     height: 54px;
     color: #000;
     font-family: Lato;
-    font-size: 56.875px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
-    line-height: 94.5%
+    line-height: 94.5%;
+    margin: 0px;
 }
 .titulo-dato.largo{
     height: 76px;
+}
+.contenedor-dato.largo{
+    height: 186px;
 }
 #ff4-3{
     position: absolute;
@@ -519,6 +530,7 @@ height: 1181.578px;
     height: 1470px;
     position:absolute;
     bottom:4114px;
+    background-color: white;
 }
 #efectos3d-1{
     width: 948.391px;
@@ -791,6 +803,7 @@ footer{
     height: 2228px;
     position: absolute;
     top: 1362px;
+    background-color: white;
 }
 
 /*  slider de imagenes  */
@@ -1001,64 +1014,52 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 .titulo-seccionlarga{
     position: relative;
-    left: 100px;
-    top: 360px;
-    color:black;
-    width: 802px;
-    height: 57px;
+    left: 150px;
+    top: -10px;
+    padding-top: 200px;
+    color: black;
+    width: fit-content;
+    height: fit-content;
 }
 
 .seccion-larga-0{
-    position: absolute;
+    position: relative;
     width: auto;
     height: 436px;
-    left: 175px;
-    top: 700px;
-    opacity: 0;
-    transform: scale(0.75);
-    transition: opacity 600ms ease-in;
-    /* view-timeline-name: --image;
-    view-timeline-axis: block;
-    animation-timeline: --image;
-    animation-name: seccion-larga-slider-1;
-    animation-range: entry 25% cover 100%;
-    animation-fill-mode:both; */
+    left: 19%;
+    top: 25%;
+    opacity: 1;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    z-index: -1;
 }
 
-.reveal-img{
-    transform: scale(1);
-    opacity: 1;
+.reveal{
+    transition: all 1s ease;
+    animation: image-reveal 500ms ease-out forwards;
 }
+
+.fixed{
+    position: fixed;
+}
+
+@keyframes image-reveal {
+    from{
+      transform: scale(0.75);
+      opacity: 0;
+      z-index: -1;
+    }to{
+      transform: scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+  }
 
 .sticky-slider{
     width: 50%;
     height: 90%;
-    margin-top: 50%;
+    margin-top: 10%;
 }
-
-@keyframes seccion-larga-slider-1{
-    0% {
-        opacity: 0;
-        transform: translateY(-300px);
-      }
-      50% {
-        transform: translateY(0px);
-        opacity: 1;
-      } 
-      100%{
-        opacity: 0;
-      }
-}
-
-/* #seccion-larga img{
-    
-        view-timeline-name: --reveal;
-        animation-name: seccion-larga-slider-1;
-        animation-fill-mode:both;
-        animation-timeline: --reveal;
-        animation-range: entry 70% cover 80%;
-   
-} */
 
 
 /*  animacion cards "la app mas divertida" */
