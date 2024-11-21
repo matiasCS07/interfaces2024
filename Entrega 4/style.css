@@ -771,6 +771,7 @@ footer{
     position: relative;
     top: 49px;
     left: 142px;
+    width: 1165.938px;
     color: #FFF;
     font-family: Lato;
     font-size: 28.438px;
@@ -781,7 +782,7 @@ footer{
 }
 #cookie-policy{
     position: absolute;
-    bottom: 150px;
+    bottom: 135px;
     left: 142px;
     color: #FFF;
     font-family: Lato;
