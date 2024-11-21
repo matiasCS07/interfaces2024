@@ -614,44 +614,44 @@ height: 1181.578px;
     overflow: hidden;
 }
 #prefooter-titulo{
-    width: 816px;
+    width: 1160.25px;
     color: #000;
     font-family: Lato;
-    font-size: 60px;
+    font-size: 85.313px;
     font-style: normal;
     font-weight: 600;
     line-height: 94.5%;
     position: absolute;
-    top: 190px;
-    left: 100px;
+    top: 270px;
+    left: 142px;
 }
 #prefooter-texto{
-    width: 578px;
-    height: 95px;
+    width: 821.844px;
+    height: 135.078px;
     flex-shrink: 0;
     color: #000;
     font-family: Lato;
-    font-size: 20px;
+    font-size: 28.438px;
     font-style: normal;
     font-weight: 400;
     line-height: 94.5%;
     position: absolute;
-    top: 543px;
-    left: 100px;
+    top: 772px;
+    left: 142px;
 }
 #prefooter-input{
  position: absolute;
- top: 397px;
- left: 100px;
- width: 780px;
- height: 100px;
+ top: 564px;
+ left: 142px;
+ width: 1109px;
+ height: 142px;
  display: flex;
  flex-direction: row;
     
 }
 #prefooter-input input{
-    width: 553px;
-    height: 82px;
+    width: 799.094px;
+    height: 142.188px;
     border-radius: 50px 0px 0px 50px;
     border-top: 9px solid #FFF;
     border-bottom: 9px solid #FFF;
@@ -664,8 +664,8 @@ height: 1181.578px;
     letter-spacing: 11%;
 }
 #prefooter-input button{
-    width: 218px;
-    height: 100px;
+    width: 309px;
+    height: 142px;
     border-radius: 0px 50px 50px 0px;
     border: 9px solid #FFF;
     background: #83C252;   
@@ -680,54 +680,54 @@ height: 1181.578px;
     letter-spacing: 2.2px;
 }
 #prefooter-sello{
-    width: 231px;
-    height: 145px;
+    width: 328.453px;
+    height: 206.172px;
     position: absolute;
-    top: 649px;
-    left: 100px;
+    top: 922px;
+    left: 142px;
 }
 #prefooter-2{
     position: absolute;
-    width: 480px;
-    height: 480px;
-    top: 1048px;
-    left: 65px;
+    width: 682.5px;
+    height: 682.5px;;
+    bottom:59px;
+    left: 92px;
 }
 #prefooter-3{
     position: absolute;
-    width: 509px;
-    height: 509px;
-    top: 1019px;
-    left: 407px;
+    width: 723.734px;
+    height: 723.734px;
+    bottom:59px;
+    left: 578px;
 }
 #prefooter-7{
     position: absolute;
-    width: 561px;
-    height: 997px;
-    top: 613px;
-    left: 756px;
+    width: 797.672px;
+    height: 1417.609px;
+    bottom:-60px;
+    left: 1075px;
     z-index: 2;
 }
 #prefooter-nube1{
     position: absolute;
-    width: 387px;
-    height: 181px;
-    top: 819px;
-    left: -56px;  
+    width: 550.266px;
+    height: 257.359px;
+    top: 1164px;
+    left: -79px;  
 }
 #prefooter-nube2{
     position: absolute;
-    width: 265px;
-    height: 124px;
-    top: 517px;
-    left: 794px;  
+    width: 550.266px;
+    height: 257.359px;
+    top: 796px;
+    left: 1367px;  
 }
 #prefooter-nube3{
     position: absolute;
-    width: 387px;
-    height: 181px;
-    top: 560px;
-    left: 962px;  
+    width: 376.797px;
+    height: 176.313px;
+    top: 735px;
+    left: 1128px;  
 }
 footer{
     position: absolute;
