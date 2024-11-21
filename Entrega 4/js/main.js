@@ -256,19 +256,19 @@ let cards=document.querySelectorAll(".card-app");
 let contenedorCara2=document.querySelector(".app-mas-divertida")
 
 window.addEventListener("scroll", function(){
-  let contenedorCara2Top=contenedorCara2.getBoundingClientRect().top+window.scrollY;
-  let desplazamiento=window.scrollY-contenedorCara2Top;
-  let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2)
+  let contenedorCara2Top=contenedorCara2.getBoundingClientRect().top+window.scrollY; // se define el limite de la segunda cara
+  let desplazamiento=window.scrollY-contenedorCara2Top; //desplazamiento es la diferencia entre el scroll vertical y tope del contenedor
+  let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2) //se obtiene la mitad de la pantalla
 
-  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
+  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){ //solo se desplaza si esta entre los limites de la cara y si se desplazo hasta la mitad de la pantalla
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
         setTimeout(()=>{
           card.classList.remove("appear");
-        }, 300*index)
+        }, 300*index) //se define el delay entre las cards
       }
     })
-  }else if(desplazamiento>=appear) {
+  }else if(desplazamiento>=appear) { //si el usuario se desplazo fuera de los limites de la cara, se ocultan las cards
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(!card.classList.contains("appear")){
         setTimeout(()=>{
