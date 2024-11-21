@@ -462,12 +462,12 @@ height: 1181.578px;
     position: absolute;
     width: 467px; 
     height: 6354px;
-    left: 1200px;
+    left: 1013px;
     top: 500px;
 }
 .contenedor-dato{
-    width: 467px;
-    height: 167px;
+    width: 664px;
+    height: 210px;
     padding-bottom: 379px;
     display: flex;
     flex-direction: column;
@@ -475,24 +475,23 @@ height: 1181.578px;
 }
 .dato{
     width: inherit;
-    height: 135px;
+    height: 210px;
     color: #000;
     font-family: Lato;
-    font-size: 20px;
+    font-size: 28.438px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18.9px;
+    line-height: 94.5%;
 }
 .titulo-dato{
     width: inherit;
     height: 54px;
     color: #000;
     font-family: Lato;
-    font-size: 40px;
+    font-size: 56.875px;
     font-style: normal;
     font-weight: 400;
-    line-height: 94.5%;
-    margin: 0px;
+    line-height: 94.5%
 }
 .titulo-dato.largo{
     height: 76px;
