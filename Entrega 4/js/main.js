@@ -301,7 +301,6 @@ window.addEventListener("scroll", function(){
       logo.classList.remove("entrada");
       logo.classList.add("logo-sticky");
       nav.classList.add("nav");
-      nav.classList.add("nav-color");
       menu.classList.add("menu-2"); 
     }else{
       boton.classList.remove("boton-comprar-2");
