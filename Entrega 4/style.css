@@ -366,6 +366,7 @@ body{
     height: 772.424px;
     top: 865px;
     left: 68px;
+    z-index: 1;
 }
 #ff2-5{
     width: 813px;
@@ -373,6 +374,7 @@ body{
     left: 1169px;
     top: -104px;
     position: absolute;
+    z-index: 1;
 }
 .contenedor-texto-ff2{
     display: flex;
@@ -414,12 +416,14 @@ body{
 .grupoContainer{
     overflow: hidden;
     position: relative;
+    z-index: 10;
 }
 #ff3-grupo-numeros{
     transition: transform 0.1s;
     will-change: transform;
     width: 2024.75px;
-height: 1181.578px;
+    height: 1181.578px;
+    z-index: 11;
 }
 .seccion-larga{
     height: 6521px;
@@ -1068,6 +1072,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 /*  animacion cards "la app mas divertida" */
 
 .card-app{
+    z-index: 2;
     transition: all 1s ease-out;
     transform: translateY(1000px);
 }

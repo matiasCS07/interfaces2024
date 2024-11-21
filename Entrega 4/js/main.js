@@ -111,13 +111,18 @@ window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
 //INCISO 10
 const gruposParallax = [
   {
-    //elementos parallax del inciso 9
+    //elementos parallax del inciso 10
     contenedor: document.querySelector(".ff4"),
     elementos: [
       { elem: document.querySelector(".recuadro-video"), factor: 0.25 },
       { elem: document.querySelector("#ff4-3"), factor: 0.2 },
       { elem: document.querySelector("#ff4-titulo"), factor: 0.15 },
     ],
+    contenedor: document.querySelector(".app-mas-divertida"),
+    elementos: [
+      { elem: document.querySelector("#ff2-456"), factor:  0.2},
+      { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+    ] 
   },
 ];
 
@@ -282,12 +287,8 @@ window.addEventListener("scroll", function(){
   let desplazamiento=window.scrollY-contenedorCara2Top; //desplazamiento es la diferencia entre el scroll vertical y tope del contenedor
   let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2) //se obtiene la mitad de la pantalla
 
-<<<<<<< HEAD
-  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){ //solo se desplaza si esta entre los limites de la cara y si se desplazo hasta la mitad de la pantalla
-=======
   //si 
   if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
->>>>>>> c3bf9824b956dff17147c888b43f154d0036590f
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
         setTimeout(()=>{
