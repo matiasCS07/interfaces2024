@@ -1186,9 +1186,11 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     flex-wrap: wrap;
     column-gap: 85px;
     row-gap: 0px;
+
 }
 
 .pj-grilla{
+    position: relative;
     width: 300px;
     transition: all 300ms ease-in-out;
     transform-origin: bottom;
@@ -1278,10 +1280,8 @@ nav{
     0%{
         height: 75%;
     }
- 
     100%{
         height: 160px;
-
     }
 }
 .menu-2{
@@ -1303,4 +1303,8 @@ nav{
         transform: scale(1);
         transform: translate(0px);
     }
+}
+#pj-grilla-1{
+   top:10px;
+   left: 10px;
 }
