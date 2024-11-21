@@ -173,7 +173,7 @@ const seccionLarga = document.querySelector('.sticky-slider');
 const seccionesTexto = document.querySelectorAll(".contenedor-dato");
 const seccionesTextoLimits=document.querySelector(".contenedor-datos").getBoundingClientRect();
 let imagen=document.querySelector(".seccion-larga-0");
-let seccionActual;
+let seccionActual="0";
 
 
 window.addEventListener('scroll', () => {
@@ -184,7 +184,6 @@ window.addEventListener('scroll', () => {
       const seccionLimites = seccion.getBoundingClientRect();
       const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
       const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
-      
       if (distancia<(seccionLimites.height)) {
         if(seccionActual!=seccion.getAttribute("data-imagen")){
           seccionActual=seccion.getAttribute("data-imagen");
@@ -195,7 +194,9 @@ window.addEventListener('scroll', () => {
           imagen.classList.remove("fixed");
         }
         imagen.src=`assets/images/scroll-personajes/${seccionActual}.png`;
-      }
+        console.log(seccionActual);
+
+      } 
     });
 });
 
