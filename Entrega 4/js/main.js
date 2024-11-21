@@ -1,11 +1,9 @@
 
-
-
 //INCISO 1 (OPCIONAL)
 window.addEventListener("load", ()=> {
+  //numeros tiene una opacidad de 0 y está por delante de siluetas
   const numeros = document.querySelectorAll(".numero");
   const siluetas = document.querySelectorAll(".silueta");
-  const textoCarga = document.getElementById("texto-carga");
   const body = document.querySelector("body");
   //espera un segundo antes de empezar con el loader
   setTimeout(() => {
@@ -14,12 +12,13 @@ window.addEventListener("load", ()=> {
       setTimeout(() => {
         siluetas.forEach((silueta,i)=>{
           setTimeout(() => {
+            //las siluetas se vuelven invisibles
             silueta.style.opacity = 0;
           }, i*1000);
         });
+        //los numeros se vuelven visibles y se vuelven un poco mas grandes
         numero.style.opacity = 1;
         numero.style.transform = `scale(1.1)`
-        textoCarga.innerHTML = `${index + 1}`;
       }, index*1000);
     });
 
@@ -30,6 +29,7 @@ window.addEventListener("load", ()=> {
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
     body.style.overflowY = "scroll";
+    //vuelve al inicio al recargar
     window.scrollTo(0, 0);
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
@@ -41,7 +41,7 @@ const hero = [
   {
     //elementos parallax hero
     contenedor: document.getElementById("primerCara"),
-    elementos: [
+    elementos: [                                                        // velocidad   punto de partida antes de ser visibles
       { elem: document.getElementById("arbusto-corto-izquierda"),       factor: 0.325, inicioFuera: 50 },
       { elem: document.getElementById("roca-izquierda"),                factor: 0.3,  inicioFuera: 70 },
       { elem: document.getElementById("arbol-izquierda"),               factor: 0.225, inicioFuera: 60 },
@@ -63,17 +63,23 @@ const hero = [
 
 
 function aplicarParallaxConEntrada(grupos) {
+
   grupos.forEach(({ contenedor, elementos }) => {
+    //recorre el array grupos, este tiene 2 propiedades, contenedor y elementos
     const contenedorTop = contenedor.getBoundingClientRect().top;
     const visible =
       contenedorTop < window.innerHeight &&
       contenedorTop > -contenedor.offsetHeight;
 
+    //si está dentro de lo visible en pantalla
     if (visible) {
+      // lo que el usuario lleva scrolleado
       const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
 
+      //ahora recorremos elementos para acceder a elem, facotr e InicioFuera
       elementos.forEach(({ elem, factor, inicioFuera }) => {
         const entradaCompleta = desplazamientoRelativo >= inicioFuera;
+        //en caso de que inicioFuera - desplazamientoRelativo sea negativo devuelve 0
         const posicionEntrada = Math.max(inicioFuera - desplazamientoRelativo, 0);
         const posicionParallax = desplazamientoRelativo * factor;
 
@@ -99,11 +105,10 @@ hero.forEach(({ elementos }) => {
   });
 });
 
-// Evento scroll
 window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
 
 
-//INCISO 9
+//INCISO 10
 const gruposParallax = [
   {
     //elementos parallax del inciso 9
@@ -136,8 +141,6 @@ function aplicarParallax(grupos) {
     }
   });
 }
-
-// Evento scroll para aplicar la lógica a todos los grupos
 window.addEventListener("scroll", () => aplicarParallax(gruposParallax));
 
 
@@ -162,6 +165,7 @@ grupoNumeros.addEventListener("mousemove", (e)=>{
                                     scale(1.05)`;
 });
 
+//la imagen vuelve a su posicion inicial al sacar el mouse
 grupoNumeros.addEventListener("mouseleave", () => {
     grupoNumeros.style.transform = `translate(0, 0)`;
 });
@@ -180,21 +184,29 @@ window.addEventListener('scroll', () => {
     const seccionLargaPos = seccionLarga.getBoundingClientRect();
     const centroVentana=window.innerHeight/2;
 
+    //forEach que toma cada seccion de texto por separado
     seccionesTexto.forEach((seccion) => {
       const seccionLimites = seccion.getBoundingClientRect();
       const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
       const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
-      if (distancia<(seccionLimites.height)) {
+      
+      //si está dentro de la seccion de texto
+      if (distancia < (seccionLimites.height)) {
+  
+        //si la seccion actual es diferente a la del elemento
         if(seccionActual!=seccion.getAttribute("data-imagen")){
+          //actualizamos seccionActual
           seccionActual=seccion.getAttribute("data-imagen");
+          //agregamos la clase reveal con su correspondiente animacion y la clase fixed
           imagen.classList.add("reveal");
           imagen.classList.add("fixed");
         }else{
+          //removemos las clases
           imagen.classList.remove("reveal");
           imagen.classList.remove("fixed");
         }
+        //actualizamos el source de la imagen (si es necesario)
         imagen.src=`assets/images/scroll-personajes/${seccionActual}.png`;
-        console.log(seccionActual);
 
       } 
     });
@@ -205,28 +217,36 @@ window.addEventListener('scroll', () => {
 let carrusel = document.querySelector(".slider");
 let index = 1;
 let imagenes = document.querySelectorAll(".slider img");
+//establecemos un intervalo de 3 sefundos
 setInterval(() => {
+  // cuanto se mueve carrusel a partir de su posicion original  
   let traslado = index*-100;
   carrusel.style.transform = "translateX("+traslado+"%)";
+  //index aumenta por cada imagen contenida en el arreglo imagenes
   if(index < imagenes.length - 1){
     index ++;
+
+    //index se vuelve 0 si sobrepasa la cant de imgs
   }else{
     index = 0;
   }
 }, 3000);
 
+
 //animacion menu hamburguesa
 let menu = document.getElementById("menu-hamburguesa");
 menu.addEventListener("click", function(){
-  console.log('aca')
   menu.classList.toggle("open");
   menu.classList.toggle("close");
   let desplegable=document.querySelector(".menu-desplegable");
+  //si el menu está abierto
   if(menu.classList.contains("open")){
+    //desplegable vuelve a su posicion 
     desplegable.style.transform="translateX(0px)";
     desplegable.style.opacity="1";
     desplegarItems();
   }else{
+    //desplegable se va de pantalla
     desplegable.style.transform="translateX(-1000px)";
     desplegable.style.opacity="0";
     ocultarItems();
@@ -236,6 +256,7 @@ menu.addEventListener("click", function(){
 function desplegarItems(){
   document.querySelectorAll(".desplegable-item").forEach((item, index) =>{
     setTimeout(()=>{
+      //uno por uno los items entran en pantalla
       item.style.transform="translateX(0px)";
       item.style.opacity="1";
     }, 500*index)
@@ -244,6 +265,7 @@ function desplegarItems(){
 
 function ocultarItems(){
   document.querySelectorAll(".desplegable-item").forEach(item =>{
+    //todos los items salen al mismo tiempo
     item.style.transform="translateX(-1000px)";
     item.style.opacity="0";
   })
@@ -260,6 +282,7 @@ window.addEventListener("scroll", function(){
   let desplazamiento=window.scrollY-contenedorCara2Top;
   let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2)
 
+  //si 
   if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
@@ -284,36 +307,39 @@ window.addEventListener("scroll", function(){
 
 
   //inciso 3
-  let i=0;
+  let i=0;// establecemos una variable auxiliar
   window.addEventListener('scroll', ()=>{
   let estado=document.getElementById("container").style.display;
+  // establecemos un limite con un margen de cien pixeles
   let limite=document.getElementById("primerCara").getBoundingClientRect().top+100;
-  if(estado=="flex"){
+  if(estado=="flex"){ // si el display es flex entramos
     let logo= document.getElementById("logo");
     let nav=  document.getElementById("nav");
     let menu= document.getElementById("menu-hamburguesa");
     let boton= document.getElementById("boton-comprar"); 
   
-    if(window.scrollY>limite){
+    if(window.scrollY>limite){ // si el scroll del usuario supera el limite
       boton.classList.add("boton-comprar-2");
       if(i==0){// este if es para que la animacion del boton comprar no se añada cada vez que se hace un scroll
         boton.classList.add("boton-comprar-2-animacion");
         setTimeout(()=>{ // este timer esta para que no se colapsen la animacion de el hover con el movimiento
           boton.classList.remove("boton-comprar-2-animacion");
           } , 1020);
-          i=1;
+          i=1;// devolvemos el indice a 1 para que no vuelva a entrar al if
       }
+      //se añaden las animaciones y clases de los elementos del nav y se quitan las obsoletas
       logo.classList.remove("entrada");
       logo.classList.add("logo-sticky");
       nav.classList.add("nav");
       menu.classList.add("menu-2"); 
     }else{
+      //en caso de que vuelva a la posicion original devolvemos los elementos a su ubicacion original al inciar la pagina
       boton.classList.remove("boton-comprar-2");
       logo.classList.add("entrada");
       logo.classList.remove("logo-sticky");
       nav.classList.remove("nav");
       menu.classList.remove("menu-2");
-      i=0;
+      i=0; // el indice se hace cero para que se vuelva a mover el boton al bajar
     }
 
   }
