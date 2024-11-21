@@ -3,7 +3,7 @@ window.addEventListener("load", ()=> {
   const numeros = document.querySelectorAll(".numero");
   const siluetas = document.querySelectorAll(".silueta");
   const textoCarga = document.getElementById("texto-carga");
-  
+  const body = document.querySelector("body");
   //espera un segundo antes de empezar con el loader
   setTimeout(() => {
     //muestra cada numero gradualmente
@@ -26,6 +26,7 @@ window.addEventListener("load", ()=> {
   setTimeout(()=>{
     document.getElementById("pantalla-carga").style.display = "none";
     const pagina = document.getElementById("container");
+    body.style.overflowY = "scroll";
     pagina.style.display = "flex";
     pagina.style.opacity = 1;
   }, numeros.length * 1000 + 2000);
@@ -105,8 +106,8 @@ const gruposParallax = [
     contenedor: document.querySelector(".ff4"),
     elementos: [
       { elem: document.querySelector(".recuadro-video"), factor: 0.25 },
-      { elem: document.querySelector("#ff4-3"), factor: 0.15 },
-      { elem: document.querySelector("#ff4-titulo"), factor: 0.25 },
+      { elem: document.querySelector("#ff4-3"), factor: 0.2 },
+      { elem: document.querySelector("#ff4-titulo"), factor: 0.15 },
     ],
   },
 ];
@@ -183,7 +184,7 @@ window.addEventListener('scroll', () => {
         imagen.style.opacity="1";
         imagen.src=`assets/images/${seccion.getAttribute("data-imagen")}.png`;
         
-        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height*1.5);
+        let desplazamiento=(window.scrollY-seccionTop)+(seccionLimites.height);
         imagen.style.transform=`translateY(${desplazamiento}px)`;
       }
     });
@@ -247,8 +248,9 @@ let contenedorCara2=document.querySelector(".app-mas-divertida")
 window.addEventListener("scroll", function(){
   let contenedorCara2Top=contenedorCara2.getBoundingClientRect().top+window.scrollY;
   let desplazamiento=window.scrollY-contenedorCara2Top;
+  let appear=Math.abs((contenedorCara2.getBoundingClientRect().top+contenedorCara2.getBoundingClientRect().bottom)/2)
 
-  if(desplazamiento<100||desplazamiento>contenedorCara2.getBoundingClientRect().bottom){
+  if(desplazamiento<appear||desplazamiento>contenedorCara2.getBoundingClientRect().bottom+window.scrollY){
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(card.classList.contains("appear")){
         setTimeout(()=>{
@@ -256,7 +258,7 @@ window.addEventListener("scroll", function(){
         }, 300*index)
       }
     })
-  }else if(desplazamiento>=100) {
+  }else if(desplazamiento>=appear) {
     document.querySelectorAll(".card-app").forEach((card, index)=>{
       if(!card.classList.contains("appear")){
         setTimeout(()=>{
@@ -272,6 +274,7 @@ window.addEventListener("scroll", function(){
 
 
   //inciso 3
+  let i=0;
   window.addEventListener('scroll', ()=>{
   let estado=document.getElementById("container").style.display;
   let limite=document.getElementById("primerCara").getBoundingClientRect().top+100;
@@ -283,17 +286,25 @@ window.addEventListener("scroll", function(){
   
     if(window.scrollY>limite){
       boton.classList.add("boton-comprar-2");
+      if(i==0){// este if es para que la animacion del boton comprar no se añada cada vez que se hace un scroll
+        boton.classList.add("boton-comprar-2-animacion");
+        setTimeout(()=>{ // este timer esta para que no se colapsen la animacion de el hover con el movimiento
+          boton.classList.remove("boton-comprar-2-animacion");
+          } , 1020);
+          i=1;
+      }
       logo.classList.remove("entrada");
-      logo.classList.remove("logo");
       logo.classList.add("logo-sticky");
       nav.classList.add("nav");
       nav.classList.add("nav-color");
+      menu.classList.add("menu-2"); 
     }else{
       boton.classList.remove("boton-comprar-2");
       logo.classList.add("entrada");
-      logo.classList.add("logo");
       logo.classList.remove("logo-sticky");
       nav.classList.remove("nav");
+      menu.classList.remove("menu-2");
+      i=0;
     }
 
   }

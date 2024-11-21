@@ -44,8 +44,8 @@ h3{
 /* loader */
  #pantalla-carga{
     width: 1820px;
-    height: 100%;
-    background-image: url("./assets/images/ff.png");
+    height: 1080px;
+    background-image: url(./assets/images/ff.png);
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,12 +54,9 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 .carga-container{
-    width: 50%;
+    width: fit-content;
     height: 40%;
     display: flex;
     align-items: baseline;  
@@ -104,7 +101,7 @@ body{
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 .contenedorhorizontal{
     display: inline;
@@ -119,7 +116,7 @@ body{
     left: 0;
     width: 1820px;
     height: 21015px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
@@ -294,6 +291,7 @@ body{
     z-index: 17;
 }
 .boton-comprar{
+    opacity: 0;
     width: 284px;
     height: 71px;
     flex-shrink: 0;
@@ -346,7 +344,7 @@ body{
     margin-top: 46px;
     width: 1143.188px;
     height: 642.688px;
-    top: 747px;
+    top: 640px;
     left: 100px;
     border-radius: 63.984px;
     border: 41.234px solid #FFF;
@@ -365,13 +363,13 @@ body{
     position: absolute;
     width: 855.46px;
     height: 772.424px;
-    top: 763px;
+    top: 865px;
     left: 68px;
 }
 #ff2-5{
     width: 813px;
     height: 1790px;
-    left: 1119px;
+    left: 1169px;
     top: -104px;
     position: absolute;
 }
@@ -384,7 +382,7 @@ body{
     
 }
 #ff2-caja-1{
-    top: 0px;
+    bottom: -470px;
     width: 1535px;
     height: 773px;
     left: 142px;
@@ -490,7 +488,7 @@ height: 1181.578px;
     position: absolute;
     width: 907px;
     height: 1406px;
-    top: 500px;
+    top: 450px;
     left: 1039px;
 }
 #ff4-titulo{
@@ -498,7 +496,7 @@ height: 1181.578px;
     width: 1140px;
     height: 243px;
     left: 142px;
-    padding-top: 439px;
+    padding-top: 250px;
     color: #FFF;
     font-size: 60px;
     color: #FFF;
@@ -787,7 +785,7 @@ footer{
     width: 1820px;
     height: 2228px;
     position: absolute;
-    top: 1363px;
+    top: 1362px;
 }
 
 /*  slider de imagenes  */
@@ -798,7 +796,7 @@ footer{
     width: 819px;
     height: 461px;
     left: 335px;
-    top: 477px;
+    top: 500px;
     border-radius: 77px;
     border: 29px solid rgba(27, 95, 153, 1);
     align-items: center;
@@ -825,6 +823,7 @@ footer{
 /*  menu hamburguesa    */
 
 .menu{
+    opacity: 0;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -837,7 +836,7 @@ footer{
 .menu-desplegable{
     position: fixed;
     top: 14.4%;
-    left: 10.75%;
+    left: 2.5%;
     background-color: #E0E1FF;
     width: fit-content;
     display: flex;
@@ -1061,7 +1060,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 .card-app{
     transition: all 1s ease-out;
-    transform: translateY(1700px);
+    transform: translateY(1000px);
 }
 
 .card-app p{
@@ -1118,7 +1117,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     position: relative;
     width: 48px;
     height: 60px;
-    top: 30%;
+    top: 40%;
     left: 30%;
 
     background: url('assets/images/spritesheet-spinning-number.png') no-repeat;
@@ -1134,13 +1133,16 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 }
 @keyframes boton-sticky {
     0%{
-        transform: translateX(0px);
+        transform: opacity(0);
+        transform: translateX(150px);
     } 
     100%{
-        transform: translateX(50px);
+        transform: opacity(1);
+        transform: translateX(0px);
     }
 }
 .boton-comprar-2{
+    opacity: 1;
     width: 200px;
     height: 50px;
     border-radius: 111px;
@@ -1151,6 +1153,8 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     text-transform: uppercase;
     font-size: 20px;
     z-index: 8;
+}
+.boton-comprar-2-animacion{
     animation: boton-sticky 1s ease-in ;
 }
 .boton-comprar-2-posicion{
@@ -1203,8 +1207,8 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 #object-3d{
     position: absolute;
-    top: 0px;
-    left: 600px;
+    top: 241px;
+    left: 1000px;
     width: 800px;
     height: 973px;
 }
@@ -1217,18 +1221,20 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
     left: 5%;
     width: 280px;
     height: 170px;
-    animation: all logo-sticky 1s;
+    animation: logo-sticky 3s;
  
 }
 @keyframes logo-sticky {
     0% {
-        transform: translateY(0px);
-        transform: scale(1);
+        transform: translateY(178px);
+        width:796px;
+        height: 455px;
         }
 
     100%{
-        transform: translateY(20px);
-        transform: scale(0.5);
+        width: 280px;
+        height: 170px;
+        transform: translateY(0px);
     }    
 }
 .position-absolute{
@@ -1249,7 +1255,9 @@ nav{
 .nav{
     position: fixed;
     top: 0px;
-    width: 1820px;
+    width: 1620px;
+    padding-left: 100px;
+    padding-right: 100px;
     height: 160px;
     margin-top: 0px;
     align-items: center;
@@ -1273,5 +1281,25 @@ nav{
         transform: opacity(1);
         
 
+    }
+}
+.menu-2{
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    border: 0px;
+    background: transparent;
+    color: transparent;
+    animation: menu-2 1s ease-in;
+}
+@keyframes menu-2 {
+    0%{
+        transform: opacity(0);
+        transform: translateX(-150px);
+    } 100% {
+        transform: scale(1);
+        transform: translate(0px);
     }
 }
