@@ -185,7 +185,7 @@ window.addEventListener('scroll', () => {
       const centroSeccion=seccionLimites.top+(seccionLimites.height/2);
       const distancia=Math.abs(centroVentana-centroSeccion); //distancia entre el centro de la seccion y el de la ventana
       if (distancia<(seccionLimites.height)) {
-        if(seccionActual!=seccion.getAttribute("data-imagen") || seccionActual=="0"){
+        if(seccionActual!=seccion.getAttribute("data-imagen")){
           seccionActual=seccion.getAttribute("data-imagen");
           imagen.classList.add("reveal");
           imagen.classList.add("fixed");
@@ -196,9 +196,7 @@ window.addEventListener('scroll', () => {
         imagen.src=`assets/images/scroll-personajes/${seccionActual}.png`;
         console.log(seccionActual);
 
-      } else if(distancia>(seccionLimites.top) || distancia<(seccionLimites.bottom)) {
-        imagen.classList.remove("reveal");
-      }
+      } 
     });
 });
 
