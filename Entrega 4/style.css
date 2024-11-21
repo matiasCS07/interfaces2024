@@ -54,7 +54,6 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -119,7 +118,7 @@ body{
     left: 0;
     width: 1820px;
     height: 21015px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
