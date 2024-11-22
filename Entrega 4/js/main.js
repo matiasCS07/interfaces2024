@@ -114,8 +114,10 @@ const  parallaxAppDivertida= [
     //elementos parallax del inciso 5
     contenedor: document.querySelector(".app-mas-divertida"),
     elementos: [
-      { elem: document.querySelector("#ff2-456"), factor:  0.2},
-      { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+      { elem: document.querySelector("#ff2-456"), factor:  0.1},
+      { elem: document.querySelector("#ff2-5"), factor: 0.15 },
+      { elem: document.querySelector("#ff2-tablet-slider"), factor: 0.05},
+      { elem: document.querySelector(".contenedorvertical"), factor: 0.01}
     ] 
   },
 ];
