@@ -6,6 +6,19 @@
     font-family: Lato;
 }
 
+body{
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    height: 20000px;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+}
+
 img{
     padding: 0px;
     margin: 0px;
@@ -82,18 +95,6 @@ h3{
     
 } 
 
-body{
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    height: 21015px;
-    overflow-x: hidden;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: hidden;
-}
 .contenedorhorizontal{
     display: inline;
     
@@ -106,12 +107,12 @@ body{
     top: 0;
     left: 0;
     width: 1820px;
-    height: 21015px;
+    height: 20000px;
     display: none;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
-    overflow-x: hidden;
+    overflow-Y: hidden;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -129,14 +130,14 @@ body{
     overflow: hidden;
 }
 .ff4{
-    background-image:url("assets/images/ff4.png");
+    background-image: url(assets/images/ff4.png);
     position: absolute;
     overflow: hidden;
-    background-repeat:no-repeat;
-    background-size:cover;
-    top: 13477px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 12350px;
     width: 1820px;
-    height: 1838px;
+    height: 2058px;
     
 }
 #ff-1{
@@ -520,7 +521,7 @@ height: 1181.578px;
     width: 1820px;
     height: 1470px;
     position:absolute;
-    bottom:4114px;
+    bottom:4000px;
     background-color: white;
 }
 #efectos3d-1{
@@ -1178,7 +1179,7 @@ button#menu-hamburguesa.close #hamburguesa-linea3{
 
 .grilla-colores{
     position: absolute;
-    top: 17200px;
+    top: 15900px;
     height: 1036px;
     width: 1842px;
     background-image: url(assets/images/455.png);
