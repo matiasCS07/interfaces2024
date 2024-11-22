@@ -108,16 +108,64 @@ hero.forEach(({ elementos }) => {
 window.addEventListener("scroll", () => aplicarParallaxConEntrada(hero));
 
 
+//inciso 5 (opcional)
+const  parallaxAppDivertida= [
+  {
+    //elementos parallax del inciso 5
+    contenedor: document.querySelector(".app-mas-divertida"),
+    elementos: [
+      { elem: document.querySelector("#ff2-456"), factor:  0.2},
+      { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+    ] 
+  },
+];
+
+// Función para aplicar parallax
+function aplicarParallaxAppdivertida(grupos) {
+  //recorre el array grupos, este tiene 2 propiedades, contenedor y elementos
+  grupos.forEach(({ contenedor, elementos }) => {
+    const contenedorTop = contenedor.getBoundingClientRect().top;
+    const visible =
+      contenedorTop < window.innerHeight &&
+      contenedorTop > -contenedor.offsetHeight;
+
+    //si está dentro de lo visible en pantalla
+    if (visible) {
+      const desplazamientoRelativo = window.scrollY - contenedor.offsetTop;
+
+      //ahora recorremos elementos para acceder a elem y a facotr
+      elementos.forEach(({ elem, factor }) => {
+        elem.style.transform = `translateY(${desplazamientoRelativo * factor}px)`;
+      });
+    }
+  });
+}
+window.addEventListener("scroll", () => aplicarParallaxAppdivertida(parallaxAppDivertida));
+
+
+
+
+
+
+
+
+
+
 //INCISO 10
 const gruposParallax = [
   {
-    //elementos parallax del inciso 9
+    //elementos parallax del inciso 10
     contenedor: document.querySelector(".ff4"),
     elementos: [
       { elem: document.querySelector(".recuadro-video"), factor: 0.25 },
       { elem: document.querySelector("#ff4-3"), factor: 0.2 },
       { elem: document.querySelector("#ff4-titulo"), factor: 0.15 },
     ],
+    // contenedor: document.querySelector(".app-mas-divertida"),
+    // elementos: [
+    //   { elem: document.querySelector("#ff2-456"), factor:  0.2},
+    //   { elem: document.querySelector("#ff2-5"), factor: 0.3 }
+    // ] 
   },
 ];
 
